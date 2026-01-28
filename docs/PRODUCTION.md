@@ -504,7 +504,139 @@ This stops and removes the containers but leaves the volumes (database files and
 *   **Database Backups:** Since the database files reside directly on the host filesystem (`./server/admin.db`, `./server/user_dbs/`), standard filesystem backup procedures should be used to back them up regularly.
 *   **Resource Limits:** Configure resource limits (CPU, memory) for your containers in the `docker-compose.yml` file if necessary.
 
-### 6.6 Docker References
+### 6.6. Troubleshooting Docker Builds
+
+#### Docker Network Connectivity Issues
+
+If `docker compose build` fails with errors like "Unable to connect to deb.debian.org" or "Connection refused" during `apt-get update`, the Docker bridge network may not have proper internet access.
+
+**Diagnosis:**
+
+```bash
+# Test if containers can reach the internet
+docker run --rm python:3.10-slim bash -c "apt-get update"
+
+# Test with host networking (bypasses bridge network)
+docker run --rm --network=host python:3.10-slim bash -c "apt-get update"
+```
+
+If the first command fails but the second succeeds, the Docker bridge network is misconfigured.
+
+**Workaround - Build with Host Networking:**
+
+```bash
+docker build --network=host -t javumbo-server ./server
+docker build --network=host -t javumbo-client ./client
+docker compose up -d
+```
+
+This uses host networking only during the build phase. Running containers will use the bridge network defined in `docker-compose.yml`, which works fine for inter-container communication.
+
+**Potential Fixes (if you want to resolve the bridge network issue):**
+
+1.  **Add DNS servers to Docker daemon:**
+    ```bash
+    sudo nano /etc/docker/daemon.json
+    ```
+    Add:
+    ```json
+    {
+      "dns": ["8.8.8.8", "8.8.4.4"]
+    }
+    ```
+    Then restart Docker:
+    ```bash
+    sudo systemctl restart docker
+    ```
+
+2.  **Check IP forwarding:**
+    ```bash
+    cat /proc/sys/net/ipv4/ip_forward  # Should be 1
+    ```
+
+3.  **Check iptables rules** - ensure FORWARD chain allows Docker traffic.
+
+#### Port Conflicts and Firewall Configuration
+
+**Problem:** Network firewalls may block the default port 80 between servers.
+
+**Diagnosis:**
+
+```bash
+# From the proxy server, test connectivity to the Docker host
+nc -zv <docker-host-ip> 80
+nc -zv <docker-host-ip> 8080
+```
+
+**Solution:** If only certain ports are open (e.g., 8080), modify `docker-compose.yml`:
+
+```yaml
+client:
+  ports:
+    - "8080:80"  # Map to an open port
+```
+
+**Stopping Conflicting Services:**
+
+If the desired port is in use by existing services (e.g., a systemd-managed nginx):
+
+```bash
+sudo systemctl stop nginx
+sudo systemctl disable nginx  # Prevent restart on boot
+docker compose up -d
+```
+
+#### Environment File Configuration
+
+Ensure `client/.env.production` exists with correct values **before building** the client image:
+
+```dotenv
+# Example for deployment under /javumbo_teste/
+VITE_APP_BASE_PATH=/javumbo_teste/
+VITE_API_BASE_URL=/javumbo_teste
+```
+
+The Docker build copies this file and uses it during `npm run build`.
+
+#### Verification Steps
+
+1.  **Test locally on the Docker host:**
+    ```bash
+    # Test the client serves HTML
+    curl http://localhost:<port>/
+
+    # Test API through nginx proxy
+    curl http://localhost:<port>/register \
+      -X POST \
+      -H "Content-Type: application/json" \
+      -d '{"username":"test","password":"test1234567","name":"Test"}'
+    ```
+
+2.  **Test from the reverse proxy server:**
+    ```bash
+    curl http://<docker-host-ip>:<port>/register \
+      -X POST \
+      -H "Content-Type: application/json" \
+      -d '{"username":"test2","password":"test1234567","name":"Test"}'
+    ```
+
+3.  **Check container logs:**
+    ```bash
+    docker compose logs -f server  # Backend logs
+    docker compose logs -f client  # Nginx access/error logs
+    ```
+
+#### Removing Obsolete docker-compose.yml Warning
+
+If you see the warning about the `version` attribute being obsolete:
+
+```
+WARN[0000] /opt/javumbo/docker-compose.yml: the attribute `version` is obsolete
+```
+
+Remove the `version: '3.8'` line from the top of `docker-compose.yml`.
+
+### 6.7. Docker References
 
 For further details on Docker and Docker Compose:
 

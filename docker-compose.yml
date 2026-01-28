@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   server:
     build:
@@ -30,9 +28,10 @@ services:
       dockerfile: Dockerfile
     container_name: flashcard_client
     ports:
-      # Map host port 80 to container port 80 (Nginx)
-      # Use 443:80 if setting up SSL directly on the host proxy
-      - "80:80"
+      # Map host port 8080 to container port 80 (Nginx)
+      # Port 8080 is commonly open in firewalled environments
+      # Change to "80:80" if port 80 is available and open
+      - "8080:80"
     depends_on:
       - server # Ensure server starts before client (mainly for proxy readiness)
     restart: unless-stopped
