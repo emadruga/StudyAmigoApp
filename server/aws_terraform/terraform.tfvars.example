@@ -1,0 +1,38 @@
+# =============================================================================
+# StudyAmigo - Terraform Variables (EXAMPLE)
+# =============================================================================
+# Copy this file to terraform.tfvars and fill in your values:
+#   cp terraform.tfvars.example terraform.tfvars
+#
+# IMPORTANT: terraform.tfvars contains secrets and is excluded from Git.
+# =============================================================================
+
+# --- REQUIRED: You must set these -------------------------------------------
+
+# Path to your SSH public key file
+ssh_public_key_path = "~/.ssh/study-amigo-aws.pub"
+
+# Flask secret key for session management
+# Generate one with: python3 -c 'import secrets; print(secrets.token_hex(24))'
+flask_secret_key = "CHANGE_ME_generate_a_real_key"
+
+# --- OPTIONAL: Defaults are fine for most cases -----------------------------
+
+# AWS region (default: us-east-1, cheapest)
+# aws_region = "us-east-1"
+
+# EC2 instance type (default: t4g.micro - 2 vCPU, 1GB RAM, ARM)
+# instance_type = "t4g.micro"
+
+# Root volume size in GB (default: 20)
+# ebs_volume_size = 20
+
+# Restrict SSH access to your IP for better security (recommended)
+# Find your IP: curl ifconfig.me
+# ssh_allowed_cidrs = ["YOUR.IP.ADDRESS.HERE/32"]
+
+# Git repository URL (default: public StudyAmigoApp repo)
+# git_repo_url = "https://github.com/emadruga/StudyAmigoApp.git"
+
+# Domain name (default: study-amigo.app)
+# domain_name = "study-amigo.app"
