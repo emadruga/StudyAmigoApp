@@ -37,8 +37,9 @@ AWS EC2 (t4g.micro, Elastic IP)
 9.  [Verify the Deployment](#9-verify-the-deployment)
 10. [Purchase a Reserved Instance (Cost Optimization)](#10-purchase-a-reserved-instance-cost-optimization)
 11. [Ongoing Operations](#11-ongoing-operations)
-12. [Terraform Script Structure](#12-terraform-script-structure)
-13. [Tear Down](#13-tear-down)
+12. [Upgrading and Re-Deploying the Codebase](#12-upgrading-and-re-deploying-the-codebase)
+13. [Terraform Script Structure](#13-terraform-script-structure)
+14. [Tear Down](#14-tear-down)
 
 ---
 
@@ -401,7 +402,49 @@ sudo docker compose -f /opt/study-amigo/docker-compose.yml restart
 
 ---
 
-## 12. Terraform Script Structure
+## 12. Upgrading and Re-Deploying the Codebase
+
+After making changes to the application locally (client or server), follow these steps to deploy the update to the running EC2 instance.
+
+### 12.1. Commit and Push Locally
+
+```bash
+git add <changed-files>
+git commit -m "Description of changes"
+git push origin main
+```
+
+### 12.2. Pull and Rebuild on the EC2 Instance
+
+```bash
+ssh -i ~/.ssh/study-amigo-aws ubuntu@<elastic_ip>
+
+cd /opt/study-amigo
+sudo git pull origin main
+sudo docker compose build
+sudo docker compose up -d
+```
+
+### 12.3. Verify the Deployment
+
+```bash
+# Check that containers are running
+sudo docker compose -f /opt/study-amigo/docker-compose.yml ps
+
+# Tail the logs to confirm the app started without errors
+sudo docker compose -f /opt/study-amigo/docker-compose.yml logs -f --tail=50
+```
+
+Then open `https://study-amigo.app` in your browser and confirm the changes are live.
+
+**Notes:**
+-   The **Elastic IP is not affected** by container restarts or application updates. It remains attached to the EC2 instance.
+-   If only the client (React) code changed, both containers are still rebuilt to keep them in sync.
+-   If you need to roll back, run `sudo git checkout <previous-commit>` on the instance, then rebuild and restart.
+
+---
+
+## 13. Terraform Script Structure
 
 The Terraform scripts are located in `server/aws_terraform/` and organized as follows:
 
@@ -450,7 +493,7 @@ server/aws_terraform/
 
 ---
 
-## 13. Tear Down
+## 14. Tear Down
 
 To destroy all AWS resources created by Terraform:
 
