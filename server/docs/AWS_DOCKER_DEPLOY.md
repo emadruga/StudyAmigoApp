@@ -39,7 +39,8 @@ AWS EC2 (t4g.micro, Elastic IP)
 11. [Ongoing Operations](#11-ongoing-operations)
 12. [Upgrading and Re-Deploying the Codebase](#12-upgrading-and-re-deploying-the-codebase)
 13. [Terraform Script Structure](#13-terraform-script-structure)
-14. [Tear Down](#14-tear-down)
+14. [Testing New User with Existing ANKI Database](#14-testing-new-user-with-existing-anki-database)
+15. [Tear Down](#15-tear-down)
 
 ---
 
@@ -493,7 +494,86 @@ server/aws_terraform/
 
 ---
 
-## 14. Tear Down
+## 14. Testing New User with Existing ANKI Database
+
+For testing purposes, you may want to register a new user and associate it with an existing Anki-compatible SQLite3 database (`.anki2` file) instead of the auto-generated one.
+
+### How Registration Works
+
+When a user registers through the web app, the backend:
+
+1. Creates a row in `admin.db` with `username`, `name`, and `password_hash`.
+2. Gets the auto-incremented `user_id`.
+3. Creates a new Anki-compatible database at `server/user_dbs/user_{user_id}.db`.
+4. Populates it with sample flashcards.
+
+### Register then Replace the Database File
+
+The simplest approach is to register a user normally and then replace the generated database file with your existing one.
+
+**Step 1: Register the user** (via the web app at `https://study-amigo.app` or via `curl`):
+
+```bash
+curl -X POST https://study-amigo.app/register \
+  -H "Content-Type: application/json" \
+  -d '{"username":"testuser", "name":"Test User", "password":"mypassword1"}'
+```
+
+The response will include the new user ID:
+
+```json
+{"message": "User registered successfully", "userId": 5}
+```
+
+**Step 2: Replace the auto-generated database** on the server with your existing Anki file:
+
+```bash
+ssh -i ~/.ssh/study-amigo-aws ubuntu@<elastic_ip>
+
+# Stop the server container to avoid file access conflicts
+sudo docker compose -f /opt/study-amigo/docker-compose.yml stop server
+
+# Replace the database (use the user_id from Step 1)
+sudo cp /path/to/your/existing-file.anki2 /opt/study-amigo/server/user_dbs/user_5.db
+
+# Restart the server container
+sudo docker compose -f /opt/study-amigo/docker-compose.yml start server
+```
+
+That's it. The app reads from `server/user_dbs/user_{user_id}.db` — it doesn't care how the file got there, as long as the schema is Anki-compatible.
+
+### Automating with a Script
+
+For repeated testing, you can use the following script:
+
+```bash
+#!/bin/bash
+# Usage: ./add_test_user.sh <username> <name> <password> <path_to_anki2_file>
+USERNAME=$1
+NAME=$2
+PASSWORD=$3
+ANKI_FILE=$4
+
+RESPONSE=$(curl -s -X POST https://study-amigo.app/register \
+  -H "Content-Type: application/json" \
+  -d "{\"username\":\"$USERNAME\", \"name\":\"$NAME\", \"password\":\"$PASSWORD\"}")
+
+USER_ID=$(echo "$RESPONSE" | python3 -c "import sys,json; print(json.load(sys.stdin)['userId'])")
+
+cp "$ANKI_FILE" "server/user_dbs/user_${USER_ID}.db"
+echo "User $USERNAME (ID: $USER_ID) created with database from $ANKI_FILE"
+```
+
+### Important Caveats
+
+-   **Schema compatibility**: The `.anki2` file must contain the expected Anki-compatible tables: `col`, `notes`, `cards`, `revlog`, and `graves`.
+-   **Internal consistency**: The deck IDs and model IDs must be consistent — the `col.decks` JSON must reference decks that match the `cards` table, and `col.models` must define the note types used by the `notes` table.
+-   **Anki exports**: If your existing file came from an Anki desktop export, it should already be fully compatible since the app uses the same schema.
+-   **Stop the server first**: When replacing database files on a running deployment, stop the server container first to prevent SQLite locking issues.
+
+---
+
+## 15. Tear Down
 
 To destroy all AWS resources created by Terraform:
 
