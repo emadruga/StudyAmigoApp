@@ -1,0 +1,712 @@
+{
+  "version": "1.0",
+  "created": "2026-02-20",
+  "description": "ESL Placement Test question bank for Portuguese-speaking community college students (Metrology, Biotechnology, Cyber Security). Based on PLAN_FOR_PLACEMENT_EXAM_v1.2.md.",
+  "band_distribution": {
+    "band_1": { "total": 10, "per_test": 10, "label": "Foundation" },
+    "band_2": { "total": 8, "per_test": 8, "label": "Developing" },
+    "band_3": { "total": 7, "per_test": 7, "label": "Expanding" }
+  },
+  "questions": [
+    {
+      "id": "B1_VOCAB_001",
+      "band": 1,
+      "type": "vocabulary_matching",
+      "anchor": "easy",
+      "question_text": "What does \"important\" mean?",
+      "options": [
+        { "text": "Importante", "is_correct": true },
+        { "text": "Imposs\u00edvel", "is_correct": false },
+        { "text": "Importar", "is_correct": false },
+        { "text": "Impressionante", "is_correct": false }
+      ],
+      "point_value": 1,
+      "cognate": true,
+      "vocabulary_rank": 74,
+      "vocabulary_source": "Oxford 3000",
+      "rationale": "Direct cognate. Anchor-easy question: virtually all test-takers should answer correctly. A student who misses Q1 is flagged for instructor follow-up (possible test anxiety, misunderstanding of instructions, or extremely low proficiency).",
+      "distractor_rationale": {
+        "b": "Similar prefix 'imp-', different meaning (impossible / imposs\u00edvel)",
+        "c": "Verb form of the root (to import / importar), different part of speech",
+        "d": "Similar prefix 'imp-' and suffix '-ante', but means 'impressive' (impressionante)"
+      },
+      "feedback_correct": null,
+      "feedback_incorrect": null,
+      "status": "active",
+      "semesters_used": [],
+      "item_analysis": null
+    },
+    {
+      "id": "B1_VOCAB_002",
+      "band": 1,
+      "type": "vocabulary_matching",
+      "anchor": null,
+      "question_text": "What does \"control\" mean?",
+      "options": [
+        { "text": "Controlar / controle", "is_correct": true },
+        { "text": "Contrato", "is_correct": false },
+        { "text": "Construir", "is_correct": false },
+        { "text": "Consultar", "is_correct": false }
+      ],
+      "point_value": 1,
+      "cognate": true,
+      "vocabulary_rank": 247,
+      "vocabulary_source": "Oxford 3000",
+      "rationale": "High-frequency technical term, direct cognate. Relevant across all three programs (Metrology, Biotechnology, Cyber Security).",
+      "distractor_rationale": {
+        "b": "Similar prefix 'contr-', means 'contract' (contrato)",
+        "c": "Similar prefix 'cons-', means 'to build' (construir)",
+        "d": "Similar prefix 'cons-', means 'to consult' (consultar)"
+      },
+      "feedback_correct": null,
+      "feedback_incorrect": null,
+      "status": "active",
+      "semesters_used": [],
+      "item_analysis": null
+    },
+    {
+      "id": "B1_CLOZE_001",
+      "band": 1,
+      "type": "sentence_completion",
+      "anchor": null,
+      "question_text": "The temperature _____ 25 degrees.",
+      "options": [
+        { "text": "are", "is_correct": false },
+        { "text": "is", "is_correct": true },
+        { "text": "am", "is_correct": false },
+        { "text": "be", "is_correct": false }
+      ],
+      "point_value": 1,
+      "cognate": false,
+      "vocabulary_rank": null,
+      "vocabulary_source": null,
+      "rationale": "Basic subject-verb agreement. 'Temperature' is singular, requires 'is'. Tests the most fundamental English grammar structure. The word 'temperature' is a cognate (temperatura), so the sentence context is accessible even to Tier 1 students.",
+      "distractor_rationale": {
+        "a": "'Are' is plural form of 'to be' — common error for students who don't recognize singular/plural",
+        "c": "'Am' is first-person form — tests whether student knows 'am' is only for 'I'",
+        "d": "'Be' is the base/infinitive form — common error for students who know the verb but not conjugation"
+      },
+      "feedback_correct": null,
+      "feedback_incorrect": null,
+      "status": "active",
+      "semesters_used": [],
+      "item_analysis": null
+    },
+    {
+      "id": "B1_CLOZE_002",
+      "band": 1,
+      "type": "sentence_completion",
+      "anchor": null,
+      "question_text": "Water is _____ for life.",
+      "options": [
+        { "text": "necessary", "is_correct": true },
+        { "text": "impossible", "is_correct": false },
+        { "text": "dangerous", "is_correct": false },
+        { "text": "expensive", "is_correct": false }
+      ],
+      "point_value": 1,
+      "cognate": true,
+      "vocabulary_rank": 1200,
+      "vocabulary_source": "Oxford 3000",
+      "rationale": "'Necessary' is a cognate (necess\u00e1rio). Context clue: water = essential for life. Tests ability to combine cognate recognition with basic sentence comprehension.",
+      "distractor_rationale": {
+        "a": "'Impossible' (imposs\u00edvel) is a cognate but semantically wrong — water is not impossible for life",
+        "c": "'Dangerous' (perigoso) is semantically plausible if student misreads — water can be dangerous but is not 'dangerous for life' in this context",
+        "d": "'Expensive' (caro/dispendioso) is semantically unrelated but a common English adjective"
+      },
+      "feedback_correct": null,
+      "feedback_incorrect": null,
+      "status": "active",
+      "semesters_used": [],
+      "item_analysis": null
+    },
+    {
+      "id": "B1_COMP_001",
+      "band": 1,
+      "type": "reading_comprehension",
+      "anchor": null,
+      "question_text": "A thermometer measures temperature. Temperature tells us if something is hot or cold.\n\nWhat does a thermometer measure?",
+      "options": [
+        { "text": "Weight", "is_correct": false },
+        { "text": "Temperature", "is_correct": true },
+        { "text": "Time", "is_correct": false },
+        { "text": "Distance", "is_correct": false }
+      ],
+      "point_value": 1,
+      "cognate": true,
+      "vocabulary_rank": null,
+      "vocabulary_source": null,
+      "rationale": "Direct literal comprehension. Answer is explicitly stated in the first sentence. Both 'thermometer' (term\u00f4metro) and 'temperature' (temperatura) are cognates, making the passage accessible. Tests whether the student can extract a specific fact from a 2-sentence passage.",
+      "distractor_rationale": {
+        "b": "'Weight' (peso) — plausible measurement concept but not mentioned in passage",
+        "c": "'Time' (tempo) — plausible measurement concept; 'tempo' in Portuguese means both 'time' and 'weather', adding confusion",
+        "d": "'Distance' (dist\u00e2ncia) — plausible measurement concept but not mentioned"
+      },
+      "feedback_correct": null,
+      "feedback_incorrect": null,
+      "status": "active",
+      "semesters_used": [],
+      "item_analysis": null
+    },
+    {
+      "id": "B1_VOCAB_003",
+      "band": 1,
+      "type": "vocabulary_matching",
+      "anchor": null,
+      "question_text": "What does \"big\" mean?",
+      "options": [
+        { "text": "Pequeno", "is_correct": false },
+        { "text": "Grande", "is_correct": true },
+        { "text": "M\u00e9dio", "is_correct": false },
+        { "text": "Vazio", "is_correct": false }
+      ],
+      "point_value": 1,
+      "cognate": false,
+      "vocabulary_rank": 263,
+      "vocabulary_source": "Oxford 3000",
+      "rationale": "One of the most common English adjectives. No cognate, but very basic — most students have encountered 'big' through media exposure. Tests pure vocabulary knowledge without cognate scaffolding.",
+      "distractor_rationale": {
+        "a": "'Pequeno' means 'small' — the antonym, a classic trap for students who confuse the two",
+        "c": "'M\u00e9dio' means 'medium' — related to size but not the correct meaning",
+        "d": "'Vazio' means 'empty' — unrelated but a common Portuguese adjective"
+      },
+      "feedback_correct": null,
+      "feedback_incorrect": null,
+      "status": "active",
+      "semesters_used": [],
+      "item_analysis": null
+    },
+    {
+      "id": "B1_CLOZE_003",
+      "band": 1,
+      "type": "sentence_completion",
+      "anchor": null,
+      "question_text": "I _____ water every day.",
+      "options": [
+        { "text": "eat", "is_correct": false },
+        { "text": "drink", "is_correct": true },
+        { "text": "sleep", "is_correct": false },
+        { "text": "read", "is_correct": false }
+      ],
+      "point_value": 1,
+      "cognate": false,
+      "vocabulary_rank": null,
+      "vocabulary_source": null,
+      "rationale": "Verb-object collocation. 'Drink water' is a basic phrase. All options are base form (first person singular), so the question tests vocabulary (which verb collocates with 'water'), not grammar. v1.1 fix: changed from third-person forms (eats/drinks/sleeps/reads) to base forms (eat/drink/sleep/read) to match first-person subject 'I'.",
+      "distractor_rationale": {
+        "a": "'Eat' — semantically related to consumption but wrong collocation (you eat food, not water)",
+        "c": "'Sleep' — common daily activity verb but completely unrelated to water",
+        "d": "'Read' — common daily activity verb but completely unrelated to water"
+      },
+      "feedback_correct": null,
+      "feedback_incorrect": null,
+      "status": "active",
+      "semesters_used": [],
+      "item_analysis": null
+    },
+    {
+      "id": "B1_COMP_002",
+      "band": 1,
+      "type": "reading_comprehension",
+      "anchor": null,
+      "question_text": "The sun gives light and energy to the Earth. Plants use sunlight to make food and grow.\n\nWhat do plants use to grow?",
+      "options": [
+        { "text": "Water and soil", "is_correct": false },
+        { "text": "Sunlight", "is_correct": true },
+        { "text": "Wind", "is_correct": false },
+        { "text": "Moonlight", "is_correct": false }
+      ],
+      "point_value": 1,
+      "cognate": false,
+      "vocabulary_rank": null,
+      "vocabulary_source": null,
+      "rationale": "Literal comprehension. Answer is explicit in the second sentence. v1.1 fix: improved distractors from implausible ('Darkness', 'Cold air') to nature-related alternatives that a student who didn't understand the passage might plausibly select.",
+      "distractor_rationale": {
+        "a": "'Water and soil' — scientifically true (plants do need these) but not what the passage says, testing whether student reads vs. guesses from world knowledge",
+        "c": "'Wind' — nature-related, plausible guess for a student who recognized the outdoor/nature topic but couldn't parse the sentence",
+        "d": "'Moonlight' — structurally similar to 'Sunlight' (compound noun with '-light'), testing precise reading"
+      },
+      "feedback_correct": null,
+      "feedback_incorrect": null,
+      "status": "active",
+      "semesters_used": [],
+      "item_analysis": null
+    },
+    {
+      "id": "B1_VOCAB_004",
+      "band": 1,
+      "type": "vocabulary_matching",
+      "anchor": null,
+      "question_text": "What does \"problem\" mean?",
+      "options": [
+        { "text": "Programa", "is_correct": false },
+        { "text": "Problema", "is_correct": true },
+        { "text": "Processo", "is_correct": false },
+        { "text": "Projeto", "is_correct": false }
+      ],
+      "point_value": 1,
+      "cognate": true,
+      "vocabulary_rank": 155,
+      "vocabulary_source": "Oxford 3000",
+      "rationale": "Direct cognate. All distractors are also Portuguese cognates starting with 'pro-', testing precise recognition rather than just 'does this look like Portuguese?'.",
+      "distractor_rationale": {
+        "a": "'Programa' means 'program' — same prefix 'pro-', similar ending pattern, common false match",
+        "c": "'Processo' means 'process' — same prefix 'pro-', similar ending '-o', could confuse students relying on first syllable",
+        "d": "'Projeto' means 'project' — same prefix 'pro-', similar ending '-o', another plausible false match"
+      },
+      "feedback_correct": null,
+      "feedback_incorrect": null,
+      "status": "active",
+      "semesters_used": [],
+      "item_analysis": null
+    },
+    {
+      "id": "B1_CLOZE_004",
+      "band": 1,
+      "type": "sentence_completion",
+      "anchor": null,
+      "question_text": "The computer _____ information quickly.",
+      "options": [
+        { "text": "process", "is_correct": false },
+        { "text": "processes", "is_correct": true },
+        { "text": "processed", "is_correct": false },
+        { "text": "processing", "is_correct": false }
+      ],
+      "point_value": 1,
+      "cognate": false,
+      "vocabulary_rank": null,
+      "vocabulary_source": null,
+      "rationale": "Third-person singular present simple requires the '-es' suffix. 'The computer' is a singular subject. Tests whether the student recognizes the subject-verb agreement pattern. Sits at the upper boundary of Band 1, transitioning toward Band 2 difficulty.",
+      "distractor_rationale": {
+        "a": "'Process' (base form) — most common error; student knows the verb but doesn't apply third-person -es",
+        "c": "'Processed' (past simple) — wrong tense; no past time marker in the sentence",
+        "d": "'Processing' (present participle) — wrong form; would need auxiliary 'is' to be correct ('is processing')"
+      },
+      "feedback_correct": null,
+      "feedback_incorrect": null,
+      "status": "active",
+      "semesters_used": [],
+      "item_analysis": null
+    },
+    {
+      "id": "B2_VOCAB_001",
+      "band": 2,
+      "type": "vocabulary_matching",
+      "anchor": null,
+      "question_text": "What is the best definition of \"achieve\"?",
+      "options": [
+        { "text": "To receive something", "is_correct": false },
+        { "text": "To reach a goal successfully", "is_correct": true },
+        { "text": "To believe in something", "is_correct": false },
+        { "text": "To teach someone", "is_correct": false }
+      ],
+      "point_value": 1,
+      "cognate": false,
+      "vocabulary_rank": 835,
+      "vocabulary_source": "Oxford 3000",
+      "rationale": "Common academic verb, not a cognate. Tests understanding of English definitions (options are in English, not Portuguese). Marks the shift from Band 1 (Portuguese translations) to Band 2 (English definitions).",
+      "distractor_rationale": {
+        "a": "'To receive something' — phonetically similar ending ('-eive' vs. '-ieve'), plausible confusion with 'receive'",
+        "c": "'To believe in something' — phonetically similar ('-ieve' ending), very common confusion for ESL learners",
+        "d": "'To teach someone' — phonetically similar ('teach' vs. 'ach-ieve'), plausible if student only recognizes partial sounds"
+      },
+      "feedback_correct": null,
+      "feedback_incorrect": null,
+      "status": "active",
+      "semesters_used": [],
+      "item_analysis": null
+    },
+    {
+      "id": "B2_CLOZE_001",
+      "band": 2,
+      "type": "sentence_completion",
+      "anchor": null,
+      "question_text": "She _____ the experiment last week.",
+      "options": [
+        { "text": "completes", "is_correct": false },
+        { "text": "completed", "is_correct": true },
+        { "text": "completing", "is_correct": false },
+        { "text": "will complete", "is_correct": false }
+      ],
+      "point_value": 1,
+      "cognate": false,
+      "vocabulary_rank": null,
+      "vocabulary_source": null,
+      "rationale": "Past tense marker 'last week' requires past simple form. Tests whether the student can use temporal adverbs to select the correct tense — a key Tier 2 skill.",
+      "distractor_rationale": {
+        "a": "'Completes' (present simple) — ignores the past time marker 'last week'",
+        "c": "'Completing' (present participle) — wrong form; would need auxiliary 'was' to be correct",
+        "d": "'Will complete' (future) — contradicts the past time marker 'last week'"
+      },
+      "feedback_correct": null,
+      "feedback_incorrect": null,
+      "status": "active",
+      "semesters_used": [],
+      "item_analysis": null
+    },
+    {
+      "id": "B2_COMP_001",
+      "band": 2,
+      "type": "reading_comprehension",
+      "anchor": null,
+      "question_text": "Bacteria are tiny living organisms. Some bacteria are helpful and live in our bodies. Other bacteria can cause infections and make us sick.\n\nAccording to the passage, what is true about bacteria?",
+      "options": [
+        { "text": "All bacteria are dangerous", "is_correct": false },
+        { "text": "All bacteria are helpful", "is_correct": false },
+        { "text": "Some bacteria are helpful, and some are harmful", "is_correct": true },
+        { "text": "Bacteria do not live in the human body", "is_correct": false }
+      ],
+      "point_value": 1,
+      "cognate": true,
+      "vocabulary_rank": null,
+      "vocabulary_source": null,
+      "rationale": "Requires synthesizing information from sentences 2 and 3. Tests the 'some...other' structure and the ability to avoid overgeneralization ('all bacteria are...'). Biotechnology-relevant topic.",
+      "distractor_rationale": {
+        "a": "'All bacteria are dangerous' — overgeneralization from sentence 3 only; ignores sentence 2",
+        "b": "'All bacteria are helpful' — overgeneralization from sentence 2 only; ignores sentence 3",
+        "d": "'Bacteria do not live in the human body' — directly contradicts sentence 2 ('live in our bodies')"
+      },
+      "feedback_correct": null,
+      "feedback_incorrect": null,
+      "status": "active",
+      "semesters_used": [],
+      "item_analysis": null
+    },
+    {
+      "id": "B2_GRAM_001",
+      "band": 2,
+      "type": "grammar_recognition",
+      "anchor": null,
+      "question_text": "Which sentence is correct?",
+      "options": [
+        { "text": "She go to the laboratory yesterday.", "is_correct": false },
+        { "text": "She goes to the laboratory yesterday.", "is_correct": false },
+        { "text": "She went to the laboratory yesterday.", "is_correct": true },
+        { "text": "She going to the laboratory yesterday.", "is_correct": false }
+      ],
+      "point_value": 1,
+      "cognate": false,
+      "vocabulary_rank": null,
+      "vocabulary_source": null,
+      "rationale": "Tests past simple vs. present simple with time marker 'yesterday'. Each distractor represents a specific common error pattern among Portuguese-speaking ESL learners.",
+      "distractor_rationale": {
+        "a": "'She go' — base form without conjugation; common for students who haven't learned any tense markers",
+        "b": "'She goes' — present simple third-person; student knows conjugation but ignores 'yesterday'",
+        "d": "'She going' — present participle without auxiliary; common reduction error"
+      },
+      "feedback_correct": null,
+      "feedback_incorrect": null,
+      "status": "active",
+      "semesters_used": [],
+      "item_analysis": null
+    },
+    {
+      "id": "B2_CLOZE_002",
+      "band": 2,
+      "type": "sentence_completion",
+      "anchor": null,
+      "question_text": "Steel is _____ than plastic.",
+      "options": [
+        { "text": "strong", "is_correct": false },
+        { "text": "stronger", "is_correct": true },
+        { "text": "strongest", "is_correct": false },
+        { "text": "more strong", "is_correct": false }
+      ],
+      "point_value": 1,
+      "cognate": false,
+      "vocabulary_rank": null,
+      "vocabulary_source": null,
+      "rationale": "Comparative form with 'than'. Tests knowledge of comparative adjective formation for short adjectives (-er, not 'more'). Metrology-relevant content (material properties).",
+      "distractor_rationale": {
+        "a": "'Strong' (base form) — ignores the comparative structure signaled by 'than'",
+        "c": "'Strongest' (superlative) — wrong degree; superlative is used for 3+ items, not comparison of two",
+        "d": "'More strong' — applies the 'more + adjective' pattern incorrectly; this pattern is for longer adjectives, not one-syllable ones like 'strong'"
+      },
+      "feedback_correct": null,
+      "feedback_incorrect": null,
+      "status": "active",
+      "semesters_used": [],
+      "item_analysis": null
+    },
+    {
+      "id": "B2_COMP_002",
+      "band": 2,
+      "type": "reading_comprehension",
+      "anchor": null,
+      "question_text": "Cybersecurity protects computer systems from attacks. Hackers try to steal information or damage systems. Companies use firewalls and passwords to prevent attacks. Good cybersecurity is essential for businesses today.\n\nHow do companies protect their systems?",
+      "options": [
+        { "text": "By hiring hackers", "is_correct": false },
+        { "text": "By using firewalls and passwords", "is_correct": true },
+        { "text": "By avoiding the internet", "is_correct": false },
+        { "text": "By stealing information", "is_correct": false }
+      ],
+      "point_value": 1,
+      "cognate": true,
+      "vocabulary_rank": null,
+      "vocabulary_source": null,
+      "rationale": "Answer is explicit in sentence 3. Requires identifying relevant information from a 4-sentence passage. Cybersecurity-relevant topic. Multiple cognates ('cybersecurity', 'systems', 'information', 'firewalls') make the passage partially accessible.",
+      "distractor_rationale": {
+        "a": "'By hiring hackers' — confuses the attacker (hackers) with the defense; plausible if student only skims",
+        "c": "'By avoiding the internet' — a real-world misconception but not stated in the passage",
+        "d": "'By stealing information' — attributes the hacker's action to the companies; tests careful reading"
+      },
+      "feedback_correct": null,
+      "feedback_incorrect": null,
+      "status": "active",
+      "semesters_used": [],
+      "item_analysis": null
+    },
+    {
+      "id": "B2_VOCAB_002",
+      "band": 2,
+      "type": "vocabulary_matching",
+      "anchor": null,
+      "question_text": "What does \"accurate\" mean?",
+      "options": [
+        { "text": "Fast and efficient", "is_correct": false },
+        { "text": "Correct and precise", "is_correct": true },
+        { "text": "Large and important", "is_correct": false },
+        { "text": "Difficult and complex", "is_correct": false }
+      ],
+      "point_value": 1,
+      "cognate": true,
+      "vocabulary_rank": 1890,
+      "vocabulary_source": "Oxford 3000",
+      "rationale": "Key technical term for Metrology students. Partial cognate (acurado/preciso in Portuguese). Tests vocabulary at the academic/technical level that distinguishes Tier 2 from Tier 1.",
+      "distractor_rationale": {
+        "a": "'Fast and efficient' — plausible attribute of a good system but not the meaning of 'accurate'",
+        "c": "'Large and important' — unrelated adjective pair; tests whether student is guessing",
+        "d": "'Difficult and complex' — plausible confusion with 'intricate' or 'elaborate'"
+      },
+      "feedback_correct": null,
+      "feedback_incorrect": null,
+      "status": "active",
+      "semesters_used": [],
+      "item_analysis": null
+    },
+    {
+      "id": "B2_CLOZE_003",
+      "band": 2,
+      "type": "sentence_completion",
+      "anchor": null,
+      "question_text": "Scientists _____ a new vaccine that is now saving lives.",
+      "options": [
+        { "text": "discovered", "is_correct": false },
+        { "text": "have discovered", "is_correct": true },
+        { "text": "are discovering", "is_correct": false },
+        { "text": "will discover", "is_correct": false }
+      ],
+      "point_value": 1,
+      "cognate": false,
+      "vocabulary_rank": null,
+      "vocabulary_source": null,
+      "rationale": "Present perfect is required because the action (discovering) has a result relevant to the present ('is now saving lives'). The temporal context 'that is now saving lives' makes past simple ('discovered') incorrect — past simple would require a completed-in-the-past context. Distinguishes Tier 2 from Tier 1. v1.1 fix: added 'that is now saving lives' to disambiguate; original 'Scientists _____ a new vaccine' was ambiguous between past simple and present perfect.",
+      "distractor_rationale": {
+        "a": "'Discovered' (past simple) — would be correct without the present-relevance clause; the strongest distractor",
+        "c": "'Are discovering' (present continuous) — implies the discovery is ongoing, contradicting 'is now saving lives' (already discovered)",
+        "d": "'Will discover' (future) — contradicts the present-relevance clause ('is now saving lives' means it's already happened)"
+      },
+      "feedback_correct": null,
+      "feedback_incorrect": null,
+      "status": "active",
+      "semesters_used": [],
+      "item_analysis": null
+    },
+    {
+      "id": "B3_COMP_001",
+      "band": 3,
+      "type": "reading_comprehension",
+      "anchor": null,
+      "question_text": "Renewable energy sources, such as solar and wind power, produce electricity without burning fossil fuels. Unlike coal and natural gas, they do not release greenhouse gases during operation. However, their energy output depends on weather conditions, which can be unpredictable.\n\nWhat is a disadvantage of renewable energy mentioned in the passage?",
+      "options": [
+        { "text": "It produces greenhouse gases", "is_correct": false },
+        { "text": "It is more expensive than fossil fuels", "is_correct": false },
+        { "text": "Its output depends on unpredictable weather", "is_correct": true },
+        { "text": "It requires burning coal", "is_correct": false }
+      ],
+      "point_value": 1,
+      "cognate": true,
+      "vocabulary_rank": null,
+      "vocabulary_source": null,
+      "rationale": "Entry-level Band 3 question with a shorter passage (3 sentences) to create a gradual transition from Band 2. Tests the ability to identify a specific disadvantage from a passage that discusses both advantages and disadvantages. Requires understanding the contrast signaled by 'However.' v1.1 change: replaced original 5-sentence climate change passage for gradual Band 2-to-3 transition.",
+      "distractor_rationale": {
+        "a": "'It produces greenhouse gases' — directly contradicts sentence 2 ('do not release greenhouse gases'); tests whether student reads carefully vs. associates 'energy' with 'pollution'",
+        "b": "'It is more expensive than fossil fuels' — a real-world argument but not mentioned in the passage; tests 'is it in the text?'",
+        "d": "'It requires burning coal' — directly contradicts sentence 1 ('without burning fossil fuels')"
+      },
+      "feedback_correct": null,
+      "feedback_incorrect": null,
+      "status": "active",
+      "semesters_used": [],
+      "item_analysis": null
+    },
+    {
+      "id": "B3_GRAM_001",
+      "band": 3,
+      "type": "grammar_recognition",
+      "anchor": null,
+      "question_text": "Which sentence uses the passive voice correctly?",
+      "options": [
+        { "text": "The experiment conducts by the students.", "is_correct": false },
+        { "text": "The experiment was conducted by the students.", "is_correct": true },
+        { "text": "The experiment is conducting by the students.", "is_correct": false },
+        { "text": "The students conducted the experiment.", "is_correct": false }
+      ],
+      "point_value": 1,
+      "cognate": false,
+      "vocabulary_rank": null,
+      "vocabulary_source": null,
+      "rationale": "Tests understanding of passive construction (be + past participle). Option (d) is grammatically correct but is active voice, not passive — a strong distractor for students who confuse the two voices.",
+      "distractor_rationale": {
+        "a": "'Conducts by' — uses present simple active form instead of passive; missing auxiliary 'be'",
+        "c": "'Is conducting by' — uses present continuous active instead of passive; '-ing' form is not past participle",
+        "d": "'The students conducted the experiment' — grammatically correct active voice; tests whether student knows the difference between active and passive"
+      },
+      "feedback_correct": null,
+      "feedback_incorrect": null,
+      "status": "active",
+      "semesters_used": [],
+      "item_analysis": null
+    },
+    {
+      "id": "B3_CLOZE_001",
+      "band": 3,
+      "type": "sentence_completion",
+      "anchor": null,
+      "question_text": "If the temperature _____ too high, the equipment will malfunction.",
+      "options": [
+        { "text": "rise", "is_correct": false },
+        { "text": "rises", "is_correct": true },
+        { "text": "rose", "is_correct": false },
+        { "text": "risen", "is_correct": false }
+      ],
+      "point_value": 1,
+      "cognate": false,
+      "vocabulary_rank": null,
+      "vocabulary_source": null,
+      "rationale": "First conditional (If + present simple, will + base verb). Tests knowledge of conditional structures, which are a Tier 3 skill. Metrology-relevant context (temperature, equipment).",
+      "distractor_rationale": {
+        "a": "'Rise' (base form) — common error: omitting the third-person '-s' in the if-clause",
+        "c": "'Rose' (past simple) — would create a second conditional meaning ('If the temperature rose... the equipment would malfunction'); wrong conditional type",
+        "d": "'Risen' (past participle) — wrong form; would need auxiliary 'has' ('has risen') or be part of a different construction"
+      },
+      "feedback_correct": null,
+      "feedback_incorrect": null,
+      "status": "active",
+      "semesters_used": [],
+      "item_analysis": null
+    },
+    {
+      "id": "B3_COMP_002",
+      "band": 3,
+      "type": "reading_comprehension",
+      "anchor": null,
+      "question_text": "Biotechnology involves using living organisms or their components to develop useful products. One application is the production of insulin for diabetes treatment. Historically, insulin was extracted from animal pancreases. However, modern biotechnology allows scientists to genetically engineer bacteria to produce human insulin. This method is safer, more efficient, and more cost-effective.\n\nWhy is genetically engineered insulin better than animal-derived insulin?",
+      "options": [
+        { "text": "It is extracted from animals", "is_correct": false },
+        { "text": "It is safer, more efficient, and cheaper", "is_correct": true },
+        { "text": "It requires human pancreases", "is_correct": false },
+        { "text": "It is a historical method", "is_correct": false }
+      ],
+      "point_value": 1,
+      "cognate": true,
+      "vocabulary_rank": null,
+      "vocabulary_source": null,
+      "rationale": "Answer is in the final sentence. Requires understanding 'safer, more efficient, more cost-effective' = better. Biotechnology-relevant topic with a 5-sentence passage.",
+      "distractor_rationale": {
+        "a": "'It is extracted from animals' — describes the OLD method (sentence 3), not the new one; tests whether student confuses the two methods",
+        "c": "'It requires human pancreases' — fabricated detail; neither method uses human pancreases (animal pancreases were used historically)",
+        "d": "'It is a historical method' — describes the OLD method ('Historically, insulin was extracted...'); the new method is modern"
+      },
+      "feedback_correct": null,
+      "feedback_incorrect": null,
+      "status": "active",
+      "semesters_used": [],
+      "item_analysis": null
+    },
+    {
+      "id": "B3_GRAM_002",
+      "band": 3,
+      "type": "grammar_recognition",
+      "anchor": null,
+      "question_text": "Which sentence is grammatically correct?",
+      "options": [
+        { "text": "The scientist who discovered the cure was awarded a prize.", "is_correct": true },
+        { "text": "The scientist discovered the cure was awarded a prize.", "is_correct": false },
+        { "text": "The scientist, discovered the cure, was awarded a prize.", "is_correct": false },
+        { "text": "The scientist which discovered the cure was awarded a prize.", "is_correct": false }
+      ],
+      "point_value": 1,
+      "cognate": false,
+      "vocabulary_rank": null,
+      "vocabulary_source": null,
+      "rationale": "Tests understanding of relative clauses ('who' for people). Requires knowing that 'which' is for things, not people. Option (b) is ambiguous without the relative pronoun (could be misread as two separate clauses).",
+      "distractor_rationale": {
+        "a": "'The scientist discovered the cure was awarded a prize' — missing relative pronoun; creates a garden-path sentence that is confusing or ungrammatical",
+        "c": "'The scientist, discovered the cure, was awarded a prize' — incorrect comma usage; commas don't replace relative pronouns",
+        "d": "'The scientist which discovered the cure...' — uses 'which' for a person; 'which' is for things/objects, 'who' is for people"
+      },
+      "feedback_correct": null,
+      "feedback_incorrect": null,
+      "status": "active",
+      "semesters_used": [],
+      "item_analysis": null
+    },
+    {
+      "id": "B3_COMP_003",
+      "band": 3,
+      "type": "reading_comprehension",
+      "anchor": null,
+      "question_text": "Climate change refers to long-term shifts in temperatures and weather patterns. While natural processes can cause these shifts, human activities have been the main driver since the 1800s. Burning fossil fuels generates greenhouse gas emissions that trap heat in the atmosphere. As a result, global temperatures have risen approximately 1.1\u00b0C since pre-industrial times. Scientists warn that further warming could have severe consequences for ecosystems and human societies.\n\nWhat can be inferred from the passage?",
+      "options": [
+        { "text": "Climate change is entirely natural", "is_correct": false },
+        { "text": "Human activities are the primary cause of recent climate change", "is_correct": true },
+        { "text": "Global temperatures have decreased since the 1800s", "is_correct": false },
+        { "text": "Scientists believe climate change will have no impact", "is_correct": false }
+      ],
+      "point_value": 1,
+      "cognate": true,
+      "vocabulary_rank": null,
+      "vocabulary_source": null,
+      "rationale": "Requires synthesizing information from sentences 2 and 3. Inferential, not just literal — the passage says humans are the 'main driver', and the student must infer this means 'primary cause'. v1.1 change: moved from Q19 to Q24 position (5-sentence passage is appropriate for upper Band 3).",
+      "distractor_rationale": {
+        "a": "'Climate change is entirely natural' — contradicted by sentence 2 ('human activities have been the main driver'); tests whether student notes the word 'While' (concessive)",
+        "c": "'Global temperatures have decreased' — directly contradicts sentence 4 ('have risen approximately 1.1\u00b0C')",
+        "d": "'Scientists believe climate change will have no impact' — contradicts sentence 5 ('severe consequences')"
+      },
+      "feedback_correct": null,
+      "feedback_incorrect": null,
+      "status": "active",
+      "semesters_used": [],
+      "item_analysis": null
+    },
+    {
+      "id": "B3_COMP_004",
+      "band": 3,
+      "type": "reading_comprehension",
+      "anchor": "hard",
+      "question_text": "Precision and accuracy are two distinct concepts in measurement. Precision refers to how close repeated measurements are to each other. Accuracy refers to how close a measurement is to the true value. A measurement can be precise but not accurate if the instrument has a systematic error. For example, a scale that consistently reads 2 kg too high is precise (consistent) but inaccurate (wrong).\n\nAccording to the passage, what is the difference between precision and accuracy?",
+      "options": [
+        { "text": "There is no difference; they mean the same thing", "is_correct": false },
+        { "text": "Precision is about consistency; accuracy is about correctness", "is_correct": true },
+        { "text": "Precision is about correctness; accuracy is about consistency", "is_correct": false },
+        { "text": "Only accuracy matters in measurement", "is_correct": false }
+      ],
+      "point_value": 1,
+      "cognate": true,
+      "vocabulary_rank": null,
+      "vocabulary_source": null,
+      "rationale": "Anchor-hard question. Requires understanding technical definitions and distinguishing two related concepts. Critical for Metrology students. Option (c) is a strong distractor because it reverses the two definitions — only a careful reader will distinguish it from the correct answer. A student who answers Q25 correctly almost certainly belongs in Tier 3.",
+      "distractor_rationale": {
+        "a": "'There is no difference' — directly contradicts sentence 1 ('two distinct concepts'); only selected by someone who didn't read the passage",
+        "c": "'Precision is about correctness; accuracy is about consistency' — reverses the definitions; the strongest distractor, catches students who understood the concepts are different but mixed up which is which",
+        "d": "'Only accuracy matters in measurement' — not stated in the passage; the passage discusses both concepts as important"
+      },
+      "feedback_correct": null,
+      "feedback_incorrect": null,
+      "status": "active",
+      "semesters_used": [],
+      "item_analysis": null
+    }
+  ]
+}
