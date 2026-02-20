@@ -44,3 +44,8 @@ client_lambda/dist/
 # Environment variables file (if used later)
 .env*
 
+# Placement Exam - Google API credentials (NEVER COMMIT)
+placement_exam/credentials.json
+placement_exam/client_secret*.json
+placement_exam/token.json
+
