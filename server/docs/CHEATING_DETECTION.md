@@ -11,16 +11,16 @@ This document describes detection methods for academic dishonesty in student Ank
 
 ## Table of Contents
 
-1. [Forensic Data Available in Anki Databases](#1-forensic-data-available-in-anki-databases)
-2. [The Critical Distinction: Shared Decks vs. Student-Created Decks](#2-the-critical-distinction-shared-decks-vs-student-created-decks)
-3. [Detection Methods by Cheating Type](#3-detection-methods-by-cheating-type)
-4. [Confidence Levels and Evidence Hierarchy](#4-confidence-levels-and-evidence-hierarchy)
-5. [Implementation Recommendations](#5-implementation-recommendations)
-6. [The Shared Deck False Positive Problem](#6-the-shared-deck-false-positive-problem)
-7. [Integration with the Data Pipeline](#7-integration-with-the-data-pipeline)
-8. [Worked Examples](#8-worked-examples)
+1. [Forensic Data Available in Anki Databases](#forensic-data-available-in-anki-databases)
+2. [The Critical Distinction: Shared Decks vs. Student-Created Decks](#the-critical-distinction-shared-decks-vs.-student-created-decks)
+3. [Detection Methods by Cheating Type](#detection-methods-by-cheating-type)
+4. [Confidence Levels and Evidence Hierarchy](#confidence-levels-and-evidence-hierarchy)
+5. [Implementation Recommendations](#implementation-recommendations)
+6. [The Shared Deck False Positive Problem](#the-shared-deck-false-positive-problem)
+7. [Integration with the Data Pipeline](#integration-with-the-data-pipeline)
+8. [Worked Examples](#worked-examples)
 9. [Appendix A: SQL Query Reference](#appendix-a-sql-query-reference)
-10. [Appendix B: `.apkg` File Format](#appendix-b-apkg-file-format)
+10. [Appendix B: `.apkg` File Format](#appendix-b-.apkg-file-format)
 
 ---
 

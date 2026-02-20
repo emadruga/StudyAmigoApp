@@ -6,14 +6,14 @@ This document proposes a structured methodology for assigning reading material t
 
 ## Table of Contents
 
-1. [The Problem](#1-the-problem)
-2. [Dual Placement: Duolingo + E01 Diagnostic](#2-dual-placement-duolingo--e01-diagnostic)
-3. [Three Proficiency Tiers](#3-three-proficiency-tiers)
-4. [The Curated Shared Deck](#4-the-curated-shared-deck)
-5. [Exercise Structure: Three Components per Exercise](#5-exercise-structure-three-components-per-exercise)
-6. [Reading Passage Selection Criteria](#6-reading-passage-selection-criteria)
-7. [Connecting to the Data Pipeline](#7-connecting-to-the-data-pipeline)
-8. [Semester-over-Semester Improvement Loop](#8-semester-over-semester-improvement-loop)
+1. [The Problem](#the-problem)
+2. [Dual Placement: Duolingo + E01 Diagnostic](#dual-placement-duolingo-e01-diagnostic)
+3. [Three Proficiency Tiers](#three-proficiency-tiers)
+4. [The Curated Shared Deck](#the-curated-shared-deck)
+5. [Exercise Structure: Three Components per Exercise](#exercise-structure-three-components-per-exercise)
+6. [Reading Passage Selection Criteria](#reading-passage-selection-criteria)
+7. [Connecting to the Data Pipeline](#connecting-to-the-data-pipeline)
+8. [Semester-over-Semester Improvement Loop](#semester-over-semester-improvement-loop)
 
 ---
 
