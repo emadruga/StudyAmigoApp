@@ -1,0 +1,51 @@
+# Node Dependencies (Client)
+client/node_modules/
+client/dist/ # Vite build output (if you build for production)
+client/.vite/ # Vite cache
+
+# Python Virtual Environment (Server)
+server/server_venv/
+javumbo/
+# Add other common venv names if you use them, e.g.
+venv/
+# .venv/
+
+# Python Cache
+server/__pycache__/
+*.pyc
+
+# OS-generated files
+.DS_Store
+Thumbs.db
+
+# IDE/Editor configuration
+.vscode/
+.idea/
+
+# Log files (if any are generated later)
+*.log
+
+# Sensitive Data & User-Generated Content
+server/admin.db
+server/user_dbs/
+server/flask_session/
+
+server_lambda/package/
+server_lambda/lambda_deployment*
+server_lambda/docs/Screenshot*
+server_lambda/docs/*pdf
+server_lambda/terraform/.terraform*
+server_lambda/deployments/
+server_lambda/terraform.tfstate
+
+client_lambda/node_modules/
+client_lambda/dist/
+
+# Environment variables file (if used later)
+.env*
+
+# Placement Exam - Google API credentials (NEVER COMMIT)
+placement_exam/credentials.json
+placement_exam/client_secret*.json
+placement_exam/token.json
+
