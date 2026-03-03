@@ -29,6 +29,9 @@ import os
 import sys
 import tempfile
 import shutil
+import itertools
+
+_id_counter = itertools.count(int(time.time() * 1000))
 
 # Add parent directory to path to import app module
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -81,7 +84,7 @@ class TestSuperMemo2Scheduling(unittest.TestCase):
         cursor = conn.cursor()
 
         # Create note
-        note_id = int(time.time() * 1000)
+        note_id = next(_id_counter)
         cursor.execute("""
             INSERT INTO notes (id, guid, mid, mod, usn, tags, flds, sfld, csum, flags, data)
             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
@@ -89,7 +92,7 @@ class TestSuperMemo2Scheduling(unittest.TestCase):
               'test', 'Test Front\x1fTest Back', 'Test Front', 12345, 0, ''))
 
         # Create card
-        card_id = int(time.time() * 1000) + 1
+        card_id = next(_id_counter)
         cursor.execute("""
             INSERT INTO cards (id, nid, did, ord, mod, usn, type, queue, due, ivl, factor, reps, lapses, left, odue, odid, flags, data)
             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
@@ -214,8 +217,8 @@ class TestSuperMemo2Scheduling(unittest.TestCase):
         # With exponential growth: ivl_1 * 2.5 = 2 * 2.5 = 5
         # With linear bug: ivl_1 + 1 = 2 + 1 = 3
         self.assertGreaterEqual(ivl_2, 4, f"Third interval should be >= 4 (got {ivl_2})")
-        self.assertLess(ivl_2 - ivl_1, ivl_1,
-                       f"Growth should be exponential: ivl_2 ({ivl_2}) - ivl_1 ({ivl_1}) should be > ivl_1")
+        self.assertGreater(ivl_2 - ivl_1, ivl_1,
+                          f"Growth should be exponential: ivl_2 ({ivl_2}) - ivl_1 ({ivl_1}) should be > ivl_1")
 
         # Review 3: Answer "Good" (ease=3) again
         self._answer_card(card_id, note_id, ease=3)
