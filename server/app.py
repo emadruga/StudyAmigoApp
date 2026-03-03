@@ -1684,22 +1684,16 @@ def answer_card():
                 interval_factor = rev_conf.get('ivlFct', 1.0) # General interval factor
 
                 if ease == 2:  # Hard
-                    # factor_adjust = 0.8 # This isn't how factor is adjusted
-                    interval_adjust = hard_factor
-                    factor_change = -150 # Anki-like adjustment
+                    new_interval = max(1, int(current_interval * hard_factor))
+                    factor_change = -150
                 elif ease == 3:  # Good
-                    # factor_adjust = 1.0 # Replaced
-                    interval_adjust = interval_factor # Use the general interval factor
-                    factor_change = 0 # No change for Good in basic Anki SM2 variant
+                    ease_multiplier = current_factor / 1000.0
+                    new_interval = max(current_interval + 1, int(current_interval * ease_multiplier))
+                    factor_change = 0
                 else:  # ease == 4, Easy
-                    # factor_adjust = 1.3 # Replaced
-                    interval_adjust = easy_bonus * interval_factor # Easy bonus applies on top
-                    factor_change = 150 # Anki-like adjustment
-                
-                # Update interval: apply interval factor and specific ease multiplier
-                # The calculation is more complex in real Anki, involving fuzz factor etc.
-                # Simplified: Interval = Previous Interval * Ease Multiplier * General Interval Factor
-                new_interval = max(current_interval + 1, int(current_interval * interval_adjust * interval_factor))
+                    ease_multiplier = current_factor / 1000.0
+                    new_interval = max(current_interval + 1, int(current_interval * ease_multiplier * easy_bonus))
+                    factor_change = 150
                 
                 # Update ease factor (min 1300)
                 # factor_change = 0 if ease == 2 else 15 if ease == 3 else 30  # Old logic
