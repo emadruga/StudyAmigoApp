@@ -407,4 +407,38 @@ This is already mentioned in PLAN_ASSESSMENT_STUDENTS_DURING_SEMESTER.md as "B1 
 
 ---
 
+## Card States: Relearning, Buried, and Suspended
+
+### What are these states?
+
+#### Relearning (`queue=1, type=3`)
+A card that was in Review and was answered **Again (ease=1)** — i.e., the student forgot it. It re-enters a short learning cycle (like Learning, but with lapse delays) before graduating back to Review with a reduced interval. It is essentially a "second chance" path.
+
+**✅ Implemented in `app.py`** — lines 1655–1677 handle the lapse → relearning transition, and lines 1626–1653 handle graduation back to Review.
+
+#### Buried (`queue=-2` user, `queue=-3` scheduler)
+A card that is **temporarily hidden for the rest of the day** without being reviewed. Two flavors:
+- **User buried** (`-2`): The student manually hides a card ("I'll skip this today")
+- **Sched buried** (`-3`): The scheduler automatically hides sibling cards (cards from the same note) to avoid showing both sides of a note on the same day
+
+**❌ Not implemented as an action.** The `queue` values `-2` and `-3` are defined in the schema and recognized in `get_card_state()` and the stats counter, but there is no API endpoint to bury a card. A buried card would never be served to the student (the next-card queries only fetch `queue IN (0,1,2,3)`).
+
+#### Suspended (`queue=-1`)
+A card that is **permanently removed from review** until the student or admin manually un-suspends it. Unlike buried (which resets the next day), suspended cards stay hidden indefinitely. Useful for cards that are wrong, irrelevant, or too easy.
+
+**❌ Not implemented as an action.** Same situation as buried — recognized in state detection and stats, but no API endpoint exists to set or clear `queue=-1`.
+
+### Summary
+
+| State | queue | Implemented? |
+|---|---|---|
+| Relearning | 1 (type=3) | ✅ Full transition logic |
+| User Buried | -2 | ❌ Schema only — no API endpoint |
+| Sched Buried | -3 | ❌ Schema only — no API endpoint |
+| Suspended | -1 | ❌ Schema only — no API endpoint |
+
+For the E01 use case, the missing buried/suspended endpoints are not critical — students don't need to bury or suspend cards. They matter more for power users managing large decks.
+
+---
+
 **Last updated**: March 3, 2026
