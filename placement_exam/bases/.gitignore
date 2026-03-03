@@ -1,0 +1,9 @@
+# Ignore CSV files containing student PII (personally identifiable information)
+*.csv
+
+# Keep only README and documentation
+!README.md
+
+# Reason: These files contain sensitive student data (names, emails, performance)
+# They should not be committed to version control
+# Keep local copies in secure, access-controlled systems only
