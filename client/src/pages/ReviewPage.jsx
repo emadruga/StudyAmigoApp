@@ -67,7 +67,7 @@ function ReviewPage({ user, onLogout }) {
     setReviewMessage(t('review.processingAnswer'));
 
     try {
-      await answerCard({ ease: ease, time_taken: timeTaken });
+      await answerCard({ ease: ease, timeTaken: timeTaken });
       setCard(null);
       setReviewMessage(`${t('review.reviewing')}: ${currentDeckName} - ${t('common.loading')}`);
       let isMountedForNext = true;
