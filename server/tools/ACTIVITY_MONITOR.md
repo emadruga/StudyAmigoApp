@@ -61,7 +61,7 @@ python activity_monitor.py [OPTIONS]
 | `--interval 2weeks` | Last 14 days |
 | `--interval 3weeks` | Last 21 days |
 | `--interval month` | Last 30 days |
-| `--interval custom --start YYYY-MM-DD --end YYYY-MM-DD` | Custom inclusive range |
+| `--interval custom --start YYYY-MM-DD [--end YYYY-MM-DD]` | Custom range; `--end` defaults to today if omitted |
 
 ### Connection options
 
@@ -108,9 +108,14 @@ python activity_monitor.py --interval 3weeks --host 3.88.xx.xx
 # Last month (~30 days)
 python activity_monitor.py --interval month --host 3.88.xx.xx
 
-# Custom date range
+# Custom date range (explicit end date)
 python activity_monitor.py --interval custom \
     --start 2026-01-15 --end 2026-02-28 \
+    --host 3.88.xx.xx
+
+# Custom date range (end defaults to today)
+python activity_monitor.py --interval custom \
+    --start 2026-01-15 \
     --host 3.88.xx.xx
 
 # Non-default SSH key and remote path

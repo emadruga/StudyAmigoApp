@@ -78,11 +78,13 @@ def resolve_interval(interval: str, start: Optional[str], end: Optional[str]) ->
     if interval == "month":
         return now - timedelta(days=30), now
     if interval == "custom":
-        if not start or not end:
-            sys.exit("--interval custom requires --start YYYY-MM-DD and --end YYYY-MM-DD")
+        if not start:
+            sys.exit("--interval custom requires --start YYYY-MM-DD")
         start_dt = datetime.strptime(start, "%Y-%m-%d").replace(tzinfo=timezone.utc)
-        end_dt = datetime.strptime(end, "%Y-%m-%d").replace(
-            hour=23, minute=59, second=59, tzinfo=timezone.utc
+        end_dt = (
+            datetime.strptime(end, "%Y-%m-%d").replace(hour=23, minute=59, second=59, tzinfo=timezone.utc)
+            if end
+            else now.replace(hour=23, minute=59, second=59)
         )
         return start_dt, end_dt
 
