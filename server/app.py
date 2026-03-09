@@ -1413,14 +1413,14 @@ def get_next_card():
         # Count new cards reviewed today
         newCardsSeenToday = _countNewCardsReviewedToday(cursor, dayCutoff, collectionCreationTime)
         
-        app.logger.debug(f"User {userId}, Deck {currentDeckId}: Day Cutoff={dayCutoff}, Now={now}, New Seen={newCardsSeenToday}/{DAILY_NEW_LIMIT}")
+        app.logger.info(f"User {userId}, Deck {currentDeckId}: Day Cutoff={dayCutoff}, Now={now}, New Seen={newCardsSeenToday}/{DAILY_NEW_LIMIT}")
 
         nextCardData = None
 
         # 1. Check for Learning Cards
         nextCardData = _fetchLearningCard(cursor, currentDeckId, now)
         if nextCardData:
-            app.logger.debug(f"Found learning card {nextCardData['id']}")
+            app.logger.info(f"Found learning card {nextCardData['id']}")
 
         # 2. Check for Due Review Cards
         if not nextCardData:
@@ -1434,11 +1434,11 @@ def get_next_card():
             if newCardsSeenToday < DAILY_NEW_LIMIT:
                 nextCardData = _fetchNewCard(cursor, currentDeckId)
                 if nextCardData:
-                    app.logger.debug(f"Found new card {nextCardData['id']}")
+                    app.logger.info(f"Found new card {nextCardData['id']}")
                 else:
-                     app.logger.debug("No more new cards available in deck.")
+                     app.logger.info("No more new cards available in deck.")
             else:
-                app.logger.debug(f"Daily new card limit ({DAILY_NEW_LIMIT}) reached.")
+                app.logger.info(f"Daily new card limit ({DAILY_NEW_LIMIT}) reached.")
 
         # Format and return card if found
         if nextCardData:
