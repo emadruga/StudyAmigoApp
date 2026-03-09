@@ -6,21 +6,16 @@ import Header from "../components/Header";
 
 function ReviewPage({ user, onLogout }) {
   const { t } = useTranslation();
+  const storedDeckName = localStorage.getItem('currentDeckName') || '';
   const [card, setCard] = useState(null);
   const [showAnswer, setShowAnswer] = useState(false);
   const [startTime, setStartTime] = useState(null);
-  const [currentDeckName, setCurrentDeckName] = useState('');
-  const [reviewMessage, setReviewMessage] = useState(t('common.loading'));
+  const [currentDeckName, setCurrentDeckName] = useState(storedDeckName);
+  const [reviewMessage, setReviewMessage] = useState(
+    storedDeckName ? `${t('review.reviewing')}: ${storedDeckName}` : t('common.loading')
+  );
   const [error, setError] = useState('');
   const navigate = useNavigate();
-
-  useEffect(() => {
-    const storedDeckName = localStorage.getItem('currentDeckName');
-    if (storedDeckName) {
-      setCurrentDeckName(storedDeckName);
-      setReviewMessage(`${t('review.reviewing')}: ${storedDeckName}`);
-    }
-  }, [t]);
 
   const fetchReviewData = async (isMounted) => {
     setError('');
