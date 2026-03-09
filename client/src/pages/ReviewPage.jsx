@@ -15,13 +15,20 @@ function ReviewPage({ user, onLogout }) {
     storedDeckName ? `${t('review.reviewing')}: ${storedDeckName}` : t('common.loading')
   );
   const [error, setError] = useState('');
+  const [sessionExpired, setSessionExpired] = useState(false);
   const navigate = useNavigate();
+
+  const isSessionError = (err) => {
+    const status = err.response?.status;
+    const msg = (err.response?.data?.error || '').toLowerCase();
+    return status === 401 || (status === 400 && msg.includes('session'));
+  };
 
   const fetchReviewData = async (isMounted) => {
     setError('');
-    setReviewMessage(prev => 
-      prev.startsWith(t('review.reviewing')) 
-        ? prev 
+    setReviewMessage(prev =>
+      prev.startsWith(t('review.reviewing'))
+        ? prev
         : `${t('review.reviewing')}: ${currentDeckName} - ${t('common.loading')}`
     );
 
@@ -41,9 +48,14 @@ function ReviewPage({ user, onLogout }) {
     } catch (err) {
       if (!isMounted) return;
       console.error("Error fetching review data:", err);
-      setError(err.response?.data?.error || t('review.errorLoading'));
-      setCard(null);
-      setReviewMessage(t('review.errorLoadingDeck', { deckName: currentDeckName }));
+      if (isSessionError(err)) {
+        setSessionExpired(true);
+        setCard(null);
+      } else {
+        setError(err.response?.data?.error || t('review.errorLoading'));
+        setCard(null);
+        setReviewMessage(t('review.errorLoadingDeck', { deckName: currentDeckName }));
+      }
     }
   };
 
@@ -68,8 +80,13 @@ function ReviewPage({ user, onLogout }) {
       let isMountedForNext = true;
       fetchReviewData(isMountedForNext);
     } catch (err) {
-      setError(err.response?.data?.error || t('review.errorSubmitting'));
-      setReviewMessage(t('review.errorSubmittingAnswer', { deckName: currentDeckName }));
+      if (isSessionError(err)) {
+        setSessionExpired(true);
+        setCard(null);
+      } else {
+        setError(err.response?.data?.error || t('review.errorSubmitting'));
+        setReviewMessage(t('review.errorSubmittingAnswer', { deckName: currentDeckName }));
+      }
     }
   };
 
@@ -90,10 +107,24 @@ function ReviewPage({ user, onLogout }) {
         </button>
       </div>
 
-      {error && <div className="alert alert-danger mt-3">{error}</div>}
-      {!error && reviewMessage && <p className="text-muted mt-2">{reviewMessage}</p>}
+      {sessionExpired ? (
+        <div className="alert alert-warning mt-3">
+          <p className="mb-2">{t('review.sessionExpired')}</p>
+          <button
+            className="btn btn-primary"
+            onClick={() => { onLogout(); navigate('/'); }}
+          >
+            {t('review.loginAgain')}
+          </button>
+        </div>
+      ) : (
+        <>
+          {error && <div className="alert alert-danger mt-3">{error}</div>}
+          {!error && reviewMessage && <p className="text-muted mt-2">{reviewMessage}</p>}
+        </>
+      )}
 
-      {!error && card && (
+      {!sessionExpired && !error && card && (
         <div className="card mt-3">
           <div className="card-body">
             <h5 className="card-title">{t('cards.front')}</h5>

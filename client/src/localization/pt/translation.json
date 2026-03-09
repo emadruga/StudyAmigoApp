@@ -129,7 +129,9 @@
     "errorSubmitting": "Erro ao enviar a resposta. Por favor, tente novamente.",
     "errorSubmittingAnswer": "Erro ao enviar a resposta para o baralho: {{deckName}}",
     "reviewing": "Revisando",
-    "processingAnswer": "Processando resposta..."
+    "processingAnswer": "Processando resposta...",
+    "sessionExpired": "Sua sessão expirou. Por favor, faça login novamente.",
+    "loginAgain": "Ir para o Login"
   },
   "stats": {
     "title": "Estatísticas do Baralho",

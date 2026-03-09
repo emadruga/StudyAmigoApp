@@ -129,7 +129,9 @@
     "errorSubmitting": "Error al enviar la respuesta. Por favor, inténtalo de nuevo.",
     "errorSubmittingAnswer": "Error al enviar la respuesta para el mazo: {{deckName}}",
     "reviewing": "Repasando",
-    "processingAnswer": "Procesando respuesta..."
+    "processingAnswer": "Procesando respuesta...",
+    "sessionExpired": "Tu sesión ha expirado. Por favor, inicia sesión de nuevo.",
+    "loginAgain": "Ir al Login"
   },
   "stats": {
     "title": "Estadísticas del Mazo",

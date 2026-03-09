@@ -124,7 +124,9 @@
     "errorSubmitting": "Error submitting answer. Please try again.",
     "errorSubmittingAnswer": "Error submitting answer for deck: {{deckName}}",
     "reviewing": "Reviewing",
-    "processingAnswer": "Processing answer..."
+    "processingAnswer": "Processing answer...",
+    "sessionExpired": "Your session has expired. Please log in again.",
+    "loginAgain": "Go to Login"
   },
   "stats": {
     "title": "Deck Statistics",
