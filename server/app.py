@@ -1420,25 +1420,25 @@ def get_next_card():
         # 1. Check for Learning Cards
         nextCardData = _fetchLearningCard(cursor, currentDeckId, now)
         if nextCardData:
-            app.logger.info(f"Found learning card {nextCardData['id']}")
+            app.logger.info(f"User {userId}: found learning card {nextCardData['id']}")
 
         # 2. Check for Due Review Cards
         if not nextCardData:
             nextCardData = _fetchReviewCard(cursor, currentDeckId, dayCutoff)
             if nextCardData:
                 # Log details if a review card (Young or Mature) is fetched
-                app.logger.info(f"Found review card {nextCardData['id']} (queue={nextCardData['queue']}). Card Due: {nextCardData['due']}, Card Interval: {nextCardData['ivl']} days. Current Day Cutoff: {dayCutoff}")
+                app.logger.info(f"User {userId}: found review card {nextCardData['id']} (queue={nextCardData['queue']}). Card Due: {nextCardData['due']}, Card Interval: {nextCardData['ivl']} days. Current Day Cutoff: {dayCutoff}")
 
         # 3. Check for New Cards (respecting limit)
         if not nextCardData:
             if newCardsSeenToday < DAILY_NEW_LIMIT:
                 nextCardData = _fetchNewCard(cursor, currentDeckId)
                 if nextCardData:
-                    app.logger.info(f"Found new card {nextCardData['id']}")
+                    app.logger.info(f"User {userId}: found new card {nextCardData['id']}")
                 else:
-                     app.logger.info("No more new cards available in deck.")
+                     app.logger.info(f"User {userId}: no more new cards available in deck '{deckName}'.")
             else:
-                app.logger.info(f"Daily new card limit ({DAILY_NEW_LIMIT}) reached.")
+                app.logger.info(f"User {userId}: daily new card limit ({DAILY_NEW_LIMIT}) reached for deck '{deckName}'.")
 
         # Format and return card if found
         if nextCardData:
