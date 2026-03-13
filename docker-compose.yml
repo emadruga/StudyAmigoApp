@@ -38,6 +38,20 @@ services:
     networks:
       - flashcard-net
 
+  backup:
+    image: amazon/aws-cli:latest
+    container_name: flashcard_backup
+    entrypoint: ["/bin/bash"]
+    command: ["/app/tools/backup_container.sh"]
+    volumes:
+      # Read-only mount — backup only reads databases, never writes
+      - ./server:/app:ro
+    environment:
+      - PROJECT_NAME=study-amigo
+    restart: unless-stopped
+    networks:
+      - flashcard-net
+
 networks:
   flashcard-net:
     driver: bridge

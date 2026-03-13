@@ -6,91 +6,132 @@ StudyAmigo stores all user data in two SQLite assets on the EC2 instance's root 
 
 | Asset | Purpose |
 |---|---|
-| `server/admin.db` | User credentials, user IDs |
+| `server/admin.db` | User credentials and user IDs |
 | `server/user_dbs/<username>.db` | Per-user flashcard collections (Anki-compatible) |
 
-Because both assets live on the root EBS volume (not a separate data volume), a `terraform destroy` / `terraform apply` cycle **destroys all user data**. This is exactly what happened on 2026-03-13 when the EC2 instance was recreated — all data was lost and had to be restored from a 2-day-old local backup.
+Because both assets live on the root EBS volume, a `terraform destroy` / `terraform apply`
+cycle **destroys all user data**. This happened on 2026-03-13 when the EC2 instance was
+recreated — all data was lost and had to be restored from a 2-day-old local backup.
 
-A manual backup process is also fragile: if the developer's Mac is lost or the local copy is outdated, data cannot be recovered.
+A manual, local-only backup process is also fragile: if the developer's Mac is lost or the
+local copy is outdated, data cannot be recovered.
 
 ---
 
-## 2. Solution: Automated Daily Backup to S3
+## 2. Solution
 
-### 2.1 Architecture
+### 2.1 Overview
 
-```
-EC2 Instance (cron 06:00 UTC = 03:00 BRT)
-    │
-    ├── gzip(admin.db)          → admin.db.gz
-    └── tar.gz(user_dbs/)       → user_dbs.tar.gz
-                │
-                ▼
-        S3 Bucket (AES-256 encrypted, private)
-        s3://study-amigo-backups-<ACCOUNT_ID>/
-            └── backups/
-                ├── week-1/
-                │   ├── monday/
-                │   │   ├── admin.db.gz
-                │   │   ├── user_dbs.tar.gz
-                │   │   └── meta.json
-                │   ├── tuesday/ …
-                │   └── saturday/
-                ├── week-2/ …
-                ├── week-3/ …
-                └── week-4/ …
-```
-
-### 2.2 Rotation Scheme — 4-Week Rolling Window
-
-The backup maintains **28 slots** (4 weeks × 7 days). Each slot is overwritten when the same slot recurs, so storage is capped at 28 compressed backups.
-
-**Slot key:** `backups/week-{1..4}/{day-of-week}/`
-
-**Week-slot calculation:**
+A dedicated `backup` container runs as a sidecar service inside the existing
+`docker-compose.yml`. It starts and stops automatically alongside the application — no
+host-level cron, no manual installation step, no separate deploy procedure.
 
 ```
-Reference Saturday: 2026-03-14 00:00:00 UTC  (epoch 1741910400)
-Days since reference ÷ 7 = weeks elapsed
-(weeks elapsed mod 4) + 1 = current week slot (1–4)
+docker-compose up -d
+    ├── flashcard_server   (Flask/Gunicorn — unchanged)
+    ├── flashcard_client   (Nginx/React    — unchanged)
+    └── flashcard_backup   ← new sidecar
+            │
+            │  on startup:
+            ├─ query AWS STS → derive bucket name from account ID
+            ├─ check bucket reachable
+            │     ├─ NOT reachable → log warning, retry every hour (graceful)
+            │     └─ reachable    → sleep until 06:00 UTC, then backup, loop
+            │
+            └── daily at 06:00 UTC (03:00 BRT):
+                    ├── gzip admin.db       → admin.db.gz
+                    ├── tar.gz user_dbs/    → user_dbs.tar.gz
+                    └── upload both + meta.json → S3
 ```
 
-| Elapsed weeks | Slot | Calendar span |
+### 2.2 Key Design Decisions
+
+**No hardcoded bucket name.** The container derives the bucket name at runtime by calling
+`aws sts get-caller-identity` to get the AWS account ID, then constructing
+`study-amigo-backups-<ACCOUNT_ID>` — exactly the same formula Terraform uses. This means
+no environment variable or config file needs to be updated when the bucket is created.
+
+**Graceful handling of missing bucket.** The Terraform S3 bucket and IAM instance profile
+may not exist yet when the container first starts (e.g. `docker-compose up -d` was run
+before `terraform apply`). The container detects this, logs a clear warning, and retries
+every hour until the bucket becomes reachable. It never crashes.
+
+**No host-level cron.** The backup schedule is managed entirely inside the container using
+a `sleep` loop. This means no SSH, no `install_backup_cron.sh`, no host setup.
+
+**Zero impact on `docker-compose up -d`.** Docker Compose only starts the new `backup`
+service — it leaves `flashcard_server` and `flashcard_client` running and untouched.
+
+### 2.3 Rotation — 4-Week Rolling Window
+
+The backup maintains **28 slots** (4 weeks × 7 days). Each slot is silently overwritten
+when the same slot recurs, so storage cost is capped and never grows unboundedly.
+
+**S3 path structure:**
+```
+s3://study-amigo-backups-<ACCOUNT_ID>/
+    backups/
+        week-1/
+            monday/    { admin.db.gz, user_dbs.tar.gz, meta.json }
+            tuesday/   { … }
+            …
+            sunday/    { … }
+        week-2/ …
+        week-3/ …
+        week-4/ …
+```
+
+**Slot calculation:**
+
+A fixed reference Saturday (2026-03-14 00:00 UTC, epoch `1741910400`) is used as the
+origin. The current week slot is:
+
+```
+days_since_reference = (now_epoch - 1741910400) / 86400
+week_slot = (days_since_reference / 7) mod 4 + 1   →  1, 2, 3, or 4
+```
+
+The slot advances every Saturday at midnight UTC. After 4 weeks the cycle repeats,
+overwriting the oldest matching slot:
+
+| Elapsed weeks | Slot | Example span |
 |---|---|---|
 | 0 | 1 | Mar 14 – Mar 20 2026 |
 | 1 | 2 | Mar 21 – Mar 27 2026 |
 | 2 | 3 | Mar 28 – Apr 03 2026 |
 | 3 | 4 | Apr 04 – Apr 10 2026 |
-| 4 | **1** ← rotation | Apr 11 – Apr 17 2026 |
-| 5 | **2** ← rotation | Apr 18 – Apr 24 2026 |
+| 4 | **1** ← rotates | Apr 11 – Apr 17 2026 |
+| 5 | **2** ← rotates | Apr 18 – Apr 24 2026 |
 
-Every Saturday at midnight UTC the week slot advances. Old backups from the previous cycle in the same slot are silently overwritten.
-
-### 2.3 Storage Estimate
+### 2.4 Storage Estimate
 
 | File | Typical compressed size |
 |---|---|
 | `admin.db.gz` | ~8 KB |
-| `user_dbs.tar.gz` | ~5–15 MB (≈70 users) |
+| `user_dbs.tar.gz` | ~5–15 MB (≈73 users) |
 
-28 slots × ~15 MB ≈ **420 MB maximum**. At S3 standard pricing (~$0.023/GB/month) that is **< $0.01/month**.
+28 slots × ~15 MB ≈ **420 MB maximum** → less than **$0.01/month** on S3 Standard.
 
 ---
 
 ## 3. AWS Infrastructure
 
-All resources are declared in `server/aws_terraform/backup.tf` and managed with Terraform.
+Managed by Terraform in `server/aws_terraform/backup.tf`. Created once with
+`terraform apply` — **does not touch the EC2 instance**.
 
 | Resource | Name | Purpose |
 |---|---|---|
 | `aws_s3_bucket` | `study-amigo-backups-<ACCOUNT>` | Stores all backup archives |
-| `aws_s3_bucket_server_side_encryption_configuration` | — | AES-256 at rest |
-| `aws_s3_bucket_public_access_block` | — | Blocks all public access |
-| `aws_iam_role` | `study-amigo-ec2-backup-role` | EC2 assumes this role |
-| `aws_iam_role_policy` | `study-amigo-s3-backup-policy` | Scoped S3 read/write on the backup bucket only |
-| `aws_iam_instance_profile` | `study-amigo-ec2-instance-profile` | Attaches the role to the EC2 instance |
+| SSE configuration | — | AES-256 encryption at rest |
+| Public access block | — | All public access blocked |
+| `aws_iam_role` | `study-amigo-ec2-backup-role` | Assumed by EC2 via instance profile |
+| `aws_iam_role_policy` | `study-amigo-s3-backup-policy` | S3 read/write on backup bucket only |
+| `aws_iam_instance_profile` | `study-amigo-ec2-instance-profile` | Attaches role to EC2 |
 
-The EC2 instance in `main.tf` now carries `iam_instance_profile`, so **no AWS access keys are stored on the server**. The backup script uses the instance profile credentials automatically via the AWS metadata service.
+The EC2 instance carries `iam_instance_profile` in `main.tf`. **No AWS access keys are
+stored on the server** — the backup container uses the instance profile credentials
+automatically via the EC2 metadata service (`169.254.169.254`), which is reachable from
+inside Docker containers.
 
 ---
 
@@ -98,132 +139,166 @@ The EC2 instance in `main.tf` now carries `iam_instance_profile`, so **no AWS ac
 
 | File | Location | Purpose |
 |---|---|---|
-| `backup.tf` | `server/aws_terraform/` | Terraform — S3 + IAM |
-| `backup.sh` | `server/tools/` | Cron backup script (runs on EC2) |
-| `install_backup_cron.sh` | `server/tools/` | One-time installer (run from Mac) |
+| `backup.tf` | `server/aws_terraform/` | Terraform — S3 bucket + IAM |
+| `backup_container.sh` | `server/tools/` | Backup container entrypoint (loop + backup logic) |
 | `verify_backups.py` | `server/tools/` | Verify all 28 slots in S3 (run from Mac) |
-| `restore_backup.py` | `server/tools/` | Restore a backup (run from Mac or EC2) |
+| `restore_backup.py` | `server/tools/` | Restore a backup from S3 (run from Mac or EC2) |
+| `backup.sh` | `server/tools/` | *(Fallback)* Standalone host-level backup script |
+| `install_backup_cron.sh` | `server/tools/` | *(Fallback)* Manual host cron installer |
+
+> The fallback scripts (`backup.sh`, `install_backup_cron.sh`) are kept for emergency
+> situations where Docker is not available. Under normal operations, the `backup` service
+> in `docker-compose.yml` is the only mechanism in use.
 
 ---
 
 ## 5. Deployment
 
-### Step 1 — Apply Terraform
+### Step 1 — Apply Terraform (one-time, safe)
 
 ```bash
 cd server/aws_terraform
 terraform apply
 ```
 
-This creates the S3 bucket and IAM instance profile, and attaches the profile to the EC2 instance **in-place** (no instance replacement required).
+This creates the S3 bucket and IAM instance profile. It performs an **in-place update**
+to attach the instance profile to the running EC2 instance — **no instance replacement,
+no data loss**.
 
-After apply, note the bucket name:
-
+Confirm the bucket name:
 ```bash
 terraform output backup_bucket
 # → study-amigo-backups-123456789012
 ```
 
-### Step 2 — Install the Cron on the Running Instance
-
-Run `install_backup_cron.sh` once from your Mac:
-
-```bash
-chmod +x server/tools/install_backup_cron.sh
-
-./server/tools/install_backup_cron.sh study-amigo-backups-123456789012
-
-# Override SSH target if needed:
-# EC2_HOST=54.152.109.26 SSH_KEY=~/.ssh/study-amigo-aws \
-#   ./server/tools/install_backup_cron.sh study-amigo-backups-123456789012
-```
-
-This script:
-1. Uploads `backup.sh` to `/opt/studyamigo-backup/backup.sh` on EC2
-2. Writes the bucket name to `/opt/studyamigo-backup/env`
-3. Installs a cron entry: `0 6 * * *` (06:00 UTC = 03:00 BRT)
-4. Verifies the IAM instance profile is working
-
-### Step 3 — Trigger a Manual Test Run
+### Step 2 — Pull latest code on EC2 and restart compose
 
 ```bash
 ssh -i ~/.ssh/study-amigo-aws ubuntu@54.152.109.26 \
-  'source /opt/studyamigo-backup/env && /opt/studyamigo-backup/backup.sh'
+  "cd /opt/study-amigo && \
+   sudo git pull origin main && \
+   sudo docker compose up -d"
 ```
 
-Check the log:
+Docker Compose will:
+- Leave `flashcard_server` and `flashcard_client` **running and untouched**
+- Create and start the new `flashcard_backup` container
+
+That's it. No further steps required.
+
+### Step 3 — Verify the backup container started
 
 ```bash
 ssh -i ~/.ssh/study-amigo-aws ubuntu@54.152.109.26 \
-  'tail -50 /var/log/studyamigo-backup.log'
+  "sudo docker compose ps"
 ```
 
-### Step 4 — Verify on S3
+Expected output:
+```
+NAME                IMAGE                  STATUS
+flashcard_client    study-amigo-client     Up
+flashcard_server    study-amigo-server     Up
+flashcard_backup    amazon/aws-cli         Up
+```
+
+Watch the startup log:
+```bash
+ssh -i ~/.ssh/study-amigo-aws ubuntu@54.152.109.26 \
+  "sudo docker compose logs --tail=20 backup"
+```
+
+If the bucket is reachable you will see:
+```
+[backup] 2026-03-14 06:05:11 UTC Backup bucket: study-amigo-backups-123456789012
+[backup] 2026-03-14 06:05:11 UTC Bucket OK. Next backup at 2026-03-15 06:00 UTC (sleeping 86089 s).
+```
+
+If Terraform has not been applied yet:
+```
+[backup] 2026-03-14 06:05:11 UTC WARNING: Bucket 'study-amigo-backups-123456789012' is not reachable
+         (may not exist yet — run terraform apply). Retrying in 1 h.
+```
+→ Run `terraform apply`, wait up to 1 hour, the container will recover automatically.
+
+### Step 4 — Trigger a manual backup to smoke-test
 
 ```bash
-pip install boto3          # one-time
-python3 server/tools/verify_backups.py \
-  --bucket study-amigo-backups-123456789012 \
-  --profile study-amigo
+ssh -i ~/.ssh/study-amigo-aws ubuntu@54.152.109.26 \
+  "sudo docker compose exec backup \
+     sh -c 'BACKUP_BUCKET_OVERRIDE=study-amigo-backups-123456789012 \
+            PROJECT_NAME=study-amigo \
+            /app/tools/backup_container.sh'"
 ```
+
+Or simply wait until 06:00 UTC and check the logs.
 
 ---
 
-## 6. `verify_backups.py` — Usage
+## 6. Monitoring Backups
 
-Prints a 28-row status grid showing the state of every backup slot.
-
-```
-Usage: python3 server/tools/verify_backups.py --bucket BUCKET [options]
-
-Options:
-  --bucket BUCKET       S3 bucket name (required)
-  --profile PROFILE     AWS CLI profile (default: instance profile / AWS_PROFILE)
-  --region  REGION      AWS region (default: us-east-1)
-  --verify-integrity    Download each archive and verify gzip/tar integrity (slower)
+### View live backup logs
+```bash
+ssh -i ~/.ssh/study-amigo-aws ubuntu@54.152.109.26 \
+  "sudo docker compose logs -f backup"
 ```
 
-### Example output
+### Verify all 28 slots from your Mac
+```bash
+pip install boto3   # one-time
 
+python3 server/tools/verify_backups.py \
+    --bucket study-amigo-backups-123456789012 \
+    --profile study-amigo
+```
+
+Example output:
 ```
 StudyAmigo Backup Verifier
 Bucket : study-amigo-backups-123456789012
 
 Slot                             Status       admin.db.gz  user_dbs.tar.gz  Age                Timestamp
-──────────────────────────────────────────────────────────────────────────────────────────────────────────────
-  week-1/monday                  OK                  8 KB          12 MB    0 d 3 h ago        2026-03-17T06:00:02Z  (73 user dbs)
-  week-1/tuesday                 OK                  8 KB          12 MB    1 d 3 h ago        2026-03-16T06:00:01Z  (73 user dbs)
+──────────────────────────────────────────────────────────────────────────────────────────────────────────
+  week-1/monday                  OK                  8 KB          12 MB    1 d 3 h ago        2026-03-16T06:00:01Z  (73 user dbs)
+  week-1/tuesday                 OK                  8 KB          12 MB    0 d 3 h ago        2026-03-17T06:00:02Z  (73 user dbs)
   week-1/wednesday               EMPTY
   …
 ► week-1/friday                  OK                  8 KB          12 MB    2 h 1 min ago      2026-03-13T06:00:03Z  (73 user dbs)
   week-1/saturday                EMPTY
   week-1/sunday                  EMPTY
 
-  week-2/monday                  EMPTY
-  …
+  week-2/ …
 ```
 
-`►` marks the current slot. `EMPTY` means no backup has run for that slot yet (expected during the first 4 weeks). `PARTIAL` means some files uploaded but others are missing (indicates a failed backup run).
+`►` marks the current active slot. `EMPTY` is expected for slots that haven't run yet.
+`PARTIAL` means a backup run was interrupted mid-upload.
+
+With integrity checking (downloads and validates each archive):
+```bash
+python3 server/tools/verify_backups.py \
+    --bucket study-amigo-backups-123456789012 \
+    --profile study-amigo \
+    --verify-integrity
+```
 
 ---
 
-## 7. `restore_backup.py` — Usage
-
-Two modes: **LOCAL** (run on the EC2 instance itself) and **REMOTE** (orchestrated over SSH from your Mac).
+## 7. Restoring a Backup
 
 ### 7.1 List available backups
 
+**From your Mac:**
 ```bash
-# From Mac (remote)
 python3 server/tools/restore_backup.py \
-  --bucket study-amigo-backups-123456789012 \
-  --profile study-amigo \
-  --list
+    --bucket study-amigo-backups-123456789012 \
+    --profile study-amigo \
+    --list
+```
 
-# From EC2 (local)
+**From EC2 (uses instance profile — no `--profile` needed):**
+```bash
 python3 /opt/study-amigo/server/tools/restore_backup.py \
-  --bucket study-amigo-backups-123456789012 \
-  --list
+    --bucket study-amigo-backups-123456789012 \
+    --list
 ```
 
 Output:
@@ -240,92 +315,70 @@ Output:
 ```bash
 ssh -i ~/.ssh/study-amigo-aws ubuntu@54.152.109.26
 
-# Once on EC2:
-
-# Restore latest backup
+# Restore the latest backup
 python3 /opt/study-amigo/server/tools/restore_backup.py \
-  --bucket study-amigo-backups-123456789012 \
-  --latest
+    --bucket study-amigo-backups-123456789012 \
+    --latest
 
 # Restore a specific slot
 python3 /opt/study-amigo/server/tools/restore_backup.py \
-  --bucket study-amigo-backups-123456789012 \
-  --week 1 --day friday
+    --bucket study-amigo-backups-123456789012 \
+    --week 1 --day friday
 
-# Dry run (no changes)
+# Preview without making changes
 python3 /opt/study-amigo/server/tools/restore_backup.py \
-  --bucket study-amigo-backups-123456789012 \
-  --latest --dry-run
+    --bucket study-amigo-backups-123456789012 \
+    --latest --dry-run
 ```
 
-The script will:
-1. Download selected backup from S3 to a temp directory on EC2
-2. Save the current databases to `/tmp/studyamigo-pre-restore/` (safety copy)
-3. Stop the `flashcard_server` Docker container
-4. Decompress `admin.db.gz` → `server/admin.db`
-5. Extract `user_dbs.tar.gz` → `server/user_dbs/`
-6. Fix ownership (`ubuntu:ubuntu`)
-7. Start the `flashcard_server` container
-8. Verify it is running
+The restore process:
+1. Downloads selected backup from S3 to a temp directory on EC2
+2. Saves current databases to `/tmp/studyamigo-pre-restore/` (safety snapshot)
+3. Stops `flashcard_server` container
+4. Decompresses `admin.db.gz` → `server/admin.db`
+5. Extracts `user_dbs.tar.gz` → `server/user_dbs/`
+6. Fixes ownership (`ubuntu:ubuntu`)
+7. Starts `flashcard_server` container
+8. Verifies the container is running
 
 ### 7.3 Restore — REMOTE mode (from Mac)
 
 ```bash
 python3 server/tools/restore_backup.py \
-  --bucket study-amigo-backups-123456789012 \
-  --profile study-amigo \
-  --remote \
-  --host 54.152.109.26 \
-  --ssh-key ~/.ssh/study-amigo-aws \
-  --latest
+    --bucket study-amigo-backups-123456789012 \
+    --profile study-amigo \
+    --remote \
+    --host 54.152.109.26 \
+    --ssh-key ~/.ssh/study-amigo-aws \
+    --latest
 ```
-
-Same steps as local mode, but orchestrated over SSH from your Mac. Requires `boto3` installed on the Mac.
 
 ### 7.4 Safety features
 
-- **Pre-restore snapshot**: current databases are always copied to `/tmp/studyamigo-pre-restore/` before any changes, so you can manually roll back if needed.
-- **Confirmation prompt**: the script asks you to type `yes` before making any changes (skipped with `--dry-run`).
-- **Tar path filtering**: only `user_dbs/` entries are extracted from the tar archive — no path traversal possible.
+- **Pre-restore snapshot** — current databases are always saved to
+  `/tmp/studyamigo-pre-restore/` before any changes. Manual rollback is possible.
+- **Confirmation prompt** — type `yes` to proceed; `--dry-run` skips all changes.
+- **Tar path filtering** — only `user_dbs/` entries are extracted; no path traversal.
 
 ---
 
-## 8. Log File
-
-All backup runs are appended to `/var/log/studyamigo-backup.log` on the EC2 instance.
-
-```bash
-# View last backup run
-ssh -i ~/.ssh/study-amigo-aws ubuntu@54.152.109.26 \
-  'tail -30 /var/log/studyamigo-backup.log'
-```
-
-A successful run looks like:
+## 8. Successful Backup Log (Reference)
 
 ```
-[2026-03-14 06:00:02 UTC] ================================================================
-[2026-03-14 06:00:02 UTC] StudyAmigo backup starting
-[2026-03-14 06:00:02 UTC]   Week slot : 1/4
-[2026-03-14 06:00:02 UTC]   Day       : saturday
-[2026-03-14 06:00:02 UTC]   S3 target : s3://study-amigo-backups-123456789012/backups/week-1/saturday
-[2026-03-14 06:00:02 UTC] ================================================================
-[2026-03-14 06:00:03 UTC] Compressing admin.db...
-[2026-03-14 06:00:03 UTC]   admin.db.gz : 8.0K
-[2026-03-14 06:00:03 UTC] Compressing user_dbs/...
-[2026-03-14 06:00:05 UTC]   user_dbs.tar.gz : 12M (73 databases)
-[2026-03-14 06:00:05 UTC] Uploading to S3...
-[2026-03-14 06:00:07 UTC] ================================================================
-[2026-03-14 06:00:07 UTC] Backup complete: s3://study-amigo-backups-123456789012/backups/week-1/saturday
-[2026-03-14 06:00:07 UTC] ================================================================
+[backup] 2026-03-14 06:00:01 UTC === Backup starting: week-1/saturday → s3://study-amigo-backups-123456789012/backups/week-1/saturday ===
+[backup] 2026-03-14 06:00:02 UTC   Compressing admin.db...
+[backup] 2026-03-14 06:00:02 UTC   Compressing user_dbs/...
+[backup] 2026-03-14 06:00:05 UTC   Uploading (admin: 8.0K, user_dbs: 12M, 73 dbs)...
+[backup] 2026-03-14 06:00:08 UTC === Backup complete: s3://study-amigo-backups-123456789012/backups/week-1/saturday ===
+[backup] 2026-03-14 06:00:08 UTC Bucket OK. Next backup at 2026-03-15 06:00 UTC (sleeping 86392 s).
 ```
 
 ---
 
-## 9. Future Enhancements (Recommended)
+## 9. Future Enhancements
 
 | Enhancement | Benefit |
 |---|---|
-| Separate EBS data volume for `user_dbs/` + `admin.db` | EC2 can be replaced without losing data |
-| SNS/SES alert on backup failure | Immediate notification if cron backup fails |
-| Add backup installation to `user_data.sh` | New instances automatically get cron backup without manual `install_backup_cron.sh` |
-| AWS Backup service | Managed solution with cross-region copy and compliance controls |
+| Separate EBS data volume for `server/` databases | EC2 can be replaced without touching user data |
+| SNS/SES alert when backup container exits unexpectedly | Immediate notification of backup failure |
+| Cross-region S3 replication | Protects against full AWS region outage |
