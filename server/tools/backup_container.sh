@@ -56,9 +56,11 @@ get_bucket() {
 
 # ---------------------------------------------------------------------------
 # Returns 0 if the bucket exists and we have access, 1 otherwise.
+# Note: 'aws s3 ls' does not support --max-items (that flag is s3api-only).
+#       An empty bucket returns exit 0 with no output — that is success.
 # ---------------------------------------------------------------------------
 bucket_reachable() {
-  aws s3 ls "s3://$1" --max-items 1 > /dev/null 2>&1
+  aws s3 ls "s3://$1" > /dev/null 2>&1
 }
 
 # ---------------------------------------------------------------------------
