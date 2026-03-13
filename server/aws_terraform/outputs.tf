@@ -31,3 +31,13 @@ output "ami_id" {
   description = "AMI ID used for the instance (useful for Reserved Instance matching)"
   value       = data.aws_ami.ubuntu.id
 }
+
+output "backup_bucket" {
+  description = "S3 bucket name for database backups"
+  value       = aws_s3_bucket.backups.id
+}
+
+output "backup_bucket_arn" {
+  description = "S3 bucket ARN for database backups"
+  value       = aws_s3_bucket.backups.arn
+}

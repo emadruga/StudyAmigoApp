@@ -20,7 +20,8 @@ terraform {
 # Provider
 # -----------------------------------------------------------------------------
 provider "aws" {
-  region = var.aws_region
+  region  = var.aws_region
+  profile = var.aws_profile
 }
 
 # -----------------------------------------------------------------------------
@@ -160,6 +161,7 @@ resource "aws_instance" "study_amigo" {
   key_name               = aws_key_pair.deployer.key_name
   vpc_security_group_ids = [aws_security_group.study_amigo.id]
   subnet_id              = aws_subnet.public.id
+  iam_instance_profile   = aws_iam_instance_profile.ec2_backup.name
 
   root_block_device {
     volume_size           = var.ebs_volume_size
