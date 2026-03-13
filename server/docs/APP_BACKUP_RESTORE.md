@@ -171,13 +171,18 @@ terraform output backup_bucket
 # → study-amigo-backups-123456789012
 ```
 
-### Step 2 — Pull latest code on EC2 and restart compose
+### Step 2 — Pull latest code on EC2 and bring up the new service
+
+> **Important:** All `docker compose` commands on the EC2 must include
+> `-f /opt/study-amigo/docker-compose.yml`. SSH sessions start in the home
+> directory, not the app directory, so compose cannot find its file without
+> the explicit `-f` flag.
 
 ```bash
 ssh -i ~/.ssh/study-amigo-aws ubuntu@54.152.109.26 \
   "cd /opt/study-amigo && \
    sudo git pull origin main && \
-   sudo docker compose up -d"
+   sudo docker compose -f /opt/study-amigo/docker-compose.yml up -d"
 ```
 
 Docker Compose will:
@@ -190,7 +195,7 @@ That's it. No further steps required.
 
 ```bash
 ssh -i ~/.ssh/study-amigo-aws ubuntu@54.152.109.26 \
-  "sudo docker compose ps"
+  "sudo docker compose -f /opt/study-amigo/docker-compose.yml ps"
 ```
 
 Expected output:
@@ -204,7 +209,7 @@ flashcard_backup    amazon/aws-cli         Up
 Watch the startup log:
 ```bash
 ssh -i ~/.ssh/study-amigo-aws ubuntu@54.152.109.26 \
-  "sudo docker compose logs --tail=20 backup"
+  "sudo docker compose -f /opt/study-amigo/docker-compose.yml logs --tail=20 backup"
 ```
 
 If the bucket is reachable you will see:
@@ -218,16 +223,19 @@ If Terraform has not been applied yet:
 [backup] 2026-03-14 06:05:11 UTC WARNING: Bucket 'study-amigo-backups-123456789012' is not reachable
          (may not exist yet — run terraform apply). Retrying in 1 h.
 ```
-→ Run `terraform apply`, wait up to 1 hour, the container will recover automatically.
+→ Run `terraform apply`, then restart the container (see Diagnostics §9). It will recover immediately.
 
 ### Step 4 — Trigger a manual backup to smoke-test
 
+Force a backup right now without waiting for 06:00 UTC by temporarily overriding
+the bucket name and running the script directly:
+
 ```bash
 ssh -i ~/.ssh/study-amigo-aws ubuntu@54.152.109.26 \
-  "sudo docker compose exec backup \
-     sh -c 'BACKUP_BUCKET_OVERRIDE=study-amigo-backups-123456789012 \
-            PROJECT_NAME=study-amigo \
-            /app/tools/backup_container.sh'"
+  "sudo docker exec flashcard_backup bash -c \
+   'BACKUP_BUCKET_OVERRIDE=study-amigo-backups-645069181643 \
+    PROJECT_NAME=study-amigo \
+    bash /app/tools/backup_container.sh'"
 ```
 
 Or simply wait until 06:00 UTC and check the logs.
@@ -239,7 +247,7 @@ Or simply wait until 06:00 UTC and check the logs.
 ### View live backup logs
 ```bash
 ssh -i ~/.ssh/study-amigo-aws ubuntu@54.152.109.26 \
-  "sudo docker compose logs -f backup"
+  "sudo docker compose -f /opt/study-amigo/docker-compose.yml logs -f backup"
 ```
 
 ### Verify all 28 slots from your Mac
@@ -375,7 +383,63 @@ python3 server/tools/restore_backup.py \
 
 ---
 
-## 9. Future Enhancements
+## 9. Diagnostics
+
+### Check all three containers are running
+```bash
+ssh -i ~/.ssh/study-amigo-aws ubuntu@54.152.109.26 \
+  "sudo docker compose -f /opt/study-amigo/docker-compose.yml ps"
+```
+
+### Tail backup container logs (live)
+```bash
+ssh -i ~/.ssh/study-amigo-aws ubuntu@54.152.109.26 \
+  "sudo docker compose -f /opt/study-amigo/docker-compose.yml logs --tail=30 backup"
+```
+
+### Restart the backup container
+Needed after `terraform apply` (to pick up the new instance profile) or after
+any change to `backup_container.sh`:
+```bash
+ssh -i ~/.ssh/study-amigo-aws ubuntu@54.152.109.26 \
+  "sudo docker compose -f /opt/study-amigo/docker-compose.yml restart backup && \
+   sleep 6 && \
+   sudo docker compose -f /opt/study-amigo/docker-compose.yml logs --tail=10 backup"
+```
+
+### Verify IAM credentials inside the container
+If the bucket is reported as unreachable, confirm credentials first:
+```bash
+ssh -i ~/.ssh/study-amigo-aws ubuntu@54.152.109.26 \
+  "sudo docker exec flashcard_backup aws sts get-caller-identity"
+```
+Expected: JSON with the `study-amigo-ec2-backup-role` ARN. If this fails,
+the IAM instance profile is not attached — run `terraform apply`.
+
+### Test S3 access directly (bypasses the script)
+If credentials are confirmed but the container still reports "not reachable",
+run the S3 command manually to see the raw error:
+```bash
+ssh -i ~/.ssh/study-amigo-aws ubuntu@54.152.109.26 \
+  "sudo docker exec flashcard_backup \
+   aws s3 ls s3://study-amigo-backups-645069181643 2>&1"
+```
+- **Empty output** = bucket is accessible and empty — this is success (exit 0)
+- **`NoSuchBucket`** = bucket not created yet — run `terraform apply`
+- **`AccessDenied`** = IAM policy missing or wrong bucket name
+- **`Unknown options: --max-items`** = old version of script, pull latest code
+
+### Pull latest code and restart without rebuilding images
+```bash
+ssh -i ~/.ssh/study-amigo-aws ubuntu@54.152.109.26 \
+  "cd /opt/study-amigo && \
+   sudo git pull origin main && \
+   sudo docker compose -f /opt/study-amigo/docker-compose.yml restart backup"
+```
+
+---
+
+## 10. Future Enhancements
 
 | Enhancement | Benefit |
 |---|---|
