@@ -32,6 +32,15 @@ PROJECT_NAME="${PROJECT_NAME:-study-amigo}"
 APP_DIR="/app"    # bind-mounted from ./server on the host
 
 # ---------------------------------------------------------------------------
+# The amazon/aws-cli image is minimal Amazon Linux — gzip and tar are not
+# pre-installed.  Install them once on container startup if missing.
+# ---------------------------------------------------------------------------
+if ! command -v gzip &>/dev/null || ! command -v tar &>/dev/null; then
+  echo "[backup] Installing missing tools (gzip, tar)..."
+  yum install -y gzip tar > /dev/null 2>&1
+fi
+
+# ---------------------------------------------------------------------------
 log() {
   echo "[backup] $(date -u '+%Y-%m-%d %H:%M:%S UTC') $*"
 }
