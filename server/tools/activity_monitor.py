@@ -177,11 +177,17 @@ def _derive_bucket(profile: Optional[str], region: str) -> str:
 def _list_s3_backups(s3, bucket: str) -> List[Dict]:
     """
     Return a list of available backup slot dicts, sorted newest-first.
-    Each dict has keys: week, day, timestamp, user_db_count, last_modified.
+    Each dict has keys: week, day, timestamp, user_db_count, last_modified,
+    complete (bool — True when both admin.db.gz and user_dbs.tar.gz exist
+    and are non-empty).
     """
     from botocore.exceptions import ClientError
 
-    slots: List[Dict] = []
+    # First pass: collect all objects keyed by slot prefix
+    slot_objects: Dict[str, Dict] = {}   # "week-N/day" -> {filename: size}
+    slot_meta: Dict[str, Dict]    = {}   # "week-N/day" -> meta dict
+    slot_mtime: Dict[str, object] = {}   # "week-N/day" -> LastModified
+
     try:
         paginator = s3.get_paginator("list_objects_v2")
         pages = paginator.paginate(Bucket=bucket, Prefix="backups/")
@@ -194,10 +200,10 @@ def _list_s3_backups(s3, bucket: str) -> List[Dict]:
     for page in pages:
         for obj in page.get("Contents", []):
             parts = obj["Key"].split("/")
-            # Expect: backups / week-N / day / meta.json
-            if len(parts) != 4 or parts[3] != "meta.json":
+            # Expect: backups / week-N / day / filename
+            if len(parts) != 4:
                 continue
-            _, week_part, day, _ = parts
+            _, week_part, day, fname = parts
             try:
                 week = int(week_part.split("-")[1])
             except (IndexError, ValueError):
@@ -205,19 +211,40 @@ def _list_s3_backups(s3, bucket: str) -> List[Dict]:
             if week not in WEEK_SLOTS or day not in DAYS_OF_WEEK:
                 continue
 
-            try:
-                resp = s3.get_object(Bucket=bucket, Key=obj["Key"])
-                meta = json.loads(resp["Body"].read())
-            except Exception:
-                meta = {}
+            slot_key = f"week-{week}/{day}"
+            slot_objects.setdefault(slot_key, {})
+            slot_objects[slot_key][fname] = obj["Size"]
 
-            slots.append({
-                "week":          week,
-                "day":           day,
-                "timestamp":     meta.get("timestamp", "unknown"),
-                "user_db_count": meta.get("user_db_count", "?"),
-                "last_modified": obj["LastModified"],
-            })
+            if fname == "meta.json":
+                slot_mtime[slot_key] = obj["LastModified"]
+                try:
+                    resp = s3.get_object(Bucket=bucket, Key=obj["Key"])
+                    slot_meta[slot_key] = json.loads(resp["Body"].read())
+                except Exception:
+                    slot_meta[slot_key] = {}
+
+    slots: List[Dict] = []
+    for slot_key, files in slot_objects.items():
+        if "meta.json" not in files:
+            continue   # slot has no meta.json — ignore
+        week_str, day = slot_key.split("/")
+        week = int(week_str.split("-")[1])
+        meta = slot_meta.get(slot_key, {})
+
+        admin_size = files.get("admin.db.gz", 0)
+        udb_size   = files.get("user_dbs.tar.gz", 0)
+        complete   = admin_size > 0 and udb_size > 0
+
+        slots.append({
+            "week":          week,
+            "day":           day,
+            "timestamp":     meta.get("timestamp", "unknown"),
+            "user_db_count": meta.get("user_db_count", "?"),
+            "last_modified": slot_mtime.get(slot_key),
+            "complete":      complete,
+            "admin_size":    admin_size,
+            "udb_size":      udb_size,
+        })
 
     slots.sort(key=lambda x: x["last_modified"], reverse=True)
     return slots
@@ -227,11 +254,15 @@ def _print_s3_listing(slots: List[Dict]) -> None:
     if not slots:
         print("  (Nenhum backup encontrado no bucket.)")
         return
-    print(f"\n  {'#':<4} {'Slot':<22} {'Timestamp (UTC)':<24} {'BDs':>5}")
-    print(f"  {'─'*60}")
+    print(f"\n  {'#':<4} {'Slot':<22} {'Timestamp (UTC)':<24} {'BDs':>5}  {'Status'}")
+    print(f"  {'─'*65}")
     for i, s in enumerate(slots, 1):
-        slot = f"week-{s['week']}/{s['day']}"
-        print(f"  {i:<4} {slot:<22} {s['timestamp']:<24} {str(s['user_db_count']):>5}")
+        slot   = f"week-{s['week']}/{s['day']}"
+        status = "OK" if s["complete"] else "INCOMPLETO"
+        print(
+            f"  {i:<4} {slot:<22} {s['timestamp']:<24} "
+            f"{str(s['user_db_count']):>5}  {status}"
+        )
     print()
 
 
@@ -244,7 +275,7 @@ def _resolve_s3_slot(
 ) -> Dict:
     """
     Pick a slot from the available list according to the CLI flags.
-    Returns the selected slot dict.
+    Returns the selected slot dict (may be incomplete — caller validates).
     """
     if not slots:
         sys.exit("Nenhum backup encontrado no S3.")
@@ -318,7 +349,36 @@ def fetch_from_s3(
 
     sel = _resolve_s3_slot(slots, latest, week, day, list_slots)
     w, d = sel["week"], sel["day"]
-    print(f"  Backup selecionado: week-{w}/{d}  ({sel['timestamp']})")
+
+    # ── Validate slot completeness ────────────────────────────────────────
+    if not sel["complete"]:
+        slot_label = f"week-{w}/{d}"
+        if week is not None and day is not None:
+            # User explicitly requested this slot — abort clearly
+            print(
+                f"\n  ERRO: O slot {slot_label} está incompleto "
+                f"(admin.db.gz: {sel['admin_size']} bytes, "
+                f"user_dbs.tar.gz: {sel['udb_size']} bytes).\n"
+                "  O backup pode ter falhado no meio. "
+                "Use --list-slots para ver os slots disponíveis.",
+                file=sys.stderr,
+            )
+            return None
+
+        # Auto-select: skip this slot and look for the first complete one
+        print(
+            f"  Aviso: slot {slot_label} está incompleto "
+            f"(admin: {sel['admin_size']} B, user_dbs: {sel['udb_size']} B) — ignorando."
+        )
+        complete_slots = [s for s in slots if s["complete"]]
+        if not complete_slots:
+            print("  Nenhum slot completo encontrado no bucket.")
+            return None
+        sel = complete_slots[0]
+        w, d = sel["week"], sel["day"]
+        print(f"  Usando próximo slot completo: week-{w}/{d}  ({sel['timestamp']})")
+    else:
+        print(f"  Backup selecionado: week-{w}/{d}  ({sel['timestamp']})")
 
     # ── Download archives ─────────────────────────────────────────────────
     for fname in ("admin.db.gz", "user_dbs.tar.gz"):
