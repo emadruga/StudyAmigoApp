@@ -2,6 +2,12 @@
 # StudyAmigo - Terraform Variables
 # =============================================================================
 
+variable "aws_profile" {
+  description = "AWS CLI profile to use for authentication"
+  type        = string
+  default     = "default"
+}
+
 variable "project_name" {
   description = "Project name used for tagging and naming AWS resources"
   type        = string
