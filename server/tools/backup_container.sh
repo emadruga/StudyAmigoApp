@@ -120,21 +120,32 @@ run_backup() {
   # shellcheck disable=SC2064
   trap "rm -rf ${tmp}" RETURN
 
-  # Compress admin.db
+  # ── Compress admin.db ────────────────────────────────────────────────────
   log "  Compressing admin.db..."
-  gzip -c "${APP_DIR}/admin.db" > "${tmp}/admin.db.gz"
+  gzip -c "${APP_DIR}/admin.db" > "${tmp}/admin.db.gz" \
+    || { log "ERROR: gzip failed for admin.db. Aborting."; return 1; }
+  if [[ ! -s "${tmp}/admin.db.gz" ]]; then
+    log "ERROR: admin.db.gz is empty after compression (source may be empty or unreadable). Aborting."
+    return 1
+  fi
   local adm_size
   adm_size=$(du -sh "${tmp}/admin.db.gz" | cut -f1)
 
-  # Compress user_dbs/
+  # ── Compress user_dbs/ ───────────────────────────────────────────────────
   log "  Compressing user_dbs/..."
+  # Count both .db and .anki2 files (the app uses the .anki2 extension)
   local db_count
-  db_count=$(find "${APP_DIR}/user_dbs" -name "*.db" | wc -l | tr -d ' ')
-  tar -czf "${tmp}/user_dbs.tar.gz" -C "${APP_DIR}" user_dbs
+  db_count=$(find "${APP_DIR}/user_dbs" \( -name "*.db" -o -name "*.anki2" \) | wc -l | tr -d ' ')
+  tar -czf "${tmp}/user_dbs.tar.gz" -C "${APP_DIR}" user_dbs \
+    || { log "ERROR: tar failed for user_dbs/. Aborting."; return 1; }
+  if [[ ! -s "${tmp}/user_dbs.tar.gz" ]]; then
+    log "ERROR: user_dbs.tar.gz is empty after compression. Aborting."
+    return 1
+  fi
   local udb_size
   udb_size=$(du -sh "${tmp}/user_dbs.tar.gz" | cut -f1)
 
-  # Metadata
+  # ── Write metadata ───────────────────────────────────────────────────────
   cat > "${tmp}/meta.json" <<EOF
 {
   "timestamp":                "${ts}",
@@ -148,11 +159,14 @@ run_backup() {
 }
 EOF
 
-  # Upload
+  # ── Upload (all-or-nothing: abort on any failure) ────────────────────────
   log "  Uploading (admin: ${adm_size}, user_dbs: ${udb_size}, ${db_count} dbs)..."
-  aws s3 cp "${tmp}/admin.db.gz"     "${s3_prefix}/admin.db.gz"     --sse AES256 --only-show-errors
-  aws s3 cp "${tmp}/user_dbs.tar.gz" "${s3_prefix}/user_dbs.tar.gz" --sse AES256 --only-show-errors
-  aws s3 cp "${tmp}/meta.json"       "${s3_prefix}/meta.json"                     --only-show-errors
+  aws s3 cp "${tmp}/admin.db.gz"     "${s3_prefix}/admin.db.gz"     --sse AES256 --only-show-errors \
+    || { log "ERROR: Failed to upload admin.db.gz. Aborting."; return 1; }
+  aws s3 cp "${tmp}/user_dbs.tar.gz" "${s3_prefix}/user_dbs.tar.gz" --sse AES256 --only-show-errors \
+    || { log "ERROR: Failed to upload user_dbs.tar.gz. Aborting."; return 1; }
+  aws s3 cp "${tmp}/meta.json"       "${s3_prefix}/meta.json"                     --only-show-errors \
+    || { log "ERROR: Failed to upload meta.json. Aborting."; return 1; }
 
   log "=== Backup complete: ${s3_prefix} ==="
 }
@@ -192,7 +206,8 @@ while true; do
   sleep "$secs"
 
   # Step 4 — run backup; on failure log and continue (never crash the loop)
-  run_backup "$BUCKET" \
-    || log "WARNING: Backup run failed. Will retry at the next scheduled time."
+  if ! run_backup "$BUCKET"; then
+    log "WARNING: Backup run failed. Will retry at the next scheduled time."
+  fi
 
 done
