@@ -3,12 +3,14 @@ client/node_modules/
 client/dist/ # Vite build output (if you build for production)
 client/.vite/ # Vite cache
 
-# Python Virtual Environment (Server)
+# Python Virtual Environments
 server/server_venv/
 javumbo/
-# Add other common venv names if you use them, e.g.
-# venv/
-# .venv/
+venv/
+.venv/
+**/venv/
+**/.venv/
+*_venv/
 
 # Python Cache
 server/__pycache__/
