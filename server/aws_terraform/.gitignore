@@ -27,6 +27,7 @@ crash.*.log
 
 # Terraform output captures (may contain IPs and instance IDs)
 outputs.txt
+*.txt
 
 # Override files (used for local testing)
 override.tf

@@ -1,0 +1,514 @@
+{
+  "version": "1.0",
+  "description": "Mid-E01 Prep Exam Question Bank — Verbal Tenses",
+  "date": "2026-03-16",
+  "structure": {
+    "tier1_questions": 10,
+    "tier2_additional_questions": 10,
+    "total_questions": 20,
+    "tier1_max_score": 10,
+    "tier2_max_score": 20
+  },
+  "questions": [
+    {
+      "id": "T1_SP_001",
+      "tier": 1,
+      "order": 1,
+      "type": "sentence_completion",
+      "tense": "Simple Present",
+      "tense_aspect": "affirmative",
+      "card_source": "She plays tennis every weekend.",
+      "question_text": "She _____ tennis every weekend.",
+      "options": [
+        { "text": "play", "is_correct": false },
+        { "text": "plays", "is_correct": true },
+        { "text": "played", "is_correct": false },
+        { "text": "playing", "is_correct": false }
+      ],
+      "point_value": 1,
+      "rationale": "Tests 3rd person singular -s rule in Simple Present affirmative. Directly mapped to a card the student has reviewed.",
+      "distractor_rationale": {
+        "a": "Base form — correct for I/you/we/they but not he/she/it",
+        "c": "Simple Past form — confuses tense",
+        "d": "Present participle — no auxiliary, not a valid simple present"
+      },
+      "instruction_pt": "Complete a frase com a forma correta do verbo.",
+      "status": "active"
+    },
+    {
+      "id": "T1_SP_002",
+      "tier": 1,
+      "order": 2,
+      "type": "sentence_completion",
+      "tense": "Simple Present",
+      "tense_aspect": "negative",
+      "card_source": "He does not (doesn't) own a car.",
+      "question_text": "He _____ own a car.",
+      "options": [
+        { "text": "don't", "is_correct": false },
+        { "text": "isn't", "is_correct": false },
+        { "text": "doesn't", "is_correct": true },
+        { "text": "hasn't", "is_correct": false }
+      ],
+      "point_value": 1,
+      "rationale": "Tests correct auxiliary for 3rd person singular negative in Simple Present (does not / doesn't).",
+      "distractor_rationale": {
+        "a": "don't — correct for I/you/we/they, not he/she/it",
+        "b": "isn't — auxiliary for Present Continuous, wrong tense",
+        "d": "hasn't — auxiliary for Present Perfect, wrong tense"
+      },
+      "instruction_pt": "Complete a frase com a forma correta do verbo.",
+      "status": "active"
+    },
+    {
+      "id": "T1_SP_003",
+      "tier": 1,
+      "order": 3,
+      "type": "sentence_completion",
+      "tense": "Simple Present",
+      "tense_aspect": "question",
+      "card_source": "Does she work here?",
+      "question_text": "_____ she work here?",
+      "options": [
+        { "text": "Is", "is_correct": false },
+        { "text": "Does", "is_correct": true },
+        { "text": "Do", "is_correct": false },
+        { "text": "Has", "is_correct": false }
+      ],
+      "point_value": 1,
+      "rationale": "Tests correct auxiliary for 3rd person singular question in Simple Present.",
+      "distractor_rationale": {
+        "a": "Is — auxiliary for Present Continuous questions",
+        "c": "Do — correct for I/you/we/they, not she",
+        "d": "Has — auxiliary for Present Perfect questions"
+      },
+      "instruction_pt": "Escolha o auxiliar correto para completar a pergunta.",
+      "status": "active"
+    },
+    {
+      "id": "T1_PC_004",
+      "tier": 1,
+      "order": 4,
+      "type": "sentence_completion",
+      "tense": "Present Continuous",
+      "tense_aspect": "affirmative",
+      "card_source": "They are building a new house this year.",
+      "question_text": "They _____ a new house this year.",
+      "options": [
+        { "text": "build", "is_correct": false },
+        { "text": "builds", "is_correct": false },
+        { "text": "are building", "is_correct": true },
+        { "text": "have built", "is_correct": false }
+      ],
+      "point_value": 1,
+      "rationale": "Tests the be + verb-ing structure for Present Continuous. The time marker 'this year' signals an ongoing temporary action.",
+      "distractor_rationale": {
+        "a": "Simple Present base form — correct for habits, not temporary ongoing actions",
+        "b": "Simple Present 3rd person — wrong for plural subject 'they'",
+        "d": "Present Perfect — no ongoing action indicated here"
+      },
+      "instruction_pt": "Complete a frase com a forma correta do verbo.",
+      "status": "active"
+    },
+    {
+      "id": "T1_PC_005",
+      "tier": 1,
+      "order": 5,
+      "type": "tense_identification",
+      "tense": "Present Continuous",
+      "tense_aspect": "affirmative",
+      "card_source": "She is studying for her exam.",
+      "question_text": "\"She is studying for her exam.\" — Which tense is used in this sentence?",
+      "options": [
+        { "text": "Simple Present", "is_correct": false },
+        { "text": "Present Continuous", "is_correct": true },
+        { "text": "Present Perfect", "is_correct": false },
+        { "text": "Simple Past", "is_correct": false }
+      ],
+      "point_value": 1,
+      "rationale": "Tests recognition of the is + verb-ing structure. This exact sentence appears on a card the student has reviewed.",
+      "distractor_rationale": {
+        "a": "Simple Present uses base form (she studies), not is studying",
+        "c": "Present Perfect uses has/have + past participle (she has studied)",
+        "d": "Simple Past uses the past form (she studied)"
+      },
+      "instruction_pt": "Qual tempo verbal é usado nesta frase?",
+      "status": "active"
+    },
+    {
+      "id": "T1_PST_006",
+      "tier": 1,
+      "order": 6,
+      "type": "sentence_completion",
+      "tense": "Simple Past",
+      "tense_aspect": "affirmative",
+      "card_source": "She visited her grandmother last week.",
+      "question_text": "She _____ her grandmother last week.",
+      "options": [
+        { "text": "visit", "is_correct": false },
+        { "text": "visits", "is_correct": false },
+        { "text": "visited", "is_correct": true },
+        { "text": "has visited", "is_correct": false }
+      ],
+      "point_value": 1,
+      "rationale": "Tests regular verb -ed formation in Simple Past. 'Last week' is the key time marker for Simple Past.",
+      "distractor_rationale": {
+        "a": "Base form — Simple Present, not past",
+        "b": "3rd person Simple Present — wrong tense, also contradicts 'last week'",
+        "d": "Present Perfect — used for unspecified past experience, not 'last week'"
+      },
+      "instruction_pt": "Complete a frase com a forma correta do verbo.",
+      "status": "active"
+    },
+    {
+      "id": "T1_PST_007",
+      "tier": 1,
+      "order": 7,
+      "type": "sentence_completion",
+      "tense": "Simple Past",
+      "tense_aspect": "negative",
+      "card_source": "I did not (didn't) go to the party.",
+      "question_text": "I _____ go to the party.",
+      "options": [
+        { "text": "wasn't", "is_correct": false },
+        { "text": "didn't", "is_correct": true },
+        { "text": "haven't", "is_correct": false },
+        { "text": "don't", "is_correct": false }
+      ],
+      "point_value": 1,
+      "rationale": "Tests the did not / didn't auxiliary for Simple Past negatives. Common error is using 'don't' (Simple Present) or 'wasn't' (Past Continuous).",
+      "distractor_rationale": {
+        "a": "wasn't — Past Continuous negative auxiliary, wrong structure",
+        "c": "haven't — Present Perfect negative, wrong tense",
+        "d": "don't — Simple Present negative, wrong tense"
+      },
+      "instruction_pt": "Complete a frase com a forma correta do verbo.",
+      "status": "active"
+    },
+    {
+      "id": "T1_PST_008",
+      "tier": 1,
+      "order": 8,
+      "type": "sentence_completion",
+      "tense": "Simple Past",
+      "tense_aspect": "question",
+      "card_source": "Did you call him?",
+      "question_text": "_____ you call him?",
+      "options": [
+        { "text": "Have", "is_correct": false },
+        { "text": "Were", "is_correct": false },
+        { "text": "Do", "is_correct": false },
+        { "text": "Did", "is_correct": true }
+      ],
+      "point_value": 1,
+      "rationale": "Tests the 'Did' auxiliary for Simple Past questions. Note the base verb 'call' (not 'called') after did — a common confusion point.",
+      "distractor_rationale": {
+        "a": "Have — Present Perfect question auxiliary",
+        "b": "Were — Past Continuous question auxiliary",
+        "c": "Do — Simple Present question auxiliary (wrong tense)"
+      },
+      "instruction_pt": "Escolha o auxiliar correto para completar a pergunta.",
+      "status": "active"
+    },
+    {
+      "id": "T1_SF_009",
+      "tier": 1,
+      "order": 9,
+      "type": "sentence_completion",
+      "tense": "Simple Future",
+      "tense_aspect": "affirmative",
+      "card_source": "I will help you tomorrow.",
+      "question_text": "I _____ help you tomorrow.",
+      "options": [
+        { "text": "am helping", "is_correct": false },
+        { "text": "help", "is_correct": false },
+        { "text": "will help", "is_correct": true },
+        { "text": "have helped", "is_correct": false }
+      ],
+      "point_value": 1,
+      "rationale": "Tests the 'will + base verb' structure for Simple Future. 'Tomorrow' is the key time marker.",
+      "distractor_rationale": {
+        "a": "am helping — Present Continuous (can express near future plans, but less standard here)",
+        "b": "help — base form only, no auxiliary, grammatically incomplete as future",
+        "d": "have helped — Present Perfect, indicates completed past action"
+      },
+      "instruction_pt": "Complete a frase com a forma correta do verbo.",
+      "status": "active"
+    },
+    {
+      "id": "T1_TA_010",
+      "tier": 1,
+      "order": 10,
+      "type": "context_selection",
+      "tense": "Simple Present / Simple Past / Simple Future",
+      "tense_aspect": "time_adverb",
+      "card_source": null,
+      "question_text": "Which time expression matches the Simple Past tense?",
+      "options": [
+        { "text": "every day", "is_correct": false },
+        { "text": "right now", "is_correct": false },
+        { "text": "yesterday", "is_correct": true },
+        { "text": "tomorrow", "is_correct": false }
+      ],
+      "point_value": 1,
+      "rationale": "Tests knowledge of time adverbs as tense markers. 'Yesterday' is the canonical Simple Past marker. Contrasts with the markers for Simple Present (every day), Present Continuous (right now), and Simple Future (tomorrow).",
+      "distractor_rationale": {
+        "a": "every day — signals Simple Present (habitual action)",
+        "b": "right now — signals Present Continuous (action in progress)",
+        "d": "tomorrow — signals Simple Future (will)"
+      },
+      "instruction_pt": "Qual expressão de tempo corresponde ao Simple Past?",
+      "status": "active"
+    },
+    {
+      "id": "T2_PASTC_011",
+      "tier": 2,
+      "order": 11,
+      "type": "sentence_completion",
+      "tense": "Past Continuous",
+      "tense_aspect": "affirmative",
+      "card_source": "I was reading when the phone rang.",
+      "question_text": "I _____ when the phone rang.",
+      "options": [
+        { "text": "read", "is_correct": false },
+        { "text": "was reading", "is_correct": true },
+        { "text": "have read", "is_correct": false },
+        { "text": "had read", "is_correct": false }
+      ],
+      "point_value": 1,
+      "rationale": "Tests the was/were + verb-ing structure for Past Continuous. The sentence structure (ongoing action interrupted by a shorter past action) is the classic Past Continuous context.",
+      "distractor_rationale": {
+        "a": "read — Simple Past, treats both actions as sequential rather than overlapping",
+        "c": "have read — Present Perfect, wrong time reference",
+        "d": "had read — Past Perfect, implies completion before another past event"
+      },
+      "instruction_pt": "Complete a frase com a forma correta do verbo.",
+      "status": "active"
+    },
+    {
+      "id": "T2_PASTC_012",
+      "tier": 2,
+      "order": 12,
+      "type": "error_correction",
+      "tense": "Past Continuous",
+      "tense_aspect": "negative",
+      "card_source": "She was not (wasn't) driving fast.",
+      "question_text": "Which sentence is correct?",
+      "options": [
+        { "text": "She didn't driving fast.", "is_correct": false },
+        { "text": "She wasn't driving fast.", "is_correct": true },
+        { "text": "She wasn't drove fast.", "is_correct": false },
+        { "text": "She not was driving fast.", "is_correct": false }
+      ],
+      "point_value": 1,
+      "rationale": "Tests the negative form of Past Continuous (was/were + not + verb-ing). Each distractor targets a specific common error.",
+      "distractor_rationale": {
+        "a": "Uses 'didn't' (Simple Past auxiliary) with -ing form — mixing two structures",
+        "c": "Uses past participle 'drove' instead of present participle 'driving'",
+        "d": "Incorrect word order — negation must come after the auxiliary (wasn't), not before"
+      },
+      "instruction_pt": "Qual frase está correta?",
+      "status": "active"
+    },
+    {
+      "id": "T2_PP_013",
+      "tier": 2,
+      "order": 13,
+      "type": "sentence_completion",
+      "tense": "Present Perfect",
+      "tense_aspect": "affirmative",
+      "card_source": "I have visited Paris twice.",
+      "question_text": "I _____ Paris twice.",
+      "options": [
+        { "text": "visited", "is_correct": false },
+        { "text": "have visited", "is_correct": true },
+        { "text": "was visiting", "is_correct": false },
+        { "text": "visit", "is_correct": false }
+      ],
+      "point_value": 1,
+      "rationale": "Tests the have/has + past participle structure for Present Perfect. 'Twice' signals an unspecified life experience — the classic Present Perfect context.",
+      "distractor_rationale": {
+        "a": "visited — Simple Past; would require a specific time marker (e.g., 'last year'), not just 'twice'",
+        "c": "was visiting — Past Continuous; implies interruption, not a counted experience",
+        "d": "visit — Simple Present; wrong tense entirely"
+      },
+      "instruction_pt": "Complete a frase com a forma correta do verbo.",
+      "status": "active"
+    },
+    {
+      "id": "T2_PP_014",
+      "tier": 2,
+      "order": 14,
+      "type": "sentence_completion",
+      "tense": "Present Perfect",
+      "tense_aspect": "question",
+      "card_source": "Have you ever climbed a mountain?",
+      "question_text": "_____ you ever climbed a mountain?",
+      "options": [
+        { "text": "Did", "is_correct": false },
+        { "text": "Were", "is_correct": false },
+        { "text": "Have", "is_correct": true },
+        { "text": "Are", "is_correct": false }
+      ],
+      "point_value": 1,
+      "rationale": "Tests the Present Perfect question auxiliary 'Have'. 'Ever' is a classic Present Perfect question marker. Directly mapped to a card the student reviewed.",
+      "distractor_rationale": {
+        "a": "Did — Simple Past auxiliary; would require base verb 'climb' not past participle 'climbed'",
+        "b": "Were — Past Continuous auxiliary",
+        "d": "Are — Present Continuous auxiliary"
+      },
+      "instruction_pt": "Escolha o auxiliar correto para completar a pergunta.",
+      "status": "active"
+    },
+    {
+      "id": "T2_PP_015",
+      "tier": 2,
+      "order": 15,
+      "type": "tense_contrast",
+      "tense": "Present Perfect vs Simple Past",
+      "tense_aspect": "contrast",
+      "card_source": "She visited her grandmother last week. / I have visited Paris twice.",
+      "question_text": "Choose the correct tense for each blank:\n\"She _____ her grandmother (a) LAST WEEK. She _____ Paris (b) TWICE.\"",
+      "options": [
+        { "text": "(a) visited  /  (b) has visited", "is_correct": true },
+        { "text": "(a) has visited  /  (b) visited", "is_correct": false },
+        { "text": "(a) visited  /  (b) visited", "is_correct": false },
+        { "text": "(a) has visited  /  (b) has visited", "is_correct": false }
+      ],
+      "point_value": 1,
+      "rationale": "Tests the core distinction: Simple Past is used with specific time markers ('last week'); Present Perfect is used for unspecified experience ('twice'). This is the most important contrast in the E01 deck.",
+      "distractor_rationale": {
+        "b": "Reverses the rule — 'has visited last week' is grammatically incorrect",
+        "c": "All Simple Past — ignores the Present Perfect for unspecified experience",
+        "d": "All Present Perfect — 'has visited last week' is ungrammatical with a specific time marker"
+      },
+      "instruction_pt": "Escolha a combinação correta de tempos verbais para as duas frases.",
+      "status": "active"
+    },
+    {
+      "id": "T2_FC_016",
+      "tier": 2,
+      "order": 16,
+      "type": "sentence_completion",
+      "tense": "Future Continuous",
+      "tense_aspect": "affirmative",
+      "card_source": "She will be studying when you call.",
+      "question_text": "She _____ when you call.",
+      "options": [
+        { "text": "studies", "is_correct": false },
+        { "text": "will study", "is_correct": false },
+        { "text": "will be studying", "is_correct": true },
+        { "text": "is studying", "is_correct": false }
+      ],
+      "point_value": 1,
+      "rationale": "Tests the 'will be + verb-ing' structure for Future Continuous. The sentence expresses an action that will be in progress at a future moment — not just a future event.",
+      "distractor_rationale": {
+        "a": "studies — Simple Present, used here only for the subordinate time clause ('when you call'), not the main clause",
+        "b": "will study — Simple Future; correct future tense but misses the ongoing aspect",
+        "d": "is studying — Present Continuous; can express near future but not ongoing-at-a-future-moment"
+      },
+      "instruction_pt": "Complete a frase com a forma correta do verbo.",
+      "status": "active"
+    },
+    {
+      "id": "T2_PPC_017",
+      "tier": 2,
+      "order": 17,
+      "type": "sentence_completion",
+      "tense": "Present Perfect Continuous",
+      "tense_aspect": "affirmative",
+      "card_source": "She has been teaching since 2010.",
+      "question_text": "She _____ since 2010.",
+      "options": [
+        { "text": "teaches", "is_correct": false },
+        { "text": "has been teaching", "is_correct": true },
+        { "text": "was teaching", "is_correct": false },
+        { "text": "had been teaching", "is_correct": false }
+      ],
+      "point_value": 1,
+      "rationale": "Tests the 'has/have been + verb-ing' structure for Present Perfect Continuous. 'Since 2010' is the canonical marker for an action that started in the past and continues now.",
+      "distractor_rationale": {
+        "a": "teaches — Simple Present; ignores the duration starting in the past",
+        "c": "was teaching — Past Continuous; implies the action ended in the past",
+        "d": "had been teaching — Past Perfect Continuous; would require a second past reference point"
+      },
+      "instruction_pt": "Complete a frase com a forma correta do verbo.",
+      "status": "active"
+    },
+    {
+      "id": "T2_PASTP_018",
+      "tier": 2,
+      "order": 18,
+      "type": "sentence_completion",
+      "tense": "Past Perfect",
+      "tense_aspect": "affirmative",
+      "card_source": "They had left before I arrived.",
+      "question_text": "They _____ before I arrived.",
+      "options": [
+        { "text": "left", "is_correct": false },
+        { "text": "have left", "is_correct": false },
+        { "text": "were leaving", "is_correct": false },
+        { "text": "had left", "is_correct": true }
+      ],
+      "point_value": 1,
+      "rationale": "Tests the 'had + past participle' structure for Past Perfect. When two past events are in sequence, the earlier one uses Past Perfect ('had left') and the later one uses Simple Past ('arrived').",
+      "distractor_rationale": {
+        "a": "left — Simple Past; doesn't show which event happened first",
+        "b": "have left — Present Perfect; refers to present relevance, not a prior past event",
+        "c": "were leaving — Past Continuous; implies ongoing action, not completion before another event"
+      },
+      "instruction_pt": "Complete a frase com a forma correta do verbo.",
+      "status": "active"
+    },
+    {
+      "id": "T2_FOR_SINCE_019",
+      "tier": 2,
+      "order": 19,
+      "type": "context_selection",
+      "tense": "Present Perfect",
+      "tense_aspect": "for_vs_since",
+      "card_source": "She has lived here for five years. / She has been teaching since 2010.",
+      "question_text": "She has lived here _____ five years.",
+      "options": [
+        { "text": "since", "is_correct": false },
+        { "text": "for", "is_correct": true },
+        { "text": "ago", "is_correct": false },
+        { "text": "during", "is_correct": false }
+      ],
+      "point_value": 1,
+      "rationale": "Tests the for/since distinction with Present Perfect. 'For' is used with a duration ('five years'); 'since' is used with a starting point ('2010'). Both are heavily represented in the deck.",
+      "distractor_rationale": {
+        "a": "since — used with a point in time (e.g., 'since 2010'), not a duration",
+        "c": "ago — used with Simple Past ('five years ago'), not Present Perfect",
+        "d": "during — used with a specific period ('during the meeting'), not a duration of years"
+      },
+      "instruction_pt": "Escolha a preposição correta.",
+      "status": "active"
+    },
+    {
+      "id": "T2_MIX_020",
+      "tier": 2,
+      "order": 20,
+      "type": "passage_comprehension",
+      "tense": "Mixed",
+      "tense_aspect": "identification",
+      "card_source": null,
+      "question_text": "Read the passage:\n\n\"Every morning, she wakes up early. Yesterday, she woke up at 6 AM. Right now, she is having breakfast. She has already made her coffee.\"\n\nWhich sentence uses the Present Perfect?",
+      "options": [
+        { "text": "She wakes up early.", "is_correct": false },
+        { "text": "She woke up at 6 AM.", "is_correct": false },
+        { "text": "She is having breakfast.", "is_correct": false },
+        { "text": "She has already made her coffee.", "is_correct": true }
+      ],
+      "point_value": 1,
+      "rationale": "Tests tense recognition across four different tenses in context: Simple Present, Simple Past, Present Continuous, and Present Perfect. Uses sentences constructed from vocabulary and patterns present in the E01 deck. The marker 'already' is a classic Present Perfect indicator.",
+      "distractor_rationale": {
+        "a": "Simple Present — habitual action, 'every morning'",
+        "b": "Simple Past — specific completed past event, 'yesterday'",
+        "c": "Present Continuous — action in progress right now, 'right now'"
+      },
+      "instruction_pt": "Leia o texto e identifique qual frase usa o Present Perfect.",
+      "status": "active"
+    }
+  ]
+}

@@ -32,6 +32,8 @@ server/admin.db
 server/user_dbs/
 server/flask_session/
 
+exam_prep/*/*.csv
+
 server_lambda/package/
 server_lambda/lambda_deployment*
 server_lambda/docs/Screenshot*

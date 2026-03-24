@@ -1,0 +1,6 @@
+# Dependencies for exam_prep/scripts/create_prep_exam_form.py
+# Same Google API stack as placement_exam/scripts/requirements.txt
+
+google-api-python-client>=2.100.0
+google-auth-oauthlib>=1.2.0
+google-auth-httplib2>=0.2.0
