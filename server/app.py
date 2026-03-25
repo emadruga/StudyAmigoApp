@@ -1687,6 +1687,7 @@ def answer_card():
                 hard_factor = rev_conf.get('hardFactor', 1.2)
                 easy_bonus = rev_conf.get('ease4', 1.3) # Called ease4 in Anki JSON
                 interval_factor = rev_conf.get('ivlFct', 1.0) # General interval factor
+                max_ivl = rev_conf.get('maxIvl', 36500)
 
                 if ease == 2:  # Hard
                     new_interval = max(1, int(current_interval * hard_factor))
@@ -1699,6 +1700,8 @@ def answer_card():
                     ease_multiplier = current_factor / 1000.0
                     new_interval = max(current_interval + 1, int(current_interval * ease_multiplier * easy_bonus))
                     factor_change = 150
+
+                new_interval = min(new_interval, max_ivl)
                 
                 # Update ease factor (min 1300)
                 # factor_change = 0 if ease == 2 else 15 if ease == 3 else 30  # Old logic

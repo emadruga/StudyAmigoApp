@@ -16,6 +16,7 @@ function ReviewPage({ user, onLogout }) {
   );
   const [error, setError] = useState('');
   const [sessionExpired, setSessionExpired] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const navigate = useNavigate();
 
   const isSessionError = (err) => {
@@ -68,7 +69,8 @@ function ReviewPage({ user, onLogout }) {
   }, [currentDeckName, t]);
 
   const handleAnswer = async (ease) => {
-    if (!card || !startTime) return;
+    if (!card || !startTime || isSubmitting) return;
+    setIsSubmitting(true);
     const timeTaken = Date.now() - startTime;
     setError('');
     setReviewMessage(t('review.processingAnswer'));
@@ -87,6 +89,8 @@ function ReviewPage({ user, onLogout }) {
         setError(err.response?.data?.error || t('review.errorSubmitting'));
         setReviewMessage(t('review.errorSubmittingAnswer', { deckName: currentDeckName }));
       }
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -140,16 +144,16 @@ function ReviewPage({ user, onLogout }) {
           <div className="card-footer">
             {showAnswer ? (
               <div className="d-flex justify-content-around mb-2">
-                <button className="btn btn-danger" onClick={() => handleAnswer(1)}>
+                <button className="btn btn-danger" onClick={() => handleAnswer(1)} disabled={isSubmitting}>
                   {t('review.again')} (1)
                 </button>
-                <button className="btn btn-warning" onClick={() => handleAnswer(2)}>
+                <button className="btn btn-warning" onClick={() => handleAnswer(2)} disabled={isSubmitting}>
                   {t('review.hard')} (2)
                 </button>
-                <button className="btn btn-success" onClick={() => handleAnswer(3)}>
+                <button className="btn btn-success" onClick={() => handleAnswer(3)} disabled={isSubmitting}>
                   {t('review.good')} (3)
                 </button>
-                <button className="btn btn-primary" onClick={() => handleAnswer(4)}>
+                <button className="btn btn-primary" onClick={() => handleAnswer(4)} disabled={isSubmitting}>
                   {t('review.easy')} (4)
                 </button>
               </div>
