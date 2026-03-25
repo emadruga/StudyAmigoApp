@@ -18,6 +18,30 @@ The implementation follows Anki's modified SM-2 algorithm and is correct for the
 
 ---
 
+## ✅ Resolution Log — March 2026
+
+> **The interval growth bug described in this document has been fixed.**
+
+The linear interval growth bug (line 1702, `server/app.py`) was identified on March 3, 2026 and
+**confirmed fixed before the start of E02**. The fix replaced the linear `+1` fallback with
+multiplicative growth using `current_factor / 1000.0` as the ease multiplier, restoring the
+exponential interval progression intended by SM-2.
+
+**Impact on grading:**
+- E01 was scored with maturity weight set to **0.0** (workaround, per B1 correction) — fair given the bug was active during E01.
+- E02 onward: maturity weight **restored to 0.30**. Cards created and reviewed during E02 will correctly reach Mature state (ivl ≥ 21) for diligent students within the exercise window.
+
+**Expected interval progression post-fix** (Good button, default factor=2500):
+```
+Day 1  → ivl = 1
+Day 2  → ivl = 2   (1 × 2.5 = 2.5 → 2)
+Day 4  → ivl = 5   (2 × 2.5 = 5)
+Day 9  → ivl = 12  (5 × 2.5 = 12)
+Day 21 → ivl = 30  (12 × 2.5 = 30) ← Mature ✅
+```
+
+---
+
 ## Card State Definitions (from `app.py:95-120`)
 
 ```python
@@ -369,41 +393,46 @@ This is already mentioned in PLAN_ASSESSMENT_STUDENTS_DURING_SEMESTER.md as "B1 
 
 ## Conclusion
 
-### Current State: ❌ INCORRECT (but partially functional)
+### State at E01 launch: ❌ INCORRECT (but partially functional)
 
-1. ✅ Cards **do** progress from New → Learning → Review
-2. ✅ Review cards **do** increase their intervals
-3. ❌ Intervals grow **linearly** (+1 day each time) instead of **exponentially**
-4. ❌ Cards **cannot reach Mature state** in any reasonable timeframe
-5. ❌ This **breaks the maturity assessment metric** for E01
+1. ✅ Cards **did** progress from New → Learning → Review
+2. ✅ Review cards **did** increase their intervals
+3. ❌ Intervals grew **linearly** (+1 day each time) instead of **exponentially**
+4. ❌ Cards **could not reach Mature state** in any reasonable timeframe
+5. ❌ This **broke the maturity assessment metric** for E01
 
-### For E01 Specifically:
+### State from E02 onward: ✅ FIXED
 
-**Does it work for the pedagogical goals?**
-- ✅ Students learn SRS mechanics (4 buttons, spaced intervals)
-- ✅ Students see cards graduate from New → Learning → Review
-- ✅ Students experience spaced repetition (cards come back after days)
-- ⚠️ Students won't see "Mature" state (but this is somewhat expected for a 3-week exercise)
+1. ✅ Cards progress from New → Learning → Review
+2. ✅ Review cards increase intervals **exponentially** (×ease factor per review)
+3. ✅ Cards can reach Mature state (ivl ≥ 21) within a standard 3–4 week exercise
+4. ✅ Maturity assessment metric is now valid — weight restored to 0.30 in Q component
 
-**Does it work for the assessment goals?**
-- ❌ Maturity metric is broken (all students will have 0% mature cards)
-- ✅ Retention metric works correctly
-- ✅ Volume, Consistency, and Engagement metrics work correctly
-- **Workaround**: Set maturity weight to 0.0 for E01 (use B1 correction)
+### For E01 Specifically (historical):
+
+**Pedagogical goals** — met despite the bug:
+- ✅ Students learned SRS mechanics (4 buttons, spaced intervals)
+- ✅ Students saw cards graduate from New → Learning → Review
+- ✅ Students experienced spaced repetition (cards came back after days)
+- ⚠️ Students did not see "Mature" state — expected given the linear bug
+
+**Assessment goals** — partially met via workaround:
+- ❌ Maturity metric was broken → workaround: maturity weight set to 0.0 for E01
+- ✅ Retention, Volume, Consistency, and Engagement metrics worked correctly
 
 ---
 
-## Final Recommendation
+## Final Recommendation (updated March 2026)
 
-**For E01 launch (this week)**:
-1. ✅ Keep the current code (don't introduce risk by changing scheduling algorithm before E01 starts)
-2. ✅ Set maturity weight to **0.0** in the assessment formula for E01 (not 0.15)
-3. ✅ Inform students that "Mature" cards are expected in E02+, not E01
+**E01 (completed)**:
+1. ✅ Bug was not fixed before E01 launch (correct call — no risk introduction)
+2. ✅ Maturity weight set to **0.0** in assessment formula for E01
+3. ✅ Students were informed that "Mature" cards are expected in E02+, not E01
 
-**For E02 and beyond**:
-1. ⚠️ Fix the interval calculation bug (line 1702) to use `current_factor / 1000.0` instead of `interval_factor`
-2. ✅ Test with real data to verify cards reach maturity in 3-4 weeks
-3. ✅ Restore maturity weight to 0.30 for E02+ once the bug is fixed
+**E02 and beyond (resolved)**:
+1. ✅ Interval calculation bug **fixed** — `current_factor / 1000.0` now used as ease multiplier
+2. ✅ Maturity weight **restored to 0.30** in Q component for E02+
+3. ✅ Exponential interval growth verified — cards reach maturity in ~4 Good reviews
 
 ---
 
