@@ -722,41 +722,109 @@ Verso:  desconfiado, suspeito
 
 ### 7.3 Tier 3 — Expanding
 
-**Perfil do aluno**: Lê textos curtos com razoável fluência. Reconhece estruturas gramaticais. Pode trabalhar com definições em inglês puro.
+**Perfil do aluno**: Lê textos curtos com razoável fluência. Reconhece estruturas
+gramaticais. Pode trabalhar com definições em inglês puro.
 
-**Três tipos de cartão recomendados:**
+**Texto fonte**: Material autêntico — não adaptado nem simplificado. Para E02,
+o texto será extraído de uma das seguintes fontes:
 
-#### Tipo A — Vocabulário acadêmico (inglês → definição em inglês)
+- Transcrição do vídeo *60 Minutes* sobre Demis Hassabis e o Prêmio Nobel de
+  Química (DeepMind / Google — formação em engenharia e neurociência).
+- Artigo do *New York Times* sobre inteligência artificial.
 
-| Elemento | Instrução |
-|----------|-----------|
-| **Frente** | Palavra do texto + frase de contexto: *"'algorithm' — 'algorithms are trained on massive datasets'"* |
-| **Verso** | Definição em inglês + exemplo próprio (não do texto): *"A set of step-by-step rules a computer follows to solve a problem. Sorting a list of numbers from smallest to largest follows an algorithm."* |
-| **Meta** | 8–12 cartões deste tipo |
+O texto deve ter entre 400 e 600 palavras e conter vocabulário acadêmico de
+nível intermediário-alto (B2–C1).
 
-#### Tipo B — Compreensão inferencial
+**Pipeline uniforme — somente cartões de vocabulário**
 
-| Elemento | Instrução |
-|----------|-----------|
-| **Frente** | Pergunta de compreensão que requer inferência: *"The author states that biased training data leads to biased predictions. What does this imply about the importance of data quality in AI systems?"* |
-| **Verso** | Resposta sintetizada: *"Data quality determines the reliability and fairness of AI outputs. Poor or biased data creates systems that perpetuate or amplify existing inequalities."* |
-| **Meta** | 4–6 cartões deste tipo |
+O Tier 3 segue o mesmo pipeline dos Tiers 1 e 2: cada cartão testa **uma
+palavra-alvo** dentro de uma frase de contexto. A diferença é que:
 
-#### Tipo C — Análise gramatical de estrutura complexa
+1. A **seleção de palavras é autônoma** — o aluno escolhe as palavras
+   desconhecidas ou parcialmente conhecidas (sem lista do professor).
+2. O **verso é inteiramente em inglês** — definição em inglês, sem tradução
+   da palavra.
+3. Não há scaffolding de produção — a **frase da frente vem do dicionário**,
+   não de tradução reversa nem de substituição.
 
-| Elemento | Instrução |
-|----------|-----------|
-| **Frente** | Frase complexa do texto: *"AI systems, which were first theorized in the 1950s, have become integral to modern manufacturing quality control."* → Identify and explain the reduced relative clause. |
-| **Verso** | Análise: *"'which were first theorized in the 1950s' is a non-restrictive relative clause modifying 'AI systems'. It adds non-essential information about when AI was theorized, parenthetically."* |
-| **Meta** | 2–4 cartões deste tipo |
+> **Nota sobre cartões de compreensão e análise gramatical**: cartões de tipo
+> inferencial (Tipo B) e de análise gramatical (Tipo C), originalmente
+> previstos para Tier 3, foram **adiados para E03/E04**, quando os alunos já
+> terão familiaridade com o processo de criação de cartões de vocabulário.
 
-**Instruções passo a passo para o aluno Tier 3:**
+#### Formato do cartão Tier 3
 
-1. Leia o texto Tier 3 uma vez para compreensão geral.
-2. Releia com lápis na mão: marque (a) palavras acadêmicas desconhecidas ou parcialmente conhecidas, (b) frases que exigem inferência, (c) estruturas gramaticais complexas.
-3. Crie 8–12 cartões Tipo A, 3–5 Tipo B, e 2–3 Tipo C.
-4. Para os cartões Tipo A, **não use o dicionário bilíngue** — escreva a definição com suas próprias palavras em inglês. Isso força o processamento mais profundo.
-5. Crie os cartões no baralho `PASSAGE_E02_TIER3` no StudyAmigo.
+| Elemento | Conteúdo |
+|----------|----------|
+| **Frente** | Frase exemplo do dicionário com a palavra-alvo em `[MAIÚSCULO]`: `"The team [DEPLOYED] the model across three data centers."` |
+| **Verso** | `deploy (v.) = to put into use or action` `☞ deploy a model / deploy resources` `─────────────────────────────────────────` `"A equipe implantou o modelo em três data centers."` |
+| **Baralho** | `PASSAGE_E02_TIER3` |
+| **Meta** | mín. 10 / alvo 13–15 / máx. 18 |
+
+#### Instruções passo a passo para o aluno Tier 3
+
+1. Leia o texto uma vez para compreensão geral, **sem parar para buscar
+   palavras**.
+2. Releia com lápis na mão e **sublinhe todas as palavras que você não
+   conhece ou conhece apenas parcialmente** (entende quando lê, mas não
+   saberia usar numa frase).
+3. Para cada palavra sublinhada, abra o *Cambridge Dictionary* ou o
+   *Merriam-Webster* e:
+   - copie a **classe gramatical** e a **definição em inglês**;
+   - escolha uma **frase exemplo do dicionário** que ilustre bem o sentido
+     da palavra no texto.
+4. Monte a **frente** do cartão: coloque a frase exemplo do dicionário com
+   a palavra-alvo em `[MAIÚSCULO]`.
+   > Exemplo: `"The team [DEPLOYED] the model across three data centers."`
+5. Monte o **verso** do cartão:
+   - Linha 1: `palavra (classe) = definição em inglês`
+   - Linha 2: `☞ colocação 1 / colocação 2`
+   - Linha 3: `─────────────────────────` (separador)
+   - Linha 4: tradução em português da frase da frente
+   > Exemplo:
+   > `deploy (v.) = to put into use or action`
+   > `☞ deploy a model / deploy resources`
+   > `─────────────────────────────────────────`
+   > `"A equipe implantou o modelo em três data centers."`
+6. Crie os cartões no baralho `PASSAGE_E02_TIER3` no StudyAmigo.
+7. Revise os cartões criados todos os dias até o final do período do exercício.
+
+#### Exemplo completo — Tier 3
+
+```
+Texto: "Hassabis was initially drawn to neuroscience because he believed
+understanding the brain was the most reliable path to achieving artificial
+general intelligence."
+
+Palavra sublinhada: drawn
+
+Dicionário (Cambridge):
+  draw (v.) = to attract or interest someone
+  "She was drawn to the idea of working abroad."
+
+Cartão criado:
+  Frente: "She was [DRAWN] to the idea of working abroad."
+  Verso:  draw (v.) = to attract or interest someone
+          ☞ be drawn to / draw attention / draw interest
+          ─────────────────────────────────────────────────
+          "Ela se sentiu atraída pela ideia de trabalhar no exterior."
+```
+
+**Por que funciona:**
+- Palavra veio do texto autêntico → **âncora no conteúdo real lido**
+- Frase exemplo veio do dicionário → **contexto confiável e natural**
+- Definição em inglês → **processamento monolíngue (L2→L2)**
+- Colocação com `☞` → **aprendizado produtivo: saber usar, não só reconhecer**
+- Tradução da frase no verso → **fecha o ciclo de compreensão sem muleta**
+
+**Exemplo de cartão mal-feito — Tier 3 (evitar):**
+```
+Frente: drawn
+Verso:  atraído
+```
+> ❌ Problema: cartão Tier 1 criado por aluno Tier 3. Não tem definição em
+> inglês, não tem colocação, não tem frase de contexto. Não treina
+> processamento monolíngue — apenas tradução direta.
 
 ---
 
@@ -764,13 +832,13 @@ Verso:  desconfiado, suspeito
 
 | Critério | Tier 1 | Tier 2 | Tier 3 |
 |----------|--------|--------|--------|
-| **Texto base** | Chapeuzinho ~200 palavras | Chapeuzinho versão rica ~300 palavras | Texto técnico/autêntico |
+| **Texto base** | Chapeuzinho ~200 palavras | Chapeuzinho versão rica ~300 palavras | Texto autêntico (60 Minutes / NYT) ~400–600 palavras |
 | **Lista de palavras** | 10 (professor) | 20 (professor) | Seleção autônoma |
-| **Meta de cartões** | mín. 5 / alvo 7–8 / máx. 10 | mín. 8 / alvo 10–12 / máx. 15 | 13–22 |
-| **Formato da frente** | Frase com `[MAIÚSCULO]` | Frase com `[MAIÚSCULO]` | Frase com `[MAIÚSCULO]` → cloze em E03+ |
-| **Verso** | `palavra = tradução` | `palavra (classe) = tradução  ☞ colocação` + tradução da frase | Definição em inglês + colocação + família |
-| **Frase própria** | Substituição de 1 palavra de contexto | Tradução Reversa (PT → Google Translate → edição) | Produção livre em inglês |
-| **Idioma do verso** | Português | Português + colocação em inglês | Inglês puro |
+| **Meta de cartões** | mín. 5 / alvo 7–8 / máx. 10 | mín. 8 / alvo 10–12 / máx. 15 | mín. 10 / alvo 13–15 / máx. 18 |
+| **Formato da frente** | Frase com `[MAIÚSCULO]` | Frase com `[MAIÚSCULO]` | Frase do dicionário com `[MAIÚSCULO]` |
+| **Verso** | `palavra = tradução` | `palavra (classe) = tradução  ☞ colocação` + tradução da frase | `palavra (classe) = definição EN  ☞ colocação` + tradução da frase |
+| **Origem da frase** | Substituição de 1 palavra de contexto | Tradução Reversa (PT → Google Translate → edição) | Frase exemplo do dicionário (sem scaffolding) |
+| **Idioma do verso** | Português | Português + colocação em inglês | Inglês + tradução da frase em português |
 | **Dicionário recomendado** | Google Translate | Cambridge Learner's | Cambridge + Merriam-Webster |
 | **Sessões de criação** | 1–2 | 2–3 | 2–3 |
 
@@ -785,7 +853,7 @@ Conforme a convenção estabelecida em `READING_MATERIAL_METHODOLOGY.md` (Seçã
 | **A** | `SHARED_CURATED_v1` | Instructor (pré-carregado) | ~33 novos cartões do Batch 2 |
 | **B — Tier 1** | `PASSAGE_E02_TIER1` | Alunos Tier 1 | mín. 5 / alvo 7–8 / máx. 10 |
 | **B — Tier 2** | `PASSAGE_E02_TIER2` | Alunos Tier 2 | mín. 8 / alvo 10–12 / máx. 15 |
-| **B — Tier 3** | `PASSAGE_E02_TIER3` | Alunos Tier 3 | mín. 13 / alvo 16–18 / máx. 22 |
+| **B — Tier 3** | `PASSAGE_E02_TIER3` | Alunos Tier 3 | mín. 10 / alvo 13–15 / máx. 18 |
 | **C** | Livre escolha | Todos os alunos | ≥5 cartões de material escolhido pelo aluno |
 
 > **Atenção**: Os alunos precisam criar os baralhos com os nomes exatos acima. O script `grade_exercise.py` usa o nome do baralho para distinguir Component B de Component C. Um aluno que nomear o baralho errado terá seus cartões contabilizados como Component C em vez de B.
