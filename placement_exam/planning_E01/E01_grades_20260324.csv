@@ -1,0 +1,93 @@
+student_id,name,course,tier,path,email,user_id,username,total_reviews,total_reviews_raw,cards_created,review_days,last_day_reviews,cramming_ratio,ret_total,ret_ok,retention_pct,total_reviewed_cards,mature_cards,maturity_pct,time_total,time_engaged,time_sub,ease_sub,mean_factor,time_data_missing,V,C,Q,E,grade,grade_letter,flags
+,Test User,,,,,1,testuser,0,0,0,0,0,0.0,0,0,0.0,0,0,0.0,0,0,nan,0.0,2500.0,False,0.0,0.0,0.0,0.0,0.0,F,
+,Leonardo Madruga,,,,,2,leo,0,0,0,0,0,0.0,0,0,0.0,0,0,0.0,0,0,nan,0.0,2500.0,False,0.0,0.0,0.0,0.0,0.0,F,
+,Rayssa Assis,,,,,21,3009,0,0,0,0,0,0.0,0,0,0.0,0,0,0.0,0,0,nan,0.0,2500.0,False,0.0,0.0,0.0,0.0,0.0,F,
+,João Braz,,,,,22,jabraz,23,23,0,1,0,0.0,3,3,100.0,20,0,0.0,23,0,nan,54.5,2500.0,True,5.4,100.0,70.0,54.5,58.3,F,
+3021,Fernando Henrique Souza Laia,Biotecnologia,Tier 1,B,laiafernando22@gmail.com,23,Fernandin,153,153,0,6,0,0.0,103,78,75.7,50,0,0.0,144,127,88.2,55.5,2521.0,False,37.4,100.0,53.0,71.8,64.6,D,
+,Keyrrison da Silva braga,,,,,24,Keyrrison,234,234,0,5,77,0.329,157,114,72.6,77,0,0.0,227,200,88.1,56.0,2531.2,False,57.4,83.5,50.8,72.0,64.9,D,
+4061,Laryssa Vitória Ramos da Silva,Metrologia,Tier 1,B,vlaryssa261@gmail.com,25,Laryssa 🧸,543,554,0,17,0,0.0,435,392,90.1,108,27,25.0,536,489,91.2,66.5,2763.9,False,100.0,100.0,70.6,78.9,87.0,B,
+4086,Luiz Antonio Inácio Pereira,Metrologia,Tier 2,C,loisantonier@gmail.com,26,LuizInácio,35,35,0,2,0,0.0,9,5,55.6,26,0,0.0,35,27,77.1,54.3,2494.2,False,8.4,100.0,38.9,65.7,51.9,F,
+,caue,,,,,27,cauepg,0,0,0,0,0,0.0,0,0,0.0,0,0,0.0,0,0,nan,0.0,2500.0,False,0.0,0.0,0.0,0.0,0.0,F,
+,eloá,,,,,28,eloaamorim,32,32,0,2,0,0.0,6,6,100.0,26,0,0.0,32,26,81.2,54.5,2500.0,False,7.6,100.0,70.0,67.9,61.5,D,
+,Mahx.vpc,,,,,29,Mahx.vpc,22,22,0,1,0,0.0,2,0,0.0,20,0,0.0,22,22,100.0,54.5,2500.0,False,5.2,100.0,0.0,77.3,41.7,F,
+4091,Marcelo Ygor S. de Sá Cordeiro,Metrologia,Tier 1,B,smarceloygor@gmail.com,30,Ygor,141,142,0,5,0,0.0,89,87,97.8,52,4,7.7,97,96,99.0,59.4,2606.7,False,34.5,100.0,70.7,79.2,70.7,C,
+5001,Adriany Praia Serafim,Segurança Cibernética,Tier 2,B,adrianyps10@gmail.com,31,Adriany,281,283,0,9,0,0.0,188,163,86.7,93,0,0.0,247,247,100.0,59.1,2600.0,False,69.0,100.0,60.7,79.5,76.4,C,
+3006,Arthur Alves do Nascimento,Biotecnologia,Tier 1,B,arthuralvesnas@gmail.com,32,Arthur,0,0,0,0,0,0.0,0,0,0.0,0,0,0.0,0,0,nan,0.0,2500.0,False,0.0,0.0,0.0,0.0,0.0,F,
+4046,Jhonatan Brandão da Silva,Metrologia,Tier 1,C,jhonipetrova@gmail.com,33,Jhoni,71,71,0,3,0,0.0,30,25,83.3,41,0,0.0,65,62,95.4,54.9,2507.3,False,17.2,100.0,58.3,75.1,61.8,D,
+5016,Bernardo Silva,Segurança Cibernética,Tier 2,B,bernardoslucas2009@gmail.com,34,Bn Silva,144,144,0,4,0,0.0,83,66,79.5,61,0,0.0,144,96,66.7,55.2,2514.8,False,35.2,100.0,55.7,60.9,62.7,D,
+3001,Ana Manuela de Carvalho Trindade,Biotecnologia,Tier 2,B,manu.trindadeana@gmail.com,35,manu_trind,33,33,0,4,0,0.0,20,14,70.0,13,0,0.0,32,10,31.2,55.1,2511.5,False,7.9,100.0,49.0,43.2,50.3,F,
+5076,Márcio da Silva Bertucio,Segurança Cibernética,Tier 1,B,bertuciomarcio26@gmail.com,36,"Marcin""09",45,45,0,3,0,0.0,22,17,77.3,23,0,0.0,45,21,46.7,54.5,2500.0,False,10.8,100.0,54.1,50.6,54.1,F,
+5011,Arthur do Nascimento Paiva,Segurança Cibernética,Tier 2,C,arthur.n2911@gmail.com,37,Thurr,93,93,0,3,0,0.0,47,47,100.0,46,0,0.0,89,89,100.0,56.2,2535.9,False,22.7,100.0,70.0,78.1,67.3,D,RET100
+3011,Eduardo,Biotecnologia,Tier 2,B,eduardocardosooliveira81@gmail.com,38,Eduardo,74,74,0,5,0,0.0,38,29,76.3,36,0,0.0,71,63,88.7,55.1,2512.5,False,18.0,100.0,53.4,71.9,59.9,F,
+,Avelino,,,,,39,Tainá,0,0,0,0,0,0.0,0,0,0.0,0,0,0.0,0,0,nan,0.0,2500.0,False,0.0,0.0,0.0,0.0,0.0,F,
+,Bruno dos Santos Lima,,,,,40,Bruno Snts,6,6,0,1,0,0.0,0,0,0.0,6,0,0.0,6,0,nan,54.5,2500.0,True,1.2,100.0,0.0,54.5,36.2,F,
+4001,Ana Carolina Barbosa,Metrologia,Tier 2,B,blussaezin@gmail.com,41,caarolbrbs,404,404,0,8,0,0.0,296,262,88.5,108,0,0.0,399,211,52.9,59.8,2616.7,False,99.3,100.0,62.0,56.4,79.7,C,
+3051,Samuel Martins Da Conceição,Biotecnologia,Tier 1,B,martinsdaconceicaosamuel@gmail.com,42,Samuel Mar,212,219,0,7,0,0.0,153,127,83.0,59,0,0.0,211,160,75.8,58.5,2586.4,False,52.0,100.0,58.1,67.2,68.9,D,
+4106,Victor Anderson Reis,Metrologia,Tier 2,B,reisbgk7@gmail.com,43,victorreis,0,0,0,0,0,0.0,0,0,0.0,0,0,0.0,0,0,nan,0.0,2500.0,False,0.0,0.0,0.0,0.0,0.0,F,
+,Matheus,,,,,44,TeuxzvA7X,0,0,0,0,0,0.0,0,0,0.0,0,0,0.0,0,0,nan,0.0,2500.0,False,0.0,0.0,0.0,0.0,0.0,F,
+5051,Lenilson Maia Rodrigues de Lima,Segurança Cibernética,Tier 1,C,lelerodriguees08@gmail.com,45,Lenilson,26,26,0,1,0,0.0,12,12,100.0,14,0,0.0,24,23,95.8,54.5,2500.0,False,6.2,100.0,70.0,75.2,62.6,D,
+5066,Madson ferreira de souza,Segurança Cibernética,Tier 1,B,mmcconservador@gmail.com,46,Madson,329,329,0,5,0,0.0,220,220,100.0,109,0,0.0,329,208,63.2,61.7,2656.9,False,80.8,100.0,70.0,62.4,78.7,C,RET100
+5046,João Ricardo,Segurança Cibernética,Tier 1,A,joaoricardocarvalho4@gmail.com,47,Ricardo,104,112,0,5,0,0.0,76,20,26.3,28,0,0.0,104,103,99.0,53.6,2478.6,False,25.4,100.0,18.4,76.3,52.1,F,
+5086,Samêa Soares Pacheco,Segurança Cibernética,Tier 1,B,sameapacheco@gmail.com,48,Sammy,141,141,0,5,0,0.0,81,80,98.8,60,0,0.0,141,16,11.3,56.2,2537.5,False,34.5,100.0,69.1,33.8,61.1,D,LOW_TIME
+,Arthur Alves do Nascimento,,,,,49,Arthurx,0,0,0,0,0,0.0,0,0,0.0,0,0,0.0,0,0,nan,0.0,2500.0,False,0.0,0.0,0.0,0.0,0.0,F,
+,Ana Luiza,,,,,50,Luiza,0,0,0,0,0,0.0,0,0,0.0,0,0,0.0,0,0,nan,0.0,2500.0,False,0.0,0.0,0.0,0.0,0.0,F,
+4051,Julia de Oliveira Corrêa,Metrologia,Tier 2,B,juliaahxst@gmail.com,51,Julia,301,301,0,5,0,0.0,201,178,88.6,100,0,0.0,301,240,79.7,55.2,2515.0,False,73.9,100.0,62.0,67.5,75.6,C,
+4081,Lucas Pandini Pinheiro,Metrologia,Tier 2,B,pandinilucas2@gmail.com,52,panda,132,132,0,4,0,0.0,69,66,95.7,63,0,0.0,132,4,3.0,55.7,2526.2,False,32.3,100.0,67.0,29.4,59.0,F,LOW_TIME
+,Rogério Gabriel Barros dos Santos Simões,,,,,53,Rogério🚲,0,0,0,0,0,0.0,0,0,0.0,0,0,0.0,0,0,nan,0.0,2500.0,False,0.0,0.0,0.0,0.0,0.0,F,
+,Cauã Jorge,,,,,54,Cauã Nzth,52,52,0,1,0,0.0,29,19,65.5,23,0,0.0,51,15,29.4,54.5,2500.0,False,12.6,100.0,45.9,42.0,50.3,F,LOW_TIME
+,Tainá,,,,,55,Tata,0,0,0,0,0,0.0,0,0,0.0,0,0,0.0,0,0,nan,0.0,2500.0,False,0.0,0.0,0.0,0.0,0.0,F,
+5081,Mateus Ferreira Patrício,Segurança Cibernética,Tier 2,B,mateuslimapatricio@gmail.com,56,Matt,522,522,0,10,0,0.0,414,332,80.2,108,0,0.0,522,38,7.3,57.5,2565.3,False,100.0,100.0,56.1,32.4,73.3,C,LOW_TIME
+,Ana Julia,,,,,57,anajulisot,125,126,0,4,0,0.0,75,33,44.0,50,0,0.0,125,117,93.6,54.8,2506.0,False,30.5,100.0,30.8,74.2,56.7,F,
+4076,Leandro moreira Andrade Da silva,Metrologia,Tier 1,B,leandromoreira0507@gmail.com,58,Leandro M.,0,0,0,0,0,0.0,0,0,0.0,0,0,0.0,0,0,nan,0.0,2500.0,False,0.0,0.0,0.0,0.0,0.0,F,
+,João Ricardo,,,,,59,Henrique,1,1,0,1,0,0.0,0,0,0.0,1,0,0.0,1,0,nan,54.5,2500.0,True,0.0,100.0,0.0,54.5,35.9,F,
+,Lucas da Silva,,,,,60,Lucas,0,0,0,0,0,0.0,0,0,0.0,0,0,0.0,0,0,nan,0.0,2500.0,False,0.0,0.0,0.0,0.0,0.0,F,
+4041,Isabella,Metrologia,Tier 2,B,isabellaqueres7@gmail.com,61,Bella,373,373,0,7,0,0.0,265,265,100.0,108,0,0.0,371,180,48.5,64.4,2716.7,False,91.6,100.0,70.0,56.5,80.2,B,RET100
+,Ana Luiza,,,,,62,Luiza.,324,324,0,9,0,0.0,225,225,100.0,99,0,0.0,322,237,73.6,54.5,2500.0,False,79.6,100.0,70.0,64.1,78.7,C,RET100
+4021,Eduardo da Silva Fiuza,Metrologia,Tier 2,C,eduardodasilvafiuza9@gmail.com,63,Ihatefiuza,120,120,0,3,60,0.5,60,52,86.7,60,0,0.0,120,36,30.0,55.1,2512.5,False,29.3,75.0,60.7,42.6,52.8,F,
+5031,Ezequiel Telles Pedrosa Dos Santos,Segurança Cibernética,Tier 1,B,ezequieltelles802@gmail.com,64,Ezequiel_,82,82,0,2,0,0.0,42,28,66.7,40,0,0.0,77,64,83.1,54.5,2500.0,False,20.0,100.0,46.7,68.8,57.8,F,
+3056,Wallace Gabriel Ferreira Dos Santos,Biotecnologia,Tier 2,C,walacgabriel15@gmail.com,65,Wallash,81,81,0,5,0,0.0,54,54,100.0,27,0,0.0,79,67,84.8,59.8,2616.7,False,19.7,100.0,70.0,72.3,65.4,D,RET100
+,Rogério Gabriel Barros dos Santos Simões,,,,,66,Rogério 🚲,0,0,0,0,0,0.0,0,0,0.0,0,0,0.0,0,0,nan,0.0,2500.0,False,0.0,0.0,0.0,0.0,0.0,F,
+4101,Thiago kaleb figueiredo de Oliveira,Metrologia,Tier 1,A,kalebfigueiredo066@gmail.com,67,Thiago k,3,3,0,1,0,0.0,1,0,0.0,2,0,0.0,3,0,nan,54.5,2500.0,True,0.5,100.0,0.0,54.5,36.0,F,
+,bea,,,,,68,beatnik,0,0,0,0,0,0.0,0,0,0.0,0,0,0.0,0,0,nan,0.0,2500.0,False,0.0,0.0,0.0,0.0,0.0,F,
+,Matheus,,,,,69,matheusa7x,0,0,0,0,0,0.0,0,0,0.0,0,0,0.0,0,0,nan,0.0,2500.0,False,0.0,0.0,0.0,0.0,0.0,F,
+,Rogério Gabriel Barros dos Santos Simões,,,,,70,Rogério,0,0,0,0,0,0.0,0,0,0.0,0,0,0.0,0,0,nan,0.0,2500.0,False,0.0,0.0,0.0,0.0,0.0,F,
+,Matheus,,,,,71,theuxzvA7X,69,69,0,3,0,0.0,26,26,100.0,43,0,0.0,68,64,94.1,55.0,2510.5,False,16.8,100.0,70.0,74.6,65.1,D,
+3041,Maria Isabel Silva dos Santos,Biotecnologia,Tier 1,B,mariaisabelsilvia8@gmail.com,72,Maria,25,25,0,3,0,0.0,4,3,75.0,21,0,0.0,25,23,92.0,54.5,2500.0,False,5.9,100.0,52.5,73.3,56.9,F,
+5091,Rogério Gabriel Barros dos Santos Simões,Segurança Cibernética,Tier 2,C,sophia2sun1@gmail.com,73,Rogerio,6,6,0,1,0,0.0,2,0,0.0,4,0,0.0,6,0,nan,54.5,2500.0,True,1.2,100.0,0.0,54.5,36.2,F,
+4066,Laura Martins,Metrologia,Tier 1,A,lauramartinssilva2010@gmail.com,74,Laurinha,92,92,0,2,0,0.0,52,38,73.1,40,0,0.0,91,90,98.9,55.1,2511.2,False,22.4,100.0,51.2,77.0,61.3,D,
+4036,Isabel Peixoto,Metrologia,Tier 1,A,isabeldasilvapeixoto@gmail.com,75,belpxto,177,177,0,5,0,0.0,126,75,59.5,51,0,0.0,176,175,99.4,55.9,2529.4,False,43.4,100.0,41.7,77.7,63.9,D,
+4031,Emanuelly Almeida da Silva,Metrologia,Tier 1,A,emanuellyalmeida1112@gmail.com,76,Manualmeid,0,0,0,0,0,0.0,0,0,0.0,0,0,0.0,0,0,nan,0.0,2500.0,False,0.0,0.0,0.0,0.0,0.0,F,
+5041,José Augusto freire de Oliveira,Segurança Cibernética,Tier 1,A,joseaugustofreire381@gmail.com,77,José augus,0,0,0,0,0,0.0,0,0,0.0,0,0,0.0,0,0,nan,0.0,2500.0,False,0.0,0.0,0.0,0.0,0.0,F,
+,Elias Soares Dutra da Conceição,,,,,78,Elias,0,0,0,0,0,0.0,0,0,0.0,0,0,0.0,0,0,nan,0.0,2500.0,False,0.0,0.0,0.0,0.0,0.0,F,
+,Philipe Emanuel de Souza Meireles,,,,,79,Philipe,433,436,0,10,51,0.118,318,272,85.5,115,4,3.5,354,352,99.4,56.5,2543.0,False,100.0,94.1,60.9,78.0,82.4,B,
+4096,ricardo rodrigues,Metrologia,Tier 1,B,ricardorodriguestattoo@gmail.com,80,RicardoSR,206,225,0,4,0,0.0,148,119,80.4,58,0,0.0,184,184,100.0,57.1,2556.9,False,50.5,100.0,56.3,78.6,70.2,C,
+5036,Jady Maria Rodrigues Figueiredo,Segurança Cibernética,Tier 1,B,mariajady777@gmail.com,81,Jady Maria,172,172,0,7,0,0.0,124,104,83.9,48,0,0.0,140,126,90.0,56.8,2550.0,False,42.1,100.0,58.7,73.4,67.8,D,
+3046,Mateus Da Silva Lima,Biotecnologia,Tier 2,C,marcosgomesdevasconcelos@gmail.com,82,Mat&eus,0,0,0,0,0,0.0,0,0,0.0,0,0,0.0,0,0,nan,0.0,2500.0,False,0.0,0.0,0.0,0.0,0.0,F,
+5071,Marcella Vasconcelos Pacheco da Cruz,Segurança Cibernética,Tier 1,B,pachecoomahh@gmail.com,83,Marcella.v,37,37,0,1,0,0.0,17,9,52.9,20,0,0.0,36,36,100.0,54.5,2500.0,False,8.9,100.0,37.1,77.3,53.8,F,
+,MADSON FERREIRA DE SOUZA,,,,,84,madsonfs,80,80,0,2,0,0.0,40,39,97.5,40,0,0.0,72,72,100.0,57.3,2560.0,False,19.5,100.0,68.2,78.6,66.1,D,
+4026,Rafael Jorge de Oliveira Maia,Metrologia,Tier 1,B,eloa0209amorim@gmail.com,85,Anyducklin,23,23,0,1,0,0.0,8,6,75.0,15,0,0.0,22,14,63.6,54.5,2500.0,False,5.4,100.0,52.5,59.1,53.9,F,
+4071,Laís Nascimento Silva,Metrologia,Tier 1,B,lais.n2020@gmail.com,86,Lais_Silva,385,387,0,10,100,0.26,277,270,97.5,108,2,1.9,370,370,100.0,62.4,2672.2,False,94.6,87.0,68.8,81.2,82.3,B,
+,Rogério Gabriel Barros dos Santos Simões,,,,,87,Rogerio G,0,0,0,0,0,0.0,0,0,0.0,0,0,0.0,0,0,nan,0.0,2500.0,False,0.0,0.0,0.0,0.0,0.0,F,
+,Anthony Lucas Muniz Dos Santos,,,,,88,anthonyluc,0,0,0,0,0,0.0,0,0,0.0,0,0,0.0,0,0,nan,0.0,2500.0,False,0.0,0.0,0.0,0.0,0.0,F,
+4006,Daniel André de Oliveira,Metrologia,Tier 1,A,anajuliaoliveiratorres99@gmail.com,89,Daniel,7,7,0,1,0,0.0,4,2,50.0,3,0,0.0,6,6,100.0,54.5,2500.0,False,1.5,100.0,35.0,77.3,51.3,F,
+4056,Kauã Alves da Silva de França,Metrologia,Tier 1,A,alineekaua2020@gmail.com,90,França,5,5,0,1,0,0.0,1,1,100.0,4,0,0.0,5,5,100.0,54.5,2500.0,False,1.0,100.0,70.0,77.3,61.7,D,
+,Bruno dos Santos Lima,,,,,91,Bruno Sts,14,14,0,1,0,0.0,1,1,100.0,13,0,0.0,14,14,100.0,54.5,2500.0,False,3.2,100.0,70.0,77.3,62.3,D,
+,Anthony Lucas Muniz Dos Santos,,,,,92,Anthony001,266,266,0,5,0,0.0,186,93,50.0,80,0,0.0,264,128,48.5,51.0,2421.2,False,65.3,100.0,35.0,49.7,61.8,D,
+3016,ELIAS SOARES DUTRA DA CONCEICAO,Biotecnologia,Tier 1,B,eliassoares1073@gmail.com,93,Elias.,192,201,0,6,0,0.0,131,87,66.4,61,0,0.0,190,190,100.0,55.1,2512.3,False,47.1,100.0,46.5,77.6,66.2,D,
+3031,Maria Clara,Biotecnologia,Tier 1,B,mariaclarapires99@icloud.com,94,Maria C.M,48,48,0,2,0,0.0,28,20,71.4,20,0,0.0,44,44,100.0,54.5,2500.0,False,11.6,100.0,50.0,77.3,58.3,F,
+3036,MARIA EDUARDA DE LIMA ABREU,Biotecnologia,Tier 1,B,dudis00989@gmail.com,95,212.651.50,64,64,0,2,0,0.0,24,19,79.2,40,0,0.0,64,44,68.8,54.2,2492.5,False,15.5,100.0,55.4,61.5,57.8,F,
+3026,Gabriel Bernardo Do Nascimento,Biotecnologia,Tier 2,B,gabrielbernardonascimento2019@gmail.com,96,Gabrielber,200,200,0,4,0,0.0,120,120,100.0,80,0,0.0,200,84,42.0,58.0,2575.0,False,49.0,100.0,70.0,50.0,68.3,D,RET100
+,Amanda,,,,,97,Flores,14,15,0,4,0,0.0,8,7,87.5,6,0,0.0,3,3,100.0,54.5,2500.0,False,3.2,100.0,61.2,77.3,59.6,F,
+,Emanuel  Melo,,,,,98,Emanuel,0,0,0,0,0,0.0,0,0,0.0,0,0,0.0,0,0,nan,0.0,2500.0,False,0.0,0.0,0.0,0.0,0.0,F,
+,Emanuel,,,,,99,Emanuel.,5,5,0,1,0,0.0,2,1,50.0,3,0,0.0,5,5,100.0,54.5,2500.0,False,1.0,100.0,35.0,77.3,51.2,F,
+,Edson José Bernardino,,,,,100,Bernardino,0,0,0,0,0,0.0,0,0,0.0,0,0,0.0,0,0,nan,0.0,2500.0,False,0.0,0.0,0.0,0.0,0.0,F,
+5056,Lucas da Silva,Segurança Cibernética,Tier 1,C,luqqs1p@gmail.com,101,luqqs1p,141,141,0,5,29,0.206,81,78,96.3,60,0,0.0,129,77,59.7,56.7,2547.5,False,34.5,89.7,67.4,58.2,62.9,D,
+,Manuelly alves batista,,,,,102,manuelly,0,0,0,0,0,0.0,0,0,0.0,0,0,0.0,0,0,nan,0.0,2500.0,False,0.0,0.0,0.0,0.0,0.0,F,
+,Daniel André de Oliviaira,,,,,103,Daniel A.,41,41,0,2,0,0.0,21,20,95.2,20,0,0.0,40,40,100.0,54.5,2500.0,False,9.9,100.0,66.7,77.3,62.9,D,
+5021,Bruno dos Santos Lima,Segurança Cibernética,Tier 1,B,bsantos1460@gmail.com,104,Bruno,50,50,0,2,1,0.02,30,19,63.3,20,0,0.0,50,9,18.0,54.5,2500.0,False,12.1,99.0,44.3,36.3,48.3,F,LOW_TIME
+5006,Ana Beatriz Pontes de Almeida,Segurança Cibernética,Tier 2,C,anabeatrizpontesdealmeida20@gmail.com,,,0,0,0,0,0,0.0,0,0,0.0,0,0,0.0,0,0,,0.0,0.0,False,0.0,0.0,0.0,0.0,0.0,F,NO_ACCOUNT
+4011,Ana Luiza Camilo da Silva,Metrologia,Tier 1,B,analuiza101115@gmail.com,,,0,0,0,0,0,0.0,0,0,0.0,0,0,0.0,0,0,,0.0,0.0,False,0.0,0.0,0.0,0.0,0.0,F,NO_ACCOUNT
+4016,Cauã Jorge de Nazareth Marins,Metrologia,Tier 1,B,cjomaislindao@gmail.com,,,0,0,0,0,0,0.0,0,0,0.0,0,0,0.0,0,0,,0.0,0.0,False,0.0,0.0,0.0,0.0,0.0,F,NO_ACCOUNT
+5026,Cauê da Paixão Gomes,Segurança Cibernética,Tier 1,B,caue9333@gmail.com,,,0,0,0,0,0,0.0,0,0,0.0,0,0,0.0,0,0,,0.0,0.0,False,0.0,0.0,0.0,0.0,0.0,F,NO_ACCOUNT
+5061,Luiz Henrique Silva de Carvalho,Segurança Cibernética,Tier 1,A,bzkluizzin@gmail.com,,,0,0,0,0,0,0.0,0,0,0.0,0,0,0.0,0,0,,0.0,0.0,False,0.0,0.0,0.0,0.0,0.0,F,NO_ACCOUNT
+5096,Tainá Avelino. Sebosa da Silva,Segurança Cibernética,Tier 2,B,tainabarbosa.avelino2008@gmail.com,,,0,0,0,0,0,0.0,0,0,0.0,0,0,0.0,0,0,,0.0,0.0,False,0.0,0.0,0.0,0.0,0.0,F,NO_ACCOUNT
