@@ -43,6 +43,7 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 FLASHCARD_DB_PATH = 'flashcards.db' # We will create user-specific DBs later, this is a placeholder
 EXPORT_DIR = os.path.join(basedir, 'exports') # Path relative to app.py
 DAILY_NEW_LIMIT = 20 # Maximum number of new cards to introduce per day per user
+DAY_ROLLOVER_UTC = 5 * 3600  # 05:00 UTC = 02:00 BRT — day boundary for scheduling
 
 # --- App Initialization ---
 app = Flask(__name__)
@@ -228,7 +229,7 @@ def init_anki_db(db_path, user_name="Default User"):
 
     # Populate 'col' table with default Anki data
     crt_time = int(time.time())
-    crt_time -= crt_time % 86400  # normalize to midnight UTC
+    crt_time -= (crt_time - DAY_ROLLOVER_UTC) % 86400  # normalize to 05:00 UTC (02:00 BRT)
     mod_time_ms = int(time.time() * 1000)
     scm_time_ms = mod_time_ms
 
@@ -1277,16 +1278,16 @@ def _getCollectionConfig(cursor):
 def _calculateDayCutoff(collectionCreationTime):
     """Calculates the current time and day cutoff based on collection creation."""
     now = int(time.time())
-    # Normalize crt to midnight UTC so the day boundary is predictable for all users,
-    # regardless of what time of day their account was originally created.
-    normalizedCrt = collectionCreationTime - (collectionCreationTime % 86400)
+    # Normalize crt to 05:00 UTC (02:00 BRT) so the day boundary is predictable for all
+    # users, regardless of what time of day their account was originally created.
+    normalizedCrt = collectionCreationTime - ((collectionCreationTime - DAY_ROLLOVER_UTC) % 86400)
     dayCutoff = (now - normalizedCrt) // 86400
     return now, dayCutoff
 
 def _countNewCardsReviewedToday(cursor, dayCutoff, collectionCreationTime):
     """Counts cards marked as 'new' (type=0) in today's review log."""
-    # Normalize crt to midnight UTC (same reference as _calculateDayCutoff)
-    normalizedCrt = collectionCreationTime - (collectionCreationTime % 86400)
+    # Normalize crt to 05:00 UTC (same reference as _calculateDayCutoff)
+    normalizedCrt = collectionCreationTime - ((collectionCreationTime - DAY_ROLLOVER_UTC) % 86400)
     startOfDayTimestampMs = (normalizedCrt + dayCutoff * 86400) * 1000
     try:
         cursor.execute("""
@@ -1598,7 +1599,7 @@ def answer_card():
         
         # Get the current time and calculate day cutoff relative to collection creation
         now = int(time.time())
-        normalizedCrt = collectionCreationTime - (collectionCreationTime % 86400)
+        normalizedCrt = collectionCreationTime - ((collectionCreationTime - DAY_ROLLOVER_UTC) % 86400)
         dayCutoff = (now - normalizedCrt) // 86400
         
         # Log this review in the revlog table
