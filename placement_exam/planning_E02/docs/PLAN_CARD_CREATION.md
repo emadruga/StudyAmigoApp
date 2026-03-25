@@ -617,7 +617,7 @@ Verso:  Artificial intelligence is a type of computer technology that
 | Elemento | Instrução |
 |----------|-----------|
 | **Frente** | Frase de contexto (do texto ou derivada) com a palavra-alvo em **[MAIÚSCULO]** |
-| **Verso** | `palavra (classe gramatical) = tradução` + `☞ colocação comum` |
+| **Verso** | `palavra (classe gramatical) = tradução` + `☞ colocação comum` + tradução da frase da frente |
 
 **O verso exige mais do que no Tier 1:**
 
@@ -626,9 +626,11 @@ Tier 1:  gather / gathered = coletar, reunir
 
 Tier 2:  gather (v.) = coletar, reunir
          ☞ gather data / gather evidence / gather information
+         ─────────────────────────────────────────────────────
+         "Eu coletei dados de calibração dos sensores no laboratório."
 ```
 
-A **classe gramatical** (`v.`, `n.`, `adj.`) e a **colocação** (`☞`) são obrigatórias no verso do Tier 2. O Cambridge Dictionary (*learner's version*) lista as colocações mais comuns — é a fonte recomendada para pesquisar o verso.
+A **classe gramatical** (`v.`, `n.`, `adj.`), a **colocação** (`☞`) e a **tradução da frase da frente** são obrigatórias no verso do Tier 2. A tradução da frase fecha o ciclo: o aluno vê a frase em inglês na frente, tenta recuperar a palavra, e no verso confirma tanto o significado da palavra quanto o da frase inteira que ele mesmo criou. O Cambridge Dictionary (*learner's version*) lista as colocações mais comuns — é a fonte recomendada para pesquisar o verso.
 
 ---
 
@@ -649,6 +651,8 @@ Passo 3 — Leia o resultado e edite pelo menos um elemento:
 Passo 4 — Monte o cartão:
   Frente: "We [GATHER] calibration data from the equipment every lab session."
   Verso:  gather (v.) = coletar, reunir  ☞ gather data / gather evidence
+          ─────────────────────────────────────────────────────────────────
+          "Nós coletamos dados de calibração dos equipamentos a cada sessão no laboratório."
 ```
 
 **Por que a Tradução Reversa é melhor do que substituição simples para Tier 2:**
@@ -672,7 +676,7 @@ Passo 4 — Monte o cartão:
    - Edite pelo menos um elemento para personalizar
 5. Crie o cartão no StudyAmigo:
    - **Frente**: sua frase com a palavra em `[MAIÚSCULO]`
-   - **Verso**: `palavra (classe) = tradução  ☞ colocação`
+   - **Verso**: `palavra (classe) = tradução  ☞ colocação` + tradução da frase da frente (separada por linha)
 6. Repita para mais 7–11 palavras, distribuindo a criação em **sessões separadas** (não tudo no mesmo dia).
 7. Revise imediatamente após cada sessão de criação.
 
@@ -697,6 +701,8 @@ Edição (personalização):
 Cartão criado:
   Frente: "We were [SUSPICIOUS] of the calibration results after the first test."
   Verso:  suspicious (adj.) = desconfiado  ☞ suspicious of / feel suspicious
+          ─────────────────────────────────────────────────────────────────────
+          "Ficamos desconfiados dos resultados de calibração após o primeiro teste."
 ```
 
 **Por que funciona:**
@@ -762,7 +768,7 @@ Verso:  desconfiado, suspeito
 | **Lista de palavras** | 10 (professor) | 20 (professor) | Seleção autônoma |
 | **Meta de cartões** | mín. 5 / alvo 7–8 / máx. 10 | mín. 8 / alvo 10–12 / máx. 15 | 13–22 |
 | **Formato da frente** | Frase com `[MAIÚSCULO]` | Frase com `[MAIÚSCULO]` | Frase com `[MAIÚSCULO]` → cloze em E03+ |
-| **Verso** | `palavra = tradução` | `palavra (classe) = tradução  ☞ colocação` | Definição em inglês + colocação + família |
+| **Verso** | `palavra = tradução` | `palavra (classe) = tradução  ☞ colocação` + tradução da frase | Definição em inglês + colocação + família |
 | **Frase própria** | Substituição de 1 palavra de contexto | Tradução Reversa (PT → Google Translate → edição) | Produção livre em inglês |
 | **Idioma do verso** | Português | Português + colocação em inglês | Inglês puro |
 | **Dicionário recomendado** | Google Translate | Cambridge Learner's | Cambridge + Merriam-Webster |
