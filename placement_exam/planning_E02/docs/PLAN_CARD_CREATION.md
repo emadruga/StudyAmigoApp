@@ -590,49 +590,127 @@ Verso:  Artificial intelligence is a type of computer technology that
 
 ### 7.2 Tier 2 — Developing
 
-**Perfil do aluno**: Entende frases simples, identifica tempos verbais básicos, vocabulário limitado mas funcional.
+**Perfil do aluno**: Entende frases simples, reconhece alguns tempos verbais, vocabulário limitado mas funcional. Tem alguma exposição prévia ao inglês (escola, música, mídia).
 
-**Dois tipos de cartão recomendados:**
+**Texto base**: Versão mais rica da Chapeuzinho Vermelho (~300 palavras), com vocabulário mais variado e sofisticado do que a versão Tier 1 — mas o enredo permanece o mesmo, mantendo carga cognitiva zero na compreensão da narrativa.
 
-#### Tipo A — Vocabulário em contexto
+> **Por que o mesmo enredo?** O objetivo de E02 é aprender o *método* de criação de cartões, não dominar um texto desconhecido. O enredo familiar libera toda a atenção do aluno para o vocabulário. A partir de E03, o Tier 2 migra para textos mais autênticos e de enredo desconhecido.
+
+**Lista de palavras**: 20 palavras pré-selecionadas pelo professor, retiradas do texto Tier 2.
+
+**Meta de cartões**: mínimo 8, alvo 10–12, máximo 15. Não é esperado que o aluno crie cartões para todas as 20 palavras — escolher *quais* palavras criar já é um exercício metacognitivo valioso.
+
+#### Criação em 2–3 sessões (não tudo de uma vez)
+
+| Sessão | Quando | Cartões a criar |
+|--------|--------|-----------------|
+| **Sessão 1** | Semana 1, após a primeira leitura | 4–5 cartões |
+| **Sessão 2** | Semana 2, após reler o texto | 4–5 cartões |
+| **Sessão 3** (opcional) | Semana 3, palavras que voltaram durante revisão | 2–3 cartões |
+
+> ⚠️ **Criar todos os cartões no Dia 1 é o padrão a evitar.** O script de avaliação pontua o número de dias distintos em que cartões foram criados no baralho Component B. Criar em sessões separadas distribui a carga de revisão e melhora a métrica de consistência.
+
+---
+
+#### Formato do cartão Tier 2
 
 | Elemento | Instrução |
 |----------|-----------|
-| **Frente** | Frase do texto com a palavra-alvo em branco: *"AI systems _______ large amounts of data to recognize patterns."* |
-| **Verso** | A palavra + significado + exemplo novo: *"analyze — analisar. The scientists analyzed the experiment results."* |
-| **Meta** | 6–10 cartões deste tipo |
+| **Frente** | Frase de contexto (do texto ou derivada) com a palavra-alvo em **[MAIÚSCULO]** |
+| **Verso** | `palavra (classe gramatical) = tradução` + `☞ colocação comum` |
 
-#### Tipo B — Tempo verbal em contexto
+**O verso exige mais do que no Tier 1:**
 
-| Elemento | Instrução |
-|----------|-----------|
-| **Frente** | Frase do texto + pergunta sobre o tempo verbal: *"'In the past, computers could only follow fixed instructions.' — What tense is 'could'? Why was it used here?"* |
-| **Verso** | Resposta + regra: *"Modal past (could). Refers to an ability that existed in the past but no longer applies today."* |
-| **Meta** | 3–5 cartões deste tipo |
-
-**Instruções passo a passo para o aluno Tier 2:**
-
-1. Leia o texto Tier 2 duas vezes: uma vez para entender, outra para identificar vocabulário-chave e estruturas gramaticais relevantes.
-2. Selecione 6–10 palavras/expressões de vocabulário que você conhece pouco ou nunca usou na escrita → crie cartões Tipo A (cloze).
-3. Selecione 2–4 frases com tempos verbais diferentes do presente simples → crie cartões Tipo B (análise de tempo verbal).
-4. Crie os cartões no baralho `PASSAGE_E02_TIER2` no StudyAmigo.
-
-**Exemplo de cartão bem-feito — Tier 2 Tipo A:**
 ```
-Frente: AI systems _______ large amounts of data to recognize patterns.
-Verso:  analyze
-        analisar — to examine carefully to understand something.
-        Exemplo novo: "We analyze data to improve our products."
+Tier 1:  gather / gathered = coletar, reunir
+
+Tier 2:  gather (v.) = coletar, reunir
+         ☞ gather data / gather evidence / gather information
 ```
 
-**Exemplo de cartão bem-feito — Tier 2 Tipo B:**
+A **classe gramatical** (`v.`, `n.`, `adj.`) e a **colocação** (`☞`) são obrigatórias no verso do Tier 2. O Cambridge Dictionary (*learner's version*) lista as colocações mais comuns — é a fonte recomendada para pesquisar o verso.
+
+---
+
+#### A frase própria no Tier 2: Tradução Reversa
+
+No Tier 1, o aluno substitui uma palavra de contexto na frase do dicionário. No Tier 2, o andaime sobe um degrau: o aluno usa o método da **Tradução Reversa**, que exige mais mas ainda é acessível para quem não sabe escrever em inglês:
+
 ```
-Frente: "This technology IS NOW USED in many fields."
-        → What tense? Why passive voice here?
-Verso:  Present Simple Passive (is used).
-        Passive voice because the subject (technology) receives the action.
-        Focus is on the technology, not on who uses it.
+Passo 1 — Escreva em português uma frase sobre sua vida/curso:
+  "Os alunos de metrologia coletam dados dos equipamentos semanalmente."
+
+Passo 2 — Cole no Google Translate:
+  "Metrology students gather data from equipment weekly."
+
+Passo 3 — Leia o resultado e edite pelo menos um elemento:
+  "We gather calibration data from the equipment every lab session."
+
+Passo 4 — Monte o cartão:
+  Frente: "We [GATHER] calibration data from the equipment every lab session."
+  Verso:  gather (v.) = coletar, reunir  ☞ gather data / gather evidence
 ```
+
+**Por que a Tradução Reversa é melhor do que substituição simples para Tier 2:**
+- O aluno parte de um contexto real da própria vida — âncora de memória mais forte
+- O Google Translate faz o "trabalho pesado" de estruturar a frase em inglês — acessível sem saber escrever em inglês
+- Editar o resultado força leitura atenta e detecção de erros ou estranhezas
+- Ensina ao aluno *como usar o Google Translate corretamente* — como rascunho a verificar, não como oráculo
+
+---
+
+**Instruções passo a passo para o aluno Tier 2 (E02):**
+
+1. Receba a lista de **20 palavras-alvo** retiradas do texto Tier 2.
+2. Escolha **uma palavra** da lista.
+3. Pesquise no **Cambridge Dictionary** (*learner's version*):
+   - Classe gramatical (`v.`, `n.`, `adj.`)
+   - Uma colocação comum (ex: `gather data`)
+4. Use o método da **Tradução Reversa** para criar a frase própria:
+   - Escreva em português uma frase sobre sua vida/curso
+   - Traduza com Google Translate
+   - Edite pelo menos um elemento para personalizar
+5. Crie o cartão no StudyAmigo:
+   - **Frente**: sua frase com a palavra em `[MAIÚSCULO]`
+   - **Verso**: `palavra (classe) = tradução  ☞ colocação`
+6. Repita para mais 7–11 palavras, distribuindo a criação em **sessões separadas** (não tudo no mesmo dia).
+7. Revise imediatamente após cada sessão de criação.
+
+---
+
+**Exemplo completo — palavra: *suspicious***
+
+```
+Cambridge:
+  suspicious (adj.) = desconfiado, suspeito
+  ☞ suspicious of / feel suspicious / suspicious behavior
+
+Frase em português:
+  "O engenheiro ficou desconfiado do resultado do sensor."
+
+Google Translate:
+  "The engineer was suspicious of the sensor reading."
+
+Edição (personalização):
+  "We were suspicious of the calibration results after the first test."
+
+Cartão criado:
+  Frente: "We were [SUSPICIOUS] of the calibration results after the first test."
+  Verso:  suspicious (adj.) = desconfiado  ☞ suspicious of / feel suspicious
+```
+
+**Por que funciona:**
+- Frase veio da vida real do aluno (metrologia) → **âncora de memória pessoal**
+- Tradução Reversa ativou processamento ativo → **efeito de geração**
+- `[MAIÚSCULO]` define exatamente o que o cartão testa → **SM-2 pontua a palavra certa**
+- Colocação no verso transforma "sei o que significa" em "sei como usar" → **aprendizado produtivo**
+
+**Exemplo de cartão mal-feito — Tier 2 (evitar):**
+```
+Frente: suspicious
+Verso:  desconfiado, suspeito
+```
+> ❌ Problema: cartão Tier 1 criado por aluno Tier 2. Não tem colocação, não tem classe gramatical, não tem frase de contexto. Não treina uso da palavra — apenas reconhecimento isolado.
 
 ---
 
@@ -680,11 +758,15 @@ Verso:  Present Simple Passive (is used).
 
 | Critério | Tier 1 | Tier 2 | Tier 3 |
 |----------|--------|--------|--------|
-| **Tipo de cartão** | Palavra → tradução PT | Cloze + análise de tempo verbal | Vocabulário acadêmico + compreensão inferencial + gramática complexa |
-| **Idioma do verso** | Português | Inglês + português | Inglês puro |
-| **Meta de cartões** | 5–8 | 10–13 | 15–20 |
-| **Nível de análise** | Reconhecimento léxico | Vocabulário em uso + gramática básica | Inferência + análise linguística |
-| **Uso de dicionário** | Bilíngue (PT↔EN) | Bilíngue + definição em EN | Definição em EN apenas |
+| **Texto base** | Chapeuzinho ~200 palavras | Chapeuzinho versão rica ~300 palavras | Texto técnico/autêntico |
+| **Lista de palavras** | 10 (professor) | 20 (professor) | Seleção autônoma |
+| **Meta de cartões** | mín. 5 / alvo 7–8 / máx. 10 | mín. 8 / alvo 10–12 / máx. 15 | 13–22 |
+| **Formato da frente** | Frase com `[MAIÚSCULO]` | Frase com `[MAIÚSCULO]` | Frase com `[MAIÚSCULO]` → cloze em E03+ |
+| **Verso** | `palavra = tradução` | `palavra (classe) = tradução  ☞ colocação` | Definição em inglês + colocação + família |
+| **Frase própria** | Substituição de 1 palavra de contexto | Tradução Reversa (PT → Google Translate → edição) | Produção livre em inglês |
+| **Idioma do verso** | Português | Português + colocação em inglês | Inglês puro |
+| **Dicionário recomendado** | Google Translate | Cambridge Learner's | Cambridge + Merriam-Webster |
+| **Sessões de criação** | 1–2 | 2–3 | 2–3 |
 
 ---
 
@@ -692,12 +774,12 @@ Verso:  Present Simple Passive (is used).
 
 Conforme a convenção estabelecida em `READING_MATERIAL_METHODOLOGY.md` (Seção 7.1), E02 terá os seguintes baralhos:
 
-| Componente | Nome do baralho | Quem cria | Conteúdo |
-|------------|-----------------|-----------|----------|
-| **A** | `SHARED_CURATED_v1` | Instructor (pré-carregado) | Batch 2 do baralho curado compartilhado (~33 novos cartões) |
-| **B — Tier 1** | `PASSAGE_E02_TIER1` | Alunos Tier 1 | 5–8 cartões do texto Tier 1 |
-| **B — Tier 2** | `PASSAGE_E02_TIER2` | Alunos Tier 2 | 10–13 cartões do texto Tier 2 |
-| **B — Tier 3** | `PASSAGE_E02_TIER3` | Alunos Tier 3 | 15–20 cartões do texto Tier 3 |
+| Componente | Nome do baralho | Quem cria | Meta de cartões |
+|------------|-----------------|-----------|-----------------|
+| **A** | `SHARED_CURATED_v1` | Instructor (pré-carregado) | ~33 novos cartões do Batch 2 |
+| **B — Tier 1** | `PASSAGE_E02_TIER1` | Alunos Tier 1 | mín. 5 / alvo 7–8 / máx. 10 |
+| **B — Tier 2** | `PASSAGE_E02_TIER2` | Alunos Tier 2 | mín. 8 / alvo 10–12 / máx. 15 |
+| **B — Tier 3** | `PASSAGE_E02_TIER3` | Alunos Tier 3 | mín. 13 / alvo 16–18 / máx. 22 |
 | **C** | Livre escolha | Todos os alunos | ≥5 cartões de material escolhido pelo aluno |
 
 > **Atenção**: Os alunos precisam criar os baralhos com os nomes exatos acima. O script `grade_exercise.py` usa o nome do baralho para distinguir Component B de Component C. Um aluno que nomear o baralho errado terá seus cartões contabilizados como Component C em vez de B.
@@ -716,28 +798,134 @@ Conforme a convenção estabelecida em `READING_MATERIAL_METHODOLOGY.md` (Seçã
 
 ## 9. Critérios de avaliação dos cartões criados
 
-### 8.1 Métricas automáticas (geradas por `grade_exercise.py`)
+### 9.1 Métricas automáticas (geradas por `grade_exercise.py`)
 
-| Métrica | O que mede | Peso em E02 |
-|---------|------------|-------------|
-| **Número de cartões criados** | Volume de Component B | Sub-score de Volume (V) |
-| **Revisões dentro do exercício** | Aluno criou E revisou os cartões | Sub-score de Volume + Consistência |
-| **Taxa de retenção dos cartões B** | Qualidade do aprendizado dos cartões próprios | Sub-score de Qualidade (Q) |
-| **Maturidade dos cartões B** | Cartões B com `ivl ≥ 21` | Sub-score de Qualidade (Q) — só válido com bug corrigido |
+#### Métricas existentes
 
-### 8.2 Avaliação qualitativa pelo professor (opcional em E02, recomendado a partir de E03)
+| Métrica | O que mede | Sub-score |
+|---------|------------|-----------|
+| **`cards_created`** | Total de cartões criados no baralho Component B | Volume (V) |
+| **`reviews_in_window`** | Revisões feitas dentro do período do exercício | Volume (V) + Consistência (C) |
+| **`retention_rate`** | Taxa de acerto nas revisões dos cartões B | Qualidade (Q) |
+| **`maturity_pct`** | % de cartões B com `ivl ≥ 21` | Qualidade (Q) — válido a partir de E02 com SM-2 corrigido |
+
+#### Novas métricas a implementar para E02
+
+Três métricas adicionais foram identificadas como necessárias para capturar a qualidade do processo de criação, não apenas o volume:
+
+---
+
+**Métrica 1 — `days_with_card_creation`**
+
+*O que mede*: número de dias distintos em que o aluno criou pelo menos 1 cartão no baralho Component B durante o período do exercício.
+
+*Por que importa*: criação concentrada num único dia é sinal de trabalho em bloco sem revisão intercalada. Criação distribuída ao longo de 2–3 semanas é sinal de engajamento contínuo e produz melhor retenção por exposição espaçada.
+
+*Como calcular*:
+```sql
+-- Para cada aluno, conta dias distintos com criação de cartão no baralho B
+SELECT COUNT(DISTINCT DATE(id/1000, 'unixepoch')) AS days_with_creation
+FROM notes
+WHERE id >= strftime('%s', '2026-04-07') * 1000
+  AND id <= strftime('%s', '2026-04-28') * 1000
+  AND tags LIKE '%PASSAGE_E02%';
+-- (ajustar para filtrar pelo deck correto via join com cards/decks)
+```
+
+*Pontuação sugerida*:
+
+| `days_with_card_creation` | Sub-score |
+|:-:|:-:|
+| 1 dia | 0.25 |
+| 2 dias | 0.60 |
+| 3–4 dias | 0.85 |
+| ≥ 5 dias | 1.00 |
+
+---
+
+**Métrica 2 — `front_format_score`**
+
+*O que mede*: proporção de cartões Component B cuja frente contém marcação `[PALAVRA]` (palavra-alvo em maiúsculo entre colchetes).
+
+*Por que importa*: a marcação `[MAIÚSCULO]` é o indicador central de que o cartão testa um item lexical específico, não uma frase completa de leitura. Um cartão sem a marcação é provavelmente um cartão do tipo antigo (palavra isolada → tradução) ou uma frase ambígua.
+
+*Como calcular*:
+```python
+import re
+
+def front_format_score(cards_front_list):
+    """
+    cards_front_list: lista de strings com o conteúdo da frente de cada cartão
+    Retorna proporção de cartões com padrão [PALAVRA_EM_MAIUSCULO]
+    """
+    pattern = re.compile(r'\[[A-ZÁÉÍÓÚÃÕÂÊÔÇ]{2,}\]')
+    valid = sum(1 for f in cards_front_list if pattern.search(f))
+    return valid / len(cards_front_list) if cards_front_list else 0.0
+```
+
+*Pontuação*: valor contínuo entre 0.0 e 1.0 (proporção direta).
+
+> **Nota de implementação**: o conteúdo da frente do cartão está no campo `flds` da tabela `notes`, separado por `\x1f`. O primeiro campo é a frente, o segundo é o verso.
+
+---
+
+**Métrica 3 — `back_format_score`** *(Tier 2 e Tier 3 apenas)*
+
+*O que mede*: proporção de cartões Component B cujo verso contém o símbolo `☞` (indicador de colocação obrigatório para Tier 2+).
+
+*Por que importa*: o `☞` é a assinatura do verso bem formado do Tier 2. Um verso sem `☞` indica que o aluno copiou apenas a tradução (formato Tier 1), não acrescentando a classe gramatical nem a colocação exigida.
+
+*Como calcular*:
+```python
+def back_format_score(cards_back_list, tier):
+    """Só aplicável a Tier 2 e Tier 3."""
+    if tier == 1:
+        return None  # Não avaliado para Tier 1
+    valid = sum(1 for b in cards_back_list if '☞' in b)
+    return valid / len(cards_back_list) if cards_back_list else 0.0
+```
+
+*Pontuação*: valor contínuo entre 0.0 e 1.0.
+
+> **Alternativa se `☞` não for adotado consistentemente**: verificar presença de `(v.)`, `(n.)` ou `(adj.)` no verso como proxy para classe gramatical. Ambas as verificações podem rodar em conjunto.
+
+---
+
+#### Integração das novas métricas no sub-score de Qualidade (Q)
+
+Proposta de ponderação para E02:
+
+```
+Q = 0.50 × retention_sub
+  + 0.20 × maturity_sub
+  + 0.15 × front_format_sub     ← novo
+  + 0.15 × back_format_sub      ← novo (Tier 2+); substituído por front_format_sub extra no Tier 1
+```
+
+O sub-score de `days_with_card_creation` entra no componente de **Consistência (C)**, não em Q:
+
+```
+C = 0.60 × review_days_sub          (dias com revisão — já existente)
+  + 0.40 × days_with_creation_sub   ← novo
+```
+
+> **Decisão pendente**: os pesos acima são propostos — precisam ser validados contra os dados reais de E02 antes de serem aplicados definitivamente em E03.
+
+---
+
+### 9.2 Avaliação qualitativa pelo professor (opcional em E02, recomendado a partir de E03)
 
 Dado que E02 é a estreia da criação de cartões, a avaliação qualitativa pode ser leve. Sugestão de rubrica simplificada:
 
 | Critério | Nota máxima | Descrição |
 |----------|-------------|-----------|
-| **Adequação ao tier** | 3 pts | O cartão usa o formato correto para o tier? |
+| **Adequação ao tier** | 3 pts | O cartão usa o formato correto para o tier? (`[MAIÚSCULO]` na frente; colocação no verso para Tier 2+) |
 | **Atomicidade** | 2 pts | Cada cartão testa exatamente uma coisa? |
-| **Qualidade do verso** | 3 pts | O verso tem informação suficiente para memorização? |
+| **Qualidade do verso** | 3 pts | O verso tem informação suficiente? (tradução + colocação para Tier 2+) |
 | **Derivação do texto** | 2 pts | O cartão claramente veio do texto (e não foi inventado sem relação)? |
 | **Total** | 10 pts | |
 
-Em E02, o professor pode avaliar apenas uma amostra aleatória (e.g., 5 alunos de cada tier) para calibrar os critérios antes de aplicar sistematicamente em E03.
+Em E02, o professor pode avaliar apenas uma amostra aleatória (ex: 5 alunos de cada tier) para calibrar os critérios antes de aplicar sistematicamente em E03.
 
 ---
 
@@ -796,9 +984,12 @@ Os pontos abaixo requerem decisão do professor antes da instrução de E02 ser 
 
 ### 10.3 Preparação dos textos nivelados
 
-- [ ] Escrever (ou adaptar) os três textos sobre IA nos formatos Tier 1 / Tier 2 / Tier 3
-- [ ] Validar readability: Tier 1 target Flesch-Kincaid grade 2–4; Tier 2 target grade 5–7; Tier 3 target grade 8–10
-- [ ] Identificar 5–8 palavras-chave por texto para uso nas instruções de card creation
+- [ ] Escrever versão Tier 1 da Chapeuzinho (~200 palavras, vocabulário concreto e simples)
+- [ ] Escrever versão Tier 2 da Chapeuzinho (~300 palavras, vocabulário mais variado — *suspicious, cunning, rescue, warn, devour, reveal*)
+- [ ] Escrever (ou adaptar) texto técnico para Tier 3 — enredo desconhecido, vocabulário acadêmico
+- [ ] Validar readability: Tier 1 Flesch-Kincaid grade 2–4; Tier 2 grade 5–7; Tier 3 grade 8–10
+- [ ] Preparar lista de **10 palavras-alvo** para Tier 1 (retiradas do texto Tier 1)
+- [ ] Preparar lista de **20 palavras-alvo** para Tier 2 (retiradas do texto Tier 2)
 
 ### 10.4 Engajamento dos alunos ausentes de E01
 
@@ -812,7 +1003,7 @@ Os pontos abaixo requerem decisão do professor antes da instrução de E02 ser 
 
 ### 10.6 Atualização da fórmula de avaliação para E02
 
-A fórmula de E01 usava `--no-card-creation`, que colapsa o Volume para apenas revisões. Em E02, a fórmula completa deve incluir cartões criados. Verificar se o script `grade_exercise.py` precisa de ajustes para E02:
+A fórmula de E01 usava `--no-card-creation`, que colapsa o Volume para apenas revisões. Em E02, a fórmula completa deve incluir cartões criados e as três novas métricas de formato/dispersão.
 
 ```bash
 # E02 (com criação de cartões, bug SM-2 corrigido):
@@ -825,7 +1016,15 @@ python grade_exercise.py \
     --user-db-dir ~/.cache/studyamigo/20260428/user_dbs
 ```
 
-*(Remover `--no-card-creation` para que o sub-score de cards_created entre no Volume V)*
+*(Remover `--no-card-creation` para que `cards_created` entre no Volume V)*
+
+**Novas métricas a implementar no script antes de E02:**
+
+- [ ] `days_with_card_creation` — dias distintos com criação no baralho Component B (entra em C)
+- [ ] `front_format_score` — proporção de cartões com `[PALAVRA]` na frente (entra em Q)
+- [ ] `back_format_score` — proporção de cartões Tier 2+ com `☞` no verso (entra em Q)
+
+Ver seção 9.1 deste documento para especificação detalhada de cálculo e pesos propostos.
 
 ---
 
