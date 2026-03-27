@@ -181,7 +181,28 @@ Cartão criado:
 
 ---
 
-## SLIDE 12 — Tier 2: visão geral
+## SLIDE 12 — Ferramenta: Cambridge Learner's Dictionary
+
+### Por que o Cambridge, não o Google Translate?
+
+| | Google Translate | Cambridge Learner's Dictionary |
+|---|---|---|
+| **O que fornece** | Tradução direta | Tradução + classe gramatical + colocações + exemplo |
+| **Ideal para** | Entender o significado rapidamente | Criar o **verso completo** do cartão |
+| **Tier recomendado** | Tier 1 | **Tier 2 e Tier 3** |
+
+**O que o Cambridge mostra que o Google Translate não mostra:**
+- Classe gramatical: `(v.)`, `(n.)`, `(adj.)`
+- Nível de dificuldade: A1 → C2
+- Colocações comuns: `gather data` / `gather evidence` / `gather information`
+- Frase-exemplo cuidadosamente editada por lexicógrafos
+
+**Como acessar (gratuito):**
+> `dictionary.cambridge.org` → pesquise a palavra → selecione **"Learner's Dictionary"**
+
+---
+
+## SLIDE 13 — Tier 2: visão geral
 
 ### Tier 2 — Developing
 
@@ -198,7 +219,7 @@ Cartão criado:
 
 ---
 
-## SLIDE 13 — Tier 2: o formato do verso
+## SLIDE 14 — Tier 2: o formato do verso
 
 ### O verso do Tier 2 exige mais do que o Tier 1
 
@@ -220,7 +241,7 @@ Tier 2 (completo):
 
 ---
 
-## SLIDE 14 — Tier 2: passo a passo
+## SLIDE 15 — Tier 2: passo a passo
 
 ### Como criar um cartão (Tier 2)
 
@@ -241,7 +262,7 @@ Tier 2 (completo):
 
 ---
 
-## SLIDE 15 — Tier 2: exemplo completo
+## SLIDE 16 — Tier 2: exemplo completo
 
 ### Palavra: *suspicious*
 
@@ -268,7 +289,7 @@ Cartão criado:
 
 ---
 
-## SLIDE 16 — Tier 3: visão geral
+## SLIDE 17 — Tier 3: visão geral
 
 ### Tier 3 — Expanding
 
@@ -284,7 +305,7 @@ Cartão criado:
 
 ---
 
-## SLIDE 17 — Tier 3: passo a passo
+## SLIDE 18 — Tier 3: passo a passo
 
 ### Como criar um cartão (Tier 3)
 
@@ -304,7 +325,7 @@ Cartão criado:
 
 ---
 
-## SLIDE 18 — Tier 3: exemplo completo
+## SLIDE 19 — Tier 3: exemplo completo
 
 ### Palavra: *drawn* (do texto sobre Hassabis / DeepMind)
 
@@ -328,7 +349,7 @@ Cartão criado:
 
 ---
 
-## SLIDE 19 — Comparação: o que cada tier faz
+## SLIDE 20 — Comparação: o que cada tier faz
 
 ### Resumo dos três tiers lado a lado
 
@@ -343,7 +364,7 @@ Cartão criado:
 
 ---
 
-## SLIDE 20 — Quantos cartões você precisa criar
+## SLIDE 21 — Quantos cartões você precisa criar
 
 ### Metas de produção por tier (Component B)
 
@@ -359,7 +380,7 @@ Cartão criado:
 
 ---
 
-## SLIDE 21 — Nome do baralho (crítico!)
+## SLIDE 22 — Nome do baralho (crítico!)
 
 ### Nomeie o baralho **exatamente** como indicado
 
@@ -380,7 +401,7 @@ Cartão criado:
 
 ---
 
-## SLIDE 22 — Component C: material de livre escolha
+## SLIDE 23 — Component C: material de livre escolha
 
 ### Você também precisa de 5 cartões de material próprio
 
@@ -400,7 +421,7 @@ Cartão criado:
 
 ---
 
-## SLIDE 23 — Sugestões de fontes para Component C
+## SLIDE 24 — Sugestões de fontes para Component C
 
 ### Por onde começar?
 
@@ -421,7 +442,7 @@ Cartão criado:
 
 ---
 
-## SLIDE 24 — Erros mais comuns (evite!)
+## SLIDE 25 — Erros mais comuns (evite!)
 
 ### O que NÃO fazer
 
@@ -436,7 +457,7 @@ Cartão criado:
 
 ---
 
-## SLIDE 25 — O que acontece depois de criar
+## SLIDE 26 — O que acontece depois de criar
 
 ### O ciclo completo
 
@@ -455,7 +476,7 @@ Cartão maduro = intervalo ≥ 21 dias (sua nota agradece)
 
 ---
 
-## SLIDE 26 — Checklist final
+## SLIDE 27 — Checklist final
 
 ### Antes de terminar o exercício, verifique:
 
@@ -474,7 +495,7 @@ Cartão maduro = intervalo ≥ 21 dias (sua nota agradece)
 
 ---
 
-## SLIDE 27 — Resumo em uma frase por tier
+## SLIDE 28 — Resumo em uma frase por tier
 
 ### O que levar para casa
 
@@ -486,7 +507,7 @@ Cartão maduro = intervalo ≥ 21 dias (sua nota agradece)
 
 ---
 
-## SLIDE 28 — Dúvidas?
+## SLIDE 29 — Dúvidas?
 
 ### Contato e suporte
 
