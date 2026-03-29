@@ -89,7 +89,29 @@
 
 ---
 
-## SLIDE 7 — O formato correto da frente
+## SLIDE 7 — A regra das duas passagens (todos os tiers)
+
+### Antes de criar qualquer cartão: leia o texto duas vezes
+
+| | O que fazer | Ferramenta |
+|---|---|---|
+| **1ª leitura** | Leia completo sem parar. Entenda o enredo pelos cognatos. | Nenhuma |
+| **2ª leitura** | Identifique suas lacunas de vocabulário (como varia por tier — ver abaixo) | Dicionário **por palavra** |
+
+### Como a 2ª leitura varia por tier
+
+| Tier | 2ª leitura |
+|------|-----------|
+| **Tier 1** | Com a lista do professor em mãos — localiza cada palavra no texto |
+| **Tier 2** | Sem a lista — marca o que não produziria; depois confronta com a lista |
+| **Tier 3** | Sem lista — auditoria produtiva (tripla de perguntas) |
+
+> **Nunca cole o texto inteiro no Google Translate.**
+> Isso elimina o processamento em inglês — que é o objetivo do exercício.
+
+---
+
+## SLIDE 8 — O formato correto da frente
 
 ### A palavra-alvo vai em `[MAIÚSCULO]`
 
@@ -144,17 +166,26 @@ Verso:  processo / processar
 
 ### Como criar um cartão (Tier 1)
 
-1. Pegue a **lista de 10 palavras-alvo** do professor
-2. Escolha **uma palavra** da lista
-3. Procure **1 frase exemplo** com essa palavra (Google ou Cambridge)
-4. **Troque uma palavra de contexto** da frase por algo da sua vida
+**Fase de leitura:**
+
+1. Leia o texto **uma vez completa** sem dicionário
+2. Pegue a lista de **10 palavras-alvo** do professor. Releia o texto
+   localizando cada palavra **na frase em que aparece**.
+   Consulte dicionário **palavra a palavra** — não cole o texto inteiro no
+   Google Translate.
+
+**Criação:**
+
+3. Escolha **uma palavra** da lista
+4. Procure **1 frase exemplo** com essa palavra (Google ou Cambridge)
+5. **Troque uma palavra de contexto** da frase por algo da sua vida
    - "Scientists" → "Engineers" / "Biologists" / "I"
    - "the experiment" → "the sensors" / "the lab"
-5. Crie o cartão no StudyAmigo:
+6. Crie o cartão no StudyAmigo:
    - **Frente**: sua frase com a palavra em `[MAIÚSCULO]`
    - **Verso**: `palavra = tradução em português`
-6. Repita para mais 4–7 palavras da lista
-7. **Revise imediatamente** após criar
+7. Repita para mais 4–7 palavras da lista
+8. **Revise imediatamente** após criar
 
 ---
 
@@ -245,20 +276,29 @@ Tier 2 (completo):
 
 ### Como criar um cartão (Tier 2)
 
-1. Pegue a **lista de 20 palavras-alvo** do professor
-2. Escolha **uma palavra** — aquela que você não saberia usar numa frase agora
-3. Abra o **Cambridge Dictionary** (*learner's version*):
+**Fase de leitura:**
+
+1. Leia o texto **uma vez completa** sem dicionário
+2. Releia **sem a lista** do professor. Sublinhe palavras que você não
+   saberia usar numa frase nova. Consulte dicionário **palavra a palavra**.
+3. Abra a lista de **20 palavras-alvo**. Compare com suas marcações:
+   palavras em **ambas as listas** são as candidatas prioritárias.
+
+**Criação:**
+
+4. Escolha **uma palavra** candidata
+5. Abra o **Cambridge Dictionary** (*learner's version*):
    - Anote a classe gramatical
    - Anote uma colocação comum (`☞`)
-4. Use a **Tradução Reversa** para criar a frase:
+6. Use a **Tradução Reversa** para criar a frase:
    - Escreva a frase em **português** sobre sua vida/curso
    - Cole no **Google Translate**
    - **Edite pelo menos um elemento** para personalizar
-5. Monte o cartão:
+7. Monte o cartão:
    - **Frente**: sua frase com a palavra em `[MAIÚSCULO]`
    - **Verso**: `palavra (classe) = tradução  ☞ colocação` + tradução da frase
-6. Repita para 7–11 palavras, em **sessões separadas**
-7. Revise após cada sessão
+8. Repita para 7–11 palavras, em **sessões separadas**
+9. Revise após cada sessão
 
 ---
 
@@ -309,8 +349,17 @@ Cartão criado:
 
 ### Como criar um cartão (Tier 3)
 
-1. Leia o texto **uma vez completa** sem parar para buscar palavras
-2. Releia e **sublinhe** todas as palavras que você não conhece ou conhece só parcialmente
+**Fase de leitura:**
+
+1. Leia o texto **uma vez completa** sem dicionário
+2. Releia com lápis. Sublinhe a palavra se você responder **"não"** a
+   pelo menos uma destas perguntas:
+   - (a) Eu saberia usar esta palavra numa frase nova sem consultar?
+   - (b) Eu conheço ao menos uma colocação típica desta palavra?
+   - (c) Eu sei a classe gramatical desta palavra?
+
+**Criação:**
+
 3. Para cada palavra sublinhada, abra o Cambridge ou Merriam-Webster:
    - Copie a **classe gramatical** e a **definição em inglês**
    - Escolha uma **frase exemplo do dicionário**
@@ -499,11 +548,11 @@ Cartão maduro = intervalo ≥ 21 dias (sua nota agradece)
 
 ### O que levar para casa
 
-> **Tier 1**: Pegue a lista do professor, troque uma palavra de contexto na frase do dicionário, coloque a palavra-alvo em `[MAIÚSCULO]` na frente.
+> **Tier 1**: Leia sem dicionário → releia com a lista, palavra a palavra → troque um contexto na frase do dicionário → `[MAIÚSCULO]` na frente.
 
-> **Tier 2**: Use o Cambridge, escreva em português, traduza, edite uma coisa, coloque `☞` colocação no verso.
+> **Tier 2**: Leia sem dicionário → sublinhe sem a lista → confronte com a lista → Tradução Reversa → `☞` colocação e tradução da frase no verso.
 
-> **Tier 3**: Leia completo, sublinhe o que não sabe, use frase do dicionário, defina em inglês, `☞` colocação, tradução da frase no verso.
+> **Tier 3**: Leia sem dicionário → auditoria produtiva (consigo usar? sei a colocação? sei a classe?) → frase do dicionário → definição em inglês → `☞` colocação → tradução da frase no verso.
 
 ---
 

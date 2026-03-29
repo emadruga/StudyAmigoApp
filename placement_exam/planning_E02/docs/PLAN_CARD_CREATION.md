@@ -496,6 +496,17 @@ Antes das instruções específicas por tier, os seguintes princípios se aplica
 
 > **Regra da produtividade**: O verso do cartão deve conter **mais do que a resposta** — deve conter uma âncora de memória. Para Tier 1: a tradução + um exemplo. Para Tier 2: a definição em inglês + tradução. Para Tier 3: a definição acadêmica + uso em frase.
 
+> **Regra das duas passagens**: Antes de criar qualquer cartão, todo aluno
+> lê o texto duas vezes. A 1ª passagem é sempre sem suporte — para construir
+> contexto. A 2ª passagem é com suporte seletivo — para identificar lacunas.
+> O grau de autonomia na 2ª passagem aumenta com o tier:
+>
+> | | 1ª passagem | 2ª passagem | Confronto com lista |
+> |---|---|---|---|
+> | **Tier 1** | Sem suporte | Com a lista em mãos — localiza as palavras no texto | Não se aplica |
+> | **Tier 2** | Sem suporte | Sem lista — marca o que não produziria; consulta por palavra | Sim — compara marcações próprias com a lista |
+> | **Tier 3** | Sem suporte | Sem lista — auditoria produtiva (tripla de perguntas) | Não se aplica (seleção totalmente autônoma) |
+
 ---
 
 ### 7.1 Tier 1 — Foundation
@@ -548,15 +559,29 @@ A solução para Tier 1 é **marcar a palavra-alvo em maiúsculo ou entre colche
 
 **Instruções passo a passo para o aluno Tier 1 (E02):**
 
-1. Receba a lista de **10 palavras-alvo** fornecida pelo professor, retiradas do texto da Chapeuzinho.
-2. Escolha **uma palavra** da lista que você quer aprender.
-3. Encontre **1 exemplo de frase** com essa palavra num dicionário online (Cambridge ou apenas Google).
-4. **Troque uma palavra de contexto** da frase por algo da sua própria vida (substitua "Little Red Riding Hood" por "I", ou "scientists" por "engineers", etc.).
-5. Crie o cartão no StudyAmigo:
+**Fase de leitura (antes de criar qualquer cartão):**
+
+1. Leia o texto **uma vez completa**, sem dicionário e sem parar em palavras
+   desconhecidas. O objetivo é entender o enredo geral pelos cognatos e pelo
+   contexto — não entender cada palavra.
+2. Receba a lista de **10 palavras-alvo** do professor. Releia o texto
+   procurando cada palavra da lista **dentro da frase em que aparece**.
+   Consulte o dicionário **palavra a palavra** (não cole o parágrafo inteiro
+   no Google Translate) para entender o significado no contexto.
+
+**Criação dos cartões:**
+
+3. Escolha **uma palavra** da lista.
+4. Encontre **1 exemplo de frase** com essa palavra num dicionário online
+   (Cambridge ou Google).
+5. **Troque uma palavra de contexto** da frase por algo da sua própria vida
+   (substitua "Little Red Riding Hood" por "I", ou "scientists" por
+   "engineers", etc.).
+6. Crie o cartão no StudyAmigo:
    - **Frente**: a frase modificada, com a palavra-alvo em **[MAIÚSCULO]**
    - **Verso**: a palavra em inglês (minúsculo) = tradução em português
-6. Repita para mais 4–7 palavras da lista.
-7. Revise imediatamente após criar (primeira sessão de aprendizado).
+7. Repita para mais 4–7 palavras da lista.
+8. Revise imediatamente após criar (primeira sessão de aprendizado).
 
 **Exemplo completo — palavra: *gather***
 
@@ -665,20 +690,38 @@ Passo 4 — Monte o cartão:
 
 **Instruções passo a passo para o aluno Tier 2 (E02):**
 
-1. Receba a lista de **20 palavras-alvo** retiradas do texto Tier 2.
-2. Escolha **uma palavra** da lista.
-3. Pesquise no **Cambridge Dictionary** (*learner's version*):
+**Fase de leitura (antes de criar qualquer cartão):**
+
+1. Leia o texto **uma vez completa**, sem dicionário e sem parar em palavras
+   desconhecidas. Objetivo: entender o enredo geral.
+2. Releia com lápis na mão, **sem a lista do professor**. Sublinhe toda
+   palavra que você precisaria consultar para entender a frase — ou que
+   entende quando lê mas não saberia usar numa frase nova.
+   Consulte o dicionário **palavra a palavra** (não cole o texto inteiro
+   no Google Translate).
+3. Abra a lista de **20 palavras-alvo** do professor. Compare com suas
+   marcações: as palavras que aparecem em **ambas** as listas são as
+   candidatas prioritárias para criar cartões.
+   > **Por que este passo importa**: você descobre quais lacunas o professor
+   > antecipou e quais você identificou sozinho — isso calibra sua
+   > autopercepção de vocabulário.
+
+**Criação dos cartões:**
+
+4. Escolha **uma palavra** candidata.
+5. Pesquise no **Cambridge Dictionary** (*learner's version*):
    - Classe gramatical (`v.`, `n.`, `adj.`)
    - Uma colocação comum (ex: `gather data`)
-4. Use o método da **Tradução Reversa** para criar a frase própria:
+6. Use o método da **Tradução Reversa** para criar a frase própria:
    - Escreva em português uma frase sobre sua vida/curso
    - Traduza com Google Translate
    - Edite pelo menos um elemento para personalizar
-5. Crie o cartão no StudyAmigo:
+7. Crie o cartão no StudyAmigo:
    - **Frente**: sua frase com a palavra em `[MAIÚSCULO]`
    - **Verso**: `palavra (classe) = tradução  ☞ colocação` + tradução da frase da frente (separada por linha)
-6. Repita para mais 7–11 palavras, distribuindo a criação em **sessões separadas** (não tudo no mesmo dia).
-7. Revise imediatamente após cada sessão de criação.
+8. Repita para mais 7–11 palavras, distribuindo a criação em **sessões
+   separadas** (não tudo no mesmo dia).
+9. Revise imediatamente após cada sessão de criação.
 
 ---
 
@@ -763,11 +806,17 @@ palavra-alvo** dentro de uma frase de contexto. A diferença é que:
 
 #### Instruções passo a passo para o aluno Tier 3
 
-1. Leia o texto uma vez para compreensão geral, **sem parar para buscar
-   palavras**.
-2. Releia com lápis na mão e **sublinhe todas as palavras que você não
-   conhece ou conhece apenas parcialmente** (entende quando lê, mas não
-   saberia usar numa frase).
+1. Leia o texto **uma vez completa**, sem dicionário e sem parar em palavras
+   desconhecidas. Objetivo: construir um modelo mental geral do texto.
+2. Releia com lápis na mão. Sublinhe a palavra se você responderia **"não"**
+   a pelo menos uma destas perguntas:
+   - (a) Eu saberia usar esta palavra numa frase nova sem consultar?
+   - (b) Eu conheço ao menos uma colocação típica desta palavra?
+   - (c) Eu sei a classe gramatical desta palavra (`v.`, `n.`, `adj.`…)?
+   > **Por que esta triagem importa**: alunos Tier 3 tendem a achar que
+   > conhecem quase tudo — mas o conhecimento pode ser só receptivo (entendo
+   > quando leio) e não produtivo (saberia usar). A tripla de perguntas força
+   > uma auditoria produtiva, não apenas de reconhecimento.
 3. Para cada palavra sublinhada, abra o *Cambridge Dictionary* ou o
    *Merriam-Webster* e:
    - copie a **classe gramatical** e a **definição em inglês**;
