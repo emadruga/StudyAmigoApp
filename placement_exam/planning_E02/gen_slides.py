@@ -1,7 +1,7 @@
 """
-Gera os primeiros 11 slides de E02 em PPTX.
+Gera todos os slides de E02 em PPTX (30 slides).
 Uso: python gen_slides.py
-Saída: E02_slides_1_11.pptx  (mesmo diretório)
+Saída: E02_slides_completo_v1.0.pptx  (mesmo diretório)
 """
 
 from pptx import Presentation
@@ -374,6 +374,57 @@ def make_slide7(prs):
     return slide
 
 
+# ── SLIDE 7b — A regra das duas passagens (todos os tiers) ───────────────────
+
+def make_slide7b(prs):
+    slide = blank_slide(prs)
+    slide_title_bar(slide, "A regra das duas passagens",
+                    "Antes de criar qualquer cartão: leia o texto duas vezes")
+
+    # Tabela principal — 1ª e 2ª leitura
+    headers = ["", "O que fazer", "Ferramenta"]
+    rows = [
+        [("1ª leitura", ACCENT),
+         "Leia completo sem parar. Entenda o enredo pelos cognatos.",
+         "Nenhuma"],
+        [("2ª leitura", GREEN),
+         "Identifique suas lacunas de vocabulário (varia por tier — ver abaixo)",
+         ("Dicionário por palavra", GREEN)],
+    ]
+    col_widths = [Inches(1.5), Inches(8.5), Inches(3.0)]
+    add_simple_table(slide, headers, rows,
+                     x=Inches(0.4), y=Inches(1.3),
+                     col_widths=col_widths, row_height=Inches(0.78))
+
+    # Subtítulo da segunda tabela
+    add_textbox(slide, "Como a 2ª leitura varia por tier:",
+                Inches(0.4), Inches(3.25), Inches(12.5), Inches(0.38),
+                font_size=17, bold=True, color=ACCENT)
+
+    # Tabela variações por tier
+    headers2 = ["Tier", "2ª leitura"]
+    rows2 = [
+        [("Tier 1", ACCENT),
+         "Com a lista do professor — localiza cada palavra na frase do texto"],
+        [("Tier 2", GREEN),
+         "Sem a lista — marca o que não produziria; depois confronta com a lista"],
+        [("Tier 3", BLUE_T3),
+         "Sem lista — auditoria produtiva: consigo usar? sei a colocação? sei a classe?"],
+    ]
+    col_widths2 = [Inches(1.5), Inches(11.3)]
+    add_simple_table(slide, headers2, rows2,
+                     x=Inches(0.4), y=Inches(3.65),
+                     col_widths=col_widths2, row_height=Inches(0.68))
+
+    add_callout(slide,
+                "Nunca cole o texto inteiro no Google Translate. "
+                "Isso elimina o processamento em inglês — que é o objetivo do exercício.",
+                Inches(0.4), Inches(6.0), Inches(12.5), Inches(0.6),
+                bg=RGBColor(0x5E, 0x1A, 0x1A), icon="⚠")
+
+    return slide
+
+
 # ── SLIDE 8 — O que NÃO fazer ────────────────────────────────────────────────
 
 def make_slide8(prs):
@@ -449,35 +500,62 @@ def make_slide10(prs):
     slide_title_bar(slide, "Tier 1 — Foundation: passo a passo",
                     "Como criar um cartão")
 
-    steps = [
-        "Pegue a lista de 10 palavras-alvo do professor.",
-        "Escolha uma palavra da lista.",
-        "Procure 1 frase exemplo com essa palavra (Google ou Cambridge).",
-        'Troque uma palavra de contexto da frase por algo da sua vida:\n'
-        '     "Scientists" → "Engineers" / "Biologists" / "I"',
-        'Crie o cartão no StudyAmigo:\n'
-        '     Frente: sua frase com a palavra em [MAIÚSCULO]\n'
-        '     Verso: palavra = tradução em português',
-        "Repita para mais 4–7 palavras da lista.",
-        "Revise imediatamente após criar.",
-    ]
+    # Rótulo "Fase de leitura"
+    add_textbox(slide, "Fase de leitura:",
+                Inches(0.4), Inches(1.32), Inches(4.0), Inches(0.35),
+                font_size=15, bold=True, color=ACCENT)
 
-    y = Inches(1.35)
-    for i, step in enumerate(steps):
-        step_h = Inches(0.62) if "\n" not in step else Inches(0.88)
-        # Número
-        add_rect(slide, Inches(0.4), y, Inches(0.45), step_h,
-                 ACCENT if i < 3 else MID_GRAY)
+    reading_steps = [
+        "Leia o texto uma vez completa sem dicionário.",
+        "Pegue a lista de 10 palavras-alvo do professor. Releia o texto\n"
+        "     localizando cada palavra na frase em que aparece.\n"
+        "     Consulte dicionário palavra a palavra — não cole o texto inteiro no Google Translate.",
+    ]
+    y = Inches(1.66)
+    for i, step in enumerate(reading_steps):
+        n = step.count("\n")
+        step_h = Inches(0.58) if n == 0 else Inches(0.58 + n * 0.36)
+        add_rect(slide, Inches(0.4), y, Inches(0.45), step_h, ACCENT)
         add_textbox(slide, str(i + 1),
                     Inches(0.4), y + Inches(0.08),
                     Inches(0.45), step_h - Inches(0.1),
                     font_size=17, bold=True, color=DARK_BG, align=PP_ALIGN.CENTER)
-        # Texto
         add_textbox(slide, step,
-                    Inches(0.95), y + Inches(0.08),
-                    Inches(12.0), step_h - Inches(0.1),
-                    font_size=16, color=WHITE)
-        y += step_h + Inches(0.06)
+                    Inches(0.95), y + Inches(0.06),
+                    Inches(12.0), step_h - Inches(0.08),
+                    font_size=15, color=WHITE)
+        y += step_h + Inches(0.05)
+
+    # Rótulo "Criação"
+    y += Inches(0.1)
+    add_textbox(slide, "Criação:",
+                Inches(0.4), y, Inches(4.0), Inches(0.35),
+                font_size=15, bold=True, color=ACCENT)
+    y += Inches(0.35)
+
+    create_steps = [
+        "Escolha uma palavra da lista.",
+        "Procure 1 frase exemplo com essa palavra (Google ou Cambridge).",
+        'Troque uma palavra de contexto por algo da sua vida:\n'
+        '     "Scientists" → "Engineers" / "Biologists" / "I"',
+        'Crie o cartão:\n'
+        '     Frente: sua frase com a palavra em [MAIÚSCULO]\n'
+        '     Verso: palavra = tradução em português',
+        "Repita para mais 4–7 palavras.  Revise imediatamente após criar.",
+    ]
+    for i, step in enumerate(create_steps):
+        n = step.count("\n")
+        step_h = Inches(0.56) if n == 0 else Inches(0.56 + n * 0.34)
+        add_rect(slide, Inches(0.4), y, Inches(0.45), step_h, MID_GRAY)
+        add_textbox(slide, str(i + 3),
+                    Inches(0.4), y + Inches(0.07),
+                    Inches(0.45), step_h - Inches(0.1),
+                    font_size=17, bold=True, color=WHITE, align=PP_ALIGN.CENTER)
+        add_textbox(slide, step,
+                    Inches(0.95), y + Inches(0.05),
+                    Inches(12.0), step_h - Inches(0.06),
+                    font_size=15, color=WHITE)
+        y += step_h + Inches(0.05)
 
     return slide
 
@@ -644,33 +722,62 @@ def make_slide15(prs):
     slide_title_bar(slide, "Tier 2 — Developing: passo a passo",
                     "Como criar um cartão")
 
-    steps = [
-        "Pegue a lista de 20 palavras-alvo do professor.",
-        "Escolha uma palavra — aquela que você não saberia usar numa frase agora.",
-        'Abra o Cambridge Dictionary (learner\'s version):\n'
-        '     anote a classe gramatical  ·  anote uma colocação comum (☞)',
-        "Use a Tradução Reversa para criar a frase:\n"
-        '     escreva em português  →  cole no Google Translate  →  edite pelo menos um elemento',
-        "Monte o cartão:\n"
-        "     Frente: sua frase com a palavra em [MAIÚSCULO]\n"
-        "     Verso: palavra (classe) = tradução  ☞ colocação  +  tradução da frase",
-        "Repita para 7–11 palavras, em sessões separadas.",
-        "Revise após cada sessão.",
-    ]
+    # Rótulo "Fase de leitura"
+    add_textbox(slide, "Fase de leitura:",
+                Inches(0.4), Inches(1.32), Inches(4.0), Inches(0.35),
+                font_size=15, bold=True, color=GREEN)
 
-    y = Inches(1.35)
-    for i, step in enumerate(steps):
-        n_lines = step.count("\n")
-        step_h = Inches(0.58) if n_lines == 0 else Inches(0.58 + n_lines * 0.38)
-        add_rect(slide, Inches(0.4), y, Inches(0.45), step_h,
-                 ACCENT if i < 3 else MID_GRAY)
+    reading_steps = [
+        "Leia o texto uma vez completa sem dicionário.",
+        "Releia sem a lista do professor. Sublinhe palavras que você\n"
+        "     não saberia usar numa frase nova. Consulte dicionário palavra a palavra.",
+        "Abra a lista de 20 palavras-alvo. Compare com suas marcações:\n"
+        "     palavras em ambas as listas são as candidatas prioritárias.",
+    ]
+    y = Inches(1.66)
+    for i, step in enumerate(reading_steps):
+        n = step.count("\n")
+        step_h = Inches(0.56) if n == 0 else Inches(0.56 + n * 0.35)
+        add_rect(slide, Inches(0.4), y, Inches(0.45), step_h, GREEN)
         add_textbox(slide, str(i + 1),
-                    Inches(0.4), y + Inches(0.08),
+                    Inches(0.4), y + Inches(0.07),
                     Inches(0.45), step_h - Inches(0.1),
                     font_size=17, bold=True, color=DARK_BG, align=PP_ALIGN.CENTER)
         add_textbox(slide, step,
-                    Inches(0.95), y + Inches(0.06),
-                    Inches(12.0), step_h - Inches(0.08),
+                    Inches(0.95), y + Inches(0.05),
+                    Inches(12.0), step_h - Inches(0.07),
+                    font_size=15, color=WHITE)
+        y += step_h + Inches(0.05)
+
+    # Rótulo "Criação"
+    y += Inches(0.08)
+    add_textbox(slide, "Criação:",
+                Inches(0.4), y, Inches(4.0), Inches(0.35),
+                font_size=15, bold=True, color=GREEN)
+    y += Inches(0.35)
+
+    create_steps = [
+        "Escolha uma palavra candidata.",
+        'Abra o Cambridge Dictionary (learner\'s version):\n'
+        '     anote a classe gramatical  ·  anote uma colocação comum (☞)',
+        "Use a Tradução Reversa:\n"
+        '     escreva em português  →  cole no Google Translate  →  edite 1 elemento',
+        "Monte o cartão:\n"
+        "     Frente: sua frase com a palavra em [MAIÚSCULO]\n"
+        "     Verso: palavra (classe) = tradução  ☞ colocação  +  tradução da frase",
+        "Repita para 7–11 palavras, em sessões separadas.  Revise após cada sessão.",
+    ]
+    for i, step in enumerate(create_steps):
+        n = step.count("\n")
+        step_h = Inches(0.54) if n == 0 else Inches(0.54 + n * 0.34)
+        add_rect(slide, Inches(0.4), y, Inches(0.45), step_h, MID_GRAY)
+        add_textbox(slide, str(i + 4),
+                    Inches(0.4), y + Inches(0.07),
+                    Inches(0.45), step_h - Inches(0.1),
+                    font_size=17, bold=True, color=WHITE, align=PP_ALIGN.CENTER)
+        add_textbox(slide, step,
+                    Inches(0.95), y + Inches(0.05),
+                    Inches(12.0), step_h - Inches(0.06),
                     font_size=15, color=WHITE)
         y += step_h + Inches(0.05)
     return slide
@@ -744,33 +851,63 @@ def make_slide18(prs):
     slide_title_bar(slide, "Tier 3 — Expanding: passo a passo",
                     "Como criar um cartão")
 
-    steps = [
-        "Leia o texto uma vez completa sem parar para buscar palavras.",
-        "Releia e sublinhe todas as palavras que você não conhece ou conhece só parcialmente.",
+    # Rótulo "Fase de leitura"
+    add_textbox(slide, "Fase de leitura:",
+                Inches(0.4), Inches(1.32), Inches(4.0), Inches(0.35),
+                font_size=15, bold=True, color=BLUE_T3)
+
+    reading_steps = [
+        "Leia o texto uma vez completa sem dicionário.",
+        "Releia com lápis. Sublinhe a palavra se você responder 'não' a\n"
+        "     pelo menos uma destas perguntas:\n"
+        "     (a) Eu saberia usar esta palavra numa frase nova sem consultar?\n"
+        "     (b) Eu conheço ao menos uma colocação típica desta palavra?\n"
+        "     (c) Eu sei a classe gramatical desta palavra?",
+    ]
+    y = Inches(1.66)
+    for i, step in enumerate(reading_steps):
+        n = step.count("\n")
+        step_h = Inches(0.56) if n == 0 else Inches(0.56 + n * 0.35)
+        add_rect(slide, Inches(0.4), y, Inches(0.45), step_h, BLUE_T3)
+        add_textbox(slide, str(i + 1),
+                    Inches(0.4), y + Inches(0.07),
+                    Inches(0.45), step_h - Inches(0.1),
+                    font_size=17, bold=True, color=DARK_BG, align=PP_ALIGN.CENTER)
+        add_textbox(slide, step,
+                    Inches(0.95), y + Inches(0.05),
+                    Inches(12.0), step_h - Inches(0.07),
+                    font_size=15, color=WHITE)
+        y += step_h + Inches(0.05)
+
+    # Rótulo "Criação"
+    y += Inches(0.08)
+    add_textbox(slide, "Criação:",
+                Inches(0.4), y, Inches(4.0), Inches(0.35),
+                font_size=15, bold=True, color=BLUE_T3)
+    y += Inches(0.35)
+
+    create_steps = [
         "Para cada palavra sublinhada, abra o Cambridge ou Merriam-Webster:\n"
-        "     copie a classe gramatical e a definição em inglês  ·  escolha uma frase exemplo do dicionário",
+        "     copie a classe gramatical e a definição em inglês\n"
+        "     escolha uma frase exemplo do dicionário",
         "Monte a frente: frase do dicionário com a palavra em [MAIÚSCULO].",
         "Monte o verso:\n"
         "     Linha 1: palavra (classe) = definição em inglês\n"
         "     Linha 2: ☞ colocação 1  /  colocação 2\n"
         "     Linha 3: tradução em português da frase da frente",
-        "Crie os cartões no baralho PASSAGE_E02_TIER3.",
-        "Revise todos os dias até o fim do exercício.",
+        "Crie os cartões no baralho PASSAGE_E02_TIER3.  Revise todos os dias.",
     ]
-
-    y = Inches(1.35)
-    for i, step in enumerate(steps):
-        n_lines = step.count("\n")
-        step_h = Inches(0.58) if n_lines == 0 else Inches(0.58 + n_lines * 0.36)
-        add_rect(slide, Inches(0.4), y, Inches(0.45), step_h,
-                 BLUE_T3 if i < 3 else MID_GRAY)
-        add_textbox(slide, str(i + 1),
-                    Inches(0.4), y + Inches(0.08),
+    for i, step in enumerate(create_steps):
+        n = step.count("\n")
+        step_h = Inches(0.54) if n == 0 else Inches(0.54 + n * 0.34)
+        add_rect(slide, Inches(0.4), y, Inches(0.45), step_h, MID_GRAY)
+        add_textbox(slide, str(i + 3),
+                    Inches(0.4), y + Inches(0.07),
                     Inches(0.45), step_h - Inches(0.1),
-                    font_size=17, bold=True, color=DARK_BG, align=PP_ALIGN.CENTER)
+                    font_size=17, bold=True, color=WHITE, align=PP_ALIGN.CENTER)
         add_textbox(slide, step,
-                    Inches(0.95), y + Inches(0.06),
-                    Inches(12.0), step_h - Inches(0.08),
+                    Inches(0.95), y + Inches(0.05),
+                    Inches(12.0), step_h - Inches(0.06),
                     font_size=15, color=WHITE)
         y += step_h + Inches(0.05)
     return slide
@@ -1125,14 +1262,14 @@ def make_slide28(prs):
 
     blocks = [
         ("Tier 1", ACCENT,
-         "Pegue a lista do professor, troque uma palavra de contexto na frase do dicionário, "
-         "coloque a palavra-alvo em [MAIÚSCULO] na frente."),
+         "Leia sem dicionário → releia com a lista, palavra a palavra → "
+         "troque um contexto na frase do dicionário → [MAIÚSCULO] na frente."),
         ("Tier 2", GREEN,
-         "Use o Cambridge, escreva em português, traduza, edite uma coisa, "
-         "coloque ☞ colocação no verso."),
+         "Leia sem dicionário → sublinhe sem a lista → confronte com a lista → "
+         "Tradução Reversa → ☞ colocação e tradução da frase no verso."),
         ("Tier 3", BLUE_T3,
-         "Leia completo, sublinhe o que não sabe, use frase do dicionário, "
-         "defina em inglês, ☞ colocação, tradução da frase no verso."),
+         "Leia sem dicionário → auditoria produtiva (consigo usar? sei a colocação? sei a classe?) → "
+         "frase do dicionário → definição em inglês → ☞ colocação → tradução da frase no verso."),
     ]
 
     y = Inches(1.55)
@@ -1199,18 +1336,18 @@ def main():
 
     makers = [
         make_slide1,  make_slide2,  make_slide3,  make_slide4,  make_slide5,
-        make_slide6,  make_slide7,  make_slide8,  make_slide9,  make_slide10,
-        make_slide11, make_slide12, make_slide13, make_slide14, make_slide15,
-        make_slide16, make_slide17, make_slide18, make_slide19, make_slide20,
-        make_slide21, make_slide22, make_slide23, make_slide24, make_slide25,
-        make_slide26, make_slide27, make_slide28, make_slide29,
+        make_slide6,  make_slide7,  make_slide7b, make_slide8,  make_slide9,
+        make_slide10, make_slide11, make_slide12, make_slide13, make_slide14,
+        make_slide15, make_slide16, make_slide17, make_slide18, make_slide19,
+        make_slide20, make_slide21, make_slide22, make_slide23, make_slide24,
+        make_slide25, make_slide26, make_slide27, make_slide28, make_slide29,
     ]
 
     for i, maker in enumerate(makers, start=1):
         print(f"  Gerando slide {i:02d}…")
         maker(prs)
 
-    out = "placement_exam/planning_E02/E02_slides_completo.pptx"
+    out = "placement_exam/planning_E02/E02_slides_completo_v1.0.pptx"
     prs.save(out)
     print(f"\n✅  Salvo em: {out}  ({len(makers)} slides)")
 
