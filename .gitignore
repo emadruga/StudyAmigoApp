@@ -53,3 +53,9 @@ placement_exam/credentials.json
 placement_exam/client_secret*.json
 placement_exam/token.json
 
+# Placement Exam - Binary files (Word, PDF, PowerPoint)
+placement_exam/**/*.docx
+placement_exam/**/*.pdf
+placement_exam/**/*.pptx
+placement_exam/*.pptx
+
