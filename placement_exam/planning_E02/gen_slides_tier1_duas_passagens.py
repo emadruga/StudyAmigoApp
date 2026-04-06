@@ -739,10 +739,12 @@ def make_slide16(prs):
                 bg=RGBColor(0x1A, 0x3A, 0x2A), icon="→")
 
     add_code_block(slide,
-                   'Frente: "Brazil _______ its first World Cup in 1958."\n'
-                   'Verso:  won — ganhou\n'
-                   '        Minha frase: "My team won the game yesterday."',
-                   Inches(0.4), Inches(5.0), Inches(12.5), Inches(1.35), font_size=15)
+                   'Dicionário: "Our team won the championship last year."\n'
+                   'Substituição: trocar "Our team" → "My university"\n'
+                   '\n'
+                   'Frente: "My university [WON] the state championship last year."\n'
+                   'Verso:  won = ganhou',
+                   Inches(0.4), Inches(5.0), Inches(12.5), Inches(1.65), font_size=15)
 
     return slide
 
@@ -773,10 +775,11 @@ def make_slide17(prs):
                 bg=RGBColor(0x1E, 0x2E, 0x4E), icon="ℹ")
 
     add_code_block(slide,
-                   'Frente: "Brazil defeated Sweden and _______ the trophy."\n'
-                   'Verso:  lifted — levantou, ergueu\n'
-                   '        Colocação: lift the trophy\n'
-                   '        Minha frase: "The captain lifted the trophy after the final."',
+                   'Dicionário: "The captain lifted the trophy after the final."\n'
+                   'Substituição: trocar "The captain" → "Our team leader"\n'
+                   '\n'
+                   'Frente: "Our team leader [LIFTED] the award at the ceremony."\n'
+                   'Verso:  lifted = ergueu, levantou',
                    Inches(0.4), Inches(5.4), Inches(12.5), Inches(1.4), font_size=14)
 
     return slide
@@ -808,11 +811,12 @@ def make_slide18(prs):
                 bg=RGBColor(0x1A, 0x3A, 0x2A), icon="→")
 
     add_code_block(slide,
-                   'Frente: "Brazil _______ Sweden in the final."\n'
-                   'Verso:  defeated — derrotou\n'
-                   '        Colocação: defeat a team / defeat an opponent\n'
-                   '        Minha frase: "Brazil defeated Argentina in the semifinals."',
-                   Inches(0.4), Inches(5.0), Inches(12.5), Inches(1.4), font_size=14)
+                   'Dicionário: "Brazil defeated their opponents in the final."\n'
+                   'Substituição: trocar "Brazil" → "Our class team"\n'
+                   '\n'
+                   'Frente: "Our class team [DEFEATED] the opponents in the tournament."\n'
+                   'Verso:  defeated = derrotou',
+                   Inches(0.4), Inches(5.0), Inches(12.5), Inches(1.55), font_size=14)
 
     return slide
 
@@ -843,11 +847,12 @@ def make_slide19(prs):
                 bg=RGBColor(0x1E, 0x2E, 0x4E), icon="ℹ")
 
     add_code_block(slide,
-                   'Frente: "Brazil has _______ in every single World Cup."\n'
-                   'Verso:  competed — competiu, participou\n'
-                   '        Colocação: compete in the World Cup\n'
-                   '        Minha frase: "My university competed in the national championship."',
-                   Inches(0.4), Inches(5.1), Inches(12.5), Inches(1.4), font_size=14)
+                   'Dicionário: "The team competed in the national tournament."\n'
+                   'Substituição: trocar "The team" → "My university"\n'
+                   '\n'
+                   'Frente: "My university [COMPETED] in the regional tournament."\n'
+                   'Verso:  competed = competiu, participou',
+                   Inches(0.4), Inches(5.1), Inches(12.5), Inches(1.55), font_size=14)
 
     return slide
 
@@ -878,10 +883,12 @@ def make_slide20(prs):
                 bg=RGBColor(0x1A, 0x3A, 0x2A), icon="→")
 
     add_code_block(slide,
-                   'Frente: "Many experts consider the 1970 _______ the best team ever."\n'
-                   'Verso:  squad — elenco, seleção\n'
-                   '        Minha frase: "The coach announced the squad for the World Cup."',
-                   Inches(0.4), Inches(5.0), Inches(12.5), Inches(1.3), font_size=14)
+                   'Dicionário: "The coach selected the squad for the championship."\n'
+                   'Substituição: trocar "The coach" → "Our professor"\n'
+                   '\n'
+                   'Frente: "Our professor selected the [SQUAD] for the science fair."\n'
+                   'Verso:  squad = elenco, grupo selecionado',
+                   Inches(0.4), Inches(5.0), Inches(12.5), Inches(1.55), font_size=14)
 
     return slide
 
@@ -906,17 +913,17 @@ def make_slide21(prs):
                      col_widths=col_widths, row_height=Inches(0.68))
 
     add_callout(slide,
-                "title é cognato parcial — o aluno pode reconhecer. "
-                "O valor está na colocação: win the title / World Cup title.",
-                Inches(0.4), Inches(4.15), Inches(12.5), Inches(0.65),
+                "title parece título — cognato parcial. O aluno provavelmente já sabe.",
+                Inches(0.4), Inches(4.15), Inches(12.5), Inches(0.55),
                 bg=RGBColor(0x1E, 0x2E, 0x4E), icon="ℹ")
 
     add_code_block(slide,
-                   'Frente: "Brazil has won five World Cup _______."  \n'
-                   'Verso:  title — título\n'
-                   '        Colocação: win a title / World Cup title\n'
-                   '        Minha frase: "Brazil wants to win a sixth title in 2026."',
-                   Inches(0.4), Inches(5.0), Inches(12.5), Inches(1.35), font_size=14)
+                   'Dicionário: "The team won the championship title last year."\n'
+                   'Substituição: trocar "The team" → "Our lab"\n'
+                   '\n'
+                   'Frente: "Our lab won the innovation [TITLE] at the conference."\n'
+                   'Verso:  title = título',
+                   Inches(0.4), Inches(4.9), Inches(12.5), Inches(1.55), font_size=14)
 
     return slide
 
@@ -942,16 +949,17 @@ def make_slide22(prs):
 
     add_callout(slide,
                 "rival é cognato direto — o aluno reconhece na hora. "
-                "O valor do cartão está na colocação greatest rival.",
-                Inches(0.4), Inches(4.15), Inches(12.5), Inches(0.65),
+                "Mesmo assim vale criar o cartão: a palavra existe no contexto do texto.",
+                Inches(0.4), Inches(4.15), Inches(12.5), Inches(0.55),
                 bg=RGBColor(0x1E, 0x2E, 0x4E), icon="ℹ")
 
     add_code_block(slide,
-                   'Frente: "Brazil\'s _______ rival is Argentina."\n'
-                   'Verso:  greatest rival — maior rival\n'
-                   '        Colocação: greatest rival / fierce rival\n'
-                   '        Minha frase: "Real Madrid\'s greatest rival is Barcelona."',
-                   Inches(0.4), Inches(5.0), Inches(12.5), Inches(1.35), font_size=14)
+                   'Dicionário: "The two clubs are great rivals in the championship."\n'
+                   'Substituição: trocar "clubs" → "universities"\n'
+                   '\n'
+                   'Frente: "The two universities are great [RIVALS] in the championship."\n'
+                   'Verso:  rival = rival',
+                   Inches(0.4), Inches(4.9), Inches(12.5), Inches(1.55), font_size=14)
 
     return slide
 
@@ -982,11 +990,12 @@ def make_slide23(prs):
                 bg=RGBColor(0x1E, 0x2E, 0x4E), icon="ℹ")
 
     add_code_block(slide,
-                   'Frente: "The two teams compete _______."  \n'
-                   'Verso:  fiercely — ferozmente, com intensidade\n'
-                   '        Colocação: compete fiercely\n'
-                   '        Minha frase: "The students competed fiercely for the scholarship."',
-                   Inches(0.4), Inches(5.0), Inches(12.5), Inches(1.35), font_size=14)
+                   'Dicionário: "The athletes competed fiercely for the medal."\n'
+                   'Substituição: trocar "The athletes" → "The students"\n'
+                   '\n'
+                   'Frente: "The students competed [FIERCELY] for the scholarship."\n'
+                   'Verso:  fiercely = ferozmente, com intensidade',
+                   Inches(0.4), Inches(5.0), Inches(12.5), Inches(1.55), font_size=14)
 
     return slide
 
@@ -1017,10 +1026,12 @@ def make_slide24(prs):
                 bg=RGBColor(0x1A, 0x3A, 0x2A), icon="→")
 
     add_code_block(slide,
-                   'Frente: "The team has talented players and a _______ squad."\n'
-                   'Verso:  solid — sólido, forte, consistente\n'
-                   '        Minha frase: "Brazil has a solid squad for the 2026 World Cup."',
-                   Inches(0.4), Inches(5.0), Inches(12.5), Inches(1.3), font_size=14)
+                   'Dicionário: "The project has a solid plan."\n'
+                   'Substituição: trocar "project" → "experiment"\n'
+                   '\n'
+                   'Frente: "The experiment has a [SOLID] design."\n'
+                   'Verso:  solid = sólido, consistente',
+                   Inches(0.4), Inches(5.0), Inches(12.5), Inches(1.55), font_size=14)
 
     return slide
 
@@ -1050,11 +1061,12 @@ def make_slide25(prs):
                 bg=RGBColor(0x1A, 0x3A, 0x2A), icon="→")
 
     add_code_block(slide,
-                   'Frente: "_______ around the world hope Brazil will win a sixth title."\n'
-                   'Verso:  fans — torcedores, fãs\n'
-                   '        Colocação: fans around the world / football fans\n'
-                   '        Minha frase: "Fans around the world watched the final on TV."',
-                   Inches(0.4), Inches(4.95), Inches(12.5), Inches(1.4), font_size=14)
+                   'Dicionário: "Fans around the world watched the match on TV."\n'
+                   'Substituição: trocar "match" → "launch event"\n'
+                   '\n'
+                   'Frente: "[FANS] of technology filled the auditorium for the launch event."\n'
+                   'Verso:  fans = torcedores, fãs',
+                   Inches(0.4), Inches(4.95), Inches(12.5), Inches(1.55), font_size=14)
 
     return slide
 
@@ -1070,7 +1082,7 @@ def make_slide26(prs):
          "Não consultou o dicionário no vazio"),
         ("②", "Entendeu o papel de cada palavra na frase",
          "O dicionário confirmou — não revelou do zero"),
-        ("③", "Criou 10 cartões com frente cloze e frase própria",
+        ("③", "Criou 10 cartões no formato [MAIÚSCULO] com 1 substituição pessoal",
          "Pronto para a fase de revisão"),
         ("④", "Praticou as 3 perguntas de leitura de forma repetida",
          "Verbo → Quem → O quê — sem chamar isso de gramática"),
@@ -1115,7 +1127,7 @@ def make_slide27(prs):
          ("Verbo → Sujeito → Objeto → Dicionário", ACCENT)],
         [("Produto", ACCENT),
          "Modelo mental do texto",
-         ("10 cartões prontos para revisão", GREEN)],
+         ("10 cartões: [MAIÚSCULO] + 1 substituição pessoal", GREEN)],
         [("Tempo estimado", ACCENT),
          "5–8 minutos",
          "20–30 minutos"],
@@ -1160,8 +1172,10 @@ def make_slide28(prs):
                 Inches(0.4), Inches(5.15), Inches(12.5), Inches(0.42),
                 font_size=18, bold=True, color=BLUE)
     add_code_block(slide,
-                   '"Copie a frase do texto e retire a palavra (deixe um blank).\n'
-                   'No verso: escreva a tradução + uma frase sua trocando 1 palavra por algo da sua vida."',
+                   '"Encontre 1 exemplo de frase com a palavra num dicionário online.\n'
+                   'Troque 1 palavra do exemplo por algo da sua área ou vida.\n'
+                   'Frente: frase modificada com a palavra em [MAIÚSCULO].\n'
+                   'Verso:  palavra = tradução em português."',
                    Inches(0.4), Inches(5.65), Inches(12.5), Inches(1.05), font_size=15)
 
     return slide
