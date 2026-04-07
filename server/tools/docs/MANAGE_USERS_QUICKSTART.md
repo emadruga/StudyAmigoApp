@@ -98,12 +98,13 @@ Use `--production` para consultar o servidor EC2 diretamente (útil após aplica
 python server/tools/manage_users.py --dry-run --delete-users 53,66,70,73,87
 ```
 
-Gera: `migration_delete_YYYYMMDD.sql`
+O arquivo é salvo automaticamente em `server/past_migration_scripts/migration_delete_YYYYMMDD.sql`.
+Para salvar em outro local: `--output-dir /caminho/`. Se a pasta padrão não existir, o SQL é impresso no stdout.
 
 ### Passo 2 — Revisar o SQL gerado
 
 ```bash
-cat migration_delete_YYYYMMDD.sql
+cat server/past_migration_scripts/migration_delete_YYYYMMDD.sql
 ```
 
 Confirme que os IDs listados são os corretos e que a conta a manter **não** está incluída.
@@ -112,7 +113,7 @@ Confirme que os IDs listados são os corretos e que a conta a manter **não** es
 
 ```bash
 python server/tools/manage_users.py \
-    --apply-to-local-cache --sql migration_delete_YYYYMMDD.sql
+    --apply-to-local-cache --sql server/past_migration_scripts/migration_delete_YYYYMMDD.sql
 ```
 
 Verifique que apenas a conta correta permanece:
@@ -124,7 +125,7 @@ python server/tools/manage_users.py --list-dupes "Rogério"
 ### Passo 4 — Commitar o SQL para rastreabilidade
 
 ```bash
-git add server/tools/migration_delete_YYYYMMDD.sql
+git add server/past_migration_scripts/migration_delete_YYYYMMDD.sql
 git commit -m "admin: delete duplicate accounts for <nome do aluno>"
 git push origin main
 ```
@@ -133,7 +134,7 @@ git push origin main
 
 ```bash
 python server/tools/manage_users.py \
-    --apply-to-production --sql migration_delete_YYYYMMDD.sql
+    --apply-to-production --sql server/past_migration_scripts/migration_delete_YYYYMMDD.sql
 ```
 
 Se houver sessão ativa de alguma conta afetada, um **aviso** será exibido e
@@ -143,7 +144,7 @@ será solicitada confirmação antes de prosseguir.
 
 ```bash
 python server/tools/validate_migration.py \
-    --validate-production --sql migration_delete_YYYYMMDD.sql
+    --validate-production --sql server/past_migration_scripts/migration_delete_YYYYMMDD.sql
 ```
 
 Saída esperada para cada conta deletada: `OK  user_id=N não existe no banco`
@@ -163,12 +164,13 @@ python server/tools/manage_users.py --dry-run --reset-password 107
 O script solicitará a nova senha duas vezes (sem eco no terminal).
 Requisitos: mínimo 10 caracteres, máximo 20.
 
-Gera: `migration_reset_pw_YYYYMMDD.sql`
+O arquivo é salvo automaticamente em `server/past_migration_scripts/migration_reset_pw_YYYYMMDD.sql`.
+Para salvar em outro local: `--output-dir /caminho/`. Se a pasta padrão não existir, o SQL é impresso no stdout.
 
 ### Passo 2 — Revisar o SQL gerado
 
 ```bash
-cat migration_reset_pw_YYYYMMDD.sql
+cat server/past_migration_scripts/migration_reset_pw_YYYYMMDD.sql
 ```
 
 Confirme que o `user_id` no UPDATE corresponde ao aluno correto.
@@ -176,7 +178,7 @@ Confirme que o `user_id` no UPDATE corresponde ao aluno correto.
 ### Passo 3 — Commitar o SQL para rastreabilidade
 
 ```bash
-git add server/tools/migration_reset_pw_YYYYMMDD.sql
+git add server/past_migration_scripts/migration_reset_pw_YYYYMMDD.sql
 git commit -m "admin: reset password for user_id=107 (<nome do aluno>)"
 git push origin main
 ```
@@ -185,14 +187,14 @@ git push origin main
 
 ```bash
 python server/tools/manage_users.py \
-    --apply-to-production --sql migration_reset_pw_YYYYMMDD.sql
+    --apply-to-production --sql server/past_migration_scripts/migration_reset_pw_YYYYMMDD.sql
 ```
 
 ### Passo 5 — Validar em produção
 
 ```bash
 python server/tools/validate_migration.py \
-    --validate-production --sql migration_reset_pw_YYYYMMDD.sql
+    --validate-production --sql server/past_migration_scripts/migration_reset_pw_YYYYMMDD.sql
 ```
 
 Saída esperada: `OK  user_id=107 (username) tem hash bcrypt válido`
@@ -212,25 +214,26 @@ python server/tools/manage_users.py --dry-run --delete-users 53,66,70,73,87
 python server/tools/manage_users.py --dry-run --reset-password 107
 
 # 4. Revisar e commitar ambos os SQLs
-git add server/tools/migration_*.sql
+git add server/past_migration_scripts/migration_delete_YYYYMMDD.sql
+git add server/past_migration_scripts/migration_reset_pw_YYYYMMDD.sql
 git commit -m "admin: clean up duplicate accounts and reset password for Rogério"
 git push origin main
 
 # 5. Aplicar deleção em produção
 python server/tools/manage_users.py \
-    --apply-to-production --sql migration_delete_YYYYMMDD.sql
+    --apply-to-production --sql server/past_migration_scripts/migration_delete_YYYYMMDD.sql
 
 # 6. Validar deleção em produção
 python server/tools/validate_migration.py \
-    --validate-production --sql migration_delete_YYYYMMDD.sql
+    --validate-production --sql server/past_migration_scripts/migration_delete_YYYYMMDD.sql
 
 # 7. Aplicar reset de senha em produção
 python server/tools/manage_users.py \
-    --apply-to-production --sql migration_reset_pw_YYYYMMDD.sql
+    --apply-to-production --sql server/past_migration_scripts/migration_reset_pw_YYYYMMDD.sql
 
 # 8. Validar reset de senha em produção
 python server/tools/validate_migration.py \
-    --validate-production --sql migration_reset_pw_YYYYMMDD.sql
+    --validate-production --sql server/past_migration_scripts/migration_reset_pw_YYYYMMDD.sql
 
 # 9. Confirmar resultado final diretamente em produção
 python server/tools/manage_users.py --list-dupes "Rogério" --production
@@ -316,6 +319,6 @@ python3 server/tools/restore_backup.py \
 - **Nunca** inclua na lista de deleção a conta que o aluno usa (a com mais revisões).
 - O `--apply-to-local-cache` altera o **backup local** — não afeta produção.
 - O `--apply-to-production` é **irreversível** sem restauração de backup. Sempre valide no cache local primeiro.
-- Os arquivos `.sql` gerados ficam no diretório de onde o script é chamado. Mova-os para `server/tools/` antes de commitar.
+- Os arquivos `.sql` gerados são salvos automaticamente em `server/past_migration_scripts/` (se a pasta existir) ou exibidos no stdout. Use `--output-dir` para especificar outro local.
 - `manage_users.env` nunca deve ser commitado (contém caminho da chave SSH).
 - O backup S3 roda diariamente às **03:00 BRT**. Migrações feitas antes das 03:00 do dia seguinte não estão no próximo backup — o backup mais seguro para rollback é o das 03:00 **do mesmo dia**, feito antes da intervenção.
