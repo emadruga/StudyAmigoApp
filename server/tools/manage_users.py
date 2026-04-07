@@ -208,37 +208,23 @@ def get_notes_count(userdb_dir, user_id):
 # ---------------------------------------------------------------------------
 
 def cmd_list_dupes(args):
+    if args.production:
+        cmd_list_dupes_production(args)
+    else:
+        cmd_list_dupes_local(args)
+
+
+def cmd_list_dupes_local(args):
     if not os.path.isdir(args.userdb_dir):
         print(f"Erro: diretório de bancos individuais não encontrado: {args.userdb_dir}")
         print("Verifique o valor de LOCAL_USERDB no manage_users.env ou o argumento --userdb-dir.")
         sys.exit(1)
     conn = open_db(args.db)
-    substring = args.list_dupes  # pode ser "" (sem filtro)
-
-    if substring:
-        rows = conn.execute(
-            "SELECT user_id, username, name FROM users WHERE name LIKE ?",
-            (f"%{substring}%",)
-        ).fetchall()
-    else:
-        # Todos os usuários
-        rows = conn.execute("SELECT user_id, username, name FROM users ORDER BY name").fetchall()
-
-    # Agrupar por name normalizado
-    groups = defaultdict(list)
-    for row in rows:
-        groups[row["name"]].append(row)
-
-    if substring:
-        # Mostrar todos que batem, independente de ser duplicata
-        to_show = {k: v for k, v in groups.items()}
-    else:
-        # Mostrar apenas os que têm duplicatas
-        to_show = {k: v for k, v in groups.items() if len(v) > 1}
+    rows, to_show = _fetch_dupes(conn, args.list_dupes)
+    conn.close()
 
     if not to_show:
         print("Nenhuma duplicata encontrada.")
-        conn.close()
         return
 
     for name, users in sorted(to_show.items()):
@@ -254,7 +240,112 @@ def cmd_list_dupes(args):
             revs_str = str(revs) if revs is not None else "n/a"
             print(f"  {u['user_id']:>8}  {u['username']:<20}  {notes_str:>8}  {revs_str:>9}")
 
-    conn.close()
+
+def cmd_list_dupes_production(args):
+    for required in ("ssh_host", "ssh_user", "ssh_key", "remote_db", "remote_userdb_dir"):
+        if not getattr(args, required, None):
+            print(f"Erro: --{required.replace('_', '-')} é obrigatório para --list-dupes --production.")
+            sys.exit(1)
+
+    ssh_args = build_ssh_args(args)
+    container = args.docker_container
+    container_db = docker_db_path(args.remote_db)
+    container_userdb = docker_userdb_path(args.remote_userdb_dir)
+    substring = args.list_dupes  # "" ou substring
+
+    print(f"[produção] Consultando {container}:{container_db} ...")
+
+    # Buscar usuários remotamente
+    if substring:
+        where = f"WHERE name LIKE '%{substring}%'"
+    else:
+        where = ""
+    py_fetch = (
+        f"import sqlite3, json\n"
+        f"conn = sqlite3.connect('{container_db}')\n"
+        f"rows = conn.execute('SELECT user_id, username, name FROM users {where} ORDER BY name').fetchall()\n"
+        f"print(json.dumps(rows))\n"
+        f"conn.close()\n"
+    )
+    result = _docker_exec_python(ssh_args, container, py_fetch)
+    if result.returncode != 0:
+        print(f"Erro ao consultar produção: {result.stderr.strip()}")
+        sys.exit(1)
+
+    import json as _json
+    raw = _json.loads(result.stdout.strip() or "[]")
+    # raw: [[user_id, username, name], ...]
+
+    groups = defaultdict(list)
+    for user_id, username, name in raw:
+        groups[name].append({"user_id": user_id, "username": username, "name": name})
+
+    if substring:
+        to_show = dict(groups)
+    else:
+        to_show = {k: v for k, v in groups.items() if len(v) > 1}
+
+    if not to_show:
+        print("Nenhuma duplicata encontrada em produção.")
+        return
+
+    # Para cada usuário, buscar contagens remotamente
+    all_ids = [u["user_id"] for users in to_show.values() for u in users]
+    py_counts = (
+        f"import sqlite3, json, os\n"
+        f"userdb_dir = '{container_userdb.rstrip('/')}'\n"
+        f"ids = {all_ids!r}\n"
+        f"result = {{}}\n"
+        f"for uid in ids:\n"
+        f"    path = os.path.join(userdb_dir, f'user_{{uid}}.db')\n"
+        f"    notes, revs = None, None\n"
+        f"    if os.path.isfile(path):\n"
+        f"        try:\n"
+        f"            conn = sqlite3.connect(path)\n"
+        f"            notes = conn.execute('SELECT COUNT(*) FROM notes').fetchone()[0]\n"
+        f"            revs  = conn.execute('SELECT COUNT(*) FROM revlog').fetchone()[0]\n"
+        f"            conn.close()\n"
+        f"        except: pass\n"
+        f"    result[uid] = [notes, revs]\n"
+        f"print(json.dumps(result))\n"
+    )
+    res2 = _docker_exec_python(ssh_args, container, py_counts)
+    counts = {}
+    if res2.returncode == 0 and res2.stdout.strip():
+        counts = {int(k): v for k, v in _json.loads(res2.stdout.strip()).items()}
+
+    for name, users in sorted(to_show.items()):
+        print(f"\n{'='*60}")
+        print(f"Nome: {name}  ({len(users)} conta(s))  [PRODUÇÃO]")
+        print(f"{'='*60}")
+        print(f"  {'user_id':>8}  {'username':<20}  {'cartões':>8}  {'revisões':>9}")
+        print(f"  {'-'*8}  {'-'*20}  {'-'*8}  {'-'*9}")
+        for u in users:
+            c = counts.get(u["user_id"], [None, None])
+            notes_str = str(c[0]) if c[0] is not None else "n/a"
+            revs_str = str(c[1]) if c[1] is not None else "n/a"
+            print(f"  {u['user_id']:>8}  {u['username']:<20}  {notes_str:>8}  {revs_str:>9}")
+
+
+def _fetch_dupes(conn, substring):
+    if substring:
+        rows = conn.execute(
+            "SELECT user_id, username, name FROM users WHERE name LIKE ?",
+            (f"%{substring}%",)
+        ).fetchall()
+    else:
+        rows = conn.execute("SELECT user_id, username, name FROM users ORDER BY name").fetchall()
+
+    groups = defaultdict(list)
+    for row in rows:
+        groups[row["name"]].append(row)
+
+    if substring:
+        to_show = dict(groups)
+    else:
+        to_show = {k: v for k, v in groups.items() if len(v) > 1}
+
+    return rows, to_show
 
 
 # ---------------------------------------------------------------------------
@@ -575,6 +666,8 @@ def main():
     # Modos de operação
     parser.add_argument("--list-dupes", nargs="?", const="", metavar="SUBSTRING",
                         help="Lista duplicatas. Sem argumento: todos; com argumento: filtra por nome.")
+    parser.add_argument("--production", action="store_true",
+                        help="Usar com --list-dupes: consulta produção em vez do cache local.")
     parser.add_argument("--dry-run", action="store_true", help="Modo dry-run: gera SQL sem executar.")
     parser.add_argument("--delete-users", dest="delete_users", metavar="ID1,ID2,...",
                         help="IDs a deletar (usar com --dry-run).")

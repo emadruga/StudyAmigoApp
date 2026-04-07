@@ -73,15 +73,20 @@ Para usar um arquivo alternativo: `--conf /caminho/outro.env` (ou `-f`)
 ## 1. Listar duplicatas
 
 ```bash
-# Todos os alunos com mais de uma conta no sistema
+# Todos os alunos com mais de uma conta (banco local/cache)
 python server/tools/manage_users.py --list-dupes
 
-# Filtrar por nome de um aluno específico
+# Filtrar por nome de um aluno específico (banco local/cache)
 python server/tools/manage_users.py --list-dupes "Rogério"
+
+# Confirmar resultado diretamente em PRODUÇÃO
+python server/tools/manage_users.py --list-dupes --production
+python server/tools/manage_users.py --list-dupes "Rogério" --production
 ```
 
 A saída mostra user_id, username, número de cartões e revisões de cada conta.
 Use essas informações para identificar qual conta manter (geralmente a com mais revisões).
+Use `--production` para consultar o servidor EC2 diretamente (útil após aplicar uma migração).
 
 ---
 
@@ -227,8 +232,8 @@ python server/tools/manage_users.py \
 python server/tools/validate_migration.py \
     --validate-production --sql migration_reset_pw_YYYYMMDD.sql
 
-# 9. Confirmar resultado final
-python server/tools/manage_users.py --list-dupes "Rogério"
+# 9. Confirmar resultado final diretamente em produção
+python server/tools/manage_users.py --list-dupes "Rogério" --production
 ```
 
 ---
