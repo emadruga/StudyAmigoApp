@@ -697,9 +697,15 @@ def main():
     if env_loaded:
         print(f"[config] Usando .env: {env_loaded}")
 
+    # Validar uso de --production
+    if args.production and args.list_dupes is None:
+        print("Erro: --production só pode ser usado com --list-dupes.")
+        sys.exit(1)
+
     # Roteamento
     if args.list_dupes is not None:
-        _require(args, ["db", "userdb_dir"], "--list-dupes")
+        if not args.production:
+            _require(args, ["db", "userdb_dir"], "--list-dupes")
         cmd_list_dupes(args)
 
     elif args.dry_run and args.delete_users:
