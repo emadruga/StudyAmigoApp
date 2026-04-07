@@ -10,6 +10,29 @@ Scripts envolvidos:
 
 ---
 
+## Sumário
+
+- [0. Configuração via arquivo .env](#0-configuração-via-arquivo-env)
+- [1. Listar duplicatas](#1-listar-duplicatas)
+- [2. Deletar contas duplicadas](#2-deletar-contas-duplicadas)
+  - [Passo 1 — Gerar o SQL](#passo-1--gerar-o-sql-dry-run-não-executa-nada)
+  - [Passo 2 — Revisar o SQL gerado](#passo-2--revisar-o-sql-gerado)
+  - [Passo 3 — Validar sobre o backup local](#passo-3--validar-sobre-o-backup-local)
+  - [Passo 4 — Commitar para rastreabilidade](#passo-4--commitar-o-sql-para-rastreabilidade)
+  - [Passo 5 — Aplicar em produção](#passo-5--aplicar-em-produção)
+  - [Passo 6 — Validar em produção](#passo-6--validar-em-produção)
+- [3. Trocar a senha de um usuário](#3-trocar-a-senha-de-um-usuário)
+  - [Passo 1 — Gerar o SQL](#passo-1--gerar-o-sql-com-o-novo-hash-dry-run-interativo)
+  - [Passo 2 — Revisar o SQL gerado](#passo-2--revisar-o-sql-gerado-1)
+  - [Passo 3 — Commitar para rastreabilidade](#passo-3--commitar-o-sql-para-rastreabilidade)
+  - [Passo 4 — Aplicar em produção](#passo-4--aplicar-em-produção)
+  - [Passo 5 — Validar em produção](#passo-5--validar-em-produção)
+- [4. Fluxo completo — exemplo do Rogério](#4-fluxo-completo--exemplo-do-rogério)
+- [5. Restauração de emergência](#5-restauração-de-emergência-algo-deu-errado)
+- [Avisos importantes](#avisos-importantes)
+
+---
+
 ## 0. Configuração via arquivo .env
 
 O script carrega automaticamente `server/tools/manage_users.env` se existir,
