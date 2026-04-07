@@ -349,6 +349,38 @@ def _fetch_dupes(conn, substring):
 
 
 # ---------------------------------------------------------------------------
+# SQL output helper
+# ---------------------------------------------------------------------------
+
+DEFAULT_SQL_DIR = "server/past_migration_scripts"
+
+
+def _write_sql(content, fname, args):
+    """Salva SQL em arquivo ou imprime no stdout.
+
+    Prioridade:
+      1. --output-dir explícito
+      2. DEFAULT_SQL_DIR se existir
+      3. stdout
+    """
+    out_dir = getattr(args, "output_dir", None)
+    if out_dir:
+        dest = os.path.join(out_dir, fname)
+        os.makedirs(out_dir, exist_ok=True)
+    elif os.path.isdir(DEFAULT_SQL_DIR):
+        dest = os.path.join(DEFAULT_SQL_DIR, fname)
+    else:
+        dest = None
+
+    if dest:
+        with open(dest, "w", encoding="utf-8") as f:
+            f.write(content)
+        return os.path.abspath(dest), False  # (caminho, is_stdout)
+    else:
+        return None, True  # vai para stdout
+
+
+# ---------------------------------------------------------------------------
 # Mode: --dry-run --delete-users
 # ---------------------------------------------------------------------------
 
@@ -373,23 +405,29 @@ def cmd_dry_run_delete(args):
 
     date_str = datetime.now().strftime("%Y%m%d")
     fname = f"migration_delete_{date_str}.sql"
+    id_list = ", ".join(str(r["user_id"]) for r in rows)
 
-    with open(fname, "w", encoding="utf-8") as f:
-        f.write("-- Deleção de contas duplicadas\n")
-        f.write(f"-- Gerado em: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')} por manage_users.py\n")
-        f.write("-- Revise cuidadosamente antes de aplicar.\n")
-        f.write("--\n")
-        for r in rows:
-            f.write(f"-- user_id={r['user_id']}  username={r['username']}  nome={r['name']}\n")
-        f.write("\n")
-        id_list = ", ".join(str(r["user_id"]) for r in rows)
-        f.write(f"DELETE FROM users WHERE user_id IN ({id_list});\n")
-        f.write("\n")
-        f.write("-- Remover arquivos de banco individual:\n")
-        for r in rows:
-            f.write(f"-- rm user_dbs/user_{r['user_id']}.db\n")
+    lines = []
+    lines.append("-- Deleção de contas duplicadas\n")
+    lines.append(f"-- Gerado em: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')} por manage_users.py\n")
+    lines.append("-- Revise cuidadosamente antes de aplicar.\n")
+    lines.append("--\n")
+    for r in rows:
+        lines.append(f"-- user_id={r['user_id']}  username={r['username']}  nome={r['name']}\n")
+    lines.append("\n")
+    lines.append(f"DELETE FROM users WHERE user_id IN ({id_list});\n")
+    lines.append("\n")
+    lines.append("-- Remover arquivos de banco individual:\n")
+    for r in rows:
+        lines.append(f"-- rm user_dbs/user_{r['user_id']}.db\n")
+    content = "".join(lines)
 
-    print(f"SQL gerado: {os.path.abspath(fname)}")
+    dest, is_stdout = _write_sql(content, fname, args)
+    if is_stdout:
+        print("-- [stdout: pasta de destino não encontrada, use --output-dir para salvar em arquivo]")
+        print(content)
+    else:
+        print(f"SQL gerado: {dest}")
     print(f"Contas a deletar: {id_list}")
     print("Nada foi alterado. Revise o arquivo antes de aplicar.")
 
@@ -434,18 +472,23 @@ def cmd_dry_run_reset_password(args):
     date_str = datetime.now().strftime("%Y%m%d")
     fname = f"migration_reset_pw_{date_str}.sql"
 
-    with open(fname, "w", encoding="utf-8") as f:
-        f.write("-- Reset de senha\n")
-        f.write(f"-- Gerado em: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')} por manage_users.py\n")
-        f.write("-- Revise cuidadosamente antes de aplicar.\n")
-        f.write("--\n")
-        f.write(f"-- user_id={row['user_id']}  username={row['username']}  nome={row['name']}\n")
-        f.write("\n")
-        # Escapar aspas simples no hash (precaução)
-        safe_hash = hashed.replace("'", "''")
-        f.write(f"UPDATE users SET password_hash = '{safe_hash}' WHERE user_id = {uid};\n")
+    safe_hash = hashed.replace("'", "''")
+    lines = []
+    lines.append("-- Reset de senha\n")
+    lines.append(f"-- Gerado em: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')} por manage_users.py\n")
+    lines.append("-- Revise cuidadosamente antes de aplicar.\n")
+    lines.append("--\n")
+    lines.append(f"-- user_id={row['user_id']}  username={row['username']}  nome={row['name']}\n")
+    lines.append("\n")
+    lines.append(f"UPDATE users SET password_hash = '{safe_hash}' WHERE user_id = {uid};\n")
+    content = "".join(lines)
 
-    print(f"SQL gerado: {os.path.abspath(fname)}")
+    dest, is_stdout = _write_sql(content, fname, args)
+    if is_stdout:
+        print("-- [stdout: pasta de destino não encontrada, use --output-dir para salvar em arquivo]")
+        print(content)
+    else:
+        print(f"SQL gerado: {dest}")
     print("Nada foi alterado. Revise o arquivo antes de aplicar.")
 
 
@@ -673,6 +716,8 @@ def main():
                         help="IDs a deletar (usar com --dry-run).")
     parser.add_argument("--reset-password", dest="reset_password", metavar="USER_ID",
                         help="Reset de senha interativo (usar com --dry-run).")
+    parser.add_argument("--output-dir", dest="output_dir", default=None, metavar="PASTA",
+                        help=f"Pasta onde salvar o SQL gerado [default: {DEFAULT_SQL_DIR} se existir, senão stdout]")
 
     parser.add_argument("--apply-to-local-cache", action="store_true",
                         help="Aplica --sql sobre o banco local.")
