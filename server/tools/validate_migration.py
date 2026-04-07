@@ -185,9 +185,12 @@ def _docker_exec_python(ssh_args, container, py_code):
 
 def ssh_query(ssh_args, container, container_db, query):
     """Executa uma query SQLite dentro do container Docker via python3."""
-    py = (f"import sqlite3\n"
+    import base64 as _b64
+    query_b64 = _b64.b64encode(query.encode()).decode()
+    py = (f"import sqlite3, base64\n"
           f"conn = sqlite3.connect('{container_db}')\n"
-          f"for r in conn.execute('{query}'): print('|'.join(str(c) for c in r))\n"
+          f"q = base64.b64decode('{query_b64}').decode()\n"
+          f"for r in conn.execute(q): print('\\x1f'.join(str(c) for c in r))\n"
           f"conn.close()\n")
     result = _docker_exec_python(ssh_args, container, py)
     return result.stdout.strip(), result.returncode
@@ -223,18 +226,20 @@ def validate_production(args):
     print(f"SQL aplicado:       {args.sql}")
     print(f"{'='*60}\n")
 
+    SEP = "\x1f"
+
     # 1. Verificar deleções
     if deleted_ids:
         print(f"[ DELETE ] Verificando {len(deleted_ids)} conta(s) removida(s)...")
         ids_str = ",".join(str(i) for i in sorted(deleted_ids))
         out, _ = ssh_query(
             ssh_args, container, container_db,
-            f"SELECT user_id||'|'||username||'|'||name FROM users WHERE user_id IN ({ids_str});"
+            f"SELECT user_id, username, name FROM users WHERE user_id IN ({ids_str});"
         )
         still_exist = {}
         if out:
             for line in out.splitlines():
-                parts = line.split("|", 2)
+                parts = line.split(SEP, 2)
                 if len(parts) == 3:
                     still_exist[int(parts[0])] = (parts[1], parts[2])
 
@@ -264,13 +269,13 @@ def validate_production(args):
         for uid in sorted(reset_ids):
             out, _ = ssh_query(
                 ssh_args, container, container_db,
-                f"SELECT username||'|'||password_hash FROM users WHERE user_id={uid};"
+                f"SELECT username, password_hash FROM users WHERE user_id={uid};"
             )
             if not out:
                 print(f"  AVISO  user_id={uid} não encontrado no banco")
                 ok = False
             else:
-                parts = out.split("|", 1)
+                parts = out.split(SEP, 1)
                 uname = parts[0]
                 ph = parts[1] if len(parts) > 1 else ""
                 is_bcrypt = ph.startswith("$2b$") or ph.startswith("$2a$")
