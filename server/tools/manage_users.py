@@ -445,6 +445,24 @@ def build_ssh_args(args):
     return cmd
 
 
+def _docker_exec_python(ssh_args, container, py_code):
+    """Executa código Python dentro do container via base64 para evitar problemas de quoting."""
+    import base64 as _b64
+    code_b64 = _b64.b64encode(py_code.encode()).decode()
+    bootstrap = f"import base64,sys; exec(base64.b64decode('{code_b64}').decode())"
+    cmd = ssh_args + [f"sudo docker exec {container} python3 -c \"{bootstrap}\""]
+    return subprocess.run(cmd, capture_output=True, text=True)
+
+
+def _docker_query_one(ssh_args, container, db_path, query):
+    """Executa uma query no container e retorna a primeira linha do resultado."""
+    py = (f"import sqlite3; conn=sqlite3.connect('{db_path}'); "
+          f"r=conn.execute('{query}').fetchone(); "
+          f"print(r[0] if r else ''); conn.close()")
+    result = _docker_exec_python(ssh_args, container, py)
+    return result.stdout.strip()
+
+
 def docker_db_path(remote_db):
     """Converte caminho do host para caminho dentro do container (./server → /app)."""
     # /opt/study-amigo/server/... → /app/...
@@ -480,14 +498,8 @@ def cmd_apply_production(args):
     if active:
         print("\n[AVISO] As seguintes contas têm sessões ativas no servidor:")
         for uid, files in active.items():
-            py_q = (f"import sqlite3; conn=sqlite3.connect({repr(container_db)}); "
-                    f"r=conn.execute('SELECT username,name FROM users WHERE user_id={uid}').fetchone(); "
-                    f"print(r[0]+' / '+r[1] if r else ''); conn.close()")
-            result = subprocess.run(
-                ssh_args + [f"sudo docker exec {container} python3 -c \"{py_q}\""],
-                capture_output=True, text=True
-            )
-            label = result.stdout.strip() or f"user_id={uid}"
+            label = _docker_query_one(ssh_args, container, container_db,
+                                      f"SELECT username||' / '||name FROM users WHERE user_id={uid}") or f"user_id={uid}"
             print(f"  user_id={uid}  {label}  [{len(files)} sessão(ões)]")
         print()
         ans = input("Deseja prosseguir mesmo assim? [s/N] ").strip().lower()
@@ -498,25 +510,26 @@ def cmd_apply_production(args):
         print("Nenhuma sessão ativa para os usuários afetados.")
 
     # Executar SQL dentro do container Docker via python3 (sem sqlite3 CLI)
+    # Estratégia: enviar o SQL pelo stdin do processo python3 dentro do container.
+    # ssh ... "cat | sudo docker exec -i <c> python3 /dev/stdin" <<< script+sql não funciona bem.
+    # Usamos um script base64 para evitar problemas de quoting na shell remota.
     print(f"Executando SQL em {container}:{container_db} ...")
     with open(args.sql, encoding="utf-8") as f:
         sql_content = f.read()
+
+    import base64 as _b64
+    sql_b64 = _b64.b64encode(sql_content.encode()).decode()
     py_script = (
-        "import sqlite3, sys\n"
-        f"conn = sqlite3.connect({repr(container_db)})\n"
-        "try:\n"
-        "    conn.executescript(sys.stdin.read())\n"
-        "    conn.commit()\n"
-        "except Exception as e:\n"
-        "    print('ERRO:', e, file=sys.stderr)\n"
-        "    sys.exit(1)\n"
-        "finally:\n"
-        "    conn.close()\n"
+        f"import sqlite3, base64\n"
+        f"sql = base64.b64decode('{sql_b64}').decode()\n"
+        f"conn = sqlite3.connect('{container_db}')\n"
+        f"conn.executescript(sql)\n"
+        f"conn.commit()\n"
+        f"conn.close()\n"
     )
-    exec_cmd = ssh_args + [f"sudo docker exec -i {container} python3 -c {repr(py_script)}"]
-    result = subprocess.run(exec_cmd, input=sql_content, text=True)
+    result = _docker_exec_python(ssh_args, container, py_script)
     if result.returncode != 0:
-        print("Erro ao executar SQL no servidor. Verifique manualmente.")
+        print(f"Erro ao executar SQL no servidor: {result.stderr.strip()}")
         sys.exit(1)
     print("SQL aplicado com sucesso.")
 
@@ -524,8 +537,8 @@ def cmd_apply_production(args):
     for rel_path in arquivos_remover:
         container_file = container_userdb.rstrip("/") + "/" + os.path.basename(rel_path)
         print(f"Removendo {container}:{container_file} ...")
-        rm_cmd = ssh_args + [f"sudo docker exec {container} python3 -c \"import os; os.remove('{container_file}') if os.path.isfile('{container_file}') else None\""]
-        subprocess.run(rm_cmd)
+        py_rm = f"import os; os.remove('{container_file}') if os.path.isfile('{container_file}') else None"
+        _docker_exec_python(ssh_args, container, py_rm)
 
     print("\nConcluído.")
 

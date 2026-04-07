@@ -174,22 +174,28 @@ def _docker_userdb_path(remote_userdb_dir):
     return "/app" + m.group(1) if m else remote_userdb_dir
 
 
+def _docker_exec_python(ssh_args, container, py_code):
+    """Executa código Python dentro do container via base64 para evitar problemas de quoting."""
+    import base64 as _b64
+    code_b64 = _b64.b64encode(py_code.encode()).decode()
+    bootstrap = f"import base64,sys; exec(base64.b64decode('{code_b64}').decode())"
+    cmd = ssh_args + [f"sudo docker exec {container} python3 -c \"{bootstrap}\""]
+    return subprocess.run(cmd, capture_output=True, text=True)
+
+
 def ssh_query(ssh_args, container, container_db, query):
     """Executa uma query SQLite dentro do container Docker via python3."""
-    py_script = (
-        f"import sqlite3; conn=sqlite3.connect({repr(container_db)}); "
-        f"[print('|'.join(str(c) for c in r)) for r in conn.execute({repr(query)})];"
-        f"conn.close()"
-    )
-    cmd = ssh_args + [f"sudo docker exec {container} python3 -c \"{py_script}\""]
-    result = subprocess.run(cmd, capture_output=True, text=True)
+    py = (f"import sqlite3\n"
+          f"conn = sqlite3.connect('{container_db}')\n"
+          f"for r in conn.execute('{query}'): print('|'.join(str(c) for c in r))\n"
+          f"conn.close()\n")
+    result = _docker_exec_python(ssh_args, container, py)
     return result.stdout.strip(), result.returncode
 
 
 def ssh_file_exists(ssh_args, container, remote_path):
-    py_script = f"import os; print('EXISTS' if os.path.isfile({repr(remote_path)}) else 'MISSING')"
-    cmd = ssh_args + [f"sudo docker exec {container} python3 -c \"{py_script}\""]
-    result = subprocess.run(cmd, capture_output=True, text=True)
+    py = f"import os; print('EXISTS' if os.path.isfile('{remote_path}') else 'MISSING')"
+    result = _docker_exec_python(ssh_args, container, py)
     return result.stdout.strip() == "EXISTS"
 
 
