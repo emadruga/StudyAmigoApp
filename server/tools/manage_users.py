@@ -168,6 +168,10 @@ def warn_active_sessions(active, db_path):
 # ---------------------------------------------------------------------------
 
 def open_db(path):
+    if not os.path.isfile(path):
+        print(f"Erro: banco de dados não encontrado: {path}")
+        print("Verifique o valor de LOCAL_DB no manage_users.env ou o argumento --db.")
+        sys.exit(1)
     conn = sqlite3.connect(path)
     conn.row_factory = sqlite3.Row
     return conn
@@ -204,6 +208,10 @@ def get_notes_count(userdb_dir, user_id):
 # ---------------------------------------------------------------------------
 
 def cmd_list_dupes(args):
+    if not os.path.isdir(args.userdb_dir):
+        print(f"Erro: diretório de bancos individuais não encontrado: {args.userdb_dir}")
+        print("Verifique o valor de LOCAL_USERDB no manage_users.env ou o argumento --userdb-dir.")
+        sys.exit(1)
     conn = open_db(args.db)
     substring = args.list_dupes  # pode ser "" (sem filtro)
 
