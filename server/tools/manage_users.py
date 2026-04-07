@@ -445,12 +445,6 @@ def build_ssh_args(args):
     return cmd
 
 
-def build_scp_args(args, local_file, remote_path):
-    return ["scp", "-i", os.path.expanduser(args.ssh_key),
-            "-o", "StrictHostKeyChecking=no",
-            local_file, f"{args.ssh_user}@{args.ssh_host}:{remote_path}"]
-
-
 def docker_db_path(remote_db):
     """Converte caminho do host para caminho dentro do container (./server → /app)."""
     # /opt/study-amigo/server/... → /app/...
@@ -486,9 +480,11 @@ def cmd_apply_production(args):
     if active:
         print("\n[AVISO] As seguintes contas têm sessões ativas no servidor:")
         for uid, files in active.items():
+            py_q = (f"import sqlite3; conn=sqlite3.connect({repr(container_db)}); "
+                    f"r=conn.execute('SELECT username,name FROM users WHERE user_id={uid}').fetchone(); "
+                    f"print(r[0]+' / '+r[1] if r else ''); conn.close()")
             result = subprocess.run(
-                ssh_args + [f"sudo docker exec {container} sqlite3 {container_db} "
-                            f"\"SELECT username||' / '||name FROM users WHERE user_id={uid};\""],
+                ssh_args + [f"sudo docker exec {container} python3 -c \"{py_q}\""],
                 capture_output=True, text=True
             )
             label = result.stdout.strip() or f"user_id={uid}"
@@ -501,21 +497,24 @@ def cmd_apply_production(args):
     else:
         print("Nenhuma sessão ativa para os usuários afetados.")
 
-    # Copiar SQL para /tmp/ no servidor
-    remote_sql = f"/tmp/{os.path.basename(args.sql)}"
-    print(f"\nCopiando {args.sql} para {args.ssh_host}:{remote_sql} ...")
-    scp_cmd = build_scp_args(args, args.sql, remote_sql)
-    result = subprocess.run(scp_cmd)
-    if result.returncode != 0:
-        print("Erro ao copiar o arquivo SQL. Abortando.")
-        sys.exit(1)
-
-    # Executar SQL dentro do container Docker
+    # Executar SQL dentro do container Docker via python3 (sem sqlite3 CLI)
     print(f"Executando SQL em {container}:{container_db} ...")
-    exec_cmd = ssh_args + [
-        f"sudo docker exec -i {container} sqlite3 {container_db} < {remote_sql}"
-    ]
-    result = subprocess.run(exec_cmd)
+    with open(args.sql, encoding="utf-8") as f:
+        sql_content = f.read()
+    py_script = (
+        "import sqlite3, sys\n"
+        f"conn = sqlite3.connect({repr(container_db)})\n"
+        "try:\n"
+        "    conn.executescript(sys.stdin.read())\n"
+        "    conn.commit()\n"
+        "except Exception as e:\n"
+        "    print('ERRO:', e, file=sys.stderr)\n"
+        "    sys.exit(1)\n"
+        "finally:\n"
+        "    conn.close()\n"
+    )
+    exec_cmd = ssh_args + [f"sudo docker exec -i {container} python3 -c {repr(py_script)}"]
+    result = subprocess.run(exec_cmd, input=sql_content, text=True)
     if result.returncode != 0:
         print("Erro ao executar SQL no servidor. Verifique manualmente.")
         sys.exit(1)
@@ -525,11 +524,8 @@ def cmd_apply_production(args):
     for rel_path in arquivos_remover:
         container_file = container_userdb.rstrip("/") + "/" + os.path.basename(rel_path)
         print(f"Removendo {container}:{container_file} ...")
-        rm_cmd = ssh_args + [f"sudo docker exec {container} rm -f {container_file}"]
+        rm_cmd = ssh_args + [f"sudo docker exec {container} python3 -c \"import os; os.remove('{container_file}') if os.path.isfile('{container_file}') else None\""]
         subprocess.run(rm_cmd)
-
-    # Limpar arquivo temporário no host
-    subprocess.run(ssh_args + [f"rm -f {remote_sql}"])
 
     print("\nConcluído.")
 

@@ -175,14 +175,20 @@ def _docker_userdb_path(remote_userdb_dir):
 
 
 def ssh_query(ssh_args, container, container_db, query):
-    """Executa uma query SQLite dentro do container Docker no servidor remoto."""
-    cmd = ssh_args + [f'sudo docker exec {container} sqlite3 {container_db} "{query}"']
+    """Executa uma query SQLite dentro do container Docker via python3."""
+    py_script = (
+        f"import sqlite3; conn=sqlite3.connect({repr(container_db)}); "
+        f"[print('|'.join(str(c) for c in r)) for r in conn.execute({repr(query)})];"
+        f"conn.close()"
+    )
+    cmd = ssh_args + [f"sudo docker exec {container} python3 -c \"{py_script}\""]
     result = subprocess.run(cmd, capture_output=True, text=True)
     return result.stdout.strip(), result.returncode
 
 
 def ssh_file_exists(ssh_args, container, remote_path):
-    cmd = ssh_args + [f"sudo docker exec {container} test -f {remote_path} && echo EXISTS || echo MISSING"]
+    py_script = f"import os; print('EXISTS' if os.path.isfile({repr(remote_path)}) else 'MISSING')"
+    cmd = ssh_args + [f"sudo docker exec {container} python3 -c \"{py_script}\""]
     result = subprocess.run(cmd, capture_output=True, text=True)
     return result.stdout.strip() == "EXISTS"
 
