@@ -510,9 +510,9 @@ def cmd_apply_production(args):
 # ---------------------------------------------------------------------------
 
 def main():
-    # Pré-parse para capturar --env-file antes de carregar o .env
+    # Pré-parse para capturar --conf/-f antes de carregar o .env
     pre = argparse.ArgumentParser(add_help=False)
-    pre.add_argument("--env-file", dest="env_file", default=None)
+    pre.add_argument("--conf", "-f", dest="env_file", default=None)
     pre_args, _ = pre.parse_known_args()
     env_loaded = _load_env(pre_args.env_file)
 
@@ -523,7 +523,7 @@ def main():
     )
 
     # Arquivo .env opcional
-    parser.add_argument("--env-file", dest="env_file", metavar="ARQUIVO",
+    parser.add_argument("--conf", "-f", dest="env_file", metavar="ARQUIVO",
                         help="Caminho para arquivo .env com variáveis de configuração.")
 
     # Banco e diretórios (para operações locais) — defaults via .env
