@@ -36,6 +36,46 @@ from datetime import datetime
 
 
 # ---------------------------------------------------------------------------
+# .env loader
+# ---------------------------------------------------------------------------
+
+def _load_env(env_path=None):
+    """Carrega variáveis de um arquivo .env para os defaults do script.
+
+    Procura na seguinte ordem:
+      1. Caminho explícito passado via --env-file
+      2. manage_users.env no mesmo diretório do script
+      3. .env no mesmo diretório do script
+    """
+    candidates = []
+    if env_path:
+        candidates.append(env_path)
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    candidates += [
+        os.path.join(script_dir, "manage_users.env"),
+        os.path.join(script_dir, ".env"),
+    ]
+    for path in candidates:
+        expanded = os.path.expanduser(path)
+        if os.path.isfile(expanded):
+            with open(expanded) as f:
+                for line in f:
+                    line = line.strip()
+                    if not line or line.startswith("#") or "=" not in line:
+                        continue
+                    key, _, val = line.partition("=")
+                    os.environ.setdefault(key.strip(), val.strip())
+            return expanded
+    return None
+
+
+def _env(key, default=None):
+    """Lê variável de ambiente com expansão de ~ no valor."""
+    val = os.environ.get(key, default)
+    return os.path.expanduser(val) if val else val
+
+
+# ---------------------------------------------------------------------------
 # Session helpers
 # ---------------------------------------------------------------------------
 
@@ -470,16 +510,29 @@ def cmd_apply_production(args):
 # ---------------------------------------------------------------------------
 
 def main():
+    # Pré-parse para capturar --env-file antes de carregar o .env
+    pre = argparse.ArgumentParser(add_help=False)
+    pre.add_argument("--env-file", dest="env_file", default=None)
+    pre_args, _ = pre.parse_known_args()
+    env_loaded = _load_env(pre_args.env_file)
+
     parser = argparse.ArgumentParser(
         description="Ferramenta administrativa: gerencia contas duplicadas no StudyAmigo.",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog=__doc__
     )
 
-    # Banco e diretórios (para operações locais)
-    parser.add_argument("--db", help="Caminho para admin.db")
-    parser.add_argument("--userdb-dir", dest="userdb_dir", help="Diretório com bancos individuais user_N.db")
-    parser.add_argument("--session-dir", dest="session_dir", help="Diretório com arquivos de sessão Flask")
+    # Arquivo .env opcional
+    parser.add_argument("--env-file", dest="env_file", metavar="ARQUIVO",
+                        help="Caminho para arquivo .env com variáveis de configuração.")
+
+    # Banco e diretórios (para operações locais) — defaults via .env
+    parser.add_argument("--db", default=_env("LOCAL_DB"),
+                        help="Caminho para admin.db [LOCAL_DB]")
+    parser.add_argument("--userdb-dir", dest="userdb_dir", default=_env("LOCAL_USERDB"),
+                        help="Diretório com bancos individuais user_N.db [LOCAL_USERDB]")
+    parser.add_argument("--session-dir", dest="session_dir", default=_env("LOCAL_SESSION"),
+                        help="Diretório com arquivos de sessão Flask [LOCAL_SESSION]")
 
     # Modos de operação
     parser.add_argument("--list-dupes", nargs="?", const="", metavar="SUBSTRING",
@@ -497,15 +550,18 @@ def main():
     parser.add_argument("--sql", metavar="ARQUIVO.sql",
                         help="Arquivo SQL gerado pelo --dry-run.")
 
-    # SSH (para --apply-to-production)
-    parser.add_argument("--ssh-host", dest="ssh_host", metavar="HOST")
-    parser.add_argument("--ssh-user", dest="ssh_user", metavar="USER")
-    parser.add_argument("--ssh-key", dest="ssh_key", metavar="CHAVE")
-    parser.add_argument("--remote-db", dest="remote_db", metavar="CAMINHO")
-    parser.add_argument("--remote-userdb-dir", dest="remote_userdb_dir", metavar="CAMINHO")
-    parser.add_argument("--remote-session-dir", dest="remote_session_dir", metavar="CAMINHO")
+    # SSH (para --apply-to-production) — defaults via .env
+    parser.add_argument("--ssh-host", dest="ssh_host", default=_env("PROD_HOST"), metavar="HOST")
+    parser.add_argument("--ssh-user", dest="ssh_user", default=_env("PROD_USER"), metavar="USER")
+    parser.add_argument("--ssh-key", dest="ssh_key", default=_env("PROD_KEY"), metavar="CHAVE")
+    parser.add_argument("--remote-db", dest="remote_db", default=_env("PROD_DB"), metavar="CAMINHO")
+    parser.add_argument("--remote-userdb-dir", dest="remote_userdb_dir", default=_env("PROD_USERDB"), metavar="CAMINHO")
+    parser.add_argument("--remote-session-dir", dest="remote_session_dir", default=_env("PROD_SESSION"), metavar="CAMINHO")
 
     args = parser.parse_args()
+
+    if env_loaded:
+        print(f"[config] Usando .env: {env_loaded}")
 
     # Roteamento
     if args.list_dupes is not None:

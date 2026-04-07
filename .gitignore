@@ -59,3 +59,4 @@ placement_exam/**/*.pdf
 placement_exam/**/*.pptx
 placement_exam/*.pptx
 
+server/tools/manage_users.env
