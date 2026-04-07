@@ -161,15 +161,28 @@ def validate_local(args):
 # Validação em produção via SSH
 # ---------------------------------------------------------------------------
 
-def ssh_query(ssh_args, remote_db, query):
-    """Executa uma query SQLite no servidor remoto e retorna as linhas."""
-    cmd = ssh_args + [f'sqlite3 {remote_db} "{query}"']
+def _docker_db_path(remote_db):
+    """Converte caminho do host para caminho dentro do container (./server → /app)."""
+    import re as _re
+    m = _re.search(r"/server(/.*)", remote_db)
+    return "/app" + m.group(1) if m else remote_db
+
+
+def _docker_userdb_path(remote_userdb_dir):
+    import re as _re
+    m = _re.search(r"/server(/.*)", remote_userdb_dir)
+    return "/app" + m.group(1) if m else remote_userdb_dir
+
+
+def ssh_query(ssh_args, container, container_db, query):
+    """Executa uma query SQLite dentro do container Docker no servidor remoto."""
+    cmd = ssh_args + [f'sudo docker exec {container} sqlite3 {container_db} "{query}"']
     result = subprocess.run(cmd, capture_output=True, text=True)
     return result.stdout.strip(), result.returncode
 
 
-def ssh_file_exists(ssh_args, remote_path):
-    cmd = ssh_args + [f"test -f {remote_path} && echo EXISTS || echo MISSING"]
+def ssh_file_exists(ssh_args, container, remote_path):
+    cmd = ssh_args + [f"sudo docker exec {container} test -f {remote_path} && echo EXISTS || echo MISSING"]
     result = subprocess.run(cmd, capture_output=True, text=True)
     return result.stdout.strip() == "EXISTS"
 
@@ -188,10 +201,13 @@ def validate_production(args):
 
     deleted_ids, reset_ids, removed_files = parse_sql_file(args.sql)
     ssh_args = build_ssh_args(args)
+    container = args.docker_container
+    container_db = _docker_db_path(args.remote_db)
+    container_userdb = _docker_userdb_path(args.remote_userdb_dir)
     ok = True
 
     print(f"\n{'='*60}")
-    print(f"Validação PRODUÇÃO: {args.ssh_host}:{args.remote_db}")
+    print(f"Validação PRODUÇÃO: {args.ssh_host}:{container}:{container_db}")
     print(f"SQL aplicado:       {args.sql}")
     print(f"{'='*60}\n")
 
@@ -200,7 +216,7 @@ def validate_production(args):
         print(f"[ DELETE ] Verificando {len(deleted_ids)} conta(s) removida(s)...")
         ids_str = ",".join(str(i) for i in sorted(deleted_ids))
         out, _ = ssh_query(
-            ssh_args, args.remote_db,
+            ssh_args, container, container_db,
             f"SELECT user_id||'|'||username||'|'||name FROM users WHERE user_id IN ({ids_str});"
         )
         still_exist = {}
@@ -222,12 +238,12 @@ def validate_production(args):
     if removed_files:
         print(f"\n[ ARQUIVOS ] Verificando {len(removed_files)} arquivo(s) removido(s)...")
         for rel_path in removed_files:
-            remote_file = os.path.join(args.remote_userdb_dir, os.path.basename(rel_path))
-            exists = ssh_file_exists(ssh_args, remote_file)
+            container_file = container_userdb.rstrip("/") + "/" + os.path.basename(rel_path)
+            exists = ssh_file_exists(ssh_args, container, container_file)
             if not exists:
-                print(f"  OK  {remote_file} removido")
+                print(f"  OK  {container_file} removido")
             else:
-                print(f"  FALHA  {remote_file} AINDA EXISTE")
+                print(f"  FALHA  {container_file} AINDA EXISTE")
                 ok = False
 
     # 3. Verificar reset de senha
@@ -235,7 +251,7 @@ def validate_production(args):
         print(f"\n[ SENHA ] Verificando {len(reset_ids)} reset(s) de senha...")
         for uid in sorted(reset_ids):
             out, _ = ssh_query(
-                ssh_args, args.remote_db,
+                ssh_args, container, container_db,
                 f"SELECT username||'|'||password_hash FROM users WHERE user_id={uid};"
             )
             if not out:
@@ -299,6 +315,9 @@ def main():
     parser.add_argument("--ssh-key", dest="ssh_key", default=_env("PROD_KEY"), metavar="CHAVE")
     parser.add_argument("--remote-db", dest="remote_db", default=_env("PROD_DB"), metavar="CAMINHO")
     parser.add_argument("--remote-userdb-dir", dest="remote_userdb_dir", default=_env("PROD_USERDB"), metavar="CAMINHO")
+    parser.add_argument("--docker-container", dest="docker_container",
+                        default=_env("PROD_CONTAINER", "flashcard_server"), metavar="NOME",
+                        help="Nome do container Docker no servidor [PROD_CONTAINER=flashcard_server]")
 
     args = parser.parse_args()
 

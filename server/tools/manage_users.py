@@ -451,6 +451,22 @@ def build_scp_args(args, local_file, remote_path):
             local_file, f"{args.ssh_user}@{args.ssh_host}:{remote_path}"]
 
 
+def docker_db_path(remote_db):
+    """Converte caminho do host para caminho dentro do container (./server → /app)."""
+    # /opt/study-amigo/server/... → /app/...
+    # Suporta qualquer sufixo após 'server/'
+    import re as _re
+    m = _re.search(r"/server(/.*)", remote_db)
+    return "/app" + m.group(1) if m else remote_db
+
+
+def docker_userdb_path(remote_userdb_dir):
+    """Converte diretório user_dbs do host para caminho dentro do container."""
+    import re as _re
+    m = _re.search(r"/server(/.*)", remote_userdb_dir)
+    return "/app" + m.group(1) if m else remote_userdb_dir
+
+
 def cmd_apply_production(args):
     for required in ("ssh_host", "ssh_user", "ssh_key", "remote_db",
                      "remote_userdb_dir", "remote_session_dir"):
@@ -460,16 +476,19 @@ def cmd_apply_production(args):
 
     sql_text, ids_afetados, arquivos_remover = parse_sql_file(args.sql)
     ssh_args = build_ssh_args(args)
+    container = args.docker_container
+    container_db = docker_db_path(args.remote_db)
+    container_userdb = docker_userdb_path(args.remote_userdb_dir)
 
     # Verificar sessões ativas remotas
     print("Verificando sessões ativas no servidor remoto...")
     active = get_active_sessions_remote(ssh_args, args.remote_session_dir, ids_afetados)
     if active:
-        # Para warn precisamos de um db local ou remoto; buscar nomes via SSH
         print("\n[AVISO] As seguintes contas têm sessões ativas no servidor:")
         for uid, files in active.items():
             result = subprocess.run(
-                ssh_args + [f"sqlite3 {args.remote_db} \"SELECT username||' / '||name FROM users WHERE user_id={uid};\""],
+                ssh_args + [f"sudo docker exec {container} sqlite3 {container_db} "
+                            f"\"SELECT username||' / '||name FROM users WHERE user_id={uid};\""],
                 capture_output=True, text=True
             )
             label = result.stdout.strip() or f"user_id={uid}"
@@ -491,23 +510,25 @@ def cmd_apply_production(args):
         print("Erro ao copiar o arquivo SQL. Abortando.")
         sys.exit(1)
 
-    # Executar SQL no servidor
-    print(f"Executando SQL em {args.remote_db} ...")
-    exec_cmd = ssh_args + [f"sqlite3 {args.remote_db} < {remote_sql}"]
+    # Executar SQL dentro do container Docker
+    print(f"Executando SQL em {container}:{container_db} ...")
+    exec_cmd = ssh_args + [
+        f"sudo docker exec -i {container} sqlite3 {container_db} < {remote_sql}"
+    ]
     result = subprocess.run(exec_cmd)
     if result.returncode != 0:
         print("Erro ao executar SQL no servidor. Verifique manualmente.")
         sys.exit(1)
     print("SQL aplicado com sucesso.")
 
-    # Remover arquivos user_dbs remotos
+    # Remover arquivos user_dbs dentro do container
     for rel_path in arquivos_remover:
-        remote_file = os.path.join(args.remote_userdb_dir, os.path.basename(rel_path))
-        print(f"Removendo {remote_file} ...")
-        rm_cmd = ssh_args + [f"rm -f {remote_file}"]
+        container_file = container_userdb.rstrip("/") + "/" + os.path.basename(rel_path)
+        print(f"Removendo {container}:{container_file} ...")
+        rm_cmd = ssh_args + [f"sudo docker exec {container} rm -f {container_file}"]
         subprocess.run(rm_cmd)
 
-    # Limpar arquivo temporário
+    # Limpar arquivo temporário no host
     subprocess.run(ssh_args + [f"rm -f {remote_sql}"])
 
     print("\nConcluído.")
@@ -565,6 +586,9 @@ def main():
     parser.add_argument("--remote-db", dest="remote_db", default=_env("PROD_DB"), metavar="CAMINHO")
     parser.add_argument("--remote-userdb-dir", dest="remote_userdb_dir", default=_env("PROD_USERDB"), metavar="CAMINHO")
     parser.add_argument("--remote-session-dir", dest="remote_session_dir", default=_env("PROD_SESSION"), metavar="CAMINHO")
+    parser.add_argument("--docker-container", dest="docker_container",
+                        default=_env("PROD_CONTAINER", "flashcard_server"), metavar="NOME",
+                        help="Nome do container Docker no servidor [PROD_CONTAINER=flashcard_server]")
 
     args = parser.parse_args()
 
