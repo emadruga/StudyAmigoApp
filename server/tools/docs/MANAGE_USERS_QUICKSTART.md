@@ -3,12 +3,17 @@
 Ferramenta administrativa para gerenciar contas duplicadas e resetar senhas.
 Todos os comandos abaixo são executados a partir do diretório raiz do projeto.
 
+Scripts envolvidos:
+- `server/tools/manage_users.py` — operações de deleção e reset de senha
+- `server/tools/validate_migration.py` — validação pós-apply
+- `server/tools/restore_backup.py` — restauração de emergência via S3
+
 ---
 
-## Configuração via arquivo .env
+## 0. Configuração via arquivo .env
 
-O script carrega automaticamente `server/tools/manage_users.env` se existir.
-Isso elimina a necessidade de passar todos os parâmetros na linha de comando.
+O script carrega automaticamente `server/tools/manage_users.env` se existir,
+eliminando a necessidade de passar todos os parâmetros na linha de comando.
 
 ### Primeiro uso
 
@@ -38,7 +43,7 @@ PROD_SESSION=/opt/study-amigo/server/flask_session/
 ```
 
 Argumentos CLI sempre sobrescrevem os valores do `.env`.
-Para usar um arquivo alternativo: `--env-file /caminho/outro.env`
+Para usar um arquivo alternativo: `--conf /caminho/outro.env` (ou `-f`)
 
 ---
 
@@ -106,6 +111,17 @@ python server/tools/manage_users.py \
 Se houver sessão ativa de alguma conta afetada, um **aviso** será exibido e
 será solicitada confirmação antes de prosseguir.
 
+### Passo 6 — Validar em produção
+
+```bash
+python server/tools/validate_migration.py \
+    --validate-production --sql migration_delete_YYYYMMDD.sql
+```
+
+Saída esperada para cada conta deletada: `OK  user_id=N não existe no banco`
+Saída esperada para cada arquivo removido: `OK  /opt/.../user_N.db removido`
+Resultado final: `RESULTADO: TUDO OK`
+
 ---
 
 ## 3. Trocar a senha de um usuário
@@ -144,6 +160,15 @@ python server/tools/manage_users.py \
     --apply-to-production --sql migration_reset_pw_YYYYMMDD.sql
 ```
 
+### Passo 5 — Validar em produção
+
+```bash
+python server/tools/validate_migration.py \
+    --validate-production --sql migration_reset_pw_YYYYMMDD.sql
+```
+
+Saída esperada: `OK  user_id=107 (username) tem hash bcrypt válido`
+
 ---
 
 ## 4. Fluxo completo — exemplo do Rogério
@@ -167,12 +192,93 @@ git push origin main
 python server/tools/manage_users.py \
     --apply-to-production --sql migration_delete_YYYYMMDD.sql
 
-# 6. Aplicar reset de senha em produção
+# 6. Validar deleção em produção
+python server/tools/validate_migration.py \
+    --validate-production --sql migration_delete_YYYYMMDD.sql
+
+# 7. Aplicar reset de senha em produção
 python server/tools/manage_users.py \
     --apply-to-production --sql migration_reset_pw_YYYYMMDD.sql
 
-# 7. Confirmar resultado final
+# 8. Validar reset de senha em produção
+python server/tools/validate_migration.py \
+    --validate-production --sql migration_reset_pw_YYYYMMDD.sql
+
+# 9. Confirmar resultado final
 python server/tools/manage_users.py --list-dupes "Rogério"
+```
+
+---
+
+## 5. Restauração de emergência (algo deu errado)
+
+Use este procedimento se a validação falhar ou se uma migração incorreta foi aplicada.
+
+> **Atenção:** a restauração desfaz **tudo** que ocorreu no banco desde as 03:00 (hora do backup).
+> Novos cadastros feitos após as 03:00 serão perdidos. Avalie antes de prosseguir.
+
+### Passo 1 — Verificar os backups disponíveis
+
+```bash
+python3 server/tools/verify_backups.py \
+    --bucket study-amigo-backups-645069181643 \
+    --profile study-amigo
+```
+
+Identifique o slot marcado com `►` (backup de hoje às 03:00).
+Cheque se o status está `OK` e não `PARTIAL` ou `CORRUPT`.
+
+### Passo 2 — Restaurar o último backup (da sua máquina)
+
+```bash
+python3 server/tools/restore_backup.py \
+    --bucket study-amigo-backups-645069181643 \
+    --profile study-amigo \
+    --remote \
+    --host 54.152.109.26 \
+    --ssh-key ~/.ssh/study-amigo-aws \
+    --latest
+```
+
+O script vai:
+1. Baixar o backup do S3 para `/tmp/` local
+2. Enviar ao EC2 via SCP
+3. Salvar snapshot de segurança em `/tmp/studyamigo-pre-restore/` no EC2
+4. Parar o container `flashcard_server`
+5. Restaurar `admin.db` e `user_dbs/`
+6. Reiniciar o container
+7. Pedir confirmação `yes` antes de executar qualquer coisa
+
+### Passo 3 — Verificar que o servidor voltou ao normal
+
+```bash
+# Container rodando?
+ssh -i ~/.ssh/study-amigo-aws ubuntu@54.152.109.26 \
+  "sudo docker compose -f /opt/study-amigo/docker-compose.yml ps"
+
+# Banco restaurado corretamente?
+ssh -i ~/.ssh/study-amigo-aws ubuntu@54.152.109.26 \
+  "sqlite3 /opt/study-amigo/server/admin.db \
+   \"SELECT COUNT(*) FROM users;\""
+```
+
+### Passo 4 — Se precisar de um backup de um dia específico
+
+```bash
+# Listar todos os slots disponíveis
+python3 server/tools/restore_backup.py \
+    --bucket study-amigo-backups-645069181643 \
+    --profile study-amigo \
+    --list
+
+# Restaurar slot específico (ex: semana 2, quinta-feira)
+python3 server/tools/restore_backup.py \
+    --bucket study-amigo-backups-645069181643 \
+    --profile study-amigo \
+    --remote \
+    --host 54.152.109.26 \
+    --ssh-key ~/.ssh/study-amigo-aws \
+    --week 2 --day thursday
 ```
 
 ---
@@ -181,6 +287,7 @@ python server/tools/manage_users.py --list-dupes "Rogério"
 
 - **Nunca** inclua na lista de deleção a conta que o aluno usa (a com mais revisões).
 - O `--apply-to-local-cache` altera o **backup local** — não afeta produção.
-- O `--apply-to-production` é **irreversível**. Sempre valide no cache local primeiro.
+- O `--apply-to-production` é **irreversível** sem restauração de backup. Sempre valide no cache local primeiro.
 - Os arquivos `.sql` gerados ficam no diretório de onde o script é chamado. Mova-os para `server/tools/` antes de commitar.
 - `manage_users.env` nunca deve ser commitado (contém caminho da chave SSH).
+- O backup S3 roda diariamente às **03:00 BRT**. Migrações feitas antes das 03:00 do dia seguinte não estão no próximo backup — o backup mais seguro para rollback é o das 03:00 **do mesmo dia**, feito antes da intervenção.
