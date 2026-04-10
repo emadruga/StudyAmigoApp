@@ -44,6 +44,25 @@ A sequência verbo → sujeito → objeto é uma ferramenta de leitura, não de 
 
 ---
 
+## O formato do cartão em E02 — Tier 1
+
+> **Frente**: frase de dicionário modificada pelo aluno (1 substituição pessoal), com a palavra-alvo em **[MAIÚSCULO]**
+> **Verso**: `palavra = tradução em português` (simples, sem colocações)
+
+**Por que este formato?**
+
+A frente em `[MAIÚSCULO]` define com precisão o que o cartão está testando. O SM-2 vai perguntar ao aluno exatamente aquela palavra — não a frase inteira. O verso simples (`won = ganhou`) é suficiente para E02: neste exercício, o objetivo é aprender o *método* de criação de cartões, não dominar o verso completo.
+
+Cloze com `_______` é a próxima evolução — vem em E03.
+
+**Como criar a frase da frente:**
+
+1. Encontre **1 exemplo de frase** com a palavra num dicionário online (Cambridge ou Google)
+2. **Troque 1 palavra de contexto** por algo da sua própria área ou vida (ex.: troque "scientists" por "engineers", ou "Brazil" por "my team")
+3. A frase modificada vira a frente do cartão — com a palavra-alvo em `[MAIÚSCULO]`
+
+---
+
 ## Demonstração frase a frase: Versão 1 — História e Conquistas
 
 Texto completo de referência:
@@ -80,9 +99,11 @@ A seguir, a 2ª passagem para cada uma das 10 palavras-alvo da Versão 1.
 
 **Cartão criado:**
 ```
-Frente: "Brazil _______ its first World Cup in 1958."
-Verso:  won — ganhou
-        Minha frase: "My team won the game yesterday."
+Dicionário: "Our team won the championship last year."
+Substituição: trocar "Our team" → "My university"
+
+Frente: "My university [WON] the state championship last year."
+Verso:  won = ganhou
 ```
 
 ---
@@ -104,14 +125,15 @@ Verso:  won — ganhou
 
 > **Nota pedagógica**: esta frase tem dois verbos conectados por *and*. Para o aluno Tier 1, o professor pode orientar: *"Quando você vê 'and' entre dois verbos, o sujeito fez as duas coisas."*
 
-**Consulta ao dicionário:** *lifted* = levantou / ergueu. Colocação: *lift the trophy*
+**Consulta ao dicionário:** *lifted* = levantou / ergueu
 
 **Cartão criado:**
 ```
-Frente: "Brazil defeated Sweden and _______ the trophy."
-Verso:  lifted — levantou, ergueu
-        Colocação: lift the trophy
-        Minha frase: "The captain lifted the trophy after the final."
+Dicionário: "The captain lifted the trophy after the final."
+Substituição: trocar "The captain" → "Our team leader"
+
+Frente: "Our team leader [LIFTED] the award at the ceremony."
+Verso:  lifted = ergueu, levantou
 ```
 
 ---
@@ -132,14 +154,15 @@ Verso:  lifted — levantou, ergueu
 **O que o aluno entende antes de consultar o dicionário:**
 > *"O Brasil fez algo com a Suécia na final. Pelo contexto de Copa do Mundo, ganhou dela — derrotou."*
 
-**Consulta ao dicionário:** *defeated* = derrotou. Colocação: *defeat an opponent / defeat a team*
+**Consulta ao dicionário:** *defeated* = derrotou
 
 **Cartão criado:**
 ```
-Frente: "Brazil _______ Sweden in the final."
-Verso:  defeated — derrotou
-        Colocação: defeat a team / defeat an opponent
-        Minha frase: "Brazil defeated Argentina in the semifinals."
+Dicionário: "Brazil defeated their opponents in the final."
+Substituição: trocar "Brazil" → "Our class team"
+
+Frente: "Our class team [DEFEATED] the opponents in the tournament."
+Verso:  defeated = derrotou
 ```
 
 ---
@@ -160,14 +183,15 @@ Verso:  defeated — derrotou
 
 > **Nota pedagógica — oportunidade de conectar com E01**: *has competed* é *present perfect* — um dos tempos do baralho Verbal Tenses. Se o professor quiser, este é o momento natural de reconectar: *"Vocês viram esse tempo verbal em E01. 'Has competed' significa que o Brasil começou a competir no passado e ainda compete hoje."* Não é obrigatório aprofundar — basta reconhecer.
 
-**Consulta ao dicionário:** *competed* = competiu / participou. Colocação: *compete in a tournament / compete in the World Cup*
+**Consulta ao dicionário:** *competed* = competiu / participou
 
 **Cartão criado:**
 ```
-Frente: "Brazil has _______ in every single World Cup."
-Verso:  competed — competiu, participou
-        Colocação: compete in the World Cup
-        Minha frase: "My university competed in the national championship."
+Dicionário: "The team competed in the national tournament."
+Substituição: trocar "The team" → "My university"
+
+Frente: "My university [COMPETED] in the regional tournament."
+Verso:  competed = competiu, participou
 ```
 
 ---
@@ -190,9 +214,11 @@ Verso:  competed — competiu, participou
 
 **Cartão criado:**
 ```
-Frente: "Many experts consider the 1970 _______ the best team ever."
-Verso:  squad — elenco, seleção
-        Minha frase: "The coach announced the squad for the World Cup."
+Dicionário: "The coach selected the squad for the championship."
+Substituição: trocar "The coach" → "Our professor"
+
+Frente: "Our professor selected the [SQUAD] for the science fair."
+Verso:  squad = elenco, grupo selecionado
 ```
 
 ---
@@ -211,16 +237,17 @@ Verso:  squad — elenco, seleção
 **O que o aluno entende antes de consultar o dicionário:**
 > *"O Brasil ganhou cinco 'titles' de Copa do Mundo. 'Title' deve ser 'título'."*
 
-> **Nota pedagógica**: *title* é um cognato parcial — o aluno pode reconhecer. O valor do cartão está na colocação *win the title* / *World Cup title*, não na tradução isolada.
+> **Nota pedagógica**: *title* é um cognato parcial — o aluno pode reconhecer. Mesmo assim, o exercício de criar o cartão vale: a palavra aparece na lista, e criar um cartão de uma palavra que já se conhece parcialmente reforça o uso contextual.
 
-**Consulta ao dicionário:** *title* = título. Colocação: *win a title / World Cup title*
+**Consulta ao dicionário:** *title* = título
 
 **Cartão criado:**
 ```
-Frente: "Brazil has won five World Cup _______."
-Verso:  title — título
-        Colocação: win a title / World Cup title
-        Minha frase: "Brazil wants to win a sixth title in 2026."
+Dicionário: "The team won the championship title last year."
+Substituição: trocar "The team" → "Our lab"
+
+Frente: "Our lab won the innovation [TITLE] at the conference."
+Verso:  title = título
 ```
 
 ---
@@ -239,16 +266,17 @@ Verso:  title — título
 **O que o aluno entende antes de consultar o dicionário:**
 > *"O maior 'rival' do Brasil é a Argentina. 'Rival' parece 'rival' mesmo."*
 
-> **Nota pedagógica**: *rival* é um cognato direto — o aluno vai reconhecer na hora. O valor do cartão está em ensinar a colocação *greatest rival*, não a palavra isolada.
+> **Nota pedagógica**: *rival* é cognato direto — o aluno vai reconhecer na hora. Mesmo assim, criar o cartão é válido: pratica o método.
 
-**Consulta ao dicionário:** *rival* = rival. Colocação: *greatest rival / fierce rival*
+**Consulta ao dicionário:** *rival* = rival
 
 **Cartão criado:**
 ```
-Frente: "Brazil's _______ rival is Argentina."
-Verso:  greatest rival — maior rival
-        Colocação: greatest rival / fierce rival
-        Minha frase: "Real Madrid's greatest rival is Barcelona."
+Dicionário: "The two clubs are great rivals in the championship."
+Substituição: trocar "clubs" → "universities"
+
+Frente: "The two universities are great [RIVALS] in the championship."
+Verso:  rival = rival
 ```
 
 ---
@@ -269,14 +297,15 @@ Verso:  greatest rival — maior rival
 
 > **Nota pedagógica**: *fiercely* modifica o verbo — é um advérbio. O aluno Tier 1 não precisa saber isso. Mas a pergunta "como eles competem?" naturalmente aponta para *fiercely* como a resposta. Essa é a função da pergunta sobre o objeto/complemento: ela captura tanto objetos diretos quanto advérbios de modo.
 
-**Consulta ao dicionário:** *fiercely* = ferozmente / com intensidade. Colocação: *compete fiercely*
+**Consulta ao dicionário:** *fiercely* = ferozmente / com intensidade
 
 **Cartão criado:**
 ```
-Frente: "The two teams compete _______."
-Verso:  fiercely — ferozmente, com intensidade
-        Colocação: compete fiercely
-        Minha frase: "The students competed fiercely for the scholarship."
+Dicionário: "The athletes competed fiercely for the medal."
+Substituição: trocar "The athletes" → "The students"
+
+Frente: "The students competed [FIERCELY] for the scholarship."
+Verso:  fiercely = ferozmente, com intensidade
 ```
 
 ---
@@ -295,13 +324,15 @@ Verso:  fiercely — ferozmente, com intensidade
 **O que o aluno entende antes de consultar o dicionário:**
 > *"O time tem jogadores talentosos e um elenco 'solid'. 'Solid' parece 'sólido' — forte, consistente."*
 
-**Consulta ao dicionário:** *solid* = sólido / forte / consistente. Em contexto esportivo: um time *solid* tem bom coletivo, não depende de um só jogador.
+**Consulta ao dicionário:** *solid* = sólido / forte / consistente
 
 **Cartão criado:**
 ```
-Frente: "The team has talented players and a _______ squad."
-Verso:  solid — sólido, forte, consistente
-        Minha frase: "Brazil has a solid squad for the 2026 World Cup."
+Dicionário: "The project has a solid plan."
+Substituição: trocar "project" → "experiment"
+
+Frente: "The experiment has a [SOLID] design."
+Verso:  solid = sólido, consistente
 ```
 
 ---
@@ -320,14 +351,15 @@ Verso:  solid — sólido, forte, consistente
 **O que o aluno entende antes de consultar o dicionário:**
 > *"'Fans' esperam que o Brasil vai ganhar o sexto título. 'Fans' devem ser os torcedores — já ouvi essa palavra."*
 
-**Consulta ao dicionário:** *fans* = torcedores / fãs. Colocação: *fans around the world / football fans*
+**Consulta ao dicionário:** *fans* = torcedores / fãs
 
 **Cartão criado:**
 ```
-Frente: "_______ around the world hope Brazil will win a sixth title."
-Verso:  fans — torcedores, fãs
-        Colocação: fans around the world / football fans
-        Minha frase: "Fans around the world watched the final on TV."
+Dicionário: "Fans around the world watched the match on TV."
+Substituição: trocar "match" → "launch event"
+
+Frente: "[FANS] of technology filled the auditorium for the launch event."
+Verso:  fans = torcedores, fãs
 ```
 
 ---
@@ -338,7 +370,7 @@ Ao final das 10 palavras, o aluno:
 
 1. **Localizou cada palavra dentro de uma frase real** — não consultou o dicionário no vazio
 2. **Entendeu o papel de cada palavra na frase** antes de consultar — o dicionário confirmou, não revelou do zero
-3. **Criou 10 cartões com frente cloze e frase própria** — pronto para a fase de revisão
+3. **Criou 10 cartões no formato [MAIÚSCULO] com 1 substituição pessoal** — pronto para a fase de revisão
 4. **Praticou 3 perguntas de leitura** (verbo → quem → o quê) de forma repetida e contextualizada — sem chamar isso de "gramática"
 
 ---
@@ -351,7 +383,7 @@ Ao final das 10 palavras, o aluno:
 | **Suporte** | Nenhum | Lista do professor + dicionário palavra a palavra |
 | **Foco** | Texto inteiro | Somente as frases das 10 palavras-alvo |
 | **Ferramenta** | Cognatos + contexto | Verbo → Sujeito → Objeto → Dicionário |
-| **Produto** | Modelo mental do texto | 10 cartões prontos para revisão |
+| **Produto** | Modelo mental do texto | 10 cartões: [MAIÚSCULO] + 1 substituição pessoal |
 | **Tempo estimado** | 5–8 minutos | 20–30 minutos |
 
 ---
@@ -365,4 +397,4 @@ Ao final das 10 palavras, o aluno:
 > "Agora você vai reler o texto com a lista de palavras na mão. Para cada palavra da lista: (1) ache a frase do texto onde ela aparece; (2) identifique o verbo da frase; (3) identifique quem está fazendo a ação; (4) identifique o que ou quem sofre a ação. Só depois consulte o dicionário para essa palavra."
 
 **Criação do cartão:**
-> "Com a palavra que você consultou: (1) copie a frase do texto e retire a palavra (deixe um blank); (2) escreva no verso a tradução + uma frase sua trocando 1 palavra por algo da sua vida."
+> "Com a palavra que você consultou: (1) encontre 1 exemplo de frase num dicionário online; (2) troque 1 palavra do exemplo por algo da sua área ou vida; (3) crie o cartão — Frente: frase modificada com a palavra em [MAIÚSCULO]; Verso: palavra = tradução."
