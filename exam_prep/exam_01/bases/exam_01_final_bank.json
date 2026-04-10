@@ -1,0 +1,515 @@
+{
+  "version": "1.0",
+  "description": "Exam 01 Final — Verbal Tenses Question Bank (1st Bimester)",
+  "date": "2026-04-10",
+  "structure": {
+    "tier1_questions": 10,
+    "tier2_additional_questions": 10,
+    "tier3_additional_questions": 0,
+    "total_questions": 20,
+    "tier1_max_score": 10,
+    "tier2_max_score": 20
+  },
+  "questions": [
+    {
+      "id": "E01F_Q01",
+      "tier": 1,
+      "order": 1,
+      "type": "sentence_completion",
+      "tense": "Simple Present",
+      "tense_aspect": "affirmative",
+      "card_source": "The professor explains the experiment results every week.",
+      "question_text": "The professor _____ the experiment results every week.",
+      "options": [
+        { "text": "explain",    "is_correct": false },
+        { "text": "explains",   "is_correct": true  },
+        { "text": "explained",  "is_correct": false },
+        { "text": "explaining", "is_correct": false }
+      ],
+      "point_value": 1,
+      "rationale": "Tests 3rd person singular -s rule in Simple Present affirmative. 'Every week' confirms habitual action.",
+      "distractor_rationale": {
+        "a": "Base form — correct for I/you/we/they but not for he/she/it",
+        "c": "Simple Past — 'every week' signals habitual present, not past",
+        "d": "Present participle — requires an auxiliary to form a valid tense"
+      },
+      "instruction_pt": "Complete a frase com a forma correta do verbo.",
+      "status": "active"
+    },
+    {
+      "id": "E01F_Q02",
+      "tier": 1,
+      "order": 2,
+      "type": "sentence_completion",
+      "tense": "Simple Present",
+      "tense_aspect": "negative",
+      "card_source": "The system does not (doesn't) save files automatically.",
+      "question_text": "The system _____ save files automatically.",
+      "options": [
+        { "text": "don't",   "is_correct": false },
+        { "text": "isn't",   "is_correct": false },
+        { "text": "doesn't", "is_correct": true  },
+        { "text": "hasn't",  "is_correct": false }
+      ],
+      "point_value": 1,
+      "rationale": "Tests correct auxiliary for 3rd person singular negative in Simple Present (does not / doesn't).",
+      "distractor_rationale": {
+        "a": "don't — correct for I/you/we/they, not for 'the system' (it)",
+        "b": "isn't — auxiliary for Present Continuous, wrong tense",
+        "d": "hasn't — auxiliary for Present Perfect, wrong tense"
+      },
+      "instruction_pt": "Complete a frase com a forma correta do verbo.",
+      "status": "active"
+    },
+    {
+      "id": "E01F_Q03",
+      "tier": 1,
+      "order": 3,
+      "type": "sentence_completion",
+      "tense": "Simple Present",
+      "tense_aspect": "question",
+      "card_source": "Does the lab open at 8 AM?",
+      "question_text": "_____ the lab open at 8 AM?",
+      "options": [
+        { "text": "Is",   "is_correct": false },
+        { "text": "Do",   "is_correct": false },
+        { "text": "Has",  "is_correct": false },
+        { "text": "Does", "is_correct": true  }
+      ],
+      "point_value": 1,
+      "rationale": "Tests correct auxiliary for 3rd person singular question in Simple Present. 'The lab' (it) requires 'Does', not 'Do'.",
+      "distractor_rationale": {
+        "a": "Is — auxiliary for Present Continuous questions",
+        "b": "Do — correct for I/you/we/they questions, not for 'the lab' (it)",
+        "c": "Has — auxiliary for Present Perfect questions"
+      },
+      "instruction_pt": "Escolha o auxiliar correto para completar a pergunta.",
+      "status": "active"
+    },
+    {
+      "id": "E01F_Q04",
+      "tier": 1,
+      "order": 4,
+      "type": "sentence_completion",
+      "tense": "Simple Past",
+      "tense_aspect": "affirmative",
+      "card_source": "The engineer finished the report yesterday.",
+      "question_text": "The engineer _____ the report yesterday.",
+      "options": [
+        { "text": "finish",       "is_correct": false },
+        { "text": "finishes",     "is_correct": false },
+        { "text": "finished",     "is_correct": true  },
+        { "text": "has finished", "is_correct": false }
+      ],
+      "point_value": 1,
+      "rationale": "Tests regular verb -ed formation in Simple Past. 'Yesterday' is the canonical Simple Past time marker.",
+      "distractor_rationale": {
+        "a": "Base form — Simple Present, contradicts 'yesterday'",
+        "b": "3rd person Simple Present — wrong tense, contradicts 'yesterday'",
+        "d": "Present Perfect — used for unspecified past experiences, incompatible with 'yesterday'"
+      },
+      "instruction_pt": "Complete a frase com a forma correta do verbo.",
+      "status": "active"
+    },
+    {
+      "id": "E01F_Q05",
+      "tier": 1,
+      "order": 5,
+      "type": "tense_identification",
+      "tense": "Simple Past",
+      "tense_aspect": "affirmative",
+      "card_source": "The students submitted their project last Friday.",
+      "question_text": "\"The students submitted their project last Friday.\" — Which tense is used in this sentence?",
+      "options": [
+        { "text": "Simple Present",    "is_correct": false },
+        { "text": "Present Continuous", "is_correct": false },
+        { "text": "Present Perfect",   "is_correct": false },
+        { "text": "Simple Past",       "is_correct": true  }
+      ],
+      "point_value": 1,
+      "rationale": "Tests recognition of the Simple Past form (-ed / past form) in context. 'Last Friday' confirms Simple Past.",
+      "distractor_rationale": {
+        "a": "Simple Present uses base form or 3rd-person -s (submit/submits), not 'submitted'",
+        "b": "Present Continuous uses is/are + -ing (are submitting)",
+        "c": "Present Perfect uses have/has + past participle (have submitted) — no specific time marker"
+      },
+      "instruction_pt": "Qual tempo verbal é usado nesta frase?",
+      "status": "active"
+    },
+    {
+      "id": "E01F_Q06",
+      "tier": 1,
+      "order": 6,
+      "type": "sentence_completion",
+      "tense": "Present Continuous",
+      "tense_aspect": "affirmative",
+      "card_source": "The team is developing a new security protocol this week.",
+      "question_text": "The team _____ a new security protocol this week.",
+      "options": [
+        { "text": "develop",        "is_correct": false },
+        { "text": "develops",       "is_correct": false },
+        { "text": "is developing",  "is_correct": true  },
+        { "text": "has developed",  "is_correct": false }
+      ],
+      "point_value": 1,
+      "rationale": "Tests the be + verb-ing structure for Present Continuous. 'This week' signals a temporary ongoing action.",
+      "distractor_rationale": {
+        "a": "Base form — Simple Present, used for habits not temporary actions",
+        "b": "3rd person Simple Present — 'this week' signals ongoing activity, not habit",
+        "d": "Present Perfect — implies completion, contradicts the ongoing nature of 'this week'"
+      },
+      "instruction_pt": "Complete a frase com a forma correta do verbo.",
+      "status": "active"
+    },
+    {
+      "id": "E01F_Q07",
+      "tier": 1,
+      "order": 7,
+      "type": "sentence_completion",
+      "tense": "Present Continuous",
+      "tense_aspect": "negative",
+      "card_source": "He is not (isn't) using the software right now.",
+      "question_text": "He _____ the software right now.",
+      "options": [
+        { "text": "doesn't use", "is_correct": false },
+        { "text": "isn't using", "is_correct": true  },
+        { "text": "hasn't used", "is_correct": false },
+        { "text": "didn't use",  "is_correct": false }
+      ],
+      "point_value": 1,
+      "rationale": "Tests the is/are + not + verb-ing structure for Present Continuous negative. 'Right now' confirms the tense.",
+      "distractor_rationale": {
+        "a": "doesn't use — Simple Present negative; contradicts 'right now' (ongoing)",
+        "c": "hasn't used — Present Perfect negative; wrong tense",
+        "d": "didn't use — Simple Past negative; contradicts 'right now'"
+      },
+      "instruction_pt": "Complete a frase com a forma correta do verbo.",
+      "status": "active"
+    },
+    {
+      "id": "E01F_Q08",
+      "tier": 1,
+      "order": 8,
+      "type": "tense_identification",
+      "tense": "Present Continuous",
+      "tense_aspect": "affirmative",
+      "card_source": "The technician is calibrating the equipment.",
+      "question_text": "\"The technician is calibrating the equipment.\" — Which tense is used in this sentence?",
+      "options": [
+        { "text": "Simple Present",    "is_correct": false },
+        { "text": "Present Continuous", "is_correct": true  },
+        { "text": "Simple Past",       "is_correct": false },
+        { "text": "Present Perfect",   "is_correct": false }
+      ],
+      "point_value": 1,
+      "rationale": "Tests recognition of the is + verb-ing structure. The auxiliary 'is' + '-ing' ending on the verb are the two markers.",
+      "distractor_rationale": {
+        "a": "Simple Present: 'The technician calibrates the equipment' (no auxiliary + -ing)",
+        "c": "Simple Past: 'The technician calibrated the equipment'",
+        "d": "Present Perfect: 'The technician has calibrated the equipment'"
+      },
+      "instruction_pt": "Qual tempo verbal é usado nesta frase?",
+      "status": "active"
+    },
+    {
+      "id": "E01F_Q09",
+      "tier": 1,
+      "order": 9,
+      "type": "sentence_completion",
+      "tense": "Simple Future",
+      "tense_aspect": "affirmative",
+      "card_source": "The committee will announce the results next Monday.",
+      "question_text": "The committee _____ the results next Monday.",
+      "options": [
+        { "text": "announces",      "is_correct": false },
+        { "text": "is announcing",  "is_correct": false },
+        { "text": "has announced",  "is_correct": false },
+        { "text": "will announce",  "is_correct": true  }
+      ],
+      "point_value": 1,
+      "rationale": "Tests the 'will + base verb' structure for Simple Future. 'Next Monday' is the key future time marker.",
+      "distractor_rationale": {
+        "a": "announces — Simple Present 3rd person; 'next Monday' requires future, not habitual",
+        "b": "is announcing — Present Continuous; can express near-future plans but less standard with 'next Monday'",
+        "c": "has announced — Present Perfect; implies completed action, contradicts 'next Monday'"
+      },
+      "instruction_pt": "Complete a frase com a forma correta do verbo.",
+      "status": "active"
+    },
+    {
+      "id": "E01F_Q10",
+      "tier": 1,
+      "order": 10,
+      "type": "context_selection",
+      "tense": "Present Continuous",
+      "tense_aspect": "time_adverb",
+      "card_source": null,
+      "question_text": "Which time expression matches the Present Continuous tense?",
+      "options": [
+        { "text": "last night",   "is_correct": false },
+        { "text": "every Monday", "is_correct": false },
+        { "text": "right now",    "is_correct": true  },
+        { "text": "next year",    "is_correct": false }
+      ],
+      "point_value": 1,
+      "rationale": "Tests knowledge of time adverbs as tense markers. 'Right now' is the canonical Present Continuous marker, contrasting with markers for Simple Past (last night), Simple Present (every Monday), and Simple Future (next year).",
+      "distractor_rationale": {
+        "a": "last night — signals Simple Past (completed past event)",
+        "b": "every Monday — signals Simple Present (habitual action)",
+        "d": "next year — signals Simple Future (will / going to)"
+      },
+      "instruction_pt": "Qual expressão de tempo corresponde ao Present Continuous?",
+      "status": "active"
+    },
+    {
+      "id": "E01F_Q11",
+      "tier": 2,
+      "order": 11,
+      "type": "sentence_completion",
+      "tense": "Past Continuous",
+      "tense_aspect": "affirmative",
+      "card_source": "The researchers were collecting data when the power went out.",
+      "question_text": "The researchers _____ data when the power went out.",
+      "options": [
+        { "text": "collected",       "is_correct": false },
+        { "text": "have collected",  "is_correct": false },
+        { "text": "were collecting", "is_correct": true  },
+        { "text": "had collected",   "is_correct": false }
+      ],
+      "point_value": 1,
+      "rationale": "Tests the were + verb-ing structure for Past Continuous. The sentence presents an ongoing past action ('collecting') interrupted by a shorter event ('went out').",
+      "distractor_rationale": {
+        "a": "collected — Simple Past; treats both actions as sequential, not overlapping",
+        "b": "have collected — Present Perfect; wrong time frame",
+        "d": "had collected — Past Perfect; implies completion before another past event, not an ongoing action"
+      },
+      "instruction_pt": "Complete a frase com a forma correta do verbo.",
+      "status": "active"
+    },
+    {
+      "id": "E01F_Q12",
+      "tier": 2,
+      "order": 12,
+      "type": "sentence_completion",
+      "tense": "Past Continuous",
+      "tense_aspect": "context",
+      "card_source": "She was studying when I called.",
+      "question_text": "Which Past Continuous sentence is correct?",
+      "options": [
+        { "text": "She was study when I called.",   "is_correct": false },
+        { "text": "She was studying when I called.", "is_correct": true  },
+        { "text": "She were studying when I called.", "is_correct": false },
+        { "text": "She was studied when I called.",  "is_correct": false }
+      ],
+      "point_value": 1,
+      "rationale": "Tests the Past Continuous formation (was/were + verb-ing). Each distractor targets a specific structural error.",
+      "distractor_rationale": {
+        "a": "was + base form — missing the -ing ending required in Past Continuous",
+        "c": "were — incorrect auxiliary for singular subject 'she' (requires 'was')",
+        "d": "was + past participle — confuses Present Perfect (has studied) with Past Continuous"
+      },
+      "instruction_pt": "Qual frase está correta?",
+      "status": "active"
+    },
+    {
+      "id": "E01F_Q13",
+      "tier": 2,
+      "order": 13,
+      "type": "tense_contrast",
+      "tense": "Past Continuous vs Simple Past",
+      "tense_aspect": "contrast",
+      "card_source": null,
+      "question_text": "Choose the correct option:\n\n\"While the professor _____ the lesson, a student _____ the room.\"",
+      "options": [
+        { "text": "was explaining / entered",     "is_correct": true  },
+        { "text": "explained / was entering",     "is_correct": false },
+        { "text": "was explaining / was entering","is_correct": false },
+        { "text": "explained / entered",          "is_correct": false }
+      ],
+      "point_value": 1,
+      "rationale": "Tests the classic Past Continuous / Simple Past contrast: the longer background action uses Past Continuous (was explaining); the shorter interrupting action uses Simple Past (entered).",
+      "distractor_rationale": {
+        "b": "Reverses the roles — 'explained' treats the lesson as a brief event; 'was entering' makes the student's action the ongoing background",
+        "c": "Both Past Continuous — valid only if both actions were simultaneous and ongoing, which is not the intended reading",
+        "d": "Both Simple Past — treats both actions as sequential, losing the 'while' relationship"
+      },
+      "instruction_pt": "Escolha a combinação correta de tempos verbais.",
+      "status": "active"
+    },
+    {
+      "id": "E01F_Q14",
+      "tier": 2,
+      "order": 14,
+      "type": "sentence_completion",
+      "tense": "Present Perfect",
+      "tense_aspect": "affirmative",
+      "card_source": "She has learned three programming languages so far.",
+      "question_text": "She _____ three programming languages so far.",
+      "options": [
+        { "text": "learns",      "is_correct": false },
+        { "text": "learned",     "is_correct": false },
+        { "text": "was learning","is_correct": false },
+        { "text": "has learned", "is_correct": true  }
+      ],
+      "point_value": 1,
+      "rationale": "Tests the have/has + past participle structure for Present Perfect. 'So far' signals an accumulating experience up to now — classic Present Perfect context.",
+      "distractor_rationale": {
+        "a": "learns — Simple Present; 'so far' signals accumulation over time, not a habit",
+        "b": "learned — Simple Past; would require a specific time marker (e.g., 'last year'), not 'so far'",
+        "c": "was learning — Past Continuous; implies interrupted ongoing action in the past, not accumulated experience"
+      },
+      "instruction_pt": "Complete a frase com a forma correta do verbo.",
+      "status": "active"
+    },
+    {
+      "id": "E01F_Q15",
+      "tier": 2,
+      "order": 15,
+      "type": "tense_contrast",
+      "tense": "Present Perfect vs Simple Past",
+      "tense_aspect": "contrast",
+      "card_source": null,
+      "question_text": "Choose the correct tense for each blank:\n\n\"I _____ this book (a) LAST YEAR. I _____ it (b) THREE TIMES.\"",
+      "options": [
+        { "text": "(a) read  /  (b) have read", "is_correct": true  },
+        { "text": "(a) have read  /  (b) read", "is_correct": false },
+        { "text": "(a) read  /  (b) read",      "is_correct": false },
+        { "text": "(a) have read  /  (b) have read", "is_correct": false }
+      ],
+      "point_value": 1,
+      "rationale": "Tests the core PP vs Simple Past distinction: 'last year' (specific time) requires Simple Past; 'three times' (unspecified accumulated experience) requires Present Perfect.",
+      "distractor_rationale": {
+        "b": "Reverses the rule — 'have read last year' is ungrammatical; Present Perfect rejects specific past time markers",
+        "c": "All Simple Past — 'read three times' is possible but weak; misses the contrast intended by 'three times'",
+        "d": "All Present Perfect — 'have read last year' is ungrammatical"
+      },
+      "instruction_pt": "Escolha a combinação correta de tempos verbais para as duas frases.",
+      "status": "active"
+    },
+    {
+      "id": "E01F_Q16",
+      "tier": 2,
+      "order": 16,
+      "type": "error_correction",
+      "tense": "Present Perfect vs Simple Past",
+      "tense_aspect": "contrast",
+      "card_source": null,
+      "question_text": "Which sentence uses the Present Perfect correctly?",
+      "options": [
+        { "text": "I have finished the report yesterday.",   "is_correct": false },
+        { "text": "I finished the report yesterday.",       "is_correct": true  },
+        { "text": "I have finished the report last week.",  "is_correct": false },
+        { "text": "I finished the report already.",        "is_correct": false }
+      ],
+      "point_value": 1,
+      "rationale": "Tests the rule that Present Perfect cannot be used with specific past time markers. 'Yesterday' and 'last week' require Simple Past. 'Already' is a valid Present Perfect marker — making option D grammatically correct, but the question tests error detection in A and C.",
+      "distractor_rationale": {
+        "a": "'have finished yesterday' — Present Perfect + specific time marker 'yesterday' is ungrammatical",
+        "c": "'have finished last week' — same error with 'last week'",
+        "d": "'finished already' — grammatically possible (Simple Past + already is acceptable in American English) but less standard than Present Perfect; included to test precision. Option B is the cleanest, unambiguous correct answer"
+      },
+      "instruction_pt": "Qual frase está correta?",
+      "status": "active"
+    },
+    {
+      "id": "E01F_Q17",
+      "tier": 2,
+      "order": 17,
+      "type": "sentence_completion",
+      "tense": "Future going to",
+      "tense_aspect": "affirmative",
+      "card_source": "She is going to study cybersecurity next semester.",
+      "question_text": "She _____ study cybersecurity next semester.",
+      "options": [
+        { "text": "will going to",     "is_correct": false },
+        { "text": "is going to",       "is_correct": true  },
+        { "text": "goes to",           "is_correct": false },
+        { "text": "going to",          "is_correct": false }
+      ],
+      "point_value": 1,
+      "rationale": "Tests the am/is/are + going to + base verb structure for future plans. This represents a pre-arranged plan (she has already decided), the classic 'going to' context.",
+      "distractor_rationale": {
+        "a": "'will going to' — double future auxiliary; ungrammatical",
+        "c": "'goes to' — Simple Present 3rd person; 'next semester' signals future, not habitual present",
+        "d": "'going to' alone — missing the 'is' auxiliary; grammatically incomplete"
+      },
+      "instruction_pt": "Complete a frase com a forma correta do verbo.",
+      "status": "active"
+    },
+    {
+      "id": "E01F_Q18",
+      "tier": 2,
+      "order": 18,
+      "type": "sentence_completion",
+      "tense": "Future going to",
+      "tense_aspect": "negative",
+      "card_source": "They are not going to use that method anymore.",
+      "question_text": "They _____ use that method anymore.",
+      "options": [
+        { "text": "won't going to",   "is_correct": false },
+        { "text": "aren't going to",  "is_correct": true  },
+        { "text": "don't going to",   "is_correct": false },
+        { "text": "haven't going to", "is_correct": false }
+      ],
+      "point_value": 1,
+      "rationale": "Tests the are/is/am + not + going to structure for negating a future plan. The plural subject 'they' requires 'aren't going to'.",
+      "distractor_rationale": {
+        "a": "'won't going to' — mixes 'will' negative with 'going to'; ungrammatical",
+        "c": "'don't going to' — Simple Present auxiliary with 'going to'; ungrammatical",
+        "d": "'haven't going to' — Present Perfect auxiliary with 'going to'; ungrammatical"
+      },
+      "instruction_pt": "Complete a frase com a forma correta do verbo.",
+      "status": "active"
+    },
+    {
+      "id": "E01F_Q19",
+      "tier": 2,
+      "order": 19,
+      "type": "context_selection",
+      "tense": "Future will vs going to",
+      "tense_aspect": "contrast",
+      "card_source": null,
+      "question_text": "Ana looks at the dark clouds outside and says: \"_____ rain.\"\n\nWhich option correctly completes her sentence?",
+      "options": [
+        { "text": "It will",         "is_correct": false },
+        { "text": "It is going to",  "is_correct": true  },
+        { "text": "It rains",        "is_correct": false },
+        { "text": "It is raining",   "is_correct": false }
+      ],
+      "point_value": 1,
+      "rationale": "Tests the will vs going to distinction. 'Going to' is used for predictions based on visible present evidence (dark clouds). 'Will' is used for spontaneous decisions or predictions without current evidence.",
+      "distractor_rationale": {
+        "a": "'will rain' — valid for a general prediction or spontaneous statement but ignores the evidence (dark clouds) that specifically calls for 'going to'",
+        "c": "'it rains' — Simple Present; used for facts/habits (e.g., 'it rains a lot in winter'), not for in-the-moment predictions",
+        "d": "'it is raining' — Present Continuous; describes what is happening now, but the clouds signal future rain, not current rain"
+      },
+      "instruction_pt": "Escolha a forma correta para expressar uma previsão baseada em evidência visual.",
+      "status": "active"
+    },
+    {
+      "id": "E01F_Q20",
+      "tier": 2,
+      "order": 20,
+      "type": "passage_comprehension",
+      "tense": "Mixed",
+      "tense_aspect": "identification",
+      "card_source": null,
+      "question_text": "Read the passage:\n\n\"Every Friday, the lab team meets to review progress. Last Friday, they tested a new sensor. They are currently writing the final report. They have already submitted the project budget.\"\n\nWhich sentence uses the Simple Past?",
+      "options": [
+        { "text": "The lab team meets to review progress.",        "is_correct": false },
+        { "text": "They tested a new sensor.",                    "is_correct": true  },
+        { "text": "They are currently writing the final report.", "is_correct": false },
+        { "text": "They have already submitted the project budget.", "is_correct": false }
+      ],
+      "point_value": 1,
+      "rationale": "Tests tense recognition across four tenses in a single passage: Simple Present (every Friday), Simple Past (last Friday), Present Continuous (currently), and Present Perfect (already). The time marker 'Last Friday' confirms Simple Past.",
+      "distractor_rationale": {
+        "a": "Simple Present — 'every Friday' is the canonical habitual-action marker",
+        "c": "Present Continuous — 'currently' + is/are + -ing confirms ongoing action",
+        "d": "Present Perfect — 'already' + have/has + past participle confirms recent completed action"
+      },
+      "instruction_pt": "Leia o texto e identifique qual frase usa o Simple Past.",
+      "status": "active"
+    }
+  ]
+}
