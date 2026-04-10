@@ -426,22 +426,72 @@ Five Tier 1 students carry the `🏁` flag (`Tier 1 🏁`). They are routed to *
 
 In order:
 
-1. **Confirm Tier 3 students** — check if any student's E01/E02 performance warrants a Tier 3 assignment. If none, set `--no-tier3` flag or simply leave Tier 3 section out (the script will skip Section 3 automatically if no `tier3` students exist in the roster).
+1. ✅ **Confirm Tier 3 students** — no Tier 3 students confirmed. The script skips Section 3 automatically. The bank contains 20 questions (Tier 1 + Tier 2-extra only).
 
-3. **Write the question bank** (`bases/exam_01_final_bank.json`) — 30 questions (10+10+10) following the schema in Section 5. All sentences must be original — do not reuse any sentence from `exam_prep/bases/prep_exam_bank.json`.
+2. ✅ **Write the question bank** (`bases/exam_01_final_bank.json`) — 20 questions (10+10) written with original sentences. No overlap with `exam_prep/bases/prep_exam_bank.json`. Local validation passed.
 
-4. **Implement the script** (`scripts/create_exam_01_final_form.py`) — based on `exam_prep/scripts/create_prep_exam_form.py` with the changes described in Section 7.
+3. ✅ **Implement the script** (`scripts/create_exam_01_final_form.py`) — implemented and tested locally.
 
-5. **Test locally** — validate question bank (correct counts, one answer per question) and roster parsing (tier counts, skipped-student warnings) before calling the Forms API.
+4. ✅ **Test locally** — bank and roster validation passed:
+   - 10 Tier 1 + 10 Tier 2-extra questions ✓
+   - 63 students: 30 T1, 5 T1-flag, 19 T2, 0 T3, 9 unassigned ✓
+   - No duplicate question text with prep bank ✓
 
-6. **Generate the form** — run the script. Note the form ID and URLs in the output.
+5. **Obtain Google API credentials** — required before running the script.
+   The script expects `credentials.json` at `placement_exam/credentials.json`.
+   If the file already exists from the prep exam, skip to step 6.
+
+   **To generate credentials from scratch:**
+
+   a. Go to [https://console.cloud.google.com/](https://console.cloud.google.com/) and sign in with the Google account that owns the target Forms.
+
+   b. Select (or create) a project. In the left menu go to **APIs & Services → Library**. Search for **Google Forms API** and click **Enable**.
+
+   c. Go to **APIs & Services → OAuth consent screen**.
+      - User Type: **External** → Create.
+      - Fill in App name (e.g. "StudyAmigo Forms"), user support email, developer email.
+      - Scopes: click **Add or Remove Scopes** → add `.../auth/forms.body` → Save and Continue.
+      - Test users: add your own Google account email → Save and Continue → Back to Dashboard.
+
+   d. Go to **APIs & Services → Credentials** → **+ Create Credentials → OAuth client ID**.
+      - Application type: **Desktop app**.
+      - Name: anything (e.g. "StudyAmigo CLI").
+      - Click **Create** → **Download JSON**.
+      - Rename the downloaded file to `credentials.json` and place it at:
+        ```
+        placement_exam/credentials.json
+        ```
+
+   e. The first time the script runs it will open a browser window asking you to
+      authorize the app with your Google account. After authorization a
+      `token.json` is saved to `placement_exam/token.json` and reused on
+      subsequent runs.
+
+6. **Generate the form** — run the script from its directory:
+
+   ```bash
+   cd exam_prep/exam_01/scripts
+   python3 create_exam_01_final_form.py
+   ```
+
+   With custom paths if needed:
+
+   ```bash
+   python3 create_exam_01_final_form.py \
+       --bank    ../bases/exam_01_final_bank.json \
+       --roster  ../bases/curated_student_roster_v2.csv \
+       --credentials ../../../placement_exam/credentials.json \
+       --token       ../../../placement_exam/token.json
+   ```
+
+   The script prints the **Edit URL** (instructor) and **View URL** (students) on success.
 
 7. **Enable form settings manually** after API creation:
    - Toggle "Accepting responses" ON
    - Link to Google Sheets
    - Enable email collection
    - Set response limit to 1 per email
-   - Test branching with one Tier 1, one Tier 2 (and Tier 3 if applicable) name
+   - Test branching with one Tier 1, one Tier 2, and one unassigned name
 
 8. **Distribute to students** — include their tier in the announcement message so they can verify they land on the correct section.
 
@@ -450,12 +500,14 @@ In order:
 ## Related Documents
 
 - [`exam_prep/docs/PLAN_PREP_EXAM.md`](../../docs/PLAN_PREP_EXAM.md) — parent reference (prep exam design)
-- [`exam_prep/scripts/create_prep_exam_form.py`](../../scripts/create_prep_exam_form.py) — script to mirror
-- [`exam_prep/bases/prep_exam_bank.json`](../../bases/prep_exam_bank.json) — existing bank (do not reuse questions)
+- [`exam_prep/scripts/create_prep_exam_form.py`](../../scripts/create_prep_exam_form.py) — script this one is based on
+- [`exam_prep/bases/prep_exam_bank.json`](../../bases/prep_exam_bank.json) — existing bank (no question reuse)
+- [`exam_prep/exam_01/bases/exam_01_final_bank.json`](../bases/exam_01_final_bank.json) — question bank for this exam
+- [`exam_prep/exam_01/scripts/create_exam_01_final_form.py`](../scripts/create_exam_01_final_form.py) — form generator script
 - [`exam_prep/exam_01/bases/curated_student_roster_v2.csv`](../bases/curated_student_roster_v2.csv) — student roster for this exam
 
 ---
 
 **Author**: StudyAmigo / E01 Coordination Team
 **Last Updated**: April 10, 2026
-**Next Review**: After question bank is written and before script implementation begins
+**Next Review**: After form is generated and before distribution to students
