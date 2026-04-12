@@ -1,8 +1,8 @@
 {
-  "version": "2.2",
+  "version": "2.4",
   "description": "Exam 01 Final — Verbal Tenses Question Bank v2 (1st Bimester) — NO 3rd person singular, NO going to",
-  "date": "2026-04-12",
-  "notes": "All questions use I / you / we / they subjects. No 3rd person singular. No 'going to' future — confirmed absent from the Verbal Tenses SRS deck reviewed by students. Simple Future tested exclusively with 'will'. Each completion question includes a time marker or structural anchor that makes exactly one option grammatically correct. No overlap with prep_exam_bank.json or exam_01_final_bank.json.",
+  "date": "2026-04-13",
+  "notes": "All questions use I / you / we / they subjects. No 3rd person singular. No 'going to' future — confirmed absent from the Verbal Tenses SRS deck reviewed by students. Simple Future tested exclusively with 'will'. Each completion question includes a time marker or structural anchor that makes exactly one option grammatically correct. No overlap with prep_exam_bank.json or exam_01_final_bank.json. v2.3: Q02 added 'every day' to anchor Simple Present (was ambiguous with Simple Past); Q17 added 'by tomorrow' to anchor Simple Future (was ambiguous with Simple Present). v2.4: Q03 added 'usually...on weekends' to anchor Simple Present question (was ambiguous with Simple Past 'Did').",
   "structure": {
     "tier1_questions": 10,
     "tier2_additional_questions": 10,
@@ -45,7 +45,7 @@
       "tense": "Simple Present",
       "tense_aspect": "negative",
       "card_source": "They do not (don't) like coffee.",
-      "question_text": "They _____ like coffee.",
+      "question_text": "They _____ like coffee every day.",
       "options": [
         { "text": "doesn't", "is_correct": false },
         { "text": "isn't",   "is_correct": false },
@@ -53,11 +53,11 @@
         { "text": "don't",   "is_correct": true  }
       ],
       "point_value": 1,
-      "rationale": "Tests the 'don't' auxiliary for Simple Present negative. All four options are auxiliaries from different tenses or persons; only 'don't' matches 'they' in Simple Present.",
+      "rationale": "Tests the 'don't' auxiliary for Simple Present negative. 'Every day' anchors the tense to Simple Present habitual, ruling out Simple Past ('didn't'). Among the remaining auxiliaries, only 'don't' matches subject 'they' in Simple Present.",
       "distractor_rationale": {
         "a": "doesn't — 3rd person singular auxiliary (he/she/it), wrong for 'they'",
-        "b": "isn't — auxiliary for Present Continuous negative, wrong tense",
-        "c": "didn't — Simple Past negative auxiliary, wrong tense"
+        "b": "isn't — auxiliary for Present Continuous negative; 'isn't liking' is ungrammatical with stative verb 'like'",
+        "c": "didn't — Simple Past negative auxiliary; contradicts habitual marker 'every day'"
       },
       "instruction_pt": "Complete a frase com a forma correta do verbo.",
       "status": "active"
@@ -70,7 +70,7 @@
       "tense": "Simple Present",
       "tense_aspect": "question",
       "card_source": "Do you enjoy swimming?",
-      "question_text": "_____ you enjoy swimming?",
+      "question_text": "_____ you usually enjoy swimming on weekends?",
       "options": [
         { "text": "Are",  "is_correct": false },
         { "text": "Do",   "is_correct": true  },
@@ -78,11 +78,11 @@
         { "text": "Did",  "is_correct": false }
       ],
       "point_value": 1,
-      "rationale": "Tests the 'Do' auxiliary for Simple Present questions with subject 'you'. The base verb 'enjoy' (not 'enjoying' or 'enjoyed') is the structural anchor.",
+      "rationale": "Tests the 'Do' auxiliary for Simple Present questions with subject 'you'. 'Usually' is a habitual frequency adverb that anchors the tense to Simple Present, ruling out Simple Past ('Did'). 'Does' is wrong for subject 'you'; 'Are' would require 'enjoying' not 'enjoy'.",
       "distractor_rationale": {
-        "a": "Are — auxiliary for Present Continuous; would need 'Are you enjoying'",
+        "a": "Are — auxiliary for Present Continuous; would need 'Are you usually enjoying' which is ungrammatical with stative-habit sense",
         "c": "Does — 3rd person singular auxiliary, wrong for 'you'",
-        "d": "Did — Simple Past auxiliary; would signal a completed past action"
+        "d": "Did — Simple Past auxiliary; contradicts habitual marker 'usually'"
       },
       "instruction_pt": "Escolha o auxiliar correto para completar a pergunta.",
       "status": "active"
@@ -420,7 +420,7 @@
       "tense": "Simple Future",
       "tense_aspect": "negative",
       "card_source": "I will not (won't) be available tomorrow.",
-      "question_text": "We _____ finish the project on time.",
+      "question_text": "We _____ finish the project by tomorrow.",
       "options": [
         { "text": "don't",   "is_correct": false },
         { "text": "didn't",  "is_correct": false },
@@ -428,11 +428,11 @@
         { "text": "haven't", "is_correct": false }
       ],
       "point_value": 1,
-      "rationale": "Tests the 'won't' (will not) auxiliary for Simple Future negative. All four options are negation auxiliaries from different tenses; only 'won't' expresses future negation.",
+      "rationale": "Tests the 'won't' (will not) auxiliary for Simple Future negative. 'By tomorrow' is a future deadline marker that forces future tense, ruling out Simple Present ('don't'), Simple Past ('didn't'), and Present Perfect ('haven't').",
       "distractor_rationale": {
-        "a": "don't — Simple Present negative auxiliary, wrong tense",
-        "b": "didn't — Simple Past negative auxiliary, wrong tense",
-        "d": "haven't — Present Perfect negative auxiliary, wrong tense"
+        "a": "don't — Simple Present negative auxiliary; 'by tomorrow' signals a future event, not a habitual fact",
+        "b": "didn't — Simple Past negative auxiliary; 'by tomorrow' is future, not past",
+        "d": "haven't — Present Perfect negative auxiliary; incompatible with future deadline 'by tomorrow'"
       },
       "instruction_pt": "Complete a frase com a forma correta do verbo.",
       "status": "active"
