@@ -637,7 +637,7 @@ class Exam01FinalFormGenerator:
         return {
             "createItem": {
                 "item": {
-                    "title": title,
+                    "title": title.replace("\n", " "),
                     "description": description,
                     "questionItem": {
                         "question": {
