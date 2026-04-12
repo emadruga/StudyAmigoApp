@@ -1,0 +1,516 @@
+{
+  "version": "2.0",
+  "description": "Exam 01 Final — Verbal Tenses Question Bank v2 (1st Bimester) — NO 3rd person singular",
+  "date": "2026-04-12",
+  "notes": "All questions use I / you / we / they subjects to avoid 3rd person singular (-s, does/doesn't, Does...?), which was not covered in the Verbal Tenses SRS deck. Sentences are original and do not appear in prep_exam_bank.json or exam_01_final_bank.json.",
+  "structure": {
+    "tier1_questions": 10,
+    "tier2_additional_questions": 10,
+    "tier3_additional_questions": 0,
+    "total_questions": 20,
+    "tier1_max_score": 10,
+    "tier2_max_score": 20
+  },
+  "questions": [
+    {
+      "id": "E01F2_Q01",
+      "tier": 1,
+      "order": 1,
+      "type": "sentence_completion",
+      "tense": "Simple Present",
+      "tense_aspect": "affirmative",
+      "card_source": "They live in New York.",
+      "question_text": "They _____ in New York.",
+      "options": [
+        { "text": "lived",  "is_correct": false },
+        { "text": "live",   "is_correct": true  },
+        { "text": "living", "is_correct": false },
+        { "text": "will live", "is_correct": false }
+      ],
+      "point_value": 1,
+      "rationale": "Tests Simple Present affirmative with plural subject 'they'. No 3rd person singular -s required.",
+      "distractor_rationale": {
+        "a": "lived — Simple Past; no past time marker present",
+        "c": "living — present participle; missing auxiliary 'are'",
+        "d": "will live — Simple Future; 'will' requires a future time marker"
+      },
+      "instruction_pt": "Complete a frase com a forma correta do verbo.",
+      "status": "active"
+    },
+    {
+      "id": "E01F2_Q02",
+      "tier": 1,
+      "order": 2,
+      "type": "sentence_completion",
+      "tense": "Simple Present",
+      "tense_aspect": "negative",
+      "card_source": "They do not (don't) like coffee.",
+      "question_text": "They _____ like coffee.",
+      "options": [
+        { "text": "doesn't", "is_correct": false },
+        { "text": "isn't",   "is_correct": false },
+        { "text": "didn't",  "is_correct": false },
+        { "text": "don't",   "is_correct": true  }
+      ],
+      "point_value": 1,
+      "rationale": "Tests the 'don't' auxiliary for Simple Present negative with plural subject 'they'.",
+      "distractor_rationale": {
+        "a": "doesn't — 3rd person singular auxiliary (he/she/it), wrong for 'they'",
+        "b": "isn't — auxiliary for Present Continuous, wrong tense",
+        "c": "didn't — Simple Past auxiliary, wrong tense"
+      },
+      "instruction_pt": "Complete a frase com a forma correta do verbo.",
+      "status": "active"
+    },
+    {
+      "id": "E01F2_Q03",
+      "tier": 1,
+      "order": 3,
+      "type": "sentence_completion",
+      "tense": "Simple Present",
+      "tense_aspect": "question",
+      "card_source": "Do you enjoy swimming?",
+      "question_text": "_____ you enjoy swimming?",
+      "options": [
+        { "text": "Are",  "is_correct": false },
+        { "text": "Do",   "is_correct": true  },
+        { "text": "Does", "is_correct": false },
+        { "text": "Did",  "is_correct": false }
+      ],
+      "point_value": 1,
+      "rationale": "Tests the 'Do' auxiliary for Simple Present questions with subject 'you'.",
+      "distractor_rationale": {
+        "a": "Are — auxiliary for Present Continuous questions",
+        "c": "Does — 3rd person singular auxiliary, wrong for 'you'",
+        "d": "Did — Simple Past auxiliary, wrong tense"
+      },
+      "instruction_pt": "Escolha o auxiliar correto para completar a pergunta.",
+      "status": "active"
+    },
+    {
+      "id": "E01F2_Q04",
+      "tier": 1,
+      "order": 4,
+      "type": "sentence_completion",
+      "tense": "Simple Past",
+      "tense_aspect": "affirmative",
+      "card_source": "They bought a new car yesterday.",
+      "question_text": "They _____ a new car yesterday.",
+      "options": [
+        { "text": "buy",       "is_correct": false },
+        { "text": "buys",      "is_correct": false },
+        { "text": "bought",    "is_correct": true  },
+        { "text": "have bought","is_correct": false }
+      ],
+      "point_value": 1,
+      "rationale": "Tests irregular Simple Past form. 'Yesterday' is the canonical Simple Past time marker.",
+      "distractor_rationale": {
+        "a": "buy — base form (Simple Present), contradicts 'yesterday'",
+        "b": "buys — 3rd person Simple Present, wrong tense and wrong subject",
+        "d": "have bought — Present Perfect; incompatible with specific time marker 'yesterday'"
+      },
+      "instruction_pt": "Complete a frase com a forma correta do verbo.",
+      "status": "active"
+    },
+    {
+      "id": "E01F2_Q05",
+      "tier": 1,
+      "order": 5,
+      "type": "tense_identification",
+      "tense": "Simple Past",
+      "tense_aspect": "affirmative",
+      "card_source": "I watched a movie last night.",
+      "question_text": "\"I watched a movie last night.\" — Which tense is used in this sentence?",
+      "options": [
+        { "text": "Simple Present",     "is_correct": false },
+        { "text": "Present Continuous", "is_correct": false },
+        { "text": "Simple Past",        "is_correct": true  },
+        { "text": "Present Perfect",    "is_correct": false }
+      ],
+      "point_value": 1,
+      "rationale": "Tests recognition of the Simple Past (-ed form) in context. 'Last night' confirms Simple Past.",
+      "distractor_rationale": {
+        "a": "Simple Present: 'I watch a movie' (no -ed, no past marker)",
+        "b": "Present Continuous: 'I am watching a movie' (am + -ing structure)",
+        "d": "Present Perfect: 'I have watched a movie' — no specific time marker like 'last night'"
+      },
+      "instruction_pt": "Qual tempo verbal é usado nesta frase?",
+      "status": "active"
+    },
+    {
+      "id": "E01F2_Q06",
+      "tier": 1,
+      "order": 6,
+      "type": "sentence_completion",
+      "tense": "Present Continuous",
+      "tense_aspect": "affirmative",
+      "card_source": "I am learning to play the guitar.",
+      "question_text": "I _____ to play the guitar.",
+      "options": [
+        { "text": "learn",        "is_correct": false },
+        { "text": "am learning",  "is_correct": true  },
+        { "text": "have learned", "is_correct": false },
+        { "text": "learned",      "is_correct": false }
+      ],
+      "point_value": 1,
+      "rationale": "Tests the am + verb-ing structure for Present Continuous with subject 'I'.",
+      "distractor_rationale": {
+        "a": "learn — Simple Present base form, used for habits not temporary ongoing actions",
+        "c": "have learned — Present Perfect, implies accumulated experience not current activity",
+        "d": "learned — Simple Past, no past time marker is present"
+      },
+      "instruction_pt": "Complete a frase com a forma correta do verbo.",
+      "status": "active"
+    },
+    {
+      "id": "E01F2_Q07",
+      "tier": 1,
+      "order": 7,
+      "type": "sentence_completion",
+      "tense": "Present Continuous",
+      "tense_aspect": "negative",
+      "card_source": "We are not (aren't) having dinner yet.",
+      "question_text": "We _____ having dinner yet.",
+      "options": [
+        { "text": "don't",   "is_correct": false },
+        { "text": "didn't",  "is_correct": false },
+        { "text": "aren't",  "is_correct": true  },
+        { "text": "haven't", "is_correct": false }
+      ],
+      "point_value": 1,
+      "rationale": "Tests the are + not (aren't) structure for Present Continuous negative with 'we'.",
+      "distractor_rationale": {
+        "a": "don't — Simple Present negative auxiliary, wrong tense",
+        "b": "didn't — Simple Past negative auxiliary, wrong tense",
+        "d": "haven't — Present Perfect negative auxiliary, wrong tense"
+      },
+      "instruction_pt": "Complete a frase com a forma correta do verbo.",
+      "status": "active"
+    },
+    {
+      "id": "E01F2_Q08",
+      "tier": 1,
+      "order": 8,
+      "type": "tense_identification",
+      "tense": "Present Continuous",
+      "tense_aspect": "question",
+      "card_source": "Are you listening to me?",
+      "question_text": "\"Are you listening to me?\" — Which tense is this question in?",
+      "options": [
+        { "text": "Simple Present",     "is_correct": false },
+        { "text": "Simple Past",        "is_correct": false },
+        { "text": "Present Continuous", "is_correct": true  },
+        { "text": "Present Perfect",    "is_correct": false }
+      ],
+      "point_value": 1,
+      "rationale": "Tests recognition of the Are + subject + verb-ing question structure for Present Continuous.",
+      "distractor_rationale": {
+        "a": "Simple Present question: 'Do you listen to me?' (Do + subject + base verb)",
+        "b": "Simple Past question: 'Did you listen to me?' (Did + subject + base verb)",
+        "d": "Present Perfect question: 'Have you listened to me?' (Have + subject + past participle)"
+      },
+      "instruction_pt": "Qual tempo verbal é usado nesta pergunta?",
+      "status": "active"
+    },
+    {
+      "id": "E01F2_Q09",
+      "tier": 1,
+      "order": 9,
+      "type": "sentence_completion",
+      "tense": "Simple Future",
+      "tense_aspect": "affirmative",
+      "card_source": "They will be here soon.",
+      "question_text": "They _____ here soon.",
+      "options": [
+        { "text": "are",      "is_correct": false },
+        { "text": "were",     "is_correct": false },
+        { "text": "have been","is_correct": false },
+        { "text": "will be",  "is_correct": true  }
+      ],
+      "point_value": 1,
+      "rationale": "Tests the 'will + base verb' structure for Simple Future. 'Soon' is the key future time marker.",
+      "distractor_rationale": {
+        "a": "are — Present Continuous; would need 'are being' or signals current state",
+        "b": "were — Simple Past auxiliary; 'soon' requires future, not past",
+        "c": "have been — Present Perfect; implies completed past action, incompatible with 'soon'"
+      },
+      "instruction_pt": "Complete a frase com a forma correta do verbo.",
+      "status": "active"
+    },
+    {
+      "id": "E01F2_Q10",
+      "tier": 1,
+      "order": 10,
+      "type": "context_selection",
+      "tense": "Simple Present / Simple Past / Simple Future",
+      "tense_aspect": "time_adverb",
+      "card_source": null,
+      "question_text": "Which time expression matches the Simple Future tense (with 'will')?",
+      "options": [
+        { "text": "last night",    "is_correct": false },
+        { "text": "right now",     "is_correct": false },
+        { "text": "every morning", "is_correct": false },
+        { "text": "next week",     "is_correct": true  }
+      ],
+      "point_value": 1,
+      "rationale": "Tests knowledge of time adverbs as tense markers. 'Next week' signals Simple Future, contrasting with past (last night), present ongoing (right now), and habitual present (every morning).",
+      "distractor_rationale": {
+        "a": "last night — signals Simple Past (completed past event)",
+        "b": "right now — signals Present Continuous (action in progress)",
+        "c": "every morning — signals Simple Present (habitual action)"
+      },
+      "instruction_pt": "Qual expressão de tempo corresponde ao Simple Future (com 'will')?",
+      "status": "active"
+    },
+    {
+      "id": "E01F2_Q11",
+      "tier": 2,
+      "order": 11,
+      "type": "sentence_completion",
+      "tense": "Past Continuous",
+      "tense_aspect": "affirmative",
+      "card_source": "I was reading when the phone rang.",
+      "question_text": "We _____ when the alarm went off.",
+      "options": [
+        { "text": "slept",        "is_correct": false },
+        { "text": "have slept",   "is_correct": false },
+        { "text": "were sleeping","is_correct": true  },
+        { "text": "had slept",    "is_correct": false }
+      ],
+      "point_value": 1,
+      "rationale": "Tests the were + verb-ing structure for Past Continuous. An ongoing background action ('sleeping') is interrupted by a shorter event ('went off').",
+      "distractor_rationale": {
+        "a": "slept — Simple Past; treats both actions as sequential, losing the 'in progress' meaning",
+        "b": "have slept — Present Perfect; wrong time frame entirely",
+        "d": "had slept — Past Perfect; implies completion before another past event, not an ongoing action"
+      },
+      "instruction_pt": "Complete a frase com a forma correta do verbo.",
+      "status": "active"
+    },
+    {
+      "id": "E01F2_Q12",
+      "tier": 2,
+      "order": 12,
+      "type": "sentence_completion",
+      "tense": "Past Continuous",
+      "tense_aspect": "negative",
+      "card_source": "They were not (weren't) expecting visitors.",
+      "question_text": "They _____ expecting visitors.",
+      "options": [
+        { "text": "didn't",     "is_correct": false },
+        { "text": "weren't",    "is_correct": true  },
+        { "text": "haven't",    "is_correct": false },
+        { "text": "don't",      "is_correct": false }
+      ],
+      "point_value": 1,
+      "rationale": "Tests the were + not (weren't) structure for Past Continuous negative with 'they'.",
+      "distractor_rationale": {
+        "a": "didn't — Simple Past negative auxiliary; 'expecting' requires a continuous auxiliary",
+        "c": "haven't — Present Perfect negative; wrong time frame",
+        "d": "don't — Simple Present negative; wrong tense"
+      },
+      "instruction_pt": "Complete a frase com a forma correta do verbo.",
+      "status": "active"
+    },
+    {
+      "id": "E01F2_Q13",
+      "tier": 2,
+      "order": 13,
+      "type": "tense_contrast",
+      "tense": "Past Continuous vs Simple Past",
+      "tense_aspect": "contrast",
+      "card_source": null,
+      "question_text": "Choose the correct option:\n\n\"While we _____ dinner, the power _____ out.\"",
+      "options": [
+        { "text": "were having / went",     "is_correct": true  },
+        { "text": "had / was going",        "is_correct": false },
+        { "text": "were having / was going","is_correct": false },
+        { "text": "had / went",             "is_correct": false }
+      ],
+      "point_value": 1,
+      "rationale": "Tests the Past Continuous / Simple Past contrast: the longer ongoing action uses Past Continuous (were having); the shorter interrupting event uses Simple Past (went).",
+      "distractor_rationale": {
+        "b": "Reverses the roles — 'had dinner' (Simple Past) makes dinner a brief sequential event; 'was going' makes the power cut the background action",
+        "c": "Both Past Continuous — loses the interruption relationship; implies both were simultaneous and ongoing",
+        "d": "Both Simple Past — treats both as sequential events, losing the 'while' overlap"
+      },
+      "instruction_pt": "Escolha a combinação correta de tempos verbais.",
+      "status": "active"
+    },
+    {
+      "id": "E01F2_Q14",
+      "tier": 2,
+      "order": 14,
+      "type": "sentence_completion",
+      "tense": "Present Perfect",
+      "tense_aspect": "affirmative",
+      "card_source": "I have visited Paris twice.",
+      "question_text": "We _____ the new lab equipment already.",
+      "options": [
+        { "text": "test",          "is_correct": false },
+        { "text": "tested",        "is_correct": false },
+        { "text": "have tested",   "is_correct": true  },
+        { "text": "were testing",  "is_correct": false }
+      ],
+      "point_value": 1,
+      "rationale": "Tests the have + past participle structure for Present Perfect. 'Already' signals a recently completed action with present relevance.",
+      "distractor_rationale": {
+        "a": "test — Simple Present base form, wrong tense",
+        "b": "tested — Simple Past; would require a specific time marker (e.g., 'yesterday'), not 'already'",
+        "d": "were testing — Past Continuous; implies interrupted ongoing past action, not completion"
+      },
+      "instruction_pt": "Complete a frase com a forma correta do verbo.",
+      "status": "active"
+    },
+    {
+      "id": "E01F2_Q15",
+      "tier": 2,
+      "order": 15,
+      "type": "sentence_completion",
+      "tense": "Present Perfect",
+      "tense_aspect": "question",
+      "card_source": "Have they arrived yet?",
+      "question_text": "_____ they arrived yet?",
+      "options": [
+        { "text": "Did",  "is_correct": false },
+        { "text": "Were", "is_correct": false },
+        { "text": "Have", "is_correct": true  },
+        { "text": "Do",   "is_correct": false }
+      ],
+      "point_value": 1,
+      "rationale": "Tests the Present Perfect question auxiliary 'Have'. 'Yet' is a classic Present Perfect question marker.",
+      "distractor_rationale": {
+        "a": "Did — Simple Past auxiliary; would need base verb 'arrive', not past participle 'arrived'",
+        "b": "Were — Past Continuous auxiliary",
+        "d": "Do — Simple Present auxiliary"
+      },
+      "instruction_pt": "Escolha o auxiliar correto para completar a pergunta.",
+      "status": "active"
+    },
+    {
+      "id": "E01F2_Q16",
+      "tier": 2,
+      "order": 16,
+      "type": "tense_contrast",
+      "tense": "Present Perfect vs Simple Past",
+      "tense_aspect": "contrast",
+      "card_source": null,
+      "question_text": "Choose the correct tense for each blank:\n\n\"We _____ the city (a) LAST SUMMER. We _____ it (b) THREE TIMES.\"",
+      "options": [
+        { "text": "(a) visited  /  (b) have visited", "is_correct": true  },
+        { "text": "(a) have visited  /  (b) visited", "is_correct": false },
+        { "text": "(a) visited  /  (b) visited",      "is_correct": false },
+        { "text": "(a) have visited  /  (b) have visited", "is_correct": false }
+      ],
+      "point_value": 1,
+      "rationale": "Tests the core PP vs Simple Past distinction: 'last summer' (specific past time) requires Simple Past; 'three times' (unspecified accumulated experience) requires Present Perfect.",
+      "distractor_rationale": {
+        "b": "Reverses the rule — 'have visited last summer' is ungrammatical; Present Perfect rejects specific past time markers",
+        "c": "All Simple Past — misses the Present Perfect for unspecified experience",
+        "d": "All Present Perfect — 'have visited last summer' is ungrammatical"
+      },
+      "instruction_pt": "Escolha a combinação correta de tempos verbais para as duas frases.",
+      "status": "active"
+    },
+    {
+      "id": "E01F2_Q17",
+      "tier": 2,
+      "order": 17,
+      "type": "sentence_completion",
+      "tense": "Future going to",
+      "tense_aspect": "affirmative",
+      "card_source": "They are building a new house this year.",
+      "question_text": "We _____ start the project next month.",
+      "options": [
+        { "text": "will going to",   "is_correct": false },
+        { "text": "are going to",    "is_correct": true  },
+        { "text": "go to",           "is_correct": false },
+        { "text": "going to",        "is_correct": false }
+      ],
+      "point_value": 1,
+      "rationale": "Tests the are + going to + base verb structure for planned future actions with plural subject 'we'.",
+      "distractor_rationale": {
+        "a": "'will going to' — double future marker; ungrammatical",
+        "c": "'go to' — Simple Present; 'next month' signals future not habitual present",
+        "d": "'going to' alone — missing the auxiliary 'are'; grammatically incomplete"
+      },
+      "instruction_pt": "Complete a frase com a forma correta do verbo.",
+      "status": "active"
+    },
+    {
+      "id": "E01F2_Q18",
+      "tier": 2,
+      "order": 18,
+      "type": "sentence_completion",
+      "tense": "Future going to",
+      "tense_aspect": "negative",
+      "card_source": "They are not going to use that method anymore.",
+      "question_text": "We _____ accept these conditions.",
+      "options": [
+        { "text": "won't going to",   "is_correct": false },
+        { "text": "don't going to",   "is_correct": false },
+        { "text": "aren't going to",  "is_correct": true  },
+        { "text": "haven't going to", "is_correct": false }
+      ],
+      "point_value": 1,
+      "rationale": "Tests the are + not + going to structure for negating a future plan. Plural subject 'we' requires 'aren't going to'.",
+      "distractor_rationale": {
+        "a": "'won't going to' — mixes 'will' negative with 'going to'; ungrammatical",
+        "b": "'don't going to' — Simple Present auxiliary with 'going to'; ungrammatical",
+        "d": "'haven't going to' — Present Perfect auxiliary with 'going to'; ungrammatical"
+      },
+      "instruction_pt": "Complete a frase com a forma correta do verbo.",
+      "status": "active"
+    },
+    {
+      "id": "E01F2_Q19",
+      "tier": 2,
+      "order": 19,
+      "type": "context_selection",
+      "tense": "Future will vs going to",
+      "tense_aspect": "contrast",
+      "card_source": null,
+      "question_text": "You answer the phone and hear a friend say: \"I need help with my homework.\" You reply: \"OK, _____ help you.\"\n\nWhich option correctly completes your reply?",
+      "options": [
+        { "text": "I am going to",  "is_correct": false },
+        { "text": "I will",         "is_correct": true  },
+        { "text": "I am",           "is_correct": false },
+        { "text": "I have",         "is_correct": false }
+      ],
+      "point_value": 1,
+      "rationale": "Tests the will vs going to distinction. 'Will' is used for spontaneous decisions made at the moment of speaking. 'Going to' is for pre-planned intentions — you hadn't planned to help before the call.",
+      "distractor_rationale": {
+        "a": "'I am going to' — implies a pre-existing plan; you only decided to help after hearing the request",
+        "c": "'I am' alone — grammatically incomplete as a future statement",
+        "d": "'I have' — Present Perfect auxiliary; doesn't express a future intention"
+      },
+      "instruction_pt": "Escolha a forma correta para expressar uma decisão espontânea.",
+      "status": "active"
+    },
+    {
+      "id": "E01F2_Q20",
+      "tier": 2,
+      "order": 20,
+      "type": "passage_comprehension",
+      "tense": "Mixed",
+      "tense_aspect": "identification",
+      "card_source": null,
+      "question_text": "Read the passage:\n\n\"We usually meet on Fridays. Last Friday, we discussed the new rules. Right now, we are writing the final report. We have already sent the first draft.\"\n\nWhich sentence uses the Present Continuous?",
+      "options": [
+        { "text": "We usually meet on Fridays.",         "is_correct": false },
+        { "text": "We discussed the new rules.",         "is_correct": false },
+        { "text": "We are writing the final report.",    "is_correct": true  },
+        { "text": "We have already sent the first draft.", "is_correct": false }
+      ],
+      "point_value": 1,
+      "rationale": "Tests tense recognition across four tenses: Simple Present ('usually'), Simple Past ('Last Friday'), Present Continuous ('Right now' + are + -ing), and Present Perfect ('already' + have + past participle).",
+      "distractor_rationale": {
+        "a": "Simple Present — 'usually' + base verb (no auxiliary + -ing)",
+        "b": "Simple Past — 'Last Friday' + past form 'discussed'",
+        "d": "Present Perfect — 'already' + have + past participle 'sent'"
+      },
+      "instruction_pt": "Leia o texto e identifique qual frase usa o Present Continuous.",
+      "status": "active"
+    }
+  ]
+}
