@@ -1,7 +1,7 @@
 # Mid-E01 Prep Exam Plan
-**Version**: 1.1
-**Date**: March 16, 2026
-**Status**: Draft — pending review
+**Version**: 1.2
+**Date**: April 12, 2026
+**Status**: Updated — Section 3.3 (Question Construction Rules) added
 
 ---
 
@@ -80,6 +80,57 @@ Questions must map directly to card content in the Verbal Tenses deck. The inten
 - **Tier 2**: Adds contrast, context selection, and a mini-passage with mixed tenses (higher cognitive demand).
 
 All questions remain **multiple choice with 4 options** to stay consistent with the placement exam format and allow automatic grading via Google Forms quiz mode.
+
+### 3.3 Question Construction Rules
+
+These rules apply to every question bank generated for this exam series (prep exam, final exam, and any future variants). They were established through review of early bank versions and must be enforced when writing or reviewing questions.
+
+**Rule 1 — Avoid 3rd person singular subjects in sentence-completion questions.**
+
+Do not use `he`, `she`, or `it` as the grammatical subject of a gap-fill sentence unless the question is explicitly testing 3rd person singular morphology (e.g., the `-s` ending, `does`/`doesn't`, `Does...?`). These forms were not covered in the Verbal Tenses SRS deck during the 1st bimester and should not appear as the expected correct answer. Use `I`, `you`, `we`, or `they` instead.
+
+> *Rationale*: Students cannot be tested on a form they were not exposed to. Using 3rd person singular as a distractor (wrong option) is acceptable, but it must never be the correct answer unless the tense being tested explicitly requires it.
+
+**Rule 2 — Every sentence-completion question must include a time marker or structural anchor that makes exactly one option grammatically correct.**
+
+A sentence with a bare subject and a verb gap (e.g., `"They _____ in New York."`) typically allows multiple valid tenses (`live`, `lived`, `will live`). This is not acceptable in a multiple-choice exam. Every completion question must include one of the following to constrain the answer space:
+
+- A **time adverb or time expression** that unambiguously signals the tense:
+  - Simple Present: `every day`, `every summer`, `always`, `usually`
+  - Simple Past: `yesterday`, `last night`, `last week`, `last summer`
+  - Present Continuous: `right now`, `at the moment`, `currently`
+  - Simple Future: `tomorrow`, `next week`, `next month`, `soon` *(with care — see below)*
+  - Present Perfect: `already`, `yet`, `ever`, `so far`, `twice`, `three times`
+  - Past Continuous: `when + Simple Past clause` (e.g., `"when the alarm went off"`)
+
+- A **structural anchor** in the stem that makes certain options grammatically impossible (e.g., an `-ing` form already present in the stem rules out all non-continuous auxiliaries).
+
+- A **contextual scenario** that restricts the pragmatic reading (e.g., visible evidence for `going to`, spontaneous decision for `will`).
+
+> *Note on "soon"*: `"They _____ here soon."` is ambiguous because `"They are here soon"` (Present Continuous with near-future meaning) is possible in colloquial English. Prefer explicit markers like `"tomorrow morning"` or `"next week"` when testing Simple Future.
+
+**Rule 3 — Test only tenses and structures present in the SRS deck for the current bimester.**
+
+Before writing questions, verify which tenses and grammatical structures actually appear in the students' Verbal Tenses flashcard deck for the bimester. Do not test any structure that was not reviewed via SRS, even if it is related to the topic.
+
+For the **1st bimester**, confirmed absent from the deck:
+- **"going to" future** — the SRS deck covers Simple Future exclusively with `will`. No flashcard uses the `be going to` construction. Do not include "going to" as a correct answer, a distractor, or in any scenario-based question.
+
+> *How to verify*: Query the student database directly:
+> ```bash
+> sqlite3 ~/.cache/studyamigo/YYYYMMDD/user_dbs/user_NNN.db \
+>   "SELECT flds FROM notes ORDER BY id;" | grep -i "going to"
+> ```
+> If the query returns no results, the structure is absent from the deck.
+
+**Rule 4 — No question text may repeat a sentence from a previous bank in this exam series.**
+
+Each bank file must be checked against all prior banks before finalisation:
+- `placement_exam/bases/question_bank.json`
+- `exam_prep/bases/prep_exam_bank.json`
+- Any previously distributed final exam bank
+
+The `question_text` field is the comparison key. Paraphrasing the same sentence with minor lexical changes (e.g., swapping one noun) is acceptable only if the structural focus is clearly different.
 
 ---
 
@@ -251,5 +302,5 @@ In order:
 ---
 
 **Author**: StudyAmigo / E01 Coordination Team
-**Last Updated**: March 16, 2026
-**Next Review**: After student results are collected (target: March 19–20, 2026)
+**Last Updated**: April 12, 2026
+**Next Review**: Before any new question bank is written for E02 or the 2nd bimester

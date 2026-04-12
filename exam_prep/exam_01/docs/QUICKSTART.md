@@ -20,15 +20,17 @@ O banco de questões padrão recomendado para este exame é o
   (`exam_01_final_bank.json`), evitando vantagem por memória de exames anteriores.
 
 - **Conteúdo alinhado ao baralho Verbal Tenses** — os tempos verbais cobertos
-  foram confirmados a partir dos flashcards revisados pelos alunos ao longo do
-  bimestre (Simple Present, Simple Past, Present Continuous, Present Perfect,
-  Past Continuous, Simple Future com *will* e *going to*), sem incluir
-  estruturas avançadas que não foram apresentadas.
+  foram confirmados consultando diretamente os flashcards revisados pelos alunos
+  (Simple Present, Simple Past, Present Continuous, Present Perfect, Past
+  Continuous, Simple Future com *will*). O futuro com *going to* foi
+  **excluído** por ausência confirmada no baralho SRS do 1º bimestre — nenhum
+  flashcard cobre essa estrutura.
 
 - **Estrutura idêntica ao exame preparatório** — 10 questões Tier 1
   (afirmativo, negativo, pergunta e identificação de tempo) + 10 questões
-  Tier 2-extra (Past Continuous, Present Perfect, *going to*, contrastes e
-  passagem mista), 1 ponto cada, 4 alternativas por questão, 1 correta.
+  Tier 2-extra (Past Continuous, Present Perfect, Simple Future com *will*,
+  contrastes e passagem mista), 1 ponto cada, 4 alternativas por questão,
+  1 correta.
 
 ---
 
