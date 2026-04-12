@@ -362,6 +362,9 @@ def _write_sql(content, fname, args):
       1. --output-dir explícito
       2. DEFAULT_SQL_DIR se existir
       3. stdout
+
+    Se o arquivo de destino já existir, pergunta ao usuário se deseja
+    usar um nome com timestamp de hora e segundo para não sobrescrever.
     """
     out_dir = getattr(args, "output_dir", None)
     if out_dir:
@@ -371,6 +374,16 @@ def _write_sql(content, fname, args):
         dest = os.path.join(DEFAULT_SQL_DIR, fname)
     else:
         dest = None
+
+    if dest and os.path.isfile(dest):
+        print(f"\n[AVISO] O arquivo já existe: {os.path.abspath(dest)}")
+        ans = input("Sobrescrever? [s = sobrescrever / N = usar nome com hora e segundo] ").strip().lower()
+        if ans != "s":
+            base, ext = os.path.splitext(fname)
+            ts = datetime.now().strftime("%H%M%S")
+            fname = f"{base}_{ts}{ext}"
+            dest = os.path.join(os.path.dirname(dest), fname)
+            print(f"Salvando como: {fname}")
 
     if dest:
         with open(dest, "w", encoding="utf-8") as f:
