@@ -7,30 +7,51 @@ Guia rápido para gerar o formulário Google Forms da Prova de Final de 1º Bime
 ## Sobre o banco de questões v2
 
 O banco de questões padrão recomendado para este exame é o
-`bases/exam_01_final_bank_v2.json`. Ele foi criado com os seguintes requisitos:
+`bases/exam_01_final_bank_v2.json`. Ele foi criado com os seguintes requisitos,
+definidos formalmente nas seções **3.4** (Regras de Construção) e **3.5**
+(Revisão de Ambiguidade) do [PLAN_EXAM_01_FINAL.md](PLAN_EXAM_01_FINAL.md):
 
-- **Sem 3ª pessoa do singular** — todas as frases usam sujeitos `I`, `you`,
-  `we` ou `they`. Questões com `he`/`she`/`it` foram excluídas porque a
-  conjugação de 3ª pessoa do singular (terminação `-s`, auxiliares `does` /
-  `doesn't`, `Does...?`) não foi trabalhada com os alunos no baralho de SRS
-  durante o 1º bimestre.
+### Regras de construção (§3.4)
 
-- **Frases originais sem sobreposição** — nenhuma `question_text` repete
-  frases do banco do exame preparatório (`prep_exam_bank.json`) nem da v1
-  (`exam_01_final_bank.json`), evitando vantagem por memória de exames anteriores.
+- **Regra 1 — Sem 3ª pessoa do singular** — todas as frases usam sujeitos
+  `I`, `you`, `we` ou `they`. Questões com `he`/`she`/`it` foram excluídas
+  porque a conjugação de 3ª pessoa do singular (terminação `-s`, auxiliares
+  `does`/`doesn't`, `Does...?`) não foi trabalhada com os alunos no baralho
+  de SRS durante o 1º bimestre.
 
-- **Conteúdo alinhado ao baralho Verbal Tenses** — os tempos verbais cobertos
-  foram confirmados consultando diretamente os flashcards revisados pelos alunos
-  (Simple Present, Simple Past, Present Continuous, Present Perfect, Past
-  Continuous, Simple Future com *will*). O futuro com *going to* foi
-  **excluído** por ausência confirmada no baralho SRS do 1º bimestre — nenhum
+- **Regra 2 — Marcador temporal ou âncora estrutural obrigatório** — toda
+  questão de completar frase deve incluir um marcador de tempo ou elemento
+  estrutural que torne exatamente uma opção gramaticalmente correta. Frases
+  sem esse marcador (ex.: `"They _____ in New York."`) admitem múltiplas
+  respostas corretas, o que invalida a questão para correção automática.
+  Exemplos de marcadores por tempo verbal:
+  - Simple Present: `every day`, `every summer`, `always`, `usually`
+  - Simple Past: `yesterday`, `last night`, `last week`
+  - Present Continuous: `right now`, `at the moment`, `currently`
+  - Simple Future (will): `tomorrow`, `tomorrow morning`, `next week`, `by tomorrow`
+  - Present Perfect: `already`, `yet`, `ever`, `so far`, `twice`
+  - Past Continuous: `when + Simple Past` (ex.: `when the alarm went off`)
+
+- **Regra 3 — Apenas estruturas presentes no baralho SRS** — não testar
+  estruturas que os alunos não revisaram. Para o 1º bimestre, o futuro com
+  *going to* foi **excluído** por ausência confirmada no baralho — nenhum
   flashcard cobre essa estrutura.
+
+- **Regra 4 — Sem repetição de frases entre bancos** — nenhuma `question_text`
+  repete frases do banco do exame de nivelamento (`question_bank.json`), do
+  exame preparatório (`prep_exam_bank.json`) nem da v1 (`exam_01_final_bank.json`).
 
 - **Estrutura idêntica ao exame preparatório** — 10 questões Tier 1
   (afirmativo, negativo, pergunta e identificação de tempo) + 10 questões
   Tier 2-extra (Past Continuous, Present Perfect, Simple Future com *will*,
   contrastes e passagem mista), 1 ponto cada, 4 alternativas por questão,
   1 correta.
+
+### Revisão de ambiguidade obrigatória (§3.5)
+
+Toda nova versão do banco deve passar por uma revisão de ambiguidade **antes**
+de ser usada para gerar um formulário. O script `validate_question_bank.py`
+automatiza essa verificação — veja a seção [Validando o banco antes de gerar](#validando-o-banco-antes-de-gerar).
 
 ---
 
@@ -106,11 +127,61 @@ venv/bin/pip install google-auth google-auth-oauthlib google-api-python-client
 | Arquivo | Descrição |
 |---------|-----------|
 | `scripts/create_exam_01_final_form.py` | Script gerador do formulário |
+| `scripts/validate_question_bank.py` | Validador do banco (§3.4 e §3.5) — chamado automaticamente pelo gerador |
 | `bases/exam_01_final_bank_v2.json` | Banco de questões v2 (sem 3ª pessoa singular) |
 | `bases/exam_01_final_bank.json` | Banco de questões v1 (referência, não usar) |
 | `bases/curated_student_roster_v2.csv` | Lista de alunos com tier atribuído |
 | `../../../placement_exam/credentials.json` | Credenciais OAuth do Google Cloud |
 | `../../../placement_exam/token.json` | Token de acesso (gerado automaticamente) |
+
+---
+
+## Validando o banco antes de gerar
+
+O script `validate_question_bank.py` verifica as regras das seções §3.4 e §3.5
+do plano do exame. Ele é chamado **automaticamente** pelo gerador (Step 2.5)
+antes de qualquer chamada à API do Google. Se forem detectados problemas, o
+script lista as ocorrências e pergunta se a geração deve prosseguir.
+
+Também pode ser executado de forma independente para verificar um banco sem
+gerar o formulário:
+
+```bash
+cd exam_prep/exam_01/scripts
+
+# Validar o banco v2 contra os bancos anteriores
+../venv/bin/python3 validate_question_bank.py \
+    ../bases/exam_01_final_bank_v2.json \
+    ../../../placement_exam/bases/question_bank.json \
+    ../../bases/prep_exam_bank.json
+```
+
+### O que é verificado
+
+| Regra | Severidade | O que detecta |
+|-------|-----------|---------------|
+| Rule 1 | aviso | Sujeito `he/she/it` em questão de completar frase |
+| Rule 2 / §3.5 | aviso | Ausência de marcador temporal ou âncora estrutural (`-ing` no stem) |
+| Rule 3 | **erro** | Estrutura ausente do baralho SRS (`going to`) em qualquer campo |
+| Rule 4 | **erro** | `question_text` duplicado dentro do banco ou em bancos anteriores |
+| Rule 5 | **erro** | Número de opções diferente de 4, ou número de respostas corretas diferente de 1 |
+
+### Comportamento ao detectar problemas
+
+- **Erros**: a mensagem de prompt usa padrão **N** — é necessário digitar `y`
+  explicitamente para prosseguir. Erros indicam questões estruturalmente
+  inválidas para correção automática.
+- **Apenas avisos**: padrão é **Y** — pressione Enter para prosseguir ou `n`
+  para cancelar. Avisos indicam possível ambiguidade que deve ser revisada
+  manualmente.
+- **Sem problemas**: prossegue automaticamente sem interação.
+
+### Saída esperada (banco válido)
+
+```
+Validating question bank against rules in §3.4 and §3.5...
+✓ Question bank passed all validation checks.
+```
 
 ---
 
@@ -194,13 +265,14 @@ aos alunos, faça os seguintes ajustes manualmente na **Edit URL**:
 
 | Banco | Versão | Uso |
 |-------|--------|-----|
-| `exam_01_final_bank_v2.json` | v2 | **Recomendado.** Questões com sujeitos I/you/we/they; evita 3ª pessoa singular (-s, does/doesn't) que não foi revisada com os alunos. |
-| `exam_01_final_bank.json` | v1 | Primeira versão. Contém questões com 3ª pessoa singular. Não distribuir. |
+| `exam_01_final_bank_v2.json` | v2.4 | **Recomendado.** Questões com sujeitos I/you/we/they; sem `going to`; marcadores temporais em todas as questões de completar frase; aprovado pelo `validate_question_bank.py`. |
+| `exam_01_final_bank.json` | v1 | Primeira versão. Contém questões com 3ª pessoa singular e `going to`. Não distribuir. |
 
 ---
 
 ## Referências
 
-- [PLAN_EXAM_01_FINAL.md](PLAN_EXAM_01_FINAL.md) — plano completo do exame
+- [PLAN_EXAM_01_FINAL.md](PLAN_EXAM_01_FINAL.md) — plano completo do exame (inclui §3.4 Regras de Construção e §3.5 Revisão de Ambiguidade)
+- [validate_question_bank.py](../scripts/validate_question_bank.py) — script de validação do banco
 - [Google Cloud Console](https://console.cloud.google.com/) — gerenciamento de credenciais
 - [Google Forms API](https://developers.google.com/forms/api/reference/rest) — documentação da API

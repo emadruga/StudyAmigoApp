@@ -1,7 +1,7 @@
 # Exam 01 — Final Exam Plan (Prova de Final de 1º Bimestre)
-**Version**: 1.0
-**Date**: April 10, 2026
-**Status**: Draft — pending instructor review
+**Version**: 1.1
+**Date**: April 13, 2026
+**Status**: Updated — Sections 3.4 (Question Construction Rules) and 3.5 (Mandatory Ambiguity Review) added
 
 ---
 
@@ -93,6 +93,94 @@ Tier 3 students have demonstrated consistent high performance. Their 10 addition
 - Simple passive voice (Simple Present and Simple Past)
 - Reported speech (basic: He said that…)
 - Time clauses with future reference (*when*, *as soon as* + Simple Present)
+
+### 3.4 Question Construction Rules
+
+These rules apply to every question bank generated for this exam series (prep exam, final exam, and any future variants). They were established through review of early bank versions and must be enforced when writing or reviewing questions.
+
+**Rule 1 — Avoid 3rd person singular subjects in sentence-completion questions.**
+
+Do not use `he`, `she`, or `it` as the grammatical subject of a gap-fill sentence unless the question is explicitly testing 3rd person singular morphology (e.g., the `-s` ending, `does`/`doesn't`, `Does...?`). These forms were not covered in the Verbal Tenses SRS deck during the 1st bimester and should not appear as the expected correct answer. Use `I`, `you`, `we`, or `they` instead.
+
+> *Rationale*: Students cannot be tested on a form they were not exposed to. Using 3rd person singular as a distractor (wrong option) is acceptable, but it must never be the correct answer unless the tense being tested explicitly requires it.
+
+**Rule 2 — Every sentence-completion question must include a time marker or structural anchor that makes exactly one option grammatically correct.**
+
+A sentence with a bare subject and a verb gap (e.g., `"They _____ in New York."`) typically allows multiple valid tenses (`live`, `lived`, `will live`). This is not acceptable in a multiple-choice exam. Every completion question must include one of the following to constrain the answer space:
+
+- A **time adverb or time expression** that unambiguously signals the tense:
+  - Simple Present: `every day`, `every summer`, `always`, `usually`
+  - Simple Past: `yesterday`, `last night`, `last week`, `last summer`
+  - Present Continuous: `right now`, `at the moment`, `currently`
+  - Simple Future: `tomorrow`, `next week`, `next month`, `soon` *(with care — see below)*
+  - Present Perfect: `already`, `yet`, `ever`, `so far`, `twice`, `three times`
+  - Past Continuous: `when + Simple Past clause` (e.g., `"when the alarm went off"`)
+
+- A **structural anchor** in the stem that makes certain options grammatically impossible (e.g., an `-ing` form already present in the stem rules out all non-continuous auxiliaries).
+
+- A **contextual scenario** that restricts the pragmatic reading (e.g., visible evidence for `going to`, spontaneous decision for `will`).
+
+> *Note on "soon"*: `"They _____ here soon."` is ambiguous because `"They are here soon"` (Present Continuous with near-future meaning) is possible in colloquial English. Prefer explicit markers like `"tomorrow morning"` or `"next week"` when testing Simple Future.
+
+**Rule 3 — Test only tenses and structures present in the SRS deck for the current bimester.**
+
+Before writing questions, verify which tenses and grammatical structures actually appear in the students' Verbal Tenses flashcard deck for the bimester. Do not test any structure that was not reviewed via SRS, even if it is related to the topic.
+
+For the **1st bimester**, confirmed absent from the deck:
+- **"going to" future** — the SRS deck covers Simple Future exclusively with `will`. No flashcard uses the `be going to` construction. Do not include "going to" as a correct answer, a distractor, or in any scenario-based question.
+
+> *How to verify*: Query the student database directly:
+> ```bash
+> sqlite3 ~/.cache/studyamigo/YYYYMMDD/user_dbs/user_NNN.db \
+>   "SELECT flds FROM notes ORDER BY id;" | grep -i "going to"
+> ```
+> If the query returns no results, the structure is absent from the deck.
+
+**Rule 4 — No question text may repeat a sentence from a previous bank in this exam series.**
+
+Each bank file must be checked against all prior banks before finalisation:
+- `placement_exam/bases/question_bank.json`
+- `exam_prep/bases/prep_exam_bank.json`
+- Any previously distributed final exam bank
+
+The `question_text` field is the comparison key. Paraphrasing the same sentence with minor lexical changes (e.g., swapping one noun) is acceptable only if the structural focus is clearly different.
+
+### 3.5 Mandatory Ambiguity Review (Post-Generation Validation)
+
+Every time a new version of a question bank is generated or modified, a dedicated ambiguity review pass must be performed before the bank is used to generate a Google Form. This review is a separate step from writing the questions — it must be done after the bank is complete, treating each question as if reading it for the first time.
+
+**Purpose**: Detect questions where more than one option is grammatically correct, even if the question was designed with a single intended answer. This is a structural defect that invalidates the question for automatic grading.
+
+**How to perform the review**:
+
+For every `sentence_completion` question in the bank:
+
+1. Read the `question_text` as a student would, without looking at the `rationale`.
+2. For each option, ask: *"Could a native English speaker accept this option as grammatically and semantically correct in this sentence?"*
+3. If two or more options pass step 2, the question is **ambiguous** and must be fixed before proceeding.
+
+**Most common ambiguity patterns to check**:
+
+| Pattern | Example of defect | Fix |
+|---------|-------------------|-----|
+| No time marker on a bare gap | `"They _____ in New York."` — accepts `live`, `lived`, `will live` | Add `every summer` (Simple Present), `yesterday` (Simple Past), etc. |
+| Negative auxiliary without time marker | `"They _____ like coffee."` — accepts `don't` and `didn't` | Add `every day` to force Simple Present |
+| Question auxiliary without time marker | `"_____ you enjoy swimming?"` — accepts `Do` and `Did` | Add `usually` or `every weekend` to force Simple Present |
+| Future negative without future marker | `"We _____ finish the project."` — accepts `won't` and `don't` | Add `by tomorrow` or `next week` |
+| Ambiguous interrogative with base verb | `"_____ they accept our offer?"` — `Do` and `Will` both valid | Add `next week` to force Simple Future |
+
+**Preferred anchors by tense** (use the most explicit marker available):
+
+- Simple Present: `every day`, `every summer`, `always`, `usually`, `on weekends`
+- Simple Past: `yesterday`, `last night`, `last week`, `last Monday`
+- Present Continuous: `right now`, `at the moment`, `currently`
+- Simple Future (will): `tomorrow`, `tomorrow morning`, `next week`, `next Friday`, `by tomorrow`
+- Present Perfect: `already`, `yet`, `ever`, `so far`, `twice`, `three times`
+- Past Continuous: `when + Simple Past clause` (e.g., `when the alarm went off`)
+
+> **Note on "soon"**: Do not use `soon` alone as a Simple Future anchor — `"They _____ here soon."` is ambiguous because Present Continuous with near-future meaning is colloquially valid. Use `tomorrow morning` or `next week` instead.
+
+**Sign-off requirement**: The ambiguity review must be completed and all detected issues resolved before running the form-generation script. Do not generate a new Google Form from a bank that has not passed this review.
 
 ---
 
@@ -509,5 +597,5 @@ In order:
 ---
 
 **Author**: StudyAmigo / E01 Coordination Team
-**Last Updated**: April 10, 2026
+**Last Updated**: April 13, 2026
 **Next Review**: After form is generated and before distribution to students

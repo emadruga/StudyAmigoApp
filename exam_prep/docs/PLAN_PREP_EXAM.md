@@ -1,7 +1,7 @@
 # Mid-E01 Prep Exam Plan
-**Version**: 1.2
-**Date**: April 12, 2026
-**Status**: Updated — Section 3.3 (Question Construction Rules) added
+**Version**: 1.3
+**Date**: April 13, 2026
+**Status**: Updated — Section 3.4 (Mandatory Ambiguity Review) added
 
 ---
 
@@ -131,6 +131,43 @@ Each bank file must be checked against all prior banks before finalisation:
 - Any previously distributed final exam bank
 
 The `question_text` field is the comparison key. Paraphrasing the same sentence with minor lexical changes (e.g., swapping one noun) is acceptable only if the structural focus is clearly different.
+
+### 3.4 Mandatory Ambiguity Review (Post-Generation Validation)
+
+Every time a new version of a question bank is generated or modified, a dedicated ambiguity review pass must be performed before the bank is used to generate a Google Form. This review is a separate step from writing the questions — it must be done after the bank is complete, treating each question as if reading it for the first time.
+
+**Purpose**: Detect questions where more than one option is grammatically correct, even if the question was designed with a single intended answer. This is a structural defect that invalidates the question for automatic grading.
+
+**How to perform the review**:
+
+For every `sentence_completion` question in the bank:
+
+1. Read the `question_text` as a student would, without looking at the `rationale`.
+2. For each option, ask: *"Could a native English speaker accept this option as grammatically and semantically correct in this sentence?"*
+3. If two or more options pass step 2, the question is **ambiguous** and must be fixed before proceeding.
+
+**Most common ambiguity patterns to check**:
+
+| Pattern | Example of defect | Fix |
+|---------|-------------------|-----|
+| No time marker on a bare gap | `"They _____ in New York."` — accepts `live`, `lived`, `will live` | Add `every summer` (Simple Present), `yesterday` (Simple Past), etc. |
+| Negative auxiliary without time marker | `"They _____ like coffee."` — accepts `don't` and `didn't` | Add `every day` to force Simple Present |
+| Question auxiliary without time marker | `"_____ you enjoy swimming?"` — accepts `Do` and `Did` | Add `usually` or `every weekend` to force Simple Present |
+| Future negative without future marker | `"We _____ finish the project."` — accepts `won't` and `don't` | Add `by tomorrow` or `next week` |
+| Ambiguous interrogative with base verb | `"_____ they accept our offer?"` — `Do` and `Will` both valid | Add `next week` to force Simple Future |
+
+**Preferred anchors by tense** (use the most explicit marker available):
+
+- Simple Present: `every day`, `every summer`, `always`, `usually`, `on weekends`
+- Simple Past: `yesterday`, `last night`, `last week`, `last Monday`
+- Present Continuous: `right now`, `at the moment`, `currently`
+- Simple Future (will): `tomorrow`, `tomorrow morning`, `next week`, `next Friday`, `by tomorrow`
+- Present Perfect: `already`, `yet`, `ever`, `so far`, `twice`, `three times`
+- Past Continuous: `when + Simple Past clause` (e.g., `when the alarm went off`)
+
+> **Note on "soon"**: Do not use `soon` alone as a Simple Future anchor — `"They _____ here soon."` is ambiguous because Present Continuous with near-future meaning is colloquially valid. Use `tomorrow morning` or `next week` instead.
+
+**Sign-off requirement**: The ambiguity review must be completed and all detected issues resolved before running the form-generation script. Do not generate a new Google Form from a bank that has not passed this review.
 
 ---
 
@@ -302,5 +339,5 @@ In order:
 ---
 
 **Author**: StudyAmigo / E01 Coordination Team
-**Last Updated**: April 12, 2026
+**Last Updated**: April 13, 2026
 **Next Review**: Before any new question bank is written for E02 or the 2nd bimester
