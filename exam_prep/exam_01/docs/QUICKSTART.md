@@ -126,7 +126,8 @@ venv/bin/pip install google-auth google-auth-oauthlib google-api-python-client
 
 | Arquivo | Descrição |
 |---------|-----------|
-| `scripts/create_exam_01_final_form.py` | Script gerador do formulário |
+| `scripts/create_exam_01_final_form.py` | Script gerador do formulário Google Forms |
+| `scripts/create_exam_01_final_docx.py` | Script gerador da prova impressa (DOCX) |
 | `scripts/validate_question_bank.py` | Validador do banco (§3.4 e §3.5) — chamado automaticamente pelo gerador |
 | `bases/exam_01_final_bank_v2.json` | Banco de questões v2 (sem 3ª pessoa singular) |
 | `bases/exam_01_final_bank.json` | Banco de questões v1 (referência, não usar) |
@@ -234,6 +235,72 @@ argumentos `--credentials` e `--token` podem ser omitidos.
 
 ---
 
+## Gerando a prova impressa (DOCX)
+
+Para alunos que não têm smartphone ou não podem usar o formulário online durante
+a prova, use o script `create_exam_01_final_docx.py` para gerar um documento
+Word imprimível (.docx).
+
+Execute a partir do diretório `exam_prep/exam_01/scripts/`:
+
+```bash
+cd exam_prep/exam_01/scripts
+
+# Cópia do aluno (sem gabarito)
+../venv/bin/python3 create_exam_01_final_docx.py \
+    --bank ../bases/exam_01_final_bank_v2.json \
+    --out  ../output/prova_final_1bim.docx
+
+# Cópia do professor (com gabarito ao final)
+../venv/bin/python3 create_exam_01_final_docx.py \
+    --bank ../bases/exam_01_final_bank_v2.json \
+    --out  ../output/prova_final_1bim_gabarito.docx \
+    --answer-key
+```
+
+### Argumentos disponíveis
+
+| Argumento | Padrão | Descrição |
+|-----------|--------|-----------|
+| `--bank` | `../bases/exam_01_final_bank_v2.json` | Caminho para o banco de questões JSON |
+| `--out` | `../output/prova_final_1bim.docx` | Caminho do arquivo `.docx` de saída |
+| `--answer-key` | (desativado) | Acrescenta página de gabarito ao final (cópia do professor) |
+| `--skip-validation` | (desativado) | Pula a validação do banco (não recomendado) |
+
+### Estrutura do documento gerado
+
+- **Cabeçalho** — campos para Nome Completo, Curso, E-mail e Tier de Preferência
+- **Parte 1** — Questões 1–10 (Tier 1 — todos os alunos)
+- **Parte 2** — Questões 11–20 (Tier 2 — apenas se indicado pelo professor)
+- **Gabarito** *(opcional, `--answer-key`)* — tabela compacta com letra e texto da resposta correta em verde
+
+### Saída esperada
+
+```
+============================================================
+EXAM 01 FINAL — DOCX GENERATOR
+============================================================
+
+Question bank: .../bases/exam_01_final_bank_v2.json
+Output file:   .../output/prova_final_1bim.docx
+Answer key:    no
+
+Validating question bank against rules in §3.4 and §3.5...
+✓ Question bank passed all validation checks.
+Building document...
+✓ Document saved: .../output/prova_final_1bim.docx
+
+Done.
+```
+
+> **Nota:** O ambiente virtual já inclui `python-docx`. Se precisar reinstalar:
+> ```bash
+> cd exam_prep/exam_01
+> venv/bin/pip install python-docx
+> ```
+
+---
+
 ## Passos manuais após a geração
 
 O Google Forms API cria o formulário em modo inativo. Antes de distribuir
@@ -274,5 +341,6 @@ aos alunos, faça os seguintes ajustes manualmente na **Edit URL**:
 
 - [PLAN_EXAM_01_FINAL.md](PLAN_EXAM_01_FINAL.md) — plano completo do exame (inclui §3.4 Regras de Construção e §3.5 Revisão de Ambiguidade)
 - [validate_question_bank.py](../scripts/validate_question_bank.py) — script de validação do banco
+- [create_exam_01_final_docx.py](../scripts/create_exam_01_final_docx.py) — gerador da prova impressa (DOCX)
 - [Google Cloud Console](https://console.cloud.google.com/) — gerenciamento de credenciais
 - [Google Forms API](https://developers.google.com/forms/api/reference/rest) — documentação da API
