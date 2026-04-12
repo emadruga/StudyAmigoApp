@@ -4,7 +4,7 @@ Exam 01 Final — Google Form Generator (Prova de Final de 1º Bimestre)
 
 Creates the final exam as a Google Form with:
   - Name-based routing: each student's name routes to their tier section
-  - Section 0: Instructions + name selector (RADIO, alphabetical, per-option goToSectionId)
+  - Section 0: Instructions + name selector (DROP_DOWN, alphabetical, per-option goToSectionId)
   - Section X: Self-Selection (only for students without an assigned tier)
                "Após os primeiros exercícios, você se sente mais habilitado(a)
                 para Tier 1, Tier 2 ou Tier 3?"
@@ -16,11 +16,11 @@ Creates the final exam as a Google Form with:
   - Bilingual instructions (PT/EN)
   - Quiz mode with automatic grading
 
-Note on RADIO vs DROP_DOWN:
-  The name selector uses RADIO (multiple choice list), not DROP_DOWN.
-  Google Forms only supports per-option section routing (goToSectionId)
-  for RADIO-type questions. DROP_DOWN questions do not honour goToSectionId
-  in the form UI, even if accepted by the API.
+Note on name selector choice type:
+  The name selector uses DROP_DOWN (lista suspensa). The Google Forms API
+  supports per-option section routing (goToSectionId) for both RADIO and
+  SELECT (DROP_DOWN) choice types. DROP_DOWN is preferred for 63+ names
+  because a long RADIO list is unwieldy on mobile devices.
 
 Usage:
     cd exam_prep/exam_01/scripts
@@ -47,6 +47,8 @@ from google.oauth2.credentials import Credentials
 from google_auth_oauthlib.flow import InstalledAppFlow
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
+
+from validate_question_bank import run_validation_gate
 
 SCOPES = ['https://www.googleapis.com/auth/forms.body']
 
@@ -258,7 +260,8 @@ class Exam01FinalFormGenerator:
             ),
             options=name_opts,
             index=idx,
-            required=True
+            required=True,
+            choice_type="DROP_DOWN"
         ))
         idx += 1
 
@@ -489,7 +492,7 @@ class Exam01FinalFormGenerator:
                                 "question": {
                                     "required": True,
                                     "choiceQuestion": {
-                                        "type": "RADIO",
+                                        "type": "DROP_DOWN",
                                         "options": name_options,
                                         "shuffle": False
                                     }
@@ -632,8 +635,12 @@ class Exam01FinalFormGenerator:
 
     def _choice_question(self, title: str, description: str,
                          options: List[str], index: int,
-                         required: bool = True) -> Dict[str, Any]:
-        """Ungraded RADIO question (name selector or self-selection)."""
+                         required: bool = True,
+                         choice_type: str = "RADIO") -> Dict[str, Any]:
+        """Ungraded choice question (name selector or self-selection).
+
+        choice_type: "RADIO" (default) or "DROP_DOWN" (SELECT in the API).
+        """
         return {
             "createItem": {
                 "item": {
@@ -643,7 +650,7 @@ class Exam01FinalFormGenerator:
                         "question": {
                             "required": required,
                             "choiceQuestion": {
-                                "type": "RADIO",
+                                "type": choice_type,
                                 "options": [{"value": opt} for opt in options],
                                 "shuffle": False
                             }
@@ -768,6 +775,16 @@ def main():
 
         print("\nStep 2: Loading question bank...")
         question_bank = gen.load_question_bank(str(bank_path))
+
+        print("\nStep 2.5: Validating question bank (§3.4 and §3.5)...")
+        script_dir = Path(__file__).parent
+        prior_banks = [
+            str((script_dir / '../../../placement_exam/bases/question_bank.json').resolve()),
+            str((script_dir / '../../bases/prep_exam_bank.json').resolve()),
+        ]
+        if not run_validation_gate(str(bank_path), prior_banks):
+            print("\n✗ Form generation aborted by user after validation.")
+            sys.exit(1)
 
         print("\nStep 3: Loading student roster...")
         students, has_tier3, has_unassigned = gen.load_roster(str(roster_path))
