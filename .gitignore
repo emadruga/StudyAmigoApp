@@ -60,3 +60,4 @@ placement_exam/**/*.pptx
 placement_exam/*.pptx
 
 server/tools/manage_users.env
+exam_prep/exam_01/output/
