@@ -15,6 +15,8 @@ import logging # Import logging module
 import traceback # Keep for explicit exception logging if needed
 import datetime # Import datetime
 from functools import wraps
+import boto3
+from botocore.exceptions import ClientError
 
 # Add near the top of server/app.py
 from dotenv import load_dotenv
@@ -34,6 +36,11 @@ SECRET_KEY = os.getenv('SECRET_KEY') # Load from environment
 if not SECRET_KEY:
     # In production, this should ideally fail hard
     raise ValueError("No SECRET_KEY set for Flask application")
+
+SES_SENDER_EMAIL          = os.getenv('SES_SENDER_EMAIL', 'noreply@metads.app')
+SES_AWS_REGION            = os.getenv('SES_AWS_REGION', 'us-east-1')
+APP_BASE_URL               = os.getenv('APP_BASE_URL', 'http://localhost:5173')
+PASSWORD_RESET_TOKEN_TTL   = 3600  # seconds (1 hour)
 
 
 # Get the directory where app.py resides
@@ -134,6 +141,23 @@ def init_admin_db():
             username TEXT UNIQUE NOT NULL,
             name TEXT NOT NULL,
             password_hash TEXT NOT NULL
+        )
+    """)
+    # Add email column if not present (SAv1.5 migration)
+    cols = [row[1] for row in cursor.execute("PRAGMA table_info(users)").fetchall()]
+    if 'email' not in cols:
+        cursor.execute("ALTER TABLE users ADD COLUMN email TEXT")
+        cursor.execute(
+            "CREATE UNIQUE INDEX IF NOT EXISTS idx_users_email ON users(email) WHERE email IS NOT NULL"
+        )
+    # Password reset tokens table (SAv1.5)
+    cursor.execute("""
+        CREATE TABLE IF NOT EXISTS password_reset_tokens (
+            token       TEXT PRIMARY KEY,
+            user_id     INTEGER NOT NULL,
+            created_at  INTEGER NOT NULL,
+            used        INTEGER NOT NULL DEFAULT 0,
+            FOREIGN KEY (user_id) REFERENCES users(user_id)
         )
     """)
     conn.commit()
@@ -332,114 +356,57 @@ def index():
 # TODO: Implement Authentication routes (/register, /login, /logout)
 @app.route('/register', methods=['POST'])
 def register():
-    """Registers a new user."""
-    data = request.get_json()
-    
-    if not data or not all(k in data for k in ('username', 'name', 'password')):
-        return jsonify({"error": "Missing required fields"}), 400
-    
-    username = data['username'].strip()
-    name = data['name'].strip()
-    password = data['password']
-    
-    # Validate username and password length
-    if len(username) < 1 or len(username) > 10:
-        return jsonify({"error": "Username must be between 1 and 10 characters"}), 400
-    
-    if len(name) < 1 or len(name) > 40:
-        return jsonify({"error": "Name must be between 1 and 40 characters"}), 400
-    
-    if len(password) < 10 or len(password) > 20:
-        return jsonify({"error": "Password must be between 10 and 20 characters"}), 400
-    
-    # Hash the password
-    password_hash = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt()).decode('utf-8')
-    
-    # Initialize admin database if it doesn't exist yet
-    init_admin_db()
-    
-    # Check if username already exists
-    conn = sqlite3.connect(ADMIN_DB_PATH)
-    cursor = conn.cursor()
-    cursor.execute("SELECT * FROM users WHERE username = ?", (username,))
-    if cursor.fetchone():
-        conn.close()
-        return jsonify({"error": "Username already exists"}), 409
-    
-    # Insert the new user
-    try:
-        cursor.execute(
-            "INSERT INTO users (username, name, password_hash) VALUES (?, ?, ?)",
-            (username, name, password_hash)
-        )
-        conn.commit()
-        user_id = cursor.lastrowid
-        conn.close()
-        
-        app.logger.info(f"User registered: {username} (ID: {user_id})")
-        
-        # Create user flashcard database
-        user_db_path = get_user_db_path(user_id)
-        init_anki_db(user_db_path, user_name=name)
-        add_initial_flashcards(user_db_path, "1700000000001", deck_id=2)  # Sample cards go to deck #2
-        
-        return jsonify({
-            "message": "User registered successfully",
-            "userId": user_id
-        }), 201
-    except Exception as e:
-        conn.rollback()
-        conn.close()
-        app.logger.exception(f"Error during registration: {e}")
-        return jsonify({"error": "An internal server error occurred"}), 500
+    """Registration disabled in SAv1.5 — accounts are pre-provisioned by the administrator."""
+    return jsonify({"error": "Registration is currently disabled. Contact your administrator."}), 503
 
 @app.route('/login', methods=['POST'])
 def login():
-    """Authenticates a user and creates a session."""
+    """Authenticates a user by email and password (SAv1.5)."""
     data = request.get_json()
-    
-    if not data or 'username' not in data or 'password' not in data:
-        return jsonify({"error": "Username and password are required"}), 400
-    
-    username = data['username']
+
+    if not data or 'email' not in data or 'password' not in data:
+        return jsonify({"error": "Email and password are required"}), 400
+
+    email = data['email'].strip().lower()
     password = data['password']
-    
+
     # Initialize admin database if it doesn't exist yet
     init_admin_db()
-    
+
     try:
         conn = sqlite3.connect(ADMIN_DB_PATH)
         conn.row_factory = sqlite3.Row
         cursor = conn.cursor()
-        
-        cursor.execute("SELECT * FROM users WHERE username = ?", (username,))
+
+        cursor.execute("SELECT * FROM users WHERE LOWER(email) = ?", (email,))
         user = cursor.fetchone()
         conn.close()
-        
+
         if not user:
-            return jsonify({"error": "Invalid username or password"}), 401
-        
+            return jsonify({"error": "Invalid email or password"}), 401
+
         # Verify password
         if bcrypt.checkpw(password.encode('utf-8'), user['password_hash'].encode('utf-8')):
-            # Create session
             session['user_id'] = user['user_id']
             session['username'] = user['username']
-            
-            app.logger.info(f"User logged in: {username} (ID: {user['user_id']})")
-            
+
+            app.logger.info(f"User logged in: {email} (ID: {user['user_id']})")
+
             return jsonify({
                 "message": "Login successful",
                 "user": {
                     "userId": user['user_id'],
                     "username": user['username'],
-                    "name": user['name']
+                    "name": user['name'],
+                    "email": user['email']
                 }
             }), 200
         else:
-            return jsonify({"error": "Invalid username or password"}), 401
+            return jsonify({"error": "Invalid email or password"}), 401
     except Exception as e:
         app.logger.exception(f"Error during login: {e}")
         return jsonify({"error": "An internal server error occurred"}), 500
+
 
 @app.route('/logout', methods=['POST'])
 def logout():
@@ -1384,6 +1351,178 @@ def login_required(f):
         # You could add further checks here, e.g., verify user_id against admin db
         return f(*args, **kwargs)
     return decorated_function
+
+# --- Password Change ---
+
+@app.route('/change-password', methods=['POST'])
+@login_required
+def change_password():
+    """Allows a logged-in user to change their own password (SAv1.5)."""
+    data = request.get_json()
+
+    if not data or 'current_password' not in data or 'new_password' not in data:
+        return jsonify({"error": "current_password and new_password are required"}), 400
+
+    current_password = data['current_password']
+    new_password = data['new_password']
+
+    if len(new_password) < 10 or len(new_password) > 20:
+        return jsonify({"error": "New password must be between 10 and 20 characters"}), 400
+
+    user_id = session['user_id']
+
+    try:
+        conn = sqlite3.connect(ADMIN_DB_PATH)
+        conn.row_factory = sqlite3.Row
+        cursor = conn.cursor()
+
+        cursor.execute("SELECT password_hash FROM users WHERE user_id = ?", (user_id,))
+        user = cursor.fetchone()
+
+        if not user:
+            conn.close()
+            return jsonify({"error": "User not found"}), 404
+
+        if not bcrypt.checkpw(current_password.encode('utf-8'), user['password_hash'].encode('utf-8')):
+            conn.close()
+            return jsonify({"error": "Current password is incorrect"}), 401
+
+        new_hash = bcrypt.hashpw(new_password.encode('utf-8'), bcrypt.gensalt()).decode('utf-8')
+        cursor.execute("UPDATE users SET password_hash = ? WHERE user_id = ?", (new_hash, user_id))
+        conn.commit()
+        conn.close()
+
+        app.logger.info(f"User {user_id} changed their password.")
+        return jsonify({"message": "Password changed successfully"}), 200
+    except Exception as e:
+        app.logger.exception(f"Error during password change for user {user_id}: {e}")
+        return jsonify({"error": "An internal server error occurred"}), 500
+
+
+# --- Password Reset via Email ---
+
+def _send_reset_email(recipient_email: str, recipient_name: str, token: str):
+    """Send a password reset link via Amazon SES."""
+    reset_url = f"{APP_BASE_URL}/?reset_token={token}"
+    subject = "Amigo — redefinição de senha / password reset"
+    body_html = f"""
+    <html><body style="font-family:Arial,sans-serif;max-width:480px;margin:auto">
+      <h2>Amigo — Redefinição de Senha</h2>
+      <p>Olá, <strong>{recipient_name}</strong>!</p>
+      <p>Clique no link abaixo para redefinir sua senha. O link expira em <strong>1 hora</strong>.</p>
+      <p><a href="{reset_url}" style="background:#4a6eb5;color:#fff;padding:10px 20px;
+         border-radius:4px;text-decoration:none">Redefinir senha</a></p>
+      <p style="color:#888;font-size:12px">Se você não solicitou a redefinição, ignore este email.</p>
+      <hr/>
+      <p style="color:#888;font-size:12px"><em>Password Reset (English): Click the button above
+      to reset your password. Link expires in 1 hour.</em></p>
+    </body></html>
+    """
+    ses = boto3.client('ses', region_name=SES_AWS_REGION)
+    ses.send_email(
+        Source=SES_SENDER_EMAIL,
+        Destination={'ToAddresses': [recipient_email]},
+        Message={
+            'Subject': {'Data': subject, 'Charset': 'UTF-8'},
+            'Body': {'Html': {'Data': body_html, 'Charset': 'UTF-8'}},
+        }
+    )
+
+
+@app.route('/request-password-reset', methods=['POST'])
+def request_password_reset():
+    """Request a password reset email (SAv1.5). Always returns 200 to avoid email enumeration."""
+    data = request.get_json()
+    if not data or 'email' not in data:
+        return jsonify({"error": "Email is required"}), 400
+
+    email = data['email'].strip().lower()
+    init_admin_db()
+
+    try:
+        conn = sqlite3.connect(ADMIN_DB_PATH)
+        conn.row_factory = sqlite3.Row
+        cursor = conn.cursor()
+        cursor.execute("SELECT user_id, name, email FROM users WHERE LOWER(email) = ?", (email,))
+        user = cursor.fetchone()
+
+        if user:
+            # Invalidate any existing unused tokens for this user
+            cursor.execute(
+                "UPDATE password_reset_tokens SET used = 1 WHERE user_id = ? AND used = 0",
+                (user['user_id'],)
+            )
+            token = str(uuid.uuid4())
+            now = int(time.time())
+            cursor.execute(
+                "INSERT INTO password_reset_tokens (token, user_id, created_at, used) VALUES (?,?,?,0)",
+                (token, user['user_id'], now)
+            )
+            conn.commit()
+            conn.close()
+            try:
+                _send_reset_email(user['email'], user['name'], token)
+                app.logger.info(f"Password reset email sent to user {user['user_id']}")
+            except Exception as e:
+                app.logger.exception(f"SES error sending reset email to user {user['user_id']}: {e}")
+        else:
+            conn.close()
+            app.logger.info(f"Password reset requested for unknown email: {email}")
+
+        # Always return 200 — don't reveal whether the email exists
+        return jsonify({"message": "If that email is registered, a reset link has been sent."}), 200
+    except Exception as e:
+        app.logger.exception(f"Error during password reset request: {e}")
+        return jsonify({"error": "An internal server error occurred"}), 500
+
+
+@app.route('/reset-password', methods=['POST'])
+def reset_password():
+    """Complete a password reset using a valid token (SAv1.5)."""
+    data = request.get_json()
+    if not data or 'token' not in data or 'new_password' not in data:
+        return jsonify({"error": "token and new_password are required"}), 400
+
+    token = data['token'].strip()
+    new_password = data['new_password']
+
+    if len(new_password) < 10 or len(new_password) > 20:
+        return jsonify({"error": "New password must be between 10 and 20 characters"}), 400
+
+    init_admin_db()
+    try:
+        conn = sqlite3.connect(ADMIN_DB_PATH)
+        conn.row_factory = sqlite3.Row
+        cursor = conn.cursor()
+        cursor.execute(
+            "SELECT * FROM password_reset_tokens WHERE token = ? AND used = 0",
+            (token,)
+        )
+        row = cursor.fetchone()
+
+        if not row:
+            conn.close()
+            return jsonify({"error": "Invalid or expired reset link"}), 400
+
+        age = int(time.time()) - row['created_at']
+        if age > PASSWORD_RESET_TOKEN_TTL:
+            cursor.execute("UPDATE password_reset_tokens SET used = 1 WHERE token = ?", (token,))
+            conn.commit()
+            conn.close()
+            return jsonify({"error": "Reset link has expired. Please request a new one."}), 400
+
+        new_hash = bcrypt.hashpw(new_password.encode('utf-8'), bcrypt.gensalt()).decode('utf-8')
+        cursor.execute("UPDATE users SET password_hash = ? WHERE user_id = ?", (new_hash, row['user_id']))
+        cursor.execute("UPDATE password_reset_tokens SET used = 1 WHERE token = ?", (token,))
+        conn.commit()
+        conn.close()
+
+        app.logger.info(f"Password reset completed for user {row['user_id']}")
+        return jsonify({"message": "Password reset successfully. You can now log in."}), 200
+    except Exception as e:
+        app.logger.exception(f"Error during password reset: {e}")
+        return jsonify({"error": "An internal server error occurred"}), 500
+
 
 # --- Flashcard Review Logic ---
 

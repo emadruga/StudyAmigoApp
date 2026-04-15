@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import LoginForm from '../components/LoginForm.jsx';
-import RegisterForm from '../components/RegisterForm.jsx';
+import ChangePasswordForm from '../components/ChangePasswordForm.jsx';
+import ForgotPasswordForm from '../components/ForgotPasswordForm.jsx';
+import ResetPasswordForm from '../components/ResetPasswordForm.jsx';
 
 // Restore styles
 const tabStyles = {
@@ -47,8 +49,36 @@ const titleStyles = {
 function AuthPage({ onLoginSuccess }) {
   const { t } = useTranslation();
   const [activeTab, setActiveTab] = useState('login');
+  const [resetToken, setResetToken] = useState(null);
 
-  console.log(`Rendering AuthPage - active tab: ${activeTab}`);
+  // Detect ?reset_token=xxx in URL and switch to reset form
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const token = params.get('reset_token');
+    if (token) {
+      setResetToken(token);
+      setActiveTab('resetPassword');
+      // Clean token from URL without reloading
+      window.history.replaceState({}, '', window.location.pathname);
+    }
+  }, []);
+
+  const handleResetDone = () => {
+    setResetToken(null);
+    setActiveTab('login');
+  };
+
+  // While showing reset form, hide tabs entirely
+  if (activeTab === 'resetPassword') {
+    return (
+      <div style={{ maxWidth: '400px', margin: '50px auto', fontFamily: 'Arial, sans-serif' }}>
+        <h1 style={titleStyles}>{t('app.title')}</h1>
+        <div style={formContainerStyles}>
+          <ResetPasswordForm token={resetToken} onDone={handleResetDone} />
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div style={{ maxWidth: '400px', margin: '50px auto', fontFamily: 'Arial, sans-serif' }}>
@@ -61,18 +91,30 @@ function AuthPage({ onLoginSuccess }) {
           {t('auth.login')}
         </button>
         <button
-          style={activeTab === 'register' ? activeTabStyles : inactiveTabStyles}
-          onClick={() => setActiveTab('register')}
+          style={activeTab === 'register' ? activeTabStyles : { ...inactiveTabStyles, color: '#aaa', cursor: 'not-allowed' }}
+          disabled
+          title={t('auth.register.disabledTooltip')}
         >
           {t('auth.register')}
         </button>
+        <button
+          style={activeTab === 'changePassword' ? activeTabStyles : inactiveTabStyles}
+          onClick={() => setActiveTab('changePassword')}
+        >
+          {t('auth.changePassword.tab')}
+        </button>
       </div>
       <div style={formContainerStyles}>
-        {activeTab === 'login' ? (
-          <LoginForm onLoginSuccess={onLoginSuccess} />
-        ) : (
-          <RegisterForm onRegisterSuccess={() => setActiveTab('login')} />
+        {activeTab === 'login' && (
+          <LoginForm
+            onLoginSuccess={onLoginSuccess}
+            onForgotPassword={() => setActiveTab('forgotPassword')}
+          />
         )}
+        {activeTab === 'forgotPassword' && (
+          <ForgotPasswordForm onBack={() => setActiveTab('login')} />
+        )}
+        {activeTab === 'changePassword' && <ChangePasswordForm />}
       </div>
     </div>
   );
