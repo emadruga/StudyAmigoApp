@@ -767,4 +767,106 @@ VITE_API_BASE_URL=/javumbo
 *   Develop locally using `npm run dev`. `.env.development` settings are used.
 *   When ready for deployment, run `npm run build`. `.env.production` settings are automatically used to create the production-ready bundles in the `dist` directory with the correct base paths and API URLs embedded.
 *   Deploy the contents of the `client/dist` directory to the upstream server (`10.x.y.z` in the example) to be served by its Nginx instance.
-*   Ensure the main reverse proxy (`example.com`) correctly forwards requests for the production subpath (e.g., `/javumbo/`) to the upstream server. 
+*   Ensure the main reverse proxy (`example.com`) correctly forwards requests for the production subpath (e.g., `/javumbo/`) to the upstream server.
+
+---
+
+## 8. Maintenance Mode
+
+The application supports a maintenance landing page that replaces the entire frontend without touching the backend. This is useful during planned upgrades, database migrations, or any operation that requires the app to be temporarily unavailable to users.
+
+### How It Works
+
+The mechanism is entirely frontend-side and controlled by a single build-time environment variable:
+
+```
+VITE_MAINTENANCE_MODE=true   →  React renders <MaintenancePage> instead of the app
+VITE_MAINTENANCE_MODE=false  →  Normal application behavior
+```
+
+`App.jsx` checks this variable at module load time (before any hooks or routing):
+
+```jsx
+const isMaintenance = import.meta.env.VITE_MAINTENANCE_MODE === 'true';
+
+function App() {
+  if (isMaintenance) return <MaintenancePage />;
+  // ... normal app ...
+}
+```
+
+Because `VITE_*` variables are resolved at **build time** by Vite, enabling or disabling maintenance mode requires a client image rebuild. The backend continues running normally throughout — no data is lost and sessions are preserved.
+
+### Activating Maintenance Mode
+
+**Step 1 — Set the flag locally and commit:**
+
+```bash
+# client/.env.production
+VITE_MAINTENANCE_MODE=true
+```
+
+```bash
+git add client/.env.production
+git commit -m "chore: enable maintenance mode"
+git push origin main
+```
+
+**Step 2 — Pull and rebuild the client container on EC2:**
+
+```bash
+ssh -i ~/.ssh/study-amigo-aws ubuntu@54.152.109.26 \
+  "cd /opt/study-amigo && sudo git pull origin main && \
+   sudo docker compose up -d --build client"
+```
+
+**Step 3 — Verify:**
+
+```bash
+curl -s -o /dev/null -w "%{http_code}" http://54.152.109.26/
+# Expected: 200 (maintenance page served)
+```
+
+The rebuild typically takes under 2 minutes. The backend (`flashcard_server`) is unaffected.
+
+### Deactivating Maintenance Mode
+
+```bash
+# client/.env.production
+VITE_MAINTENANCE_MODE=false
+```
+
+```bash
+git add client/.env.production
+git commit -m "chore: disable maintenance mode"
+git push origin main
+
+ssh -i ~/.ssh/study-amigo-aws ubuntu@54.152.109.26 \
+  "cd /opt/study-amigo && sudo git pull origin main && \
+   sudo docker compose up -d --build client"
+```
+
+### Previewing Locally
+
+To preview the maintenance page during development without affecting production:
+
+```bash
+# client/.env.development  (temporary change, do not commit as true)
+VITE_MAINTENANCE_MODE=true
+
+cd client && npm run dev
+# Open http://localhost:5173
+```
+
+Remember to revert `VITE_MAINTENANCE_MODE=false` in `.env.development` after previewing.
+
+### Key Properties
+
+| Property | Detail |
+|---|---|
+| Backend impact | None — Flask/Gunicorn keeps running |
+| Rebuild required | Yes — `docker compose up -d --build client` |
+| Rebuild duration | ~1–2 minutes |
+| Sessions preserved | Yes — cookies/sessions unaffected |
+| Reversible | Yes — change flag + rebuild |
+| Landing page location | `client/src/pages/MaintenancePage.jsx` |
