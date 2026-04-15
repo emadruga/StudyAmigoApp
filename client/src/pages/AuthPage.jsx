@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import LoginForm from '../components/LoginForm.jsx';
-import RegisterForm from '../components/RegisterForm.jsx';
+import ChangePasswordForm from '../components/ChangePasswordForm.jsx';
 
 // Restore styles
 const tabStyles = {
@@ -48,8 +48,6 @@ function AuthPage({ onLoginSuccess }) {
   const { t } = useTranslation();
   const [activeTab, setActiveTab] = useState('login');
 
-  console.log(`Rendering AuthPage - active tab: ${activeTab}`);
-
   return (
     <div style={{ maxWidth: '400px', margin: '50px auto', fontFamily: 'Arial, sans-serif' }}>
       <h1 style={titleStyles}>{t('app.title')}</h1>
@@ -61,17 +59,17 @@ function AuthPage({ onLoginSuccess }) {
           {t('auth.login')}
         </button>
         <button
-          style={activeTab === 'register' ? activeTabStyles : inactiveTabStyles}
-          onClick={() => setActiveTab('register')}
+          style={activeTab === 'changePassword' ? activeTabStyles : inactiveTabStyles}
+          onClick={() => setActiveTab('changePassword')}
         >
-          {t('auth.register')}
+          {t('auth.changePassword.tab')}
         </button>
       </div>
       <div style={formContainerStyles}>
         {activeTab === 'login' ? (
           <LoginForm onLoginSuccess={onLoginSuccess} />
         ) : (
-          <RegisterForm onRegisterSuccess={() => setActiveTab('login')} />
+          <ChangePasswordForm />
         )}
       </div>
     </div>

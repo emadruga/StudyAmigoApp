@@ -34,19 +34,17 @@ const buttonContainerStyle = {
 
 function LoginForm({ onLoginSuccess }) {
   const { t } = useTranslation();
-  // Restore state
-  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
-  // Restore handler
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
     setLoading(true);
 
-    if (!username || !password) {
+    if (!email || !password) {
       setError(t('auth.errors.required'));
       setLoading(false);
       return;
@@ -54,7 +52,7 @@ function LoginForm({ onLoginSuccess }) {
 
     try {
       const response = await api.post('/login', {
-        username,
+        email,
         password,
       });
       console.log('Login response:', response.data);
@@ -73,22 +71,19 @@ function LoginForm({ onLoginSuccess }) {
     }
   };
 
-  console.log("Rendering full LoginForm...");
-
   return (
-    // Restore form elements
     <form onSubmit={handleSubmit}>
       <h2>{t('auth.login')}</h2>
       {error && <p style={errorStyle}>{error}</p>}
-      <label htmlFor="login-username">{t('auth.username')}</label>
+      <label htmlFor="login-email">{t('auth.email')}</label>
       <input
-        type="text"
-        id="login-username"
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
+        type="email"
+        id="login-email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
         required
         style={inputStyle}
-        placeholder={t('auth.usernamePlaceholder')}
+        placeholder={t('auth.emailPlaceholder')}
         title={t('auth.errors.required')}
       />
       <label htmlFor="login-password">{t('auth.password')}</label>

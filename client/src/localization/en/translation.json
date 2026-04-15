@@ -31,6 +31,16 @@
     "passwordPlaceholder": "Enter your password",
     "namePlaceholder": "Enter your name",
     "confirmPasswordPlaceholder": "Confirm your password",
+    "changePassword": {
+      "tab": "Change Password",
+      "title": "Change Password",
+      "current": "Current Password:",
+      "newPlaceholder": "Enter new password",
+      "button": "Change Password",
+      "saving": "Saving...",
+      "success": "Password changed successfully!",
+      "failed": "Failed to change password. Please try again."
+    },
     "errors": {
       "required": "All fields are required.",
       "passwordMatch": "Passwords do not match",
@@ -38,7 +48,8 @@
       "registerFailed": "Registration failed. Please try again.",
       "usernameLength": "Username cannot exceed {{max}} characters.",
       "nameLength": "Name cannot exceed {{max}} characters.",
-      "passwordLength": "Password must be between {{min}} and {{max}} characters."
+      "passwordLength": "Password must be between {{min}} and {{max}} characters.",
+      "invalidEmail": "Please enter a valid email address."
     }
   },
   "decks": {

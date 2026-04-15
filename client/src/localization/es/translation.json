@@ -31,6 +31,16 @@
     "passwordPlaceholder": "Ingresa tu contraseña",
     "namePlaceholder": "Ingresa tu nombre",
     "confirmPasswordPlaceholder": "Confirma tu contraseña",
+    "changePassword": {
+      "tab": "Cambiar Contraseña",
+      "title": "Cambiar Contraseña",
+      "current": "Contraseña Actual:",
+      "newPlaceholder": "Ingresa la nueva contraseña",
+      "button": "Cambiar Contraseña",
+      "saving": "Guardando...",
+      "success": "¡Contraseña cambiada con éxito!",
+      "failed": "Error al cambiar la contraseña. Por favor, inténtalo de nuevo."
+    },
     "errors": {
       "required": "Todos los campos son obligatorios.",
       "passwordMatch": "Las contraseñas no coinciden",
@@ -38,7 +48,8 @@
       "registerFailed": "Error al registrarse. Por favor, inténtalo de nuevo.",
       "usernameLength": "El usuario no puede exceder {{max}} caracteres.",
       "nameLength": "El nombre no puede exceder {{max}} caracteres.",
-      "passwordLength": "La contraseña debe tener entre {{min}} y {{max}} caracteres."
+      "passwordLength": "La contraseña debe tener entre {{min}} y {{max}} caracteres.",
+      "invalidEmail": "Por favor, ingresa una dirección de correo electrónico válida."
     }
   },
   "decks": {

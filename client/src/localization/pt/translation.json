@@ -31,6 +31,16 @@
     "passwordPlaceholder": "Digite sua senha",
     "namePlaceholder": "Digite seu nome",
     "confirmPasswordPlaceholder": "Confirme sua senha",
+    "changePassword": {
+      "tab": "Trocar Senha",
+      "title": "Trocar Senha",
+      "current": "Senha Atual:",
+      "newPlaceholder": "Digite a nova senha",
+      "button": "Trocar Senha",
+      "saving": "Salvando...",
+      "success": "Senha alterada com sucesso!",
+      "failed": "Falha ao alterar a senha. Por favor, tente novamente."
+    },
     "errors": {
       "required": "Todos os campos são obrigatórios.",
       "passwordMatch": "As senhas não coincidem",
@@ -38,7 +48,8 @@
       "registerFailed": "Falha no registro. Por favor, tente novamente.",
       "usernameLength": "O usuário não pode exceder {{max}} caracteres.",
       "nameLength": "O nome não pode exceder {{max}} caracteres.",
-      "passwordLength": "A senha deve ter entre {{min}} e {{max}} caracteres."
+      "passwordLength": "A senha deve ter entre {{min}} e {{max}} caracteres.",
+      "invalidEmail": "Por favor, insira um endereço de email válido."
     }
   },
   "decks": {
