@@ -6,9 +6,15 @@ import AddCardPage from './pages/AddCardPage.jsx';
 import DecksPage from './pages/DecksPage.jsx';
 import DeckStatisticsPage from './pages/DeckStatisticsPage.jsx';
 import EditCardPage from './pages/EditCardPage.jsx';
+import MaintenancePage from './pages/MaintenancePage.jsx';
 import api from './api/axiosConfig.js'; // Import configured Axios instance
 
+const isMaintenance = import.meta.env.VITE_MAINTENANCE_MODE === 'true';
+
 function App() {
+  if (isMaintenance) {
+    return <MaintenancePage />;
+  }
   // Restore state and hooks
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
