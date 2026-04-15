@@ -5,7 +5,7 @@ FROM python:3.10-slim
 WORKDIR /app
 
 # Install system dependencies that might be needed (e.g., for bcrypt)
-RUN apt-get update && apt-get install -y --no-install-recommends build-essential && \
+RUN apt-get update && apt-get install -y --no-install-recommends build-essential awscli && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
