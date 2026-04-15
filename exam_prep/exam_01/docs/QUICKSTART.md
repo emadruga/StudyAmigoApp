@@ -337,10 +337,171 @@ aos alunos, faça os seguintes ajustes manualmente na **Edit URL**:
 
 ---
 
+---
+
+## Corrigindo a prova e gerando o CSV de resultados
+
+Após a aplicação da prova, use o script `grade_exam_01.py` para cruzar as
+respostas do Google Forms com os resultados da prova impressa e gerar o CSV
+final de notas.
+
+### Pré-requisito
+
+```bash
+cd exam_prep/exam_01
+venv/bin/pip install openpyxl   # já incluído no venv padrão
+```
+
+### Execução com caminhos padrão
+
+Todos os argumentos têm valores padrão apontando para os arquivos canônicos
+em `bases/` e a saída em `output/`. Basta rodar sem argumentos:
+
+```bash
+cd exam_prep/exam_01/scripts
+
+../venv/bin/python3 grade_exam_01.py
+```
+
+### Execução com caminhos explícitos
+
+```bash
+cd exam_prep/exam_01/scripts
+
+../venv/bin/python3 grade_exam_01.py \
+    --roster   ../bases/curated_student_roster_v2.csv \
+    --form     ../bases/prova-final-1Bimestre-2026.xlsx \
+    --impressa ../bases/Prova-Final-1Bimestre-Impressa-2026.xlsx \
+    --out      ../output/prova_final_1bim_RESULTADOS.csv
+```
+
+### Argumentos disponíveis
+
+| Argumento | Padrão | Descrição |
+|-----------|--------|-----------|
+| `--roster` | `../bases/curated_student_roster_v2.csv` | CSV de alunos com coluna `Suggested Tier` |
+| `--form` | `../bases/prova-final-1Bimestre-2026.xlsx` | XLSX exportado do Google Forms |
+| `--impressa` | `../bases/Prova-Final-1Bimestre-Impressa-2026.xlsx` | XLSX da prova impressa (colunas: `Aluno`, `Tier`, `Acertos`) |
+| `--out` | `../output/prova_final_1bim_RESULTADOS.csv` | Caminho do CSV de saída |
+
+### Lógica de Tier e nota
+
+| Tier | Questões consideradas | Divisor | Nota |
+|------|----------------------|---------|------|
+| Tier 1 | Bloco 1 (10 questões) | 10 | `(acertos / 10) × 10` |
+| Tier 2 | Blocos 1 + 2 (20 questões, acumulativo) | 20 | `(acertos / 20) × 10` |
+
+O Tier de cada aluno é determinado na seguinte ordem de prioridade:
+
+1. **`roster`** — coluna `Suggested Tier` do `curated_student_roster_v2.csv`
+2. **`form_choice`** — campo de auto-seleção do Google Forms (alunos sem nivelamento)
+3. **`impressa`** — coluna `Tier` da planilha da prova impressa
+4. **`FALLBACK_T2`** — Tier 2 assumido por padrão; sinalizado na coluna `Obs`
+
+### Colunas do CSV de saída
+
+| Coluna | Descrição |
+|--------|-----------|
+| `ID` | Matrícula do aluno |
+| `Nome` | Nome completo (do roster) |
+| `Curso` | Curso do aluno |
+| `Tier` | Tier final usado para calcular a nota |
+| `Tier_source` | Origem do Tier: `roster`, `form_choice`, `impressa` ou `FALLBACK_T2` |
+| `Fonte_prova` | Fonte das respostas: `digital`, `impressa` ou `AUSENTE` |
+| `Acertos` | Pontuação bruta (conforme registrada na fonte) |
+| `Acertos_efetivos` | Acertos truncados ao máximo do tier (usado no cálculo) |
+| `Max_questoes` | Número máximo de questões do tier (10 ou 20) |
+| `Nota_10` | Nota final de 0 a 10 |
+| `Obs` | Alertas: `NAO_ENCONTRADO`, `SEM_TIER_ATRIBUIDO` ou combinações |
+
+### Saída esperada no terminal
+
+```
+CSV gerado: .../output/prova_final_1bim_RESULTADOS.csv
+Total alunos: 64
+Ausentes (não encontrados em nenhuma fonte): 2
+  - 4016 Cauã Jorge de Nazareth Marins
+  - 5091 Sophia Tavares dos Santos
+Alunos com FALLBACK_T2 (sem tier atribuído em nenhuma fonte): 0
+```
+
+> **Atenção:** Alunos com `Fonte_prova = AUSENTE` não fizeram a prova em
+> nenhuma modalidade. Revise manualmente antes de lançar as notas.
+
+---
+
+## Agregando todas as notas do 1º Bimestre (E01 + E02 + Exame 01)
+
+Após gerar o CSV do Exame 01, use `aggreg_grades_1Bim.py` para consolidar as
+notas de E01, E02 e do Exame 01 em um único arquivo por aluno. Alunos ausentes
+no Exame 01 recebem automaticamente nota `0.0`.
+
+### Execução com caminhos padrão
+
+```bash
+cd exam_prep/exam_01/scripts
+
+../venv/bin/python3 aggreg_grades_1Bim.py
+```
+
+### Execução com caminhos explícitos
+
+```bash
+cd exam_prep/exam_01/scripts
+
+../venv/bin/python3 aggreg_grades_1Bim.py \
+    --roster  ../bases/curated_student_roster_v2.csv \
+    --metrics ../bases/E01_E02_metrics.csv \
+    --exame   ../output/prova_final_1bim_RESULTADOS.csv \
+    --out     ../output/RESULTADOS_1BIM.csv
+```
+
+### Argumentos disponíveis
+
+| Argumento | Padrão | Descrição |
+|-----------|--------|-----------|
+| `--roster` | `../bases/curated_student_roster_v2.csv` | CSV canônico de alunos |
+| `--metrics` | `../bases/E01_E02_metrics.csv` | CSV com notas `E01_nota_0_10` e `E02_nota_0_10` |
+| `--exame` | `../output/prova_final_1bim_RESULTADOS.csv` | Saída do `grade_exam_01.py` |
+| `--out` | `../output/RESULTADOS_1BIM.csv` | CSV de saída agregado |
+
+> **Pré-requisito:** o arquivo `--exame` deve ter sido gerado previamente por
+> `grade_exam_01.py` (ver seção anterior).
+
+### Colunas do CSV de saída
+
+| Coluna | Descrição |
+|--------|-----------|
+| `ID` | Matrícula do aluno |
+| `Nome` | Nome completo (do roster) |
+| `Curso` | Curso do aluno |
+| `Tier` | Tier do aluno (preferência: exame > roster > métricas) |
+| `E01_nota` | Nota de 0 a 10 do exercício E01 (0.0 se ausente) |
+| `E01_flags` | Flags de alerta do E01 (ex.: `NO_ACCOUNT`) |
+| `E02_nota` | Nota de 0 a 10 do exercício E02 (0.0 se ausente) |
+| `E02_flags` | Flags de alerta do E02 (ex.: `CRAM`, `RET100`) |
+| `Exame01_nota` | Nota de 0 a 10 do Exame 01 (**0.0 se ausente**) |
+| `Exame01_fonte` | Origem: `digital`, `impressa` ou `AUSENTE` |
+| `Exame01_obs` | Alertas herdados do `grade_exam_01.py` (ex.: `NAO_ENCONTRADO`) |
+
+### Saída esperada no terminal
+
+```
+CSV gerado: .../output/RESULTADOS_1BIM.csv
+Total alunos: 64
+Ausentes no Exame 01 (nota = 0.0): 2
+  - 4016 Cauã Jorge de Nazareth Marins
+  - 5091 Sophia Tavares dos Santos
+```
+
+---
+
 ## Referências
 
 - [PLAN_EXAM_01_FINAL.md](PLAN_EXAM_01_FINAL.md) — plano completo do exame (inclui §3.4 Regras de Construção e §3.5 Revisão de Ambiguidade)
 - [validate_question_bank.py](../scripts/validate_question_bank.py) — script de validação do banco
 - [create_exam_01_final_docx.py](../scripts/create_exam_01_final_docx.py) — gerador da prova impressa (DOCX)
+- [grade_exam_01.py](../scripts/grade_exam_01.py) — script de correção e geração do CSV de notas do Exame 01
+- [aggreg_grades_1Bim.py](../scripts/aggreg_grades_1Bim.py) — script de agregação final E01 + E02 + Exame 01
 - [Google Cloud Console](https://console.cloud.google.com/) — gerenciamento de credenciais
 - [Google Forms API](https://developers.google.com/forms/api/reference/rest) — documentação da API
