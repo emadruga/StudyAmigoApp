@@ -34,6 +34,9 @@ set -euo pipefail
 
 # --- Configuration -----------------------------------------------------------
 APP_DIR="${APP_DIR:-/opt/study-amigo}"
+# In Docker: APP_DIR=/opt/study-amigo-v15, DB_DIR=/app (bind-mount of ./server)
+# Outside Docker (cron): DB_DIR=${APP_DIR}/server
+DB_DIR="${DB_DIR:-${APP_DIR}/server}"
 BACKUP_SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 LOG_FILE="/var/log/studyamigo-backup.log"
 BUCKET="${STUDYAMIGO_BACKUP_BUCKET:-}"   # set by install_backup_cron.sh
@@ -75,26 +78,26 @@ log "  S3 target : ${S3_PREFIX}"
 log "================================================================"
 
 # Guard: ensure source files exist
-if [[ ! -f "${APP_DIR}/server/admin.db" ]]; then
-  log "ERROR: ${APP_DIR}/server/admin.db not found. Aborting."
+if [[ ! -f "${DB_DIR}/admin.db" ]]; then
+  log "ERROR: ${DB_DIR}/admin.db not found. Aborting."
   exit 1
 fi
-if [[ ! -d "${APP_DIR}/server/user_dbs" ]]; then
-  log "ERROR: ${APP_DIR}/server/user_dbs/ directory not found. Aborting."
+if [[ ! -d "${DB_DIR}/user_dbs" ]]; then
+  log "ERROR: ${DB_DIR}/user_dbs/ directory not found. Aborting."
   exit 1
 fi
 
 # --- Compress admin.db -------------------------------------------------------
 log "Compressing admin.db..."
-gzip -c "${APP_DIR}/server/admin.db" > "${TMP_DIR}/admin.db.gz"
+gzip -c "${DB_DIR}/admin.db" > "${TMP_DIR}/admin.db.gz"
 ADMIN_SIZE=$(du -sh "${TMP_DIR}/admin.db.gz" | cut -f1)
 log "  admin.db.gz : ${ADMIN_SIZE}"
 
 # --- Compress user_dbs/ ------------------------------------------------------
 log "Compressing user_dbs/..."
-USER_DB_COUNT=$(find "${APP_DIR}/server/user_dbs" -name "*.db" | wc -l | tr -d ' ')
+USER_DB_COUNT=$(find "${DB_DIR}/user_dbs" -name "*.db" | wc -l | tr -d ' ')
 tar -czf "${TMP_DIR}/user_dbs.tar.gz" \
-    -C "${APP_DIR}/server" \
+    -C "${DB_DIR}" \
     user_dbs
 UDB_SIZE=$(du -sh "${TMP_DIR}/user_dbs.tar.gz" | cut -f1)
 log "  user_dbs.tar.gz : ${UDB_SIZE} (${USER_DB_COUNT} databases)"
