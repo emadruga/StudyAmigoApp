@@ -189,6 +189,8 @@ SES_AWS_REGION=us-east-1
 APP_BASE_URL=https://study-amigo.app
 STUDYAMIGO_BACKUP_BUCKET=study-amigo-backups-645069181643
 APP_DIR=/app
+DB_DIR=/app
+BACKUP_PREFIX=backups/v15
 EOF
     info "  .env created"
 fi

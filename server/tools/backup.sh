@@ -62,7 +62,8 @@ WEEK_SLOT=$(( (DAYS_SINCE / 7) % 4 + 1 ))
 DOW=$(date -u +%A | tr '[:upper:]' '[:lower:]')   # e.g. "wednesday"
 TIMESTAMP=$(date -u '+%Y-%m-%dT%H:%M:%SZ')
 
-S3_PREFIX="s3://${BUCKET}/backups/week-${WEEK_SLOT}/${DOW}"
+BACKUP_PREFIX="${BACKUP_PREFIX:-backups}"
+S3_PREFIX="s3://${BUCKET}/${BACKUP_PREFIX}/week-${WEEK_SLOT}/${DOW}"
 
 # --- Temp workspace ----------------------------------------------------------
 TMP_DIR=$(mktemp -d /tmp/studyamigo-backup-XXXXXX)
