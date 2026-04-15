@@ -33,7 +33,7 @@
 set -euo pipefail
 
 # --- Configuration -----------------------------------------------------------
-APP_DIR="/opt/study-amigo"
+APP_DIR="${APP_DIR:-/opt/study-amigo}"
 BACKUP_SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 LOG_FILE="/var/log/studyamigo-backup.log"
 BUCKET="${STUDYAMIGO_BACKUP_BUCKET:-}"   # set by install_backup_cron.sh

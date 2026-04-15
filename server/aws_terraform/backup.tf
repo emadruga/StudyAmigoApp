@@ -109,6 +109,32 @@ resource "aws_iam_role_policy" "ec2_backup_s3" {
 }
 
 # -----------------------------------------------------------------------------
+# IAM inline policy: SES send email (for SAv1.5 password reset)
+# -----------------------------------------------------------------------------
+resource "aws_iam_role_policy" "ec2_ses_send" {
+  name = "${var.project_name}-ses-send-policy"
+  role = aws_iam_role.ec2_backup.id
+
+  policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Sid    = "SESSendEmail"
+        Effect = "Allow"
+        Action = [
+          "ses:SendEmail",
+          "ses:SendRawEmail"
+        ]
+        Resource = [
+          "arn:aws:ses:us-east-1:${data.aws_caller_identity.current.account_id}:identity/noreply@metads.app",
+          "arn:aws:ses:us-east-1:${data.aws_caller_identity.current.account_id}:identity/metads.app"
+        ]
+      }
+    ]
+  })
+}
+
+# -----------------------------------------------------------------------------
 # IAM Instance Profile — wrapper that attaches the role to an EC2 instance
 # -----------------------------------------------------------------------------
 resource "aws_iam_instance_profile" "ec2_backup" {
