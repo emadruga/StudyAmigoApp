@@ -31,6 +31,27 @@
     "passwordPlaceholder": "Enter your password",
     "namePlaceholder": "Enter your name",
     "confirmPasswordPlaceholder": "Confirm your password",
+    "register": {
+      "disabledTooltip": "Registration is currently closed. Contact your administrator."
+    },
+    "forgotPassword": {
+      "link": "Forgot your password?",
+      "title": "Reset Password",
+      "instructions": "Enter your email and we'll send you a link to reset your password.",
+      "button": "Send reset link",
+      "sending": "Sending...",
+      "sent": "If that email is registered, a reset link has been sent. Check your inbox.",
+      "failed": "Failed to send reset email. Please try again.",
+      "backToLogin": "Back to login"
+    },
+    "resetPassword": {
+      "title": "Set New Password",
+      "button": "Set Password",
+      "saving": "Saving...",
+      "success": "Password set successfully! You can now log in.",
+      "failed": "Failed to reset password. The link may have expired.",
+      "goToLogin": "Go to Login"
+    },
     "changePassword": {
       "tab": "Change Password",
       "title": "Change Password",

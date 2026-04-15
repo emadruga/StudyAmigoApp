@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import api from '../api/axiosConfig.js'; // Make sure path is correct
 import AuthLanguageSelector from './AuthLanguageSelector';
@@ -32,7 +32,7 @@ const buttonContainerStyle = {
   marginTop: '20px'
 };
 
-function LoginForm({ onLoginSuccess }) {
+function LoginForm({ onLoginSuccess, onForgotPassword }) {
   const { t } = useTranslation();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -103,6 +103,17 @@ function LoginForm({ onLoginSuccess }) {
         </button>
         <AuthLanguageSelector />
       </div>
+      {onForgotPassword && (
+        <div style={{ marginTop: '12px', textAlign: 'center' }}>
+          <button
+            type="button"
+            onClick={onForgotPassword}
+            style={{ background: 'none', border: 'none', color: '#4a6eb5', cursor: 'pointer', fontSize: '13px', textDecoration: 'underline' }}
+          >
+            {t('auth.forgotPassword.link')}
+          </button>
+        </div>
+      )}
     </form>
   );
 }

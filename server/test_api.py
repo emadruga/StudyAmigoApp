@@ -32,6 +32,13 @@ def _make_test_db(path: str):
         );
         CREATE UNIQUE INDEX IF NOT EXISTS idx_users_email
             ON users(email) WHERE email IS NOT NULL;
+        CREATE TABLE IF NOT EXISTS password_reset_tokens (
+            token       TEXT PRIMARY KEY,
+            user_id     INTEGER NOT NULL,
+            created_at  INTEGER NOT NULL,
+            used        INTEGER NOT NULL DEFAULT 0,
+            FOREIGN KEY (user_id) REFERENCES users(user_id)
+        );
     """)
     pw_hash = bcrypt.hashpw(b'senha12345', bcrypt.gensalt()).decode()
     conn.execute(
@@ -167,6 +174,106 @@ class AuthTestCase(unittest.TestCase):
         r = self.client.post('/change-password', json={
             'current_password': 'senha12345'
         })
+        self.assertEqual(r.status_code, 400)
+
+    # ------------------------------------------------------------------
+    # POST /request-password-reset
+    # ------------------------------------------------------------------
+    def test_request_reset_known_email_returns_200(self):
+        """Always returns 200 even for known email (anti-enumeration)."""
+        r = self.client.post('/request-password-reset', json={
+            'email': 'test@example.com'
+        })
+        self.assertEqual(r.status_code, 200)
+
+    def test_request_reset_unknown_email_returns_200(self):
+        """Always returns 200 even for unknown email (anti-enumeration)."""
+        r = self.client.post('/request-password-reset', json={
+            'email': 'nobody@nowhere.com'
+        })
+        self.assertEqual(r.status_code, 200)
+
+    def test_request_reset_missing_email_returns_400(self):
+        r = self.client.post('/request-password-reset', json={})
+        self.assertEqual(r.status_code, 400)
+
+    def test_request_reset_stores_token_in_db(self):
+        """A token row must be inserted for a known email."""
+        self.client.post('/request-password-reset', json={
+            'email': 'test@example.com'
+        })
+        conn = sqlite3.connect(self.db_path)
+        row = conn.execute(
+            "SELECT * FROM password_reset_tokens WHERE used = 0"
+        ).fetchone()
+        conn.close()
+        self.assertIsNotNone(row)
+
+    # ------------------------------------------------------------------
+    # POST /reset-password
+    # ------------------------------------------------------------------
+    def _create_reset_token(self, expired=False):
+        """Insert a token directly into the DB and return it."""
+        import time, uuid
+        conn = sqlite3.connect(self.db_path)
+        user_id = conn.execute(
+            "SELECT user_id FROM users WHERE email = 'test@example.com'"
+        ).fetchone()[0]
+        token = str(uuid.uuid4())
+        created_at = int(time.time()) - (7200 if expired else 0)
+        conn.execute(
+            "INSERT INTO password_reset_tokens (token, user_id, created_at, used) VALUES (?,?,?,0)",
+            (token, user_id, created_at)
+        )
+        conn.commit()
+        conn.close()
+        return token
+
+    def test_reset_password_success(self):
+        token = self._create_reset_token()
+        r = self.client.post('/reset-password', json={
+            'token': token, 'new_password': 'novaSenha99'
+        })
+        self.assertEqual(r.status_code, 200)
+        # Confirm new password works
+        r2 = self.client.post('/login', json={
+            'email': 'test@example.com', 'password': 'novaSenha99'
+        })
+        self.assertEqual(r2.status_code, 200)
+
+    def test_reset_password_expired_token(self):
+        token = self._create_reset_token(expired=True)
+        r = self.client.post('/reset-password', json={
+            'token': token, 'new_password': 'novaSenha99'
+        })
+        self.assertEqual(r.status_code, 400)
+
+    def test_reset_password_invalid_token(self):
+        r = self.client.post('/reset-password', json={
+            'token': 'not-a-real-token', 'new_password': 'novaSenha99'
+        })
+        self.assertEqual(r.status_code, 400)
+
+    def test_reset_password_token_reuse_blocked(self):
+        """A used token cannot be reused."""
+        token = self._create_reset_token()
+        self.client.post('/reset-password', json={
+            'token': token, 'new_password': 'novaSenha99'
+        })
+        r = self.client.post('/reset-password', json={
+            'token': token, 'new_password': 'outraSenha88'
+        })
+        self.assertEqual(r.status_code, 400)
+
+    def test_reset_password_too_short(self):
+        token = self._create_reset_token()
+        r = self.client.post('/reset-password', json={
+            'token': token, 'new_password': 'curta'
+        })
+        self.assertEqual(r.status_code, 400)
+
+    def test_reset_password_missing_fields(self):
+        r = self.client.post('/reset-password', json={'token': 'abc'})
         self.assertEqual(r.status_code, 400)
 
 

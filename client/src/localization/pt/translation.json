@@ -31,6 +31,27 @@
     "passwordPlaceholder": "Digite sua senha",
     "namePlaceholder": "Digite seu nome",
     "confirmPasswordPlaceholder": "Confirme sua senha",
+    "register": {
+      "disabledTooltip": "O cadastro está temporariamente fechado. Entre em contato com o administrador."
+    },
+    "forgotPassword": {
+      "link": "Esqueceu sua senha?",
+      "title": "Redefinir Senha",
+      "instructions": "Digite seu email e enviaremos um link para redefinir sua senha.",
+      "button": "Enviar link de redefinição",
+      "sending": "Enviando...",
+      "sent": "Se esse email estiver cadastrado, um link de redefinição foi enviado. Verifique sua caixa de entrada.",
+      "failed": "Falha ao enviar o email de redefinição. Por favor, tente novamente.",
+      "backToLogin": "Voltar ao login"
+    },
+    "resetPassword": {
+      "title": "Definir Nova Senha",
+      "button": "Definir Senha",
+      "saving": "Salvando...",
+      "success": "Senha definida com sucesso! Você já pode fazer login.",
+      "failed": "Falha ao redefinir a senha. O link pode ter expirado.",
+      "goToLogin": "Ir para o Login"
+    },
     "changePassword": {
       "tab": "Trocar Senha",
       "title": "Trocar Senha",
