@@ -227,14 +227,17 @@ services:
       - v15-net
 
   backup:
+    image: amazon/aws-cli:latest
     container_name: v15_backup
-    build: ./server
-    restart: unless-stopped
-    entrypoint: ["/app/tools/backup.sh"]
+    entrypoint: ["/bin/bash"]
+    command: ["/app/server_v2/tools/backup_container.sh"]
     volumes:
-      - ./server:/app
-    env_file:
-      - ./server/.env
+      - ./server:/app:ro
+      - ./server_v2/tools:/app/server_v2/tools:ro
+    environment:
+      - PROJECT_NAME=study-amigo
+      - BACKUP_PREFIX=backups/v15
+    restart: unless-stopped
     networks:
       - v15-net
 
@@ -245,8 +248,9 @@ COMPOSE
 
 info "  docker-compose.yml written"
 
-# Ensure backup.sh is executable (git does not always preserve +x on clone)
+# Ensure backup scripts are executable (git does not always preserve +x on clone)
 sudo chmod +x "$V15_DIR/server/tools/backup.sh"
+sudo chmod +x "$V15_DIR/server_v2/tools/backup_container.sh"
 
 # ---------------------------------------------------------------------------
 # Step 9: Build and start SAv1.5 containers (sequential to avoid OOM)
