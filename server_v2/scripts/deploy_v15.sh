@@ -230,10 +230,9 @@ services:
     image: amazon/aws-cli:latest
     container_name: v15_backup
     entrypoint: ["/bin/bash"]
-    command: ["/app/server_v2/tools/backup_container.sh"]
+    command: ["/app/tools/backup_container_v15.sh"]
     volumes:
       - ./server:/app:ro
-      - ./server_v2/tools:/app/server_v2/tools:ro
     environment:
       - PROJECT_NAME=study-amigo
       - BACKUP_PREFIX=backups/v15
