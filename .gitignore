@@ -37,6 +37,7 @@ exam_prep/*/*.csv
 server_lambda/package/
 server_lambda/lambda_deployment*
 server_lambda/docs/Screenshot*
+server_v2/Screenshot*
 server_lambda/docs/*pdf
 server_lambda/terraform/.terraform*
 server_lambda/deployments/
