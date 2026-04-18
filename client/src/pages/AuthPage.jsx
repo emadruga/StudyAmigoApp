@@ -90,17 +90,11 @@ function AuthPage({ onLoginSuccess }) {
           {t('auth.login')}
         </button>
         <button
-          style={activeTab === 'register' ? activeTabStyles : { ...inactiveTabStyles, color: '#aaa', cursor: 'not-allowed' }}
+          style={{ ...inactiveTabStyles, color: '#aaa', cursor: 'not-allowed' }}
           disabled
-          title={t('auth.register.disabledTooltip')}
+          title={t('auth.registerDisabledTooltip')}
         >
           {t('auth.register')}
-        </button>
-        <button
-          style={activeTab === 'changePassword' ? activeTabStyles : inactiveTabStyles}
-          onClick={() => setActiveTab('changePassword')}
-        >
-          {t('auth.changePassword.tab')}
         </button>
       </div>
       <div style={formContainerStyles}>
@@ -111,9 +105,6 @@ function AuthPage({ onLoginSuccess }) {
           />
         )}
         {activeTab === 'forgotPassword' && (
-          <ForgotPasswordForm onBack={() => setActiveTab('login')} />
-        )}
-        {activeTab === 'changePassword' && (
           <ForgotPasswordForm onBack={() => setActiveTab('login')} />
         )}
       </div>

@@ -31,9 +31,7 @@
     "passwordPlaceholder": "Enter your password",
     "namePlaceholder": "Enter your name",
     "confirmPasswordPlaceholder": "Confirm your password",
-    "register": {
-      "disabledTooltip": "Registration is currently closed. Contact your administrator."
-    },
+    "registerDisabledTooltip": "Registration is currently closed. Contact your administrator.",
     "forgotPassword": {
       "link": "Forgot your password?",
       "title": "Reset Password",

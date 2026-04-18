@@ -31,9 +31,7 @@
     "passwordPlaceholder": "Ingresa tu contraseña",
     "namePlaceholder": "Ingresa tu nombre",
     "confirmPasswordPlaceholder": "Confirma tu contraseña",
-    "register": {
-      "disabledTooltip": "El registro está temporalmente cerrado. Contacta al administrador."
-    },
+    "registerDisabledTooltip": "El registro está temporalmente cerrado. Contacta al administrador.",
     "forgotPassword": {
       "link": "¿Olvidaste tu contraseña?",
       "title": "Restablecer Contraseña",

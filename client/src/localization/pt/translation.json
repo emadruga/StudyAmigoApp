@@ -31,9 +31,7 @@
     "passwordPlaceholder": "Digite sua senha",
     "namePlaceholder": "Digite seu nome",
     "confirmPasswordPlaceholder": "Confirme sua senha",
-    "register": {
-      "disabledTooltip": "O cadastro está temporariamente fechado. Entre em contato com o administrador."
-    },
+    "registerDisabledTooltip": "O cadastro está temporariamente fechado. Entre em contato com o administrador.",
     "forgotPassword": {
       "link": "Esqueceu sua senha?",
       "title": "Redefinir Senha",
