@@ -31,6 +31,37 @@
     "passwordPlaceholder": "Ingresa tu contraseña",
     "namePlaceholder": "Ingresa tu nombre",
     "confirmPasswordPlaceholder": "Confirma tu contraseña",
+    "register": {
+      "disabledTooltip": "El registro está temporalmente cerrado. Contacta al administrador."
+    },
+    "forgotPassword": {
+      "link": "¿Olvidaste tu contraseña?",
+      "title": "Restablecer Contraseña",
+      "instructions": "Ingresa tu correo electrónico y te enviaremos un enlace para restablecer tu contraseña.",
+      "button": "Enviar enlace de restablecimiento",
+      "sending": "Enviando...",
+      "sent": "Si ese correo está registrado, se ha enviado un enlace de restablecimiento. Revisa tu bandeja de entrada.",
+      "failed": "Error al enviar el correo de restablecimiento. Por favor, inténtalo de nuevo.",
+      "backToLogin": "Volver al inicio de sesión"
+    },
+    "resetPassword": {
+      "title": "Establecer Nueva Contraseña",
+      "button": "Establecer Contraseña",
+      "saving": "Guardando...",
+      "success": "¡Contraseña establecida con éxito! Ya puedes iniciar sesión.",
+      "failed": "Error al restablecer la contraseña. El enlace puede haber expirado.",
+      "goToLogin": "Ir al Inicio de Sesión"
+    },
+    "changePassword": {
+      "tab": "Cambiar Contraseña",
+      "title": "Cambiar Contraseña",
+      "current": "Contraseña Actual:",
+      "newPlaceholder": "Ingresa la nueva contraseña",
+      "button": "Cambiar Contraseña",
+      "saving": "Guardando...",
+      "success": "¡Contraseña cambiada con éxito!",
+      "failed": "Error al cambiar la contraseña. Por favor, inténtalo de nuevo."
+    },
     "errors": {
       "required": "Todos los campos son obligatorios.",
       "passwordMatch": "Las contraseñas no coinciden",
@@ -38,7 +69,8 @@
       "registerFailed": "Error al registrarse. Por favor, inténtalo de nuevo.",
       "usernameLength": "El usuario no puede exceder {{max}} caracteres.",
       "nameLength": "El nombre no puede exceder {{max}} caracteres.",
-      "passwordLength": "La contraseña debe tener entre {{min}} y {{max}} caracteres."
+      "passwordLength": "La contraseña debe tener entre {{min}} y {{max}} caracteres.",
+      "invalidEmail": "Por favor, ingresa una dirección de correo electrónico válida."
     }
   },
   "decks": {
