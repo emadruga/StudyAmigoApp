@@ -42,6 +42,11 @@ SES_AWS_REGION            = os.getenv('SES_AWS_REGION', 'us-east-1')
 APP_BASE_URL               = os.getenv('APP_BASE_URL', 'http://localhost:5173')
 PASSWORD_RESET_TOKEN_TTL   = 3600  # seconds (1 hour)
 
+# Rate limiting for /request-password-reset: max 5 requests per IP per 10 minutes
+_reset_rate_limit: dict = {}
+RESET_RATE_LIMIT_MAX    = 5
+RESET_RATE_LIMIT_WINDOW = 600  # seconds
+
 
 # Get the directory where app.py resides
 basedir = os.path.abspath(os.path.dirname(__file__))
@@ -1432,6 +1437,16 @@ def _send_reset_email(recipient_email: str, recipient_name: str, token: str):
 @app.route('/request-password-reset', methods=['POST'])
 def request_password_reset():
     """Request a password reset email (SAv1.5). Always returns 200 to avoid email enumeration."""
+    ip = request.remote_addr
+    now = time.time()
+    timestamps = _reset_rate_limit.get(ip, [])
+    timestamps = [t for t in timestamps if now - t < RESET_RATE_LIMIT_WINDOW]
+    if len(timestamps) >= RESET_RATE_LIMIT_MAX:
+        app.logger.warning(f"Rate limit exceeded for /request-password-reset from {ip}")
+        return jsonify({"error": "Too many requests. Try again later."}), 429
+    timestamps.append(now)
+    _reset_rate_limit[ip] = timestamps
+
     data = request.get_json()
     if not data or 'email' not in data:
         return jsonify({"error": "Email is required"}), 400
