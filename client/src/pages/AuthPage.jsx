@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import LoginForm from '../components/LoginForm.jsx';
-import ChangePasswordForm from '../components/ChangePasswordForm.jsx';
 import ForgotPasswordForm from '../components/ForgotPasswordForm.jsx';
 import ResetPasswordForm from '../components/ResetPasswordForm.jsx';
 
@@ -114,7 +113,9 @@ function AuthPage({ onLoginSuccess }) {
         {activeTab === 'forgotPassword' && (
           <ForgotPasswordForm onBack={() => setActiveTab('login')} />
         )}
-        {activeTab === 'changePassword' && <ChangePasswordForm />}
+        {activeTab === 'changePassword' && (
+          <ForgotPasswordForm onBack={() => setActiveTab('login')} />
+        )}
       </div>
     </div>
   );
