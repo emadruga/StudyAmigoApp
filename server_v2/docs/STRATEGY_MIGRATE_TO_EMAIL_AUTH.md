@@ -1,5 +1,21 @@
 # Estratégia de Branching e PRs — Migração SAv1.5 (Auth por Email)
 
+## ⚠️ Ambientes — Nunca Confundir
+
+| Ambiente | Containers | Porta | Diretório EC2 | Propósito |
+|---|---|---|---|---|
+| **SA-v1 (produção)** | `flashcard_server`, `flashcard_client` | 8081 | `/opt/study-amigo/server` | Alunos em uso — **NÃO TOCAR** |
+| **SAv1.5 (staging)** | `v15_server`, `v15_client` | 8082 | `/opt/study-amigo-v15/server` | Testes da migração de email |
+
+**Regra absoluta:** Toda alteração de código, banco e `.env` para SAv1.5 vai EXCLUSIVAMENTE em:
+- Código local: `server/app.py` (este repositório, branch atual)
+- EC2: `/opt/study-amigo-v15/server/`
+- Container: `v15_server` / `v15_client`
+
+**Nunca** tocar em `flashcard_server`, `flashcard_client`, ou `/opt/study-amigo/` ao trabalhar na SAv1.5.
+
+---
+
 ## Contexto
 
 Este documento define a estratégia de controle de versão para a migração SAv1.5, descrita em detalhe em `PLAN_MIGRATE_TO_EMAIL_AUTH.md`. O objetivo é implementar autenticação por email e troca de senha sem quebrar a produção durante o desenvolvimento.
@@ -84,6 +100,11 @@ Nível 3 — concorrência (roda contra servidor paralelo em :8082):
 [ ] python server/test_race_condition/test_frontend_flow.py \
       --url http://54.152.109.26:8082                      → sem race conditions
 
+Infra (pré-requisito de ambiente):
+[ ] IAM role da instância EC2 tem permissão ses:SendEmail para identity/noreply@metads.app
+[ ] server/.env contém: SES_SENDER_EMAIL, SES_AWS_REGION, APP_BASE_URL
+[ ] docker compose restart server após atualizar .env
+
 Dados (pré-requisito de infra):
 [ ] add_email_to_admin_db.py --production executado com sucesso
 [ ] Zero usuários com email NULL no admin.db de produção
@@ -152,6 +173,7 @@ Dado que o servidor paralelo já é o mecanismo principal de segurança, um bran
 | Servidor paralelo é a staging | Toda validação ocorre em `:8082`, nunca em `:80` |
 | Dados de produção protegidos | `add_email_to_admin_db.py` roda com `--dry-run` primeiro, sempre |
 | `main` nunca recebe PR 2 sem emails populados | Rodar `add_email_to_admin_db.py --production` **antes** do deploy do `app.py` novo |
+| Ambiente configurado antes do deploy | IAM role EC2 com `ses:SendEmail` + `SES_SENDER_EMAIL`, `SES_AWS_REGION`, `APP_BASE_URL` no `server/.env` |
 
 ---
 

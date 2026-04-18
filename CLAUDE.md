@@ -1,5 +1,27 @@
 # JAVUMBO Flashcard Application
 
+> ⚠️ **MÚLTIPLAS VERSÕES EM PRODUÇÃO — LEIA ANTES DE ALTERAR QUALQUER ARQUIVO**
+>
+> Este repositório suporta duas versões simultâneas rodando no mesmo EC2 (`54.152.109.26`), separadas por domínio via nginx na porta 80:
+>
+> | Versão | Domínio | Porta interna | Diretório EC2 | Containers Docker |
+> |---|---|---|---|---|
+> | **SAv1.0** (legado, emergência) | `antigo.study-amigo.app` | `8081` | `/opt/study-amigo/` | `flashcard_server`, `flashcard_client` |
+> | **SAv1.5** (produção atual) | `study-amigo.app` | `8082` | `/opt/study-amigo-v15/` | `v15_server`, `v15_client` |
+>
+> **Regra absoluta:** Qualquer alteração de código, banco ou `.env` para SAv1.5 vai EXCLUSIVAMENTE nos containers/diretório v15. Nunca tocar em `flashcard_server`/`flashcard_client` ao trabalhar na SAv1.5.
+>
+> **Docs de referência para entender o funcionamento multi-versão:**
+> - `server_v2/docs/STRATEGY_MIGRATE_TO_EMAIL_AUTH.md` — estratégia de branching, PRs e regras de proteção entre versões
+> - `server_v2/docs/PLAN_MIGRATE_TO_EMAIL_AUTH.md` — plano técnico detalhado da migração SAv1.0 → SAv1.5
+> - `server_v2/docs/NEW_DOCKER_ARRANGEMENT_TO_EMAIL_AUTH.md` — arranjo Docker das duas versões paralelas
+>
+> **Tags git de referência:**
+> - `sav1.0-final` — último commit da SAv1.0 (auth por username)
+> - `sav1.5-start` — primeiro commit da SAv1.5 (auth por email)
+
+---
+
 This document provides a comprehensive overview of the JAVUMBO flashcard application, a full-stack project designed for spaced repetition learning. The application is composed of a React frontend, a Python Flask backend, and a separate administrative interface.
 
 ## 1. Architecture
