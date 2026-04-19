@@ -22,29 +22,24 @@ const LANGUAGES = [
 
 function FlagSelector() {
   const { i18n } = useTranslation();
+  const current = LANGUAGES.find(l => l.code === i18n.language) || LANGUAGES[0];
   return (
-    <span style={{ display: 'flex', gap: '6px', alignItems: 'center' }}>
+    <select
+      value={current.code}
+      onChange={(e) => i18n.changeLanguage(e.target.value)}
+      style={{
+        fontSize: '18px',
+        border: '1px solid #ccc',
+        borderRadius: '4px',
+        padding: '2px 4px',
+        cursor: 'pointer',
+        background: 'white',
+      }}
+    >
       {LANGUAGES.map(({ code, flag }) => (
-        <button
-          key={code}
-          type="button"
-          onClick={() => i18n.changeLanguage(code)}
-          title={code}
-          style={{
-            background: 'none',
-            border: i18n.language === code ? '2px solid #4a6eb5' : '2px solid transparent',
-            borderRadius: '4px',
-            cursor: 'pointer',
-            padding: '1px 3px',
-            fontSize: '20px',
-            lineHeight: 1,
-            opacity: i18n.language === code ? 1 : 0.5,
-          }}
-        >
-          {flag}
-        </button>
+        <option key={code} value={code}>{flag}</option>
       ))}
-    </span>
+    </select>
   );
 }
 
