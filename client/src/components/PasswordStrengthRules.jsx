@@ -20,20 +20,44 @@ function generatePassword() {
   const special = '!@#$%&*?';
   const all     = upper + lower + digits + special;
 
-  // Guarantee at least one of each required class
   const pick = (src) => src[Math.floor(Math.random() * src.length)];
   const required = [pick(upper), pick(lower), pick(digits), pick(special)];
-
   const remaining = Array.from({ length: 8 }, () => pick(all));
   const combined  = [...required, ...remaining];
 
-  // Fisher-Yates shuffle
   for (let i = combined.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     [combined[i], combined[j]] = [combined[j], combined[i]];
   }
   return combined.join('');
 }
+
+const wrapperStyle = {
+  position: 'relative',
+  marginBottom: '10px',
+};
+
+const inputStyle = {
+  display: 'block',
+  width: 'calc(100% - 20px)',
+  padding: '8px 36px 8px 8px',
+  border: '1px solid #ccc',
+  borderRadius: '4px',
+};
+
+const eyeButtonStyle = {
+  position: 'absolute',
+  right: '24px',
+  top: '50%',
+  transform: 'translateY(-50%)',
+  background: 'none',
+  border: 'none',
+  cursor: 'pointer',
+  padding: '0',
+  fontSize: '16px',
+  color: '#666',
+  lineHeight: 1,
+};
 
 const ruleListStyle = {
   listStyle: 'none',
@@ -60,13 +84,43 @@ const smallButtonStyle = (color) => ({
   whiteSpace: 'nowrap',
 });
 
-export default function PasswordStrengthRules({ password, onGenerate }) {
+// Campo de senha com ícone de olho para mostrar/ocultar
+export function PasswordInput({ id, value, onChange, placeholder, minLength, maxLength, required }) {
+  const [visible, setVisible] = useState(false);
+  return (
+    <div style={wrapperStyle}>
+      <input
+        type={visible ? 'text' : 'password'}
+        id={id}
+        value={value}
+        onChange={onChange}
+        placeholder={placeholder}
+        minLength={minLength}
+        maxLength={maxLength}
+        required={required}
+        style={inputStyle}
+      />
+      <button
+        type="button"
+        onClick={() => setVisible((v) => !v)}
+        style={eyeButtonStyle}
+        tabIndex={-1}
+        aria-label={visible ? 'Ocultar senha' : 'Mostrar senha'}
+      >
+        {visible ? '🙈' : '👁️'}
+      </button>
+    </div>
+  );
+}
+
+export default function PasswordStrengthRules({ password, onGenerate, onConfirm }) {
   const { t } = useTranslation();
   const [copied, setCopied] = useState(false);
 
   const handleGenerate = () => {
     const pwd = generatePassword();
     onGenerate(pwd);
+    if (onConfirm) onConfirm(pwd);
     setCopied(false);
   };
 

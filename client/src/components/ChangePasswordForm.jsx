@@ -1,16 +1,8 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import api from '../api/axiosConfig.js';
-import PasswordStrengthRules, { validatePassword } from './PasswordStrengthRules.jsx';
+import PasswordStrengthRules, { validatePassword, PasswordInput } from './PasswordStrengthRules.jsx';
 
-const inputStyle = {
-  display: 'block',
-  width: 'calc(100% - 20px)',
-  padding: '8px',
-  marginBottom: '10px',
-  border: '1px solid #ccc',
-  borderRadius: '4px'
-};
 const buttonStyle = {
   padding: '10px 20px',
   backgroundColor: '#6c5ce7',
@@ -21,6 +13,15 @@ const buttonStyle = {
 };
 const errorStyle = { color: 'red', marginBottom: '10px' };
 const successStyle = { color: 'green', marginBottom: '10px' };
+
+const inputStyle = {
+  display: 'block',
+  width: 'calc(100% - 20px)',
+  padding: '8px',
+  marginBottom: '10px',
+  border: '1px solid #ccc',
+  borderRadius: '4px'
+};
 
 function ChangePasswordForm() {
   const { t } = useTranslation();
@@ -95,30 +96,27 @@ function ChangePasswordForm() {
       />
 
       <label htmlFor="cp-new">{t('auth.passwordWithLimit', { min: 10, max: 20 })}</label>
-      <input
-        type="password"
+      <PasswordInput
         id="cp-new"
         value={newPassword}
         onChange={(e) => setNewPassword(e.target.value)}
         minLength="10"
         maxLength="20"
         required
-        style={inputStyle}
         placeholder={t('auth.changePassword.newPlaceholder')}
       />
       <PasswordStrengthRules
         password={newPassword}
         onGenerate={(pwd) => setNewPassword(pwd)}
+        onConfirm={(pwd) => setConfirmPassword(pwd)}
       />
 
       <label htmlFor="cp-confirm">{t('auth.confirmPassword')}</label>
-      <input
-        type="password"
+      <PasswordInput
         id="cp-confirm"
         value={confirmPassword}
         onChange={(e) => setConfirmPassword(e.target.value)}
         required
-        style={inputStyle}
         placeholder={t('auth.confirmPasswordPlaceholder')}
       />
 
