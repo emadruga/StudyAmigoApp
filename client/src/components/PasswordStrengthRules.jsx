@@ -14,23 +14,47 @@ export function validatePassword(password) {
 }
 
 function generatePassword() {
+  // [nome, gênero: 'm' | 'f']
   const animals = [
-    'Elefante', 'Cavalo', 'Golfinho', 'Tigre', 'Leao', 'Urso',
-    'Pinguim', 'Macaco', 'Girafa', 'Zebra', 'Lobo', 'Raposa',
-    'Gato', 'Cachorro', 'Coelho', 'Pato', 'Aguia', 'Cobra',
+    ['Elefante', 'm'], ['Cavalo', 'm'], ['Golfinho', 'm'], ['Tigre', 'm'],
+    ['Leao', 'm'],     ['Urso', 'm'],   ['Pinguim', 'm'], ['Macaco', 'm'],
+    ['Lobo', 'm'],     ['Gato', 'm'],   ['Cachorro', 'm'], ['Coelho', 'm'],
+    ['Pato', 'm'],     ['Cobra', 'f'],  ['Girafa', 'f'],  ['Zebra', 'f'],
+    ['Raposa', 'f'],   ['Aguia', 'f'],
   ];
+
+  // [forma masc, forma fem]
   const adjectives = [
-    'Manco', 'Perneta', 'Alegre', 'Feliz', 'Doido', 'Valente',
-    'Esperto', 'Rapido', 'Lento', 'Bravo', 'Manso', 'Gordo',
-    'Magro', 'Alto', 'Baixo', 'Fofinho', 'Brioso', 'Teimoso',
+    ['Manco', 'Manca'],       ['Alegre', 'Alegre'],
+    ['Feliz', 'Feliz'],       ['Doido', 'Doida'],
+    ['Valente', 'Valente'],   ['Esperto', 'Esperta'],
+    ['Rapido', 'Rapida'],     ['Lento', 'Lenta'],
+    ['Bravo', 'Brava'],       ['Manso', 'Mansa'],
+    ['Gordo', 'Gorda'],       ['Magro', 'Magra'],
+    ['Alto', 'Alta'],         ['Baixo', 'Baixa'],
+    ['Fofinho', 'Fofinha'],   ['Brioso', 'Briosa'],
+    ['Teimoso', 'Teimosa'],   ['Perneta', 'Perneta'],
   ];
+
   const separators = ['@', ':', '|'];
 
   const pick = (arr) => arr[Math.floor(Math.random() * arr.length)];
-  const number = String(Math.floor(Math.random() * 900000) + 100000); // 6 dígitos
+
+  const [animalName, gender] = pick(animals);
+  const adjPair = pick(adjectives);
+  const adjective = gender === 'f' ? adjPair[1] : adjPair[0];
+  const number = String(Math.floor(Math.random() * 900000) + 100000);
   const sep = pick(separators);
 
-  return `${pick(animals)}${sep}${pick(adjectives)}${sep}${number}`;
+  // Número em posição aleatória: 0=início, 1=meio, 2=fim
+  const pos = Math.floor(Math.random() * 3);
+  const parts = pos === 0
+    ? [number, animalName, adjective]
+    : pos === 1
+    ? [animalName, number, adjective]
+    : [animalName, adjective, number];
+
+  return parts.join(sep);
 }
 
 const wrapperStyle = {
