@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import api from '../api/axiosConfig.js';
+import PasswordStrengthRules, { validatePassword } from './PasswordStrengthRules.jsx';
 
 const inputStyle = {
   display: 'block',
@@ -17,15 +18,6 @@ const buttonStyle = {
   border: 'none',
   borderRadius: '4px',
   cursor: 'pointer'
-};
-const linkStyle = {
-  background: 'none',
-  border: 'none',
-  color: '#4a6eb5',
-  cursor: 'pointer',
-  fontSize: '13px',
-  padding: 0,
-  textDecoration: 'underline'
 };
 const errorStyle = { color: 'red', marginBottom: '10px' };
 const successStyle = { color: 'green', marginBottom: '10px' };
@@ -49,6 +41,10 @@ function ResetPasswordForm({ token, onDone }) {
     }
     if (newPassword.length < 10 || newPassword.length > 20) {
       setError(t('auth.errors.passwordLength', { min: 10, max: 20 }));
+      return;
+    }
+    if (!validatePassword(newPassword)) {
+      setError(t('auth.errors.passwordComplexity'));
       return;
     }
     if (newPassword !== confirmPassword) {
@@ -92,6 +88,10 @@ function ResetPasswordForm({ token, onDone }) {
             required
             style={inputStyle}
             placeholder={t('auth.changePassword.newPlaceholder')}
+          />
+          <PasswordStrengthRules
+            password={newPassword}
+            onGenerate={(pwd) => setNewPassword(pwd)}
           />
           <label htmlFor="rp-confirm">{t('auth.confirmPassword')}</label>
           <input

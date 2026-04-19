@@ -68,7 +68,20 @@
       "usernameLength": "El usuario no puede exceder {{max}} caracteres.",
       "nameLength": "El nombre no puede exceder {{max}} caracteres.",
       "passwordLength": "La contraseña debe tener entre {{min}} y {{max}} caracteres.",
+      "passwordComplexity": "La contraseña debe contener una letra mayúscula, una minúscula, un número y un carácter especial.",
       "invalidEmail": "Por favor, ingresa una dirección de correo electrónico válida."
+    },
+    "passwordHelper": {
+      "generate": "Generar contraseña",
+      "copy": "Copiar",
+      "copied": "¡Copiado!",
+      "rules": {
+        "minLength": "Mínimo 10 caracteres",
+        "uppercase": "Letra mayúscula (A-Z)",
+        "lowercase": "Letra minúscula (a-z)",
+        "number": "Número (0-9)",
+        "special": "Carácter especial (!@#$%&*?)"
+      }
     }
   },
   "decks": {

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import api from '../api/axiosConfig.js';
+import PasswordStrengthRules, { validatePassword } from './PasswordStrengthRules.jsx';
 
 const inputStyle = {
   display: 'block',
@@ -42,6 +43,11 @@ function ChangePasswordForm() {
 
     if (newPassword.length < 10 || newPassword.length > 20) {
       setError(t('auth.errors.passwordLength', { min: 10, max: 20 }));
+      return;
+    }
+
+    if (!validatePassword(newPassword)) {
+      setError(t('auth.errors.passwordComplexity'));
       return;
     }
 
@@ -99,6 +105,10 @@ function ChangePasswordForm() {
         required
         style={inputStyle}
         placeholder={t('auth.changePassword.newPlaceholder')}
+      />
+      <PasswordStrengthRules
+        password={newPassword}
+        onGenerate={(pwd) => setNewPassword(pwd)}
       />
 
       <label htmlFor="cp-confirm">{t('auth.confirmPassword')}</label>
