@@ -14,6 +14,40 @@ const buttonStyle = {
 const errorStyle = { color: 'red', marginBottom: '10px' };
 const successStyle = { color: 'green', marginBottom: '10px' };
 
+const LANGUAGES = [
+  { code: 'pt', flag: '🇧🇷' },
+  { code: 'en', flag: '🇺🇸' },
+  { code: 'es', flag: '🇪🇸' },
+];
+
+function FlagSelector() {
+  const { i18n } = useTranslation();
+  return (
+    <span style={{ display: 'flex', gap: '6px', alignItems: 'center' }}>
+      {LANGUAGES.map(({ code, flag }) => (
+        <button
+          key={code}
+          type="button"
+          onClick={() => i18n.changeLanguage(code)}
+          title={code}
+          style={{
+            background: 'none',
+            border: i18n.language === code ? '2px solid #4a6eb5' : '2px solid transparent',
+            borderRadius: '4px',
+            cursor: 'pointer',
+            padding: '1px 3px',
+            fontSize: '20px',
+            lineHeight: 1,
+            opacity: i18n.language === code ? 1 : 0.5,
+          }}
+        >
+          {flag}
+        </button>
+      ))}
+    </span>
+  );
+}
+
 function ResetPasswordForm({ token, onDone }) {
   const { t } = useTranslation();
   const [newPassword, setNewPassword] = useState('');
@@ -58,7 +92,10 @@ function ResetPasswordForm({ token, onDone }) {
 
   return (
     <form onSubmit={handleSubmit}>
-      <h2>{t('auth.resetPassword.title')}</h2>
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '12px' }}>
+        <h2 style={{ margin: 0 }}>{t('auth.resetPassword.title')}</h2>
+        <FlagSelector />
+      </div>
       {error && <p style={errorStyle}>{error}</p>}
       {success ? (
         <>
