@@ -14,22 +14,23 @@ export function validatePassword(password) {
 }
 
 function generatePassword() {
-  const upper   = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-  const lower   = 'abcdefghijklmnopqrstuvwxyz';
-  const digits  = '0123456789';
-  const special = '!@#$%&*?';
-  const all     = upper + lower + digits + special;
+  const animals = [
+    'Elefante', 'Cavalo', 'Golfinho', 'Tigre', 'Leao', 'Urso',
+    'Pinguim', 'Macaco', 'Girafa', 'Zebra', 'Lobo', 'Raposa',
+    'Gato', 'Cachorro', 'Coelho', 'Pato', 'Aguia', 'Cobra',
+  ];
+  const adjectives = [
+    'Manco', 'Perneta', 'Alegre', 'Feliz', 'Doido', 'Valente',
+    'Esperto', 'Rapido', 'Lento', 'Bravo', 'Manso', 'Gordo',
+    'Magro', 'Alto', 'Baixo', 'Fofinho', 'Brioso', 'Teimoso',
+  ];
+  const separators = ['@', ':', '|'];
 
-  const pick = (src) => src[Math.floor(Math.random() * src.length)];
-  const required = [pick(upper), pick(lower), pick(digits), pick(special)];
-  const remaining = Array.from({ length: 8 }, () => pick(all));
-  const combined  = [...required, ...remaining];
+  const pick = (arr) => arr[Math.floor(Math.random() * arr.length)];
+  const number = String(Math.floor(Math.random() * 900000) + 100000); // 6 dígitos
+  const sep = pick(separators);
 
-  for (let i = combined.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [combined[i], combined[j]] = [combined[j], combined[i]];
-  }
-  return combined.join('');
+  return `${pick(animals)}${sep}${pick(adjectives)}${sep}${number}`;
 }
 
 const wrapperStyle = {
