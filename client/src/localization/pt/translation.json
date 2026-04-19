@@ -38,7 +38,7 @@
       "instructions": "Digite seu email e enviaremos um link para redefinir sua senha.",
       "button": "Enviar link de redefinição",
       "sending": "Enviando...",
-      "sent": "Se esse email estiver cadastrado, um link de redefinição foi enviado. Verifique sua caixa de entrada.",
+      "sent": "Se esse email estiver cadastrado, um link de redefinição foi enviado. Verifique sua caixa de entrada — se não encontrar, confira também a pasta de Spam ou Lixo Eletrônico.",
       "failed": "Falha ao enviar o email de redefinição. Por favor, tente novamente.",
       "backToLogin": "Voltar ao login"
     },

@@ -38,7 +38,7 @@
       "instructions": "Ingresa tu correo electrónico y te enviaremos un enlace para restablecer tu contraseña.",
       "button": "Enviar enlace de restablecimiento",
       "sending": "Enviando...",
-      "sent": "Si ese correo está registrado, se ha enviado un enlace de restablecimiento. Revisa tu bandeja de entrada.",
+      "sent": "Si ese correo está registrado, se ha enviado un enlace de restablecimiento. Revisa tu bandeja de entrada — si no lo encuentras, revisa también la carpeta de Spam o Correo no deseado.",
       "failed": "Error al enviar el correo de restablecimiento. Por favor, inténtalo de nuevo.",
       "backToLogin": "Volver al inicio de sesión"
     },
