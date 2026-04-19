@@ -106,6 +106,44 @@ A separate, simpler interface for system administrators to perform management ta
 
 ---
 
+## 4.5 Deploy Rápido do Client (SAv1.5) — MacBook M1 → EC2 amd64
+
+> **Contexto:** MacBook M1 = ARM64; EC2 = amd64. `docker compose build` remoto leva 3+ min (npm ci + build no container). O fluxo abaixo leva ~30s usando build local e transferência da imagem.
+
+### Pré-requisito
+Docker Desktop rodando no Mac (para suporte ao `buildx --platform linux/amd64`).
+
+### Fluxo
+
+```bash
+# 1. Build cross-platform local
+cd client && npm run build
+docker buildx build --platform linux/amd64 -t v15-client-local --load .
+
+# 2. Enviar imagem ao EC2
+docker save v15-client-local | gzip | \
+  ssh -i ~/.ssh/study-amigo-aws ubuntu@54.152.109.26 \
+  "gunzip | sudo docker load"
+
+# 3. Restartar o container com a nova imagem
+ssh -i ~/.ssh/study-amigo-aws ubuntu@54.152.109.26 \
+  "sudo docker stop v15_client && sudo docker rm v15_client && \
+   cd /opt/study-amigo-v15 && sudo docker compose up -d client"
+```
+
+### Alternativa mais simples (só atualiza arquivos estáticos)
+Se o Dockerfile do client for nginx servindo arquivos estáticos, basta copiar o `dist/` para dentro do container em execução:
+
+```bash
+cd client && npm run build
+scp -r -i ~/.ssh/study-amigo-aws dist/ ubuntu@54.152.109.26:/tmp/client-dist/
+ssh -i ~/.ssh/study-amigo-aws ubuntu@54.152.109.26 \
+  "sudo docker cp /tmp/client-dist/. v15_client:/usr/share/nginx/html/ && \
+   sudo docker exec v15_client nginx -s reload"
+```
+
+---
+
 ## 5. Deployment
 
 The application is designed to be deployed using two primary methods.
