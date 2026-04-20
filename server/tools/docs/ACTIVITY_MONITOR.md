@@ -103,8 +103,8 @@ python activity_monitor.py [OPTIONS]
 | `--week N` | *(latest)* | Select a specific rotation week (1–4) |
 | `--day NAME` | *(latest)* | Select a specific day of the week (e.g. `friday`) |
 | `--list-slots` | *(off)* | Print all available slots and prompt for interactive selection |
-| `--s3-prefix PREFIX` | `backups` | S3 key prefix for backup slots. Use `backups/v15` for SAv1.5. |
-| `--v15` | *(off)* | Shortcut for SAv1.5: sets `--s3-prefix backups/v15`, `--remote-path /opt/study-amigo-v15/server`, `--container v15_server` |
+| `--s3-prefix PREFIX` | `backups/v15` | S3 key prefix for backup slots. Use `backups` for SAv1.0. |
+| `--v10` | *(off)* | Shortcut for SAv1.0 (legacy): sets `--s3-prefix backups`, `--remote-path /opt/study-amigo/server`, `--container flashcard_server` |
 
 When neither `--week`/`--day` nor `--list-slots` is given, the **most recent
 complete** slot is selected automatically.
@@ -113,10 +113,10 @@ complete** slot is selected automatically.
 
 Both versions write to the same bucket but use different prefixes:
 
-| Version | S3 prefix | Backup time |
-|---------|-----------|-------------|
-| SAv1.0 | `backups/week-{1..4}/{day}/` | 06:00 UTC daily |
-| SAv1.5 | `backups/v15/week-{1..4}/{day}/` | 08:00 UTC daily |
+| Version | S3 prefix | Backup time | Default? |
+|---------|-----------|-------------|----------|
+| SAv1.5 | `backups/v15/week-{1..4}/{day}/` | 08:00 UTC daily | **sim** |
+| SAv1.0 | `backups/week-{1..4}/{day}/` | 06:00 UTC daily | não — use `--v10` |
 
 ### SSH / live-production options (fallback)
 
@@ -125,8 +125,8 @@ Both versions write to the same bucket but use different prefixes:
 | `--host HOST` | *(none — triggers SSH mode)* | EC2 Elastic IP or hostname |
 | `--key PATH` | `~/.ssh/study-amigo-aws` | SSH private key path |
 | `--user USER` | `ubuntu` | SSH login user |
-| `--remote-path PATH` | `/opt/study-amigo/server` | Path to the server directory on EC2 (SAv1.0 default; `--v15` changes this to `/opt/study-amigo-v15/server`) |
-| `--container NAME` | `flashcard_server` | Docker container name (SAv1.0 default; `--v15` changes this to `v15_server`) |
+| `--remote-path PATH` | `/opt/study-amigo-v15/server` | Path to the server directory on EC2 (SAv1.5 default; `--v10` changes this to `/opt/study-amigo/server`) |
+| `--container NAME` | `v15_server` | Docker container name (SAv1.5 default; `--v10` changes this to `flashcard_server`) |
 
 ### Local-only mode (no network)
 
@@ -150,7 +150,7 @@ python activity_monitor.py --interval week --local-only \
 ## Examples
 
 ```bash
-# ── SAv1.0 — S3 (default) ─────────────────────────────────────────────────
+# ── SAv1.5 — S3 (default, prefix: backups/v15) ───────────────────────────
 
 # Most common: last week, auto-select latest complete backup
 python activity_monitor.py --interval week --profile study-amigo
@@ -162,42 +162,30 @@ python activity_monitor.py --interval week \
 # Last month
 python activity_monitor.py --interval month --profile study-amigo
 
-# Specific slot (week 2, tuesday)
+# Specific slot (week 1, thursday)
 python activity_monitor.py --interval week --profile study-amigo \
-    --week 2 --day tuesday
-
-# Interactive slot picker
-python activity_monitor.py --interval week --profile study-amigo \
-    --list-slots
-
-# ── SAv1.5 — S3 (prefix: backups/v15) ────────────────────────────────────
-
-# Shortcut: --v15 sets prefix + remote-path + container automatically
-python activity_monitor.py --interval week --v15 --profile study-amigo
-
-# Explicit bucket
-python activity_monitor.py --interval week --v15 \
-    --bucket study-amigo-backups-645069181643 --profile study-amigo
-
-# Specific slot
-python activity_monitor.py --interval week --v15 --profile study-amigo \
     --week 1 --day thursday
 
 # Interactive slot picker
-python activity_monitor.py --interval week --v15 --profile study-amigo \
+python activity_monitor.py --interval week --profile study-amigo \
     --list-slots
 
-# Equivalent without --v15 shortcut
-python activity_monitor.py --interval week --profile study-amigo \
-    --s3-prefix backups/v15
+# ── SAv1.0 — S3 legacy (prefix: backups/) ────────────────────────────────
+
+# Shortcut: --v10 sets prefix + remote-path + container to SAv1.0 values
+python activity_monitor.py --interval week --v10 --profile study-amigo
+
+# Specific slot
+python activity_monitor.py --interval week --v10 --profile study-amigo \
+    --week 2 --day tuesday
 
 # ── SSH / live production ─────────────────────────────────────────────────
 
-# SAv1.0 — pull directly from production (useful before first backup exists)
+# SAv1.5 — pull from live v15 stack (default)
 python activity_monitor.py --interval week --host 54.152.109.26
 
-# SAv1.5 — pull from live v15 stack
-python activity_monitor.py --interval week --v15 --host 54.152.109.26
+# SAv1.0 — pull directly from legacy production
+python activity_monitor.py --interval week --v10 --host 54.152.109.26
 
 # Non-default key / remote path
 python activity_monitor.py --interval month \

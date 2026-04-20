@@ -8,30 +8,25 @@ ranking.
 
 DATA SOURCE (pick one — S3 is the default):
 
-  S3 backup — SAv1.0 (default prefix: backups/):
+  S3 backup — SAv1.5 (default, prefix: backups/v15/):
     python activity_monitor.py --interval week \\
         --bucket study-amigo-backups-645069181643 \\
         --profile study-amigo
 
-  S3 backup — SAv1.5 (prefix: backups/v15/):
-    python activity_monitor.py --interval week --v15 \\
-        --bucket study-amigo-backups-645069181643 \\
-        --profile study-amigo
-
-    Or equivalently with explicit flags:
-        python activity_monitor.py --interval week \\
-            --bucket study-amigo-backups-645069181643 --profile study-amigo \\
-            --s3-prefix backups/v15
-
     Use a specific backup slot:
-        python activity_monitor.py --interval week --v15 \\
+        python activity_monitor.py --interval week \\
             --bucket study-amigo-backups-645069181643 --profile study-amigo \\
             --week 1 --day friday
 
     Interactive slot selection (omit --week/--day):
-        python activity_monitor.py --interval week --v15 \\
+        python activity_monitor.py --interval week \\
             --bucket study-amigo-backups-645069181643 --profile study-amigo \\
             --list-slots
+
+  S3 backup — SAv1.0 legacy (prefix: backups/):
+    python activity_monitor.py --interval week --v10 \\
+        --bucket study-amigo-backups-645069181643 \\
+        --profile study-amigo
 
   SSH / live production (old default — copies databases directly from EC2):
     python activity_monitor.py --interval week --host 54.152.109.26
@@ -87,11 +82,12 @@ except ImportError:          # Python < 3.9
 
 DEFAULT_SSH_USER    = "ubuntu"
 DEFAULT_SSH_KEY     = os.path.expanduser("~/.ssh/study-amigo-aws")
-DEFAULT_REMOTE_PATH    = "/opt/study-amigo/server"
-DEFAULT_CONTAINER      = "flashcard_server"
-DEFAULT_REMOTE_PATH_V15 = "/opt/study-amigo-v15/server"
-DEFAULT_CONTAINER_V15   = "v15_server"
-DEFAULT_S3_PREFIX      = "backups"
+DEFAULT_REMOTE_PATH    = "/opt/study-amigo-v15/server"
+DEFAULT_CONTAINER      = "v15_server"
+DEFAULT_S3_PREFIX      = "backups/v15"
+DEFAULT_REMOTE_PATH_V10 = "/opt/study-amigo/server"
+DEFAULT_CONTAINER_V10   = "flashcard_server"
+DEFAULT_S3_PREFIX_V10  = "backups"
 DEFAULT_AWS_REGION  = "us-east-1"
 DEFAULT_AWS_PROFILE = "study-amigo"
 
@@ -1006,14 +1002,14 @@ def main():
         "--s3-prefix", default=DEFAULT_S3_PREFIX, metavar="PREFIX",
         help=(
             f"S3 key prefix for backup slots (default: '{DEFAULT_S3_PREFIX}'). "
-            f"Use 'backups/v15' for SAv1.5 backups."
+            f"Use '{DEFAULT_S3_PREFIX_V10}' for SAv1.0 backups."
         ),
     )
     s3_group.add_argument(
-        "--v15", action="store_true",
+        "--v10", action="store_true",
         help=(
-            "Shortcut for SAv1.5: sets --s3-prefix backups/v15, "
-            f"--remote-path {DEFAULT_REMOTE_PATH_V15}, --container {DEFAULT_CONTAINER_V15}"
+            "Shortcut for SAv1.0 (legacy): sets --s3-prefix backups, "
+            f"--remote-path {DEFAULT_REMOTE_PATH_V10}, --container {DEFAULT_CONTAINER_V10}"
         ),
     )
 
@@ -1075,14 +1071,14 @@ def main():
 
     args = parser.parse_args()
 
-    # ── --v15 shortcut: apply SAv1.5 defaults unless explicitly overridden ─
-    if args.v15:
+    # ── --v10 shortcut: override defaults to SAv1.0 (legacy) ─────────────
+    if args.v10:
         if args.s3_prefix == DEFAULT_S3_PREFIX:
-            args.s3_prefix = "backups/v15"
+            args.s3_prefix = DEFAULT_S3_PREFIX_V10
         if args.remote_path == DEFAULT_REMOTE_PATH:
-            args.remote_path = DEFAULT_REMOTE_PATH_V15
+            args.remote_path = DEFAULT_REMOTE_PATH_V10
         if args.container == DEFAULT_CONTAINER:
-            args.container = DEFAULT_CONTAINER_V15
+            args.container = DEFAULT_CONTAINER_V10
 
     # ── Resolve time window ────────────────────────────────────────────────
     start_dt, end_dt = resolve_interval(args.interval, args.start, args.end)
