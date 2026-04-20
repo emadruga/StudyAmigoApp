@@ -121,27 +121,61 @@ ssh -i ~/.ssh/study-amigo-aws ubuntu@54.152.109.26 "
 "
 ```
 
-#### 2. CloudWatch Alarm — StatusCheckFailed_Instance
-Notifica por email se a instância ficar impaired, permitindo reagir antes que alunos
-reportem.
+#### 2. CloudWatch Alarms — monitoramento completo ✅ IMPLEMENTADO (2026-04-20)
 
+**Infraestrutura criada:**
+- SNS topic: `arn:aws:sns:us-east-1:645069181643:study-amigo-alerts`
+- Subscrito: `ewerton.madruga@icloud.com` (confirmado)
+- CloudWatch Agent instalado no EC2 (arm64) — coleta mem e disco a cada 60s
+- IAM policy `CloudWatchAgentServerPolicy` adicionada ao role `study-amigo-ec2-backup-role`
+
+**4 alarmes ativos (todos em estado OK):**
+
+| Alarme | Métrica | Limiar | Ação |
+|---|---|---|---|
+| `study-amigo-StatusCheckFailed` | `StatusCheckFailed` (AWS/EC2) | ≥ 1 por 2 períodos de 60s | Email |
+| `study-amigo-CPUHigh` | `CPUUtilization` (AWS/EC2) | ≥ 95% por 2 períodos de 5min | Email |
+| `study-amigo-DiskHigh` | `disk_used_percent` (StudyAmigo/EC2) | ≥ 85% por 2 períodos de 5min | Email |
+| `study-amigo-MemHigh` | `mem_used_percent` (StudyAmigo/EC2) | ≥ 90% por 3 períodos de 60s | Email |
+
+Todos os alarmes enviam email também ao recuperar (transição ALARM → OK).
+
+**Para recriar em nova instância:**
 ```bash
-aws cloudwatch put-metric-alarm \
-  --alarm-name "EC2-StatusCheckFailed-study-amigo" \
-  --alarm-description "Instancia EC2 impaired (host/OS)" \
-  --metric-name StatusCheckFailed_Instance \
-  --namespace AWS/EC2 \
-  --statistic Maximum \
-  --dimensions Name=InstanceId,Value=i-09d0d2b6bb8ae8ad7 \
-  --period 60 \
-  --evaluation-periods 2 \
-  --threshold 1 \
-  --comparison-operator GreaterThanOrEqualToThreshold \
-  --alarm-actions arn:aws:sns:us-east-1:ACCOUNT_ID:study-amigo-alerts \
-  --profile study-amigo
-```
+# 1. Instalar CloudWatch Agent (arm64)
+wget -q https://s3.amazonaws.com/amazoncloudwatch-agent/ubuntu/arm64/latest/amazon-cloudwatch-agent.deb -O /tmp/cwa.deb
+sudo dpkg -i /tmp/cwa.deb
 
-*(Requer criação prévia de um SNS topic `study-amigo-alerts` com email subscrito.)*
+# 2. Configurar métricas de mem e disco
+sudo bash -c 'cat > /opt/aws/amazon-cloudwatch-agent/etc/amazon-cloudwatch-agent.json << EOF
+{
+  "metrics": {
+    "namespace": "StudyAmigo/EC2",
+    "append_dimensions": { "InstanceId": "\${aws:InstanceId}" },
+    "metrics_collected": {
+      "mem":  { "measurement": ["mem_used_percent"],  "metrics_collection_interval": 60 },
+      "disk": { "measurement": ["disk_used_percent"], "resources": ["/"], "metrics_collection_interval": 60 }
+    }
+  }
+}
+EOF'
+sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl \
+  -a fetch-config -m ec2 \
+  -c file:/opt/aws/amazon-cloudwatch-agent/etc/amazon-cloudwatch-agent.json -s
+sudo systemctl enable amazon-cloudwatch-agent
+
+# 3. Criar SNS topic e subscrever email
+aws sns create-topic --name study-amigo-alerts --region us-east-1 --profile study-amigo
+aws sns subscribe --topic-arn <ARN> --protocol email \
+  --notification-endpoint ewerton.madruga@icloud.com \
+  --region us-east-1 --profile study-amigo
+# *** Confirmar a subscrição no email antes de continuar ***
+
+# 4. Criar alarmes (ajustar INSTANCE_ID e SNS_ARN)
+INSTANCE="i-09d0d2b6bb8ae8ad7"
+SNS_ARN="arn:aws:sns:us-east-1:645069181643:study-amigo-alerts"
+# Ver comandos completos no histórico git (commit que adicionou esta seção)
+```
 
 ### 🟡 Média prioridade
 
