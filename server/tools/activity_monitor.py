@@ -8,22 +8,28 @@ ranking.
 
 DATA SOURCE (pick one — S3 is the default):
 
-  S3 backup (default — reads the latest automated backup from the bucket):
+  S3 backup — SAv1.0 (default prefix: backups/):
     python activity_monitor.py --interval week \\
         --bucket study-amigo-backups-645069181643 \\
         --profile study-amigo
 
-    Use the most-recent backup (default when no --week/--day are given):
+  S3 backup — SAv1.5 (prefix: backups/v15/):
+    python activity_monitor.py --interval week --v15 \\
+        --bucket study-amigo-backups-645069181643 \\
+        --profile study-amigo
+
+    Or equivalently with explicit flags:
         python activity_monitor.py --interval week \\
-            --bucket study-amigo-backups-645069181643 --profile study-amigo
+            --bucket study-amigo-backups-645069181643 --profile study-amigo \\
+            --s3-prefix backups/v15
 
     Use a specific backup slot:
-        python activity_monitor.py --interval week \\
+        python activity_monitor.py --interval week --v15 \\
             --bucket study-amigo-backups-645069181643 --profile study-amigo \\
             --week 1 --day friday
 
     Interactive slot selection (omit --week/--day):
-        python activity_monitor.py --interval week \\
+        python activity_monitor.py --interval week --v15 \\
             --bucket study-amigo-backups-645069181643 --profile study-amigo \\
             --list-slots
 
@@ -81,8 +87,11 @@ except ImportError:          # Python < 3.9
 
 DEFAULT_SSH_USER    = "ubuntu"
 DEFAULT_SSH_KEY     = os.path.expanduser("~/.ssh/study-amigo-aws")
-DEFAULT_REMOTE_PATH = "/opt/study-amigo/server"
-DEFAULT_CONTAINER   = "flashcard_server"
+DEFAULT_REMOTE_PATH    = "/opt/study-amigo/server"
+DEFAULT_CONTAINER      = "flashcard_server"
+DEFAULT_REMOTE_PATH_V15 = "/opt/study-amigo-v15/server"
+DEFAULT_CONTAINER_V15   = "v15_server"
+DEFAULT_S3_PREFIX      = "backups"
 DEFAULT_AWS_REGION  = "us-east-1"
 DEFAULT_AWS_PROFILE = "study-amigo"
 
@@ -174,7 +183,7 @@ def _derive_bucket(profile: Optional[str], region: str) -> str:
     return f"study-amigo-backups-{account_id}"
 
 
-def _list_s3_backups(s3, bucket: str) -> List[Dict]:
+def _list_s3_backups(s3, bucket: str, s3_prefix: str = DEFAULT_S3_PREFIX) -> List[Dict]:
     """
     Return a list of available backup slot dicts, sorted newest-first.
     Each dict has keys: week, day, timestamp, user_db_count, last_modified,
@@ -190,20 +199,23 @@ def _list_s3_backups(s3, bucket: str) -> List[Dict]:
 
     try:
         paginator = s3.get_paginator("list_objects_v2")
-        pages = paginator.paginate(Bucket=bucket, Prefix="backups/")
+        pages = paginator.paginate(Bucket=bucket, Prefix=f"{s3_prefix}/")
     except ClientError as exc:
         code = exc.response["Error"]["Code"]
         if code == "NoSuchBucket":
             return []
         raise
 
+    prefix_depth = len(s3_prefix.split("/"))  # "backups"=1, "backups/v15"=2
+
     for page in pages:
         for obj in page.get("Contents", []):
             parts = obj["Key"].split("/")
-            # Expect: backups / week-N / day / filename
-            if len(parts) != 4:
+            # Expect: <prefix_parts> / week-N / day / filename
+            expected_len = prefix_depth + 3
+            if len(parts) != expected_len:
                 continue
-            _, week_part, day, fname = parts
+            week_part, day, fname = parts[-3], parts[-2], parts[-1]
             try:
                 week = int(week_part.split("-")[1])
             except (IndexError, ValueError):
@@ -313,6 +325,7 @@ def fetch_from_s3(
     day: Optional[str],
     list_slots: bool,
     dest_dir: Path,
+    s3_prefix: str = DEFAULT_S3_PREFIX,
 ) -> Optional[Tuple[Path, Path]]:
     """
     Download the selected S3 backup slot, decompress the archives into
@@ -325,9 +338,9 @@ def fetch_from_s3(
 
     s3 = _make_s3_client(profile, region)
 
-    print(f"\n  Listando backups em s3://{bucket}/backups/ …")
+    print(f"\n  Listando backups em s3://{bucket}/{s3_prefix}/ …")
     try:
-        slots = _list_s3_backups(s3, bucket)
+        slots = _list_s3_backups(s3, bucket, s3_prefix)
     except NoCredentialsError:
         sys.exit(
             "Credenciais AWS não encontradas.\n"
@@ -382,7 +395,7 @@ def fetch_from_s3(
 
     # ── Download archives ─────────────────────────────────────────────────
     for fname in ("admin.db.gz", "user_dbs.tar.gz"):
-        key   = f"backups/week-{w}/{d}/{fname}"
+        key   = f"{s3_prefix}/week-{w}/{d}/{fname}"
         local = dest_dir / fname
         print(f"  Baixando s3://{bucket}/{key} …")
         try:
@@ -989,6 +1002,20 @@ def main():
         "--list-slots", action="store_true",
         help="List available S3 backup slots interactively before analysis",
     )
+    s3_group.add_argument(
+        "--s3-prefix", default=DEFAULT_S3_PREFIX, metavar="PREFIX",
+        help=(
+            f"S3 key prefix for backup slots (default: '{DEFAULT_S3_PREFIX}'). "
+            f"Use 'backups/v15' for SAv1.5 backups."
+        ),
+    )
+    s3_group.add_argument(
+        "--v15", action="store_true",
+        help=(
+            "Shortcut for SAv1.5: sets --s3-prefix backups/v15, "
+            f"--remote-path {DEFAULT_REMOTE_PATH_V15}, --container {DEFAULT_CONTAINER_V15}"
+        ),
+    )
 
     # ── SSH source (legacy / live production) ─────────────────────────────
     ssh_group = parser.add_argument_group(
@@ -1047,6 +1074,15 @@ def main():
     )
 
     args = parser.parse_args()
+
+    # ── --v15 shortcut: apply SAv1.5 defaults unless explicitly overridden ─
+    if args.v15:
+        if args.s3_prefix == DEFAULT_S3_PREFIX:
+            args.s3_prefix = "backups/v15"
+        if args.remote_path == DEFAULT_REMOTE_PATH:
+            args.remote_path = DEFAULT_REMOTE_PATH_V15
+        if args.container == DEFAULT_CONTAINER:
+            args.container = DEFAULT_CONTAINER_V15
 
     # ── Resolve time window ────────────────────────────────────────────────
     start_dt, end_dt = resolve_interval(args.interval, args.start, args.end)
@@ -1188,6 +1224,7 @@ def main():
                 day        = args.day,
                 list_slots = args.list_slots,
                 dest_dir   = fetch_dir,
+                s3_prefix  = args.s3_prefix,
             )
 
             if result is None:
