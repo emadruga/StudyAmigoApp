@@ -167,6 +167,13 @@ resource "aws_instance" "javumbo" {
               apt-get update
               apt-get upgrade -y
 
+              # Configure swap (2 GB) — required for t-series instances with low RAM
+              fallocate -l 2G /swapfile
+              chmod 600 /swapfile
+              mkswap /swapfile
+              swapon /swapfile
+              echo '/swapfile none swap sw 0 0' >> /etc/fstab
+
               # Install Docker
               apt-get install -y docker.io
 

@@ -238,22 +238,46 @@ uma mudança de roteamento no Nginx, sem restart de containers.
 
 ---
 
+## Pré-requisitos do host EC2
+
+Antes de iniciar o deploy, garantir que o host tem swap configurado.
+A instância tem apenas ~906 MB RAM; sem swap, um pico de memória mata containers
+silenciosamente (OOM killer). Evento registrado em `docs/APP_DOWN_DUE_TO_AWS.md`.
+
+```bash
+# Verificar se swap existe
+free -h   # linha Swap deve mostrar > 0
+
+# Se não existir, criar (uma vez por instância, persiste no /etc/fstab):
+sudo fallocate -l 2G /swapfile
+sudo chmod 600 /swapfile
+sudo mkswap /swapfile
+sudo swapon /swapfile
+echo '/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab
+```
+
+> **Nota Terraform:** o `user_data` em `terraform/main.tf` já inclui este passo
+> para novas instâncias criadas via IaC.
+
+---
+
 ## Sequência de Deploy
 
 1. Merge `feat/email-auth` → `main` no GitHub
-2. Instalar Nginx no host EC2: `sudo apt install nginx`
-3. Parar container atual (libera porta 80 para o Nginx host):
+2. Verificar/configurar swap no host (ver seção "Pré-requisitos" acima)
+3. Instalar Nginx no host EC2: `sudo apt install nginx`
+4. Parar container atual (libera porta 80 para o Nginx host):
    ```bash
    cd /opt/study-amigo
    sudo docker compose down
    ```
-4. Alterar `docker-compose.yml` do SAv1.0: porta `80:80` → `8081:80`
-5. Subir SAv1.0 na nova porta: `sudo docker compose up -d`
-6. Configurar Nginx host (arquivo acima) e recarregar
-7. Verificar que `antigo.study-amigo.app` funciona
-8. Clonar repo SAv1.5: `sudo git clone ... /opt/study-amigo-v15`
-9. Copiar `admin.db` migrado e `user_dbs/` para `/opt/study-amigo-v15/server/`
-10. Configurar `.env` do SAv1.5
-11. Build e subir SAv1.5: `sudo docker compose up -d --build`
-12. Verificar que `study-amigo.app` funciona com login por email
-13. Adicionar registro DNS `antigo` no Cloudflare
+5. Alterar `docker-compose.yml` do SAv1.0: porta `80:80` → `8081:80`
+6. Subir SAv1.0 na nova porta: `sudo docker compose up -d`
+7. Configurar Nginx host (arquivo acima) e recarregar
+8. Verificar que `antigo.study-amigo.app` funciona
+9. Clonar repo SAv1.5: `sudo git clone ... /opt/study-amigo-v15`
+10. Copiar `admin.db` migrado e `user_dbs/` para `/opt/study-amigo-v15/server/`
+11. Configurar `.env` do SAv1.5
+12. Build e subir SAv1.5: `sudo docker compose up -d --build`
+13. Verificar que `study-amigo.app` funciona com login por email
+14. Adicionar registro DNS `antigo` no Cloudflare
