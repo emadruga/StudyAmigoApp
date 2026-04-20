@@ -103,9 +103,20 @@ python activity_monitor.py [OPTIONS]
 | `--week N` | *(latest)* | Select a specific rotation week (1–4) |
 | `--day NAME` | *(latest)* | Select a specific day of the week (e.g. `friday`) |
 | `--list-slots` | *(off)* | Print all available slots and prompt for interactive selection |
+| `--s3-prefix PREFIX` | `backups` | S3 key prefix for backup slots. Use `backups/v15` for SAv1.5. |
+| `--v15` | *(off)* | Shortcut for SAv1.5: sets `--s3-prefix backups/v15`, `--remote-path /opt/study-amigo-v15/server`, `--container v15_server` |
 
 When neither `--week`/`--day` nor `--list-slots` is given, the **most recent
 complete** slot is selected automatically.
+
+#### SAv1.0 vs SAv1.5 S3 layout
+
+Both versions write to the same bucket but use different prefixes:
+
+| Version | S3 prefix | Backup time |
+|---------|-----------|-------------|
+| SAv1.0 | `backups/week-{1..4}/{day}/` | 06:00 UTC daily |
+| SAv1.5 | `backups/v15/week-{1..4}/{day}/` | 08:00 UTC daily |
 
 ### SSH / live-production options (fallback)
 
@@ -114,7 +125,8 @@ complete** slot is selected automatically.
 | `--host HOST` | *(none — triggers SSH mode)* | EC2 Elastic IP or hostname |
 | `--key PATH` | `~/.ssh/study-amigo-aws` | SSH private key path |
 | `--user USER` | `ubuntu` | SSH login user |
-| `--remote-path PATH` | `/opt/study-amigo/server` | Path to the server directory on EC2 |
+| `--remote-path PATH` | `/opt/study-amigo/server` | Path to the server directory on EC2 (SAv1.0 default; `--v15` changes this to `/opt/study-amigo-v15/server`) |
+| `--container NAME` | `flashcard_server` | Docker container name (SAv1.0 default; `--v15` changes this to `v15_server`) |
 
 ### Local-only mode (no network)
 
@@ -138,7 +150,7 @@ python activity_monitor.py --interval week --local-only \
 ## Examples
 
 ```bash
-# ── S3 (default) ──────────────────────────────────────────────────────────
+# ── SAv1.0 — S3 (default) ─────────────────────────────────────────────────
 
 # Most common: last week, auto-select latest complete backup
 python activity_monitor.py --interval week --profile study-amigo
@@ -158,10 +170,34 @@ python activity_monitor.py --interval week --profile study-amigo \
 python activity_monitor.py --interval week --profile study-amigo \
     --list-slots
 
+# ── SAv1.5 — S3 (prefix: backups/v15) ────────────────────────────────────
+
+# Shortcut: --v15 sets prefix + remote-path + container automatically
+python activity_monitor.py --interval week --v15 --profile study-amigo
+
+# Explicit bucket
+python activity_monitor.py --interval week --v15 \
+    --bucket study-amigo-backups-645069181643 --profile study-amigo
+
+# Specific slot
+python activity_monitor.py --interval week --v15 --profile study-amigo \
+    --week 1 --day thursday
+
+# Interactive slot picker
+python activity_monitor.py --interval week --v15 --profile study-amigo \
+    --list-slots
+
+# Equivalent without --v15 shortcut
+python activity_monitor.py --interval week --profile study-amigo \
+    --s3-prefix backups/v15
+
 # ── SSH / live production ─────────────────────────────────────────────────
 
-# Pull directly from production (useful before first backup exists)
+# SAv1.0 — pull directly from production (useful before first backup exists)
 python activity_monitor.py --interval week --host 54.152.109.26
+
+# SAv1.5 — pull from live v15 stack
+python activity_monitor.py --interval week --v15 --host 54.152.109.26
 
 # Non-default key / remote path
 python activity_monitor.py --interval month \
@@ -321,11 +357,13 @@ python activity_monitor.py --interval week --profile study-amigo \
 | File | Description |
 |------|-------------|
 | `server/tools/activity_monitor.py` | The script itself |
-| `server/tools/backup_container.sh` | Backup sidecar that populates the S3 slots |
+| `server/tools/backup_container.sh` | SAv1.0 backup sidecar — populates `backups/week-{slot}/{day}/` at 06:00 UTC |
+| `server/tools/backup_container_v15.sh` | SAv1.5 backup sidecar — populates `backups/v15/week-{slot}/{day}/` at 08:00 UTC |
 | `server/docs/APP_BACKUP_RESTORE.md` | S3 backup rotation scheme, slot layout, restore procedure |
 | `server/docs/Backup_Procedure_Fix_20260314.md` | Post-mortem for the first zero-byte backup (missing gzip/tar) |
 | `server/docs/AWS_DOCKER_DEPLOY.md` | Full EC2 + Docker deployment guide |
-| `docker-compose.yml` | Defines the bind-mount that makes host-side DB access possible |
+| `docker-compose.yml` | SAv1.0 docker-compose (bind-mount that makes host-side DB access possible) |
+| `server_v2/scripts/deploy_v15.sh` | SAv1.5 deploy script — generates docker-compose.yml for the v15 stack |
 | `docs/ANKI_DB_SCHEMA.md` | Schema reference for `revlog`, `cards`, `notes` |
 | `docs/ADMIN_DB_SCHEMA.md` | Schema reference for `admin.db` |
 
