@@ -1,10 +1,10 @@
 # manage_users.py — Guia Rápido
 
-Ferramenta administrativa para gerenciar contas duplicadas e resetar senhas.
+Ferramenta administrativa para gerenciar contas duplicadas, resetar senhas e atualizar emails.
 Todos os comandos abaixo são executados a partir do diretório raiz do projeto.
 
 Scripts envolvidos:
-- `server/tools/manage_users.py` — operações de deleção e reset de senha
+- `server/tools/manage_users.py` — operações de deleção, reset de senha e atualização de email
 - `server/tools/validate_migration.py` — validação pós-apply
 - `server/tools/restore_backup.py` — restauração de emergência via S3
 
@@ -29,6 +29,14 @@ Scripts envolvidos:
   - [Passo 5 — Validar em produção](#passo-5--validar-em-produção)
 - [4. Fluxo completo — exemplo do Rogério](#4-fluxo-completo--exemplo-do-rogério)
 - [5. Restauração de emergência](#5-restauração-de-emergência-algo-deu-errado)
+- [6. Buscar usuário por nome](#6-buscar-usuário-por-nome)
+- [7. Trocar o email de um usuário](#7-trocar-o-email-de-um-usuário)
+  - [Passo 1 — Localizar o usuário](#passo-1--localizar-o-usuário)
+  - [Passo 2 — Gerar o SQL](#passo-2--gerar-o-sql-dry-run-interativo)
+  - [Passo 3 — Revisar o SQL gerado](#passo-3--revisar-o-sql-gerado-2)
+  - [Passo 4 — Commitar para rastreabilidade](#passo-4--commitar-o-sql-para-rastreabilidade-1)
+  - [Passo 5 — Aplicar em produção](#passo-5--aplicar-em-produção-1)
+  - [Passo 6 — Confirmar a alteração](#passo-6--confirmar-a-alteração)
 - [Avisos importantes](#avisos-importantes)
 
 ---
@@ -311,6 +319,100 @@ python3 server/tools/restore_backup.py \
     --ssh-key ~/.ssh/study-amigo-aws \
     --week 2 --day thursday
 ```
+
+---
+
+## 6. Buscar usuário por nome
+
+Use `--search-user` para encontrar um usuário a partir de um fragmento do nome.
+A saída mostra `user_id`, nome completo, email e username de todos os usuários cujo nome contenha o fragmento informado.
+
+```bash
+# Buscar no banco local/cache
+python server/tools/manage_users.py --search-user "Maria"
+
+# Buscar diretamente em PRODUÇÃO (SAv1.0)
+python server/tools/manage_users.py --search-user "Maria" --production
+
+# Buscar em PRODUÇÃO SAv1.5 (usando .env específico)
+python server/tools/manage_users.py --search-user "Maria" --production \
+    --conf server/tools/manage_users_v15.env
+```
+
+Exemplo de saída:
+
+```
+2 usuário(s) encontrado(s):  [PRODUÇÃO]
+
+  user_id  nome                       email                           username
+  --------  -------------------------  ------------------------------  --------------------
+       42  Maria Silva                maria@email.com                 maria_silva
+       88  Maria Santos               (vazio)                         maria_santos
+```
+
+> **Nota:** Se o banco não tiver a coluna `email` (SAv1.0), o script exibe os dados sem essa coluna e mostra um aviso.
+
+---
+
+## 7. Trocar o email de um usuário
+
+### Passo 1 — Localizar o usuário
+
+Primeiro, encontre o `user_id` do aluno usando `--search-user`:
+
+```bash
+python server/tools/manage_users.py --search-user "Maria" --production \
+    --conf server/tools/manage_users_v15.env
+```
+
+Anote o `user_id` e confira o email atual.
+
+### Passo 2 — Gerar o SQL (dry-run, interativo)
+
+```bash
+# Consultando o email atual no banco local
+python server/tools/manage_users.py --dry-run --update-email 42
+
+# Consultando o email atual diretamente em PRODUÇÃO
+python server/tools/manage_users.py --dry-run --update-email 42 --production \
+    --conf server/tools/manage_users_v15.env
+```
+
+O script exibirá o email atual e pedirá o novo email duas vezes (para confirmação).
+O arquivo é salvo automaticamente em `server/past_migration_scripts/migration_update_email_YYYYMMDD.sql`.
+
+### Passo 3 — Revisar o SQL gerado
+
+```bash
+cat server/past_migration_scripts/migration_update_email_YYYYMMDD.sql
+```
+
+Confirme que o `user_id` e o novo email estão corretos.
+
+### Passo 4 — Commitar o SQL para rastreabilidade
+
+```bash
+git add server/past_migration_scripts/migration_update_email_YYYYMMDD.sql
+git commit -m "admin: update email for user_id=42 (<nome do aluno>)"
+git push origin main
+```
+
+### Passo 5 — Aplicar em produção
+
+```bash
+python server/tools/manage_users.py \
+    --apply-to-production --sql server/past_migration_scripts/migration_update_email_YYYYMMDD.sql \
+    --conf server/tools/manage_users_v15.env
+```
+
+### Passo 6 — Confirmar a alteração
+
+```bash
+python server/tools/manage_users.py --search-user "Maria" --production \
+    --conf server/tools/manage_users_v15.env
+```
+
+Verifique que o email exibido corresponde ao novo valor.
 
 ---
 

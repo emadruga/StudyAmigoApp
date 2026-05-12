@@ -4,16 +4,20 @@ manage_users.py — Ferramenta administrativa para gerenciar contas duplicadas.
 
 Modos de uso:
   --list-dupes [substring]          Lista usuários com contas duplicadas
+  --search-user SUBSTRING           Busca usuários por fragmento de nome (mostra email)
   --dry-run --delete-users IDs      Gera SQL de deleção (não executa)
   --dry-run --reset-password ID     Gera SQL de reset de senha (não executa)
+  --dry-run --update-email ID       Gera SQL de atualização de email (não executa)
   --apply-to-local-cache --sql F    Aplica SQL sobre banco local
   --apply-to-production --sql F     Aplica SQL no EC2 via SSH
 
 Exemplos:
   python manage_users.py --db admin.db --userdb-dir user_dbs/ --list-dupes
   python manage_users.py --db admin.db --userdb-dir user_dbs/ --list-dupes "Rogério"
+  python manage_users.py --search-user "Maria" --production
   python manage_users.py --db admin.db --userdb-dir user_dbs/ --dry-run --delete-users 53,66,70,73,87
   python manage_users.py --db admin.db --userdb-dir user_dbs/ --dry-run --reset-password 107
+  python manage_users.py --dry-run --update-email 107
   python manage_users.py --db admin.db --userdb-dir user_dbs/ --session-dir flask_session/ \\
       --apply-to-local-cache --sql migration_delete_20260406.sql
   python manage_users.py --apply-to-production --sql migration_delete_20260406.sql \\
@@ -346,6 +350,210 @@ def _fetch_dupes(conn, substring):
         to_show = {k: v for k, v in groups.items() if len(v) > 1}
 
     return rows, to_show
+
+
+# ---------------------------------------------------------------------------
+# Mode: --search-user
+# ---------------------------------------------------------------------------
+
+def cmd_search_user(args):
+    if args.production:
+        cmd_search_user_production(args)
+    else:
+        cmd_search_user_local(args)
+
+
+def cmd_search_user_local(args):
+    conn = open_db(args.db)
+    # Tenta buscar com email; se a coluna não existir, busca sem
+    substring = args.search_user
+    try:
+        rows = conn.execute(
+            "SELECT user_id, username, name, email FROM users WHERE name LIKE ? ORDER BY name",
+            (f"%{substring}%",)
+        ).fetchall()
+        has_email = True
+    except sqlite3.OperationalError:
+        rows = conn.execute(
+            "SELECT user_id, username, name FROM users WHERE name LIKE ? ORDER BY name",
+            (f"%{substring}%",)
+        ).fetchall()
+        has_email = False
+    conn.close()
+
+    if not rows:
+        print(f"Nenhum usuário encontrado com nome contendo \"{substring}\".")
+        return
+
+    print(f"\n{len(rows)} usuário(s) encontrado(s):\n")
+    if has_email:
+        print(f"  {'user_id':>8}  {'nome':<25}  {'email':<30}  {'username':<20}")
+        print(f"  {'-'*8}  {'-'*25}  {'-'*30}  {'-'*20}")
+        for r in rows:
+            email = r["email"] or "(vazio)"
+            print(f"  {r['user_id']:>8}  {r['name']:<25}  {email:<30}  {r['username']:<20}")
+    else:
+        print(f"  {'user_id':>8}  {'nome':<25}  {'username':<20}")
+        print(f"  {'-'*8}  {'-'*25}  {'-'*20}")
+        for r in rows:
+            print(f"  {r['user_id']:>8}  {r['name']:<25}  {r['username']:<20}")
+        print("\n[NOTA] Coluna 'email' não existe neste banco (SAv1.0?).")
+
+
+def cmd_search_user_production(args):
+    for required in ("ssh_host", "ssh_user", "ssh_key", "remote_db"):
+        if not getattr(args, required, None):
+            print(f"Erro: --{required.replace('_', '-')} é obrigatório para --search-user --production.")
+            sys.exit(1)
+
+    ssh_args = build_ssh_args(args)
+    container = args.docker_container
+    container_db = docker_db_path(args.remote_db)
+    substring = args.search_user
+
+    print(f"[produção] Consultando {container}:{container_db} ...")
+
+    py_fetch = (
+        f"import sqlite3, json\n"
+        f"conn = sqlite3.connect('{container_db}')\n"
+        f"try:\n"
+        f"    rows = conn.execute(\"SELECT user_id, username, name, email FROM users WHERE name LIKE '%{substring}%' ORDER BY name\").fetchall()\n"
+        f"    has_email = True\n"
+        f"except:\n"
+        f"    rows = conn.execute(\"SELECT user_id, username, name FROM users WHERE name LIKE '%{substring}%' ORDER BY name\").fetchall()\n"
+        f"    has_email = False\n"
+        f"conn.close()\n"
+        f"print(json.dumps({{'has_email': has_email, 'rows': [list(r) for r in rows]}}))\n"
+    )
+    result = _docker_exec_python(ssh_args, container, py_fetch)
+    if result.returncode != 0:
+        print(f"Erro ao consultar produção: {result.stderr.strip()}")
+        sys.exit(1)
+
+    import json as _json
+    data = _json.loads(result.stdout.strip())
+    rows = data["rows"]
+    has_email = data["has_email"]
+
+    if not rows:
+        print(f"Nenhum usuário encontrado com nome contendo \"{substring}\".")
+        return
+
+    print(f"\n{len(rows)} usuário(s) encontrado(s):  [PRODUÇÃO]\n")
+    if has_email:
+        print(f"  {'user_id':>8}  {'nome':<25}  {'email':<30}  {'username':<20}")
+        print(f"  {'-'*8}  {'-'*25}  {'-'*30}  {'-'*20}")
+        for r in rows:
+            user_id, username, name, email = r
+            email = email or "(vazio)"
+            print(f"  {user_id:>8}  {name:<25}  {email:<30}  {username:<20}")
+    else:
+        print(f"  {'user_id':>8}  {'nome':<25}  {'username':<20}")
+        print(f"  {'-'*8}  {'-'*25}  {'-'*20}")
+        for r in rows:
+            user_id, username, name = r
+            print(f"  {user_id:>8}  {name:<25}  {username:<20}")
+        print("\n[NOTA] Coluna 'email' não existe neste banco (SAv1.0?).")
+
+
+# ---------------------------------------------------------------------------
+# Mode: --dry-run --update-email
+# ---------------------------------------------------------------------------
+
+def cmd_dry_run_update_email(args):
+    uid = int(args.update_email)
+
+    if args.production:
+        row = _fetch_user_from_production(args, uid)
+    else:
+        conn = open_db(args.db)
+        try:
+            row = conn.execute(
+                "SELECT user_id, username, name, email FROM users WHERE user_id=?", (uid,)
+            ).fetchone()
+            row = dict(row) if row else None
+        except sqlite3.OperationalError:
+            print("Erro: coluna 'email' não existe neste banco (SAv1.0?).")
+            sys.exit(1)
+        finally:
+            conn.close()
+
+    if not row:
+        print(f"Erro: user_id={uid} não encontrado.")
+        sys.exit(1)
+
+    current_email = row.get("email") or "(vazio)"
+    print(f"Conta: user_id={row['user_id']}  username={row['username']}  nome={row['name']}")
+    print(f"Email atual: {current_email}")
+
+    new_email = input("Novo email: ").strip()
+    if not new_email:
+        print("Email não pode ser vazio. Operação cancelada.")
+        return
+    if "@" not in new_email or "." not in new_email.split("@")[-1]:
+        print("Email inválido. Operação cancelada.")
+        return
+
+    confirm = input(f"Confirme o novo email: ").strip()
+    if confirm != new_email:
+        print("Emails não conferem. Operação cancelada.")
+        return
+
+    date_str = datetime.now().strftime("%Y%m%d")
+    fname = f"migration_update_email_{date_str}.sql"
+
+    safe_email = new_email.replace("'", "''")
+    lines = []
+    lines.append("-- Atualização de email\n")
+    lines.append(f"-- Gerado em: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')} por manage_users.py\n")
+    lines.append("-- Revise cuidadosamente antes de aplicar.\n")
+    lines.append("--\n")
+    lines.append(f"-- user_id={row['user_id']}  username={row['username']}  nome={row['name']}\n")
+    lines.append(f"-- email anterior: {current_email}\n")
+    lines.append(f"-- email novo: {new_email}\n")
+    lines.append("\n")
+    lines.append(f"UPDATE users SET email = '{safe_email}' WHERE user_id = {uid};\n")
+    content = "".join(lines)
+
+    dest, is_stdout = _write_sql(content, fname, args)
+    if is_stdout:
+        print("-- [stdout: pasta de destino não encontrada, use --output-dir para salvar em arquivo]")
+        print(content)
+    else:
+        print(f"SQL gerado: {dest}")
+    print("Nada foi alterado. Revise o arquivo antes de aplicar.")
+
+
+def _fetch_user_from_production(args, uid):
+    """Busca dados de um usuário no servidor de produção."""
+    for required in ("ssh_host", "ssh_user", "ssh_key", "remote_db"):
+        if not getattr(args, required, None):
+            print(f"Erro: --{required.replace('_', '-')} é obrigatório para --production.")
+            sys.exit(1)
+
+    ssh_args = build_ssh_args(args)
+    container = args.docker_container
+    container_db = docker_db_path(args.remote_db)
+
+    py_fetch = (
+        f"import sqlite3, json\n"
+        f"conn = sqlite3.connect('{container_db}')\n"
+        f"try:\n"
+        f"    row = conn.execute('SELECT user_id, username, name, email FROM users WHERE user_id={uid}').fetchone()\n"
+        f"    cols = ['user_id', 'username', 'name', 'email']\n"
+        f"except:\n"
+        f"    row = conn.execute('SELECT user_id, username, name FROM users WHERE user_id={uid}').fetchone()\n"
+        f"    cols = ['user_id', 'username', 'name']\n"
+        f"conn.close()\n"
+        f"print(json.dumps(dict(zip(cols, row)) if row else None))\n"
+    )
+    result = _docker_exec_python(ssh_args, container, py_fetch)
+    if result.returncode != 0:
+        print(f"Erro ao consultar produção: {result.stderr.strip()}")
+        sys.exit(1)
+
+    import json as _json
+    return _json.loads(result.stdout.strip())
 
 
 # ---------------------------------------------------------------------------
@@ -722,13 +930,17 @@ def main():
     # Modos de operação
     parser.add_argument("--list-dupes", nargs="?", const="", metavar="SUBSTRING",
                         help="Lista duplicatas. Sem argumento: todos; com argumento: filtra por nome.")
+    parser.add_argument("--search-user", dest="search_user", metavar="SUBSTRING",
+                        help="Busca usuários por fragmento de nome (mostra ID, nome, email, username).")
     parser.add_argument("--production", action="store_true",
-                        help="Usar com --list-dupes: consulta produção em vez do cache local.")
+                        help="Usar com --list-dupes ou --search-user: consulta produção em vez do cache local.")
     parser.add_argument("--dry-run", action="store_true", help="Modo dry-run: gera SQL sem executar.")
     parser.add_argument("--delete-users", dest="delete_users", metavar="ID1,ID2,...",
                         help="IDs a deletar (usar com --dry-run).")
     parser.add_argument("--reset-password", dest="reset_password", metavar="USER_ID",
                         help="Reset de senha interativo (usar com --dry-run).")
+    parser.add_argument("--update-email", dest="update_email", metavar="USER_ID",
+                        help="Atualizar email de um usuário (usar com --dry-run).")
     parser.add_argument("--output-dir", dest="output_dir", default=None, metavar="PASTA",
                         help=f"Pasta onde salvar o SQL gerado [default: {DEFAULT_SQL_DIR} se existir, senão stdout]")
 
@@ -756,8 +968,8 @@ def main():
         print(f"[config] Usando .env: {env_loaded}")
 
     # Validar uso de --production
-    if args.production and args.list_dupes is None:
-        print("Erro: --production só pode ser usado com --list-dupes.")
+    if args.production and args.list_dupes is None and args.search_user is None and not (args.dry_run and args.update_email):
+        print("Erro: --production só pode ser usado com --list-dupes, --search-user ou --dry-run --update-email.")
         sys.exit(1)
 
     # Roteamento
@@ -766,6 +978,11 @@ def main():
             _require(args, ["db", "userdb_dir"], "--list-dupes")
         cmd_list_dupes(args)
 
+    elif args.search_user:
+        if not args.production:
+            _require(args, ["db"], "--search-user")
+        cmd_search_user(args)
+
     elif args.dry_run and args.delete_users:
         _require(args, ["db"], "--dry-run --delete-users")
         cmd_dry_run_delete(args)
@@ -773,6 +990,11 @@ def main():
     elif args.dry_run and args.reset_password:
         _require(args, ["db"], "--dry-run --reset-password")
         cmd_dry_run_reset_password(args)
+
+    elif args.dry_run and args.update_email:
+        if not args.production:
+            _require(args, ["db"], "--dry-run --update-email")
+        cmd_dry_run_update_email(args)
 
     elif args.apply_to_local_cache:
         _require(args, ["db", "userdb_dir", "sql"], "--apply-to-local-cache")
