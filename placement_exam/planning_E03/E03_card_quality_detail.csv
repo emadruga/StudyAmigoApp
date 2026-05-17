@@ -1,0 +1,366 @@
+student_id,name,tier,deck,card_id,front,back,score_front,reason_front,score_back,reason_back,score_process,reason_process,total_score,pct_score
+3001,Ana Manuela de Carvalho Trindade,2,PASSAGE_E03_TIER2,1777130334001,He'd  been [PURSUING] her for months and then she finally agreed to go out with him.,"Pursue (v.) = to follow someone or something , usually to try cath him, her or It.
+-->  pursuing a carrer/ pursuing someone/ pursuing a dream.
+_________________________________________________________________________________________
+ Ele estava perseguindo  ela há meses e então  ela finalmente concordou em sair com ele.",2,frase contextualizada com [MAIÚSCULO],2,classe gramatical + marcador de colocação,2,frase original (0.39 de similaridade),6,100.0
+3001,Ana Manuela de Carvalho Trindade,2,PASSAGE_E03_TIER2,1777131114001,Scientists are hoping for a [BREAKTHROUGH] in the search for a cure for cancer.,"Breakthrough ( n.) =  an important discovery or event that helps to improve a situation or provide an answer to a problem.
+--> a breakthrough in research/ scientific breakthrough/ breakthrough discovery.
+__________________________________________________________________________________________
+Os cientistas esperam um importante avanço nas pesquisas de cura do câncer.",2,frase contextualizada com [MAIÚSCULO],1,marcador de colocação presente mas sem classe gramatical,2,frase original (0.34 de similaridade),5,83.3
+3001,Ana Manuela de Carvalho Trindade,2,PASSAGE_E03_TIER2,1777131880001,They have huge arguments because they're both so [ STUBBORN].,"Stubborn ( adj.) = a stubborn person is determined to do what he or she wants and refuses to do anything else.
+    --> her action was stubborn/ he is so stubborn/ remain stubborn.
+___________________________________________________________________________________________________________
+Eles têm grandes discussões porque ambos são muito teimosos.",1,frase presente mas sem marcação [MAIÚSCULO],1,marcador de colocação presente mas sem classe gramatical,2,frase original (0.35 de similaridade),4,66.7
+3001,Ana Manuela de Carvalho Trindade,2,PASSAGE_E03_TIER2,1777287670001,The company plans to [ CROWDSOURCED] the translation of its new web app.,"Crowdsource ( v.) = to give tasks to a large group of people or to the general public.
+--> Crowdsource ideas/ crowdsourced platform / crowdsource a solution.
+______________________________________________
+A empresa pretende solicitar a colaboração do público para fazer a tradução do seu novo aplicativo na web.",1,frase presente mas sem marcação [MAIÚSCULO],1,marcador de colocação presente mas sem classe gramatical,2,frase original (0.36 de similaridade),4,66.7
+3001,Ana Manuela de Carvalho Trindade,2,PASSAGE_E03_TIER2,1777288275001,People have lived in this valley since [ANCIENT] times.,"Ancient ( adj. ) =of or from a long time ago, having lasted for a very long time
+ ---> ancient kingdoms/ civilization / woodlands.
+______________________________________________
+As pessoas vivem neste vale desde tempos antigos.",2,frase contextualizada com [MAIÚSCULO],1,marcador de colocação presente mas sem classe gramatical,2,frase original (0.38 de similaridade),5,83.3
+3001,Ana Manuela de Carvalho Trindade,2,PASSAGE_E03_TIER2,1777495052001,Regular exercise reduces the risk of coronary heart [ DISEASES] .,"Diseases ( subs.)= (an) illness of people, animals, plants, etc., caused by infection or a failure of health rather than by an accident
+----> a contagious disease/ an autoimune disease / a fatal disease.
+____________________________________________________________________________
+(uma) enfermidade de pessoas, animais, plantas, etc., causada por infecção ou falha na saúde, em vez de um acidente.",1,frase presente mas sem marcação [MAIÚSCULO],1,marcador de colocação presente mas sem classe gramatical,2,frase original (0.38 de similaridade),4,66.7
+3001,Ana Manuela de Carvalho Trindade,2,PASSAGE_E03_TIER2,1777496732001,She [ WONDERED] who'd sent her the mysterious email.,"Wonder ( v.) = to ask yourself questions or express a wish to know about something.
+ ---> I have been Wondering about/ she Wondered.
+_________________________________________________________
+Ela se perguntou quem lhe enviara o e-mail misterioso.",1,frase presente mas sem marcação [MAIÚSCULO],1,marcador de colocação presente mas sem classe gramatical,2,frase original (0.43 de similaridade),4,66.7
+3001,Ana Manuela de Carvalho Trindade,2,PASSAGE_E03_TIER2,1777672576001,The different sizes of eggs are sorted by a [ MACHINE ].,"Machine ( n.)= a piece of equipment with several moving parts that uses power to do a particular type of work.
+---> repair The machine/ start the machine / washing machine.
+_____________________________________________________________________________________
+Os ovos são separados em tamanhos diferentes por máquina.",1,frase presente mas sem marcação [MAIÚSCULO],1,marcador de colocação presente mas sem classe gramatical,2,frase original (0.44 de similaridade),4,66.7
+3001,Ana Manuela de Carvalho Trindade,2,PASSAGE_E03_TIER2,1777673775001,a [ LONGSTANDING] agreement.,"Long-standing (adj.) = having existed for a long time.
+----> longstanding costum / longstanding friendship / longstanding habit.
+_________________________________________________________________________
+um acordo de longa data.",1,frase presente mas sem marcação [MAIÚSCULO],2,classe gramatical + marcador de colocação,2,frase original (0.36 de similaridade),5,83.3
+3001,Ana Manuela de Carvalho Trindade,2,PASSAGE_E03_TIER2,1777676248001,She [ PAINSTAKINGLY ]explained how the machine worked.,"Painstakingly (adv.)= in a way that shows you have taken a lot of care or made a lot of effort.
+----> painstakingly research / painstakingly detail / painstakingly approach.
+___________________________________________________________________________
+
+Ela explicou com meticulosamente como a máquina funcionava.",1,frase presente mas sem marcação [MAIÚSCULO],2,classe gramatical + marcador de colocação,2,frase original (0.45 de similaridade),5,83.3
+3001,Ana Manuela de Carvalho Trindade,2,PASSAGE_E03_TIER2,1778334113001,"It costs a [ STAGGERING ] $50,000 per week to keep the museum open to the public.","Staggering ( adj. ) = very shocking and surprising.
+---> staggering amount / staggering number / staggering price
+_____________________________________________________________________________________________________________________________Custa uma impressionantes quantia de 50.000 dólares por semana para manter o museu aberto ao público.",1,frase presente mas sem marcação [MAIÚSCULO],1,marcador de colocação presente mas sem classe gramatical,2,frase original (0.36 de similaridade),4,66.7
+3001,Ana Manuela de Carvalho Trindade,2,PASSAGE_E03_TIER2,1778335865001,"[ HIT THE ROAD ] Jack , and don't come back no more.","Hit the road ( idiom: expressão idiomática )= to leave a place or begin a journey
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------Pegue a estrada Jack, e não volte mais.",1,frase presente mas sem marcação [MAIÚSCULO],1,tradução presente mas sem formatação T2 (classe/colocação),2,frase original (0.36 de similaridade),4,66.7
+3051,Samuel Martins Da Conceição,1,PASSAGE_E03_TIER1,1777074149001,Lean on me when you're not strong,Verbo- Lean (on)= apoiar-se,1,frase presente mas sem marcação [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.30 de similaridade),5,83.3
+3051,Samuel Martins Da Conceição,1,PASSAGE_E03_TIER1,1777074265001,Ain't go sunshine when she's gone,Verbo- Go= Ir,1,frase presente mas sem marcação [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.36 de similaridade),5,83.3
+3051,Samuel Martins Da Conceição,1,PASSAGE_E03_TIER1,1777074367001,"Hit the road, Paul",Verbo- Hit= ir embora,1,frase presente mas sem marcação [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.33 de similaridade),5,83.3
+3051,Samuel Martins Da Conceição,1,PASSAGE_E03_TIER1,1777074439001,"Take me home, country roads",Verbo- take= levar,1,frase presente mas sem marcação [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.40 de similaridade),5,83.3
+3051,Samuel Martins Da Conceição,1,PASSAGE_E03_TIER1,1777074524001,I will always Love you,Verbo- love= amar,1,frase presente mas sem marcação [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.39 de similaridade),5,83.3
+3051,Samuel Martins Da Conceição,1,PASSAGE_E03_TIER1,1777155171001,Don't stop believin,Verbo- believe= acreditar,0,muito curta (3 palavra(s)) — parece palavra isolada,2,padrão 'palavra = tradução' encontrado,2,frase original (0.32 de similaridade),4,66.7
+3051,Samuel Martins Da Conceição,1,PASSAGE_E03_TIER1,1777155243001,We will rock you,Verbo- rock= agitar,1,frase presente mas sem marcação [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.36 de similaridade),5,83.3
+3051,Samuel Martins Da Conceição,1,PASSAGE_E03_TIER1,1777155607001,"Hello darkness, my old friend, I've come to talk with you again",Verbo- come= ir,1,frase presente mas sem marcação [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.33 de similaridade),5,83.3
+4001,Ana Carolina Barbosa da Costa,2,PASSAGE_E03_TIER2,1776953516001,Fireworks are a [TRADITION] during Carnival in Rio de Janeiro.,"tradition (n.) = tradição
+• This tradition dates back to medieval times. / Daphne is carrying on the family tradition by becoming a lawyer.
+————————————
+Os fogos de artifício são uma tradição durante o Carnaval no Rio de Janeiro.",2,frase contextualizada com [MAIÚSCULO],2,classe gramatical + marcador de colocação,2,frase original (0.34 de similaridade),6,100.0
+4001,Ana Carolina Barbosa da Costa,2,PASSAGE_E03_TIER2,1776953517001,Fireworks are a [TRADITION] during Carnival in Rio de Janeiro.,"tradition (n.) = tradição
+• This tradition dates back to medieval times. / Daphne is carrying on the family tradition by becoming a lawyer.
+————————————
+Os fogos de artifício são uma tradição durante o Carnaval no Rio de Janeiro.",2,frase contextualizada com [MAIÚSCULO],2,classe gramatical + marcador de colocação,2,frase original (0.34 de similaridade),6,100.0
+4001,Ana Carolina Barbosa da Costa,2,PASSAGE_E03_TIER2,1776953884001,I am sure that I will bring great [FLAIR] and distinction to the role.,"flair (n.) = dom natural, talento ou elegância 
+• He played with flair. / My mother has a flair for interior design.
+————————————
+Tenho certeza de que trarei grande talento e distinção para o cargo.",2,frase contextualizada com [MAIÚSCULO],2,classe gramatical + marcador de colocação,2,frase original (0.44 de similaridade),6,100.0
+4001,Ana Carolina Barbosa da Costa,2,PASSAGE_E03_TIER2,1776954206001,Fluminense was [DEFEATED] by Vasco da Gama in the Copa do Brasil semi-final.,"defeat (v.) = derrotar
+• The French were defeated at Waterloo in 1815. / The team were defeated in yesterday's game.
+———————————— 
+O Fluminense foi derrotado pelo Vasco da Gama na semifinal da Copa do Brasil.",2,frase contextualizada com [MAIÚSCULO],2,classe gramatical + marcador de colocação,2,frase original (0.37 de similaridade),6,100.0
+4001,Ana Carolina Barbosa da Costa,2,PASSAGE_E03_TIER2,1777088046001,"Lucas may have said he was a [QUALIFIED] mechanic, but the truth is quite different.","qualified (adj.) = qualificado, habilitado
+• Tim is now a qualified architect. / I'm not qualified.
+———————————————
+Lucas pode ter dito que era um mecânico qualificado, mas a verdade é bem diferente.",2,frase contextualizada com [MAIÚSCULO],2,classe gramatical + marcador de colocação,2,frase original (0.36 de similaridade),6,100.0
+4001,Ana Carolina Barbosa da Costa,2,PASSAGE_E03_TIER2,1777088063001,"[CREATIVITY] arises from your own mind, not from something that already exists.","creativity (n.) = criatividade
+• Too many rules might deaden creativity. / Creativity and flair are the songwriter's real talents.
+———————————————
+A criatividade surge da sua própria mente, não de algo que já existe.",2,frase contextualizada com [MAIÚSCULO],2,classe gramatical + marcador de colocação,2,frase original (0.36 de similaridade),6,100.0
+4001,Ana Carolina Barbosa da Costa,2,PASSAGE_E03_TIER2,1777088081001,Andrey Santos is my [FAVORITE] Chelsea player.,"favorite (adj., n.) = favorito (a)
+• her favorite toy/movie/color
+———————————————
+Andrey Santos é o meu jogador favorito do Chelsea.",2,frase contextualizada com [MAIÚSCULO],1,marcador de colocação presente mas sem classe gramatical,2,frase original (0.42 de similaridade),5,83.3
+4001,Ana Carolina Barbosa da Costa,2,PASSAGE_E03_TIER2,1777257677001,Great [PRECISION] is needed to align the graphs correctly.,"precision (n.) = precisão
+• the precision of the measuring instruments. / The precision of the surgeon’s work.
+————————————————————————
+É necessária grande precisão para alinhar os gráficos corretamente.",2,frase contextualizada com [MAIÚSCULO],2,classe gramatical + marcador de colocação,2,frase original (0.45 de similaridade),6,100.0
+4001,Ana Carolina Barbosa da Costa,2,PASSAGE_E03_TIER2,1777603417001,Firefighters believe she must have known her [ATTACKER].,"attacker (n.) = agressor, agressora, atacante
+• She knew her attacker.
+——————————————————
+Os bombeiros acreditam que ela devia conhecer seu agressor.",2,frase contextualizada com [MAIÚSCULO],2,classe gramatical + marcador de colocação,2,frase original (0.38 de similaridade),6,100.0
+4001,Ana Carolina Barbosa da Costa,2,PASSAGE_E03_TIER2,1777603573001,The boat slowly sank into the [DEPTHS] of the ocean.,"depth (n.) = profundidade
+• The depth of a lake/pond.
+—————————————————
+O barco afundou lentamente nas profundezas do oceano.",2,frase contextualizada com [MAIÚSCULO],2,classe gramatical + marcador de colocação,2,frase original (0.38 de similaridade),6,100.0
+4001,Ana Carolina Barbosa da Costa,2,PASSAGE_E03_TIER2,1777603953001,We [ELIMINATED] the possibility that we caused an accident.,"eliminate (v.) = eliminar, erradicar
+- Ways to eliminate cooking odors. / Who will be eliminated after the first round?
+—————————————————
+Eliminamos a possibilidade de termos causado um acidente.",2,frase contextualizada com [MAIÚSCULO],1,classe gramatical presente mas sem marcador de colocação,2,frase original (0.39 de similaridade),5,83.3
+4011,Ana Luiza Camilo da Silva,1,PASSAGE_E03_TIER1,1777325696001,The series (lost) audience.,"Lost: perdeu
+Tradução: A série perdeu audiência.",1,frase presente mas sem marcação [MAIÚSCULO],1,verso preenchido mas sem separador '=',2,frase original (0.43 de similaridade),4,66.7
+4011,Ana Luiza Camilo da Silva,1,PASSAGE_E03_TIER1,1777325749001,He's not very (creative).,"Creative: criativo.
+Tradução: Ele não é muito criativo.",1,frase presente mas sem marcação [MAIÚSCULO],1,verso preenchido mas sem separador '=',2,frase original (0.44 de similaridade),4,66.7
+4011,Ana Luiza Camilo da Silva,1,PASSAGE_E03_TIER1,1777325831001,This never goes out of (style).,"Style: Estilo.
+Tradução: Isso nunca sai de estilo/moda.",1,frase presente mas sem marcação [MAIÚSCULO],1,verso preenchido mas sem separador '=',2,frase original (0.50 de similaridade),4,66.7
+4011,Ana Luiza Camilo da Silva,1,PASSAGE_E03_TIER1,1777431380001,She is very (experienced) as a journalist.,"Experienced: experiente.
+ Tradução: Ela é muito experiente como jornalista",1,frase presente mas sem marcação [MAIÚSCULO],1,verso preenchido mas sem separador '=',2,frase original (0.43 de similaridade),4,66.7
+4011,Ana Luiza Camilo da Silva,1,PASSAGE_E03_TIER1,1777431449001,I'm going to the stadium to (cheer) for Botafogo.,"Cheer: torcer/vibrar 
+Tradução: Eu vou ao estádio torcer pro Botafogo.",1,frase presente mas sem marcação [MAIÚSCULO],1,verso preenchido mas sem separador '=',2,frase original (0.35 de similaridade),4,66.7
+4011,Ana Luiza Camilo da Silva,1,PASSAGE_E03_TIER1,1777505510001,The ending of that movie was (painful).,"Painful: doloroso. 
+Tradução: O final daquele filme foi doloroso.",1,frase presente mas sem marcação [MAIÚSCULO],1,verso preenchido mas sem separador '=',2,frase original (0.50 de similaridade),4,66.7
+4031,Emanuelly Almeida da Silva,1,PASSAGE_E03_TIER1,1778898747001,"Jones favours a dynamic, hands-on [STYLE] of leadership.",Style=estilo,2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.45 de similaridade),6,100.0
+4031,Emanuelly Almeida da Silva,1,PASSAGE_E03_TIER1,1778898947001,I’d like to be more [CREATIVE] and innovative.,Creative= criativo (a),2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.50 de similaridade),6,100.0
+4031,Emanuelly Almeida da Silva,1,PASSAGE_E03_TIER1,1778899043001,[PRECISION] is essential when performing tasks that require accuracy and attention to detail.,Precision= precisão,2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.37 de similaridade),6,100.0
+4031,Emanuelly Almeida da Silva,1,PASSAGE_E03_TIER1,1778899241001,The police believe she must have known her [ATTACKER].,Attacker= agressor/atacante,2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.47 de similaridade),6,100.0
+4031,Emanuelly Almeida da Silva,1,PASSAGE_E03_TIER1,1778982644001,I got [LOST] in the New York subway system.,Lost= perdido/confuso,2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.42 de similaridade),6,100.0
+4031,Emanuelly Almeida da Silva,1,PASSAGE_E03_TIER1,1778982798001,"The injury was extremely [PAINFUL], but she recovered quickly",Pain/painful= dor/ doloroso(a),2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.43 de similaridade),6,100.0
+4031,Emanuelly Almeida da Silva,1,PASSAGE_E03_TIER1,1778983054001,My [COACH] is very motivating.,Coach= treinador/técnico (a),2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.37 de similaridade),6,100.0
+4031,Emanuelly Almeida da Silva,1,PASSAGE_E03_TIER1,1778983243001,She is very [EXPERIENCED] in dealing with difficult customers,Experience/experienced= experiência/experiente,2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.41 de similaridade),6,100.0
+4031,Emanuelly Almeida da Silva,1,PASSAGE_E03_TIER1,1778983320001,The crowd began to [CHEER] when the team scored.,Cheer= torcer/ vibrar,2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.44 de similaridade),6,100.0
+4031,Emanuelly Almeida da Silva,1,PASSAGE_E03_TIER1,1778983432001,Brazil reached the [QUARTERFINALS] of the tournament.,Quarterfinals= quarta de final,2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.45 de similaridade),6,100.0
+4041,Isabella Queres,2,PASSAGE_E03_TIER2,1778711570001,"[CREATIVITY] comes from your imagination, not from a computer.","Creativity (n.) = criatividade 
+
+• Too many rules might deaden creativity. / Creativity, ingenuity, and flair are the songwriter's real talents. ———————————————————————
+A criatividade surge da sua imaginação, não de um computador.",2,frase contextualizada com [MAIÚSCULO],2,classe gramatical + marcador de colocação,2,frase original (0.38 de similaridade),6,100.0
+4041,Isabella Queres,2,PASSAGE_E03_TIER2,1778712192001,"In keeping with [TRADITION], they always have fish on Easter.","Tradition (n.) = tradição 
+
+• Fireworks have long been an American tradition on the Fourth of July. /  Switzerland has a long tradition of neutrality.
+————————————————————————
+
+Conforme a tradição, eles sempre comem peixe na Páscoa.",2,frase contextualizada com [MAIÚSCULO],2,classe gramatical + marcador de colocação,2,frase original (0.40 de similaridade),6,100.0
+4041,Isabella Queres,2,PASSAGE_E03_TIER2,1778713071001,He wrote several publications on the [PHILOSOPHY] of language.,"Philosophy (n.) = filosofia
+
+* René Descartes is regarded as the founder of modern philosophy. / He is a professor of the philosophy of science. ———————————————————————
+
+Ele escreveu várias publicações sobre a filosofia da linguagem.",2,frase contextualizada com [MAIÚSCULO],1,classe gramatical presente mas sem marcador de colocação,2,frase original (0.39 de similaridade),5,83.3
+4041,Isabella Queres,2,PASSAGE_E03_TIER2,1778807798001,She manages to [COMBINE] a sharp mind with a sympathetic manner.,"Combines (v.) = combinar 
+
+* The two countries combined against theircommon enemy. / None of us has much money so let's combine what we've got.———————————————————————
+
+Ela consegue combinar uma mente brilhante com uma maneira compassiva.",2,frase contextualizada com [MAIÚSCULO],1,classe gramatical presente mas sem marcador de colocação,2,frase original (0.39 de similaridade),5,83.3
+4041,Isabella Queres,2,PASSAGE_E03_TIER2,1778808126001,He has a flair for languages.,"Flair (n.) = dom natural, talento 
+
+* It's a competent enough piece of writing but it lacks flair. / He played with great imagination and flair.————————————————————————
+Ele tem um dom natural para línguas.",1,frase presente mas sem marcação [MAIÚSCULO],1,classe gramatical presente mas sem marcador de colocação,2,frase original (0.47 de similaridade),4,66.7
+4041,Isabella Queres,2,PASSAGE_E03_TIER2,1778809362001,The [PRECISION] of the surgeon's work is important for a good outcome.,"Precision (n.) = precisão, exatidão 
+
+* Great precision is required to align the mirrors accurately. / Precision bombing was used to destroyenemy airbases and armaments factories.————————————————————————
+
+A precisão do trabalho do cirurgião é importante para um bom resultado.",2,frase contextualizada com [MAIÚSCULO],1,classe gramatical presente mas sem marcador de colocação,2,frase original (0.38 de similaridade),5,83.3
+4041,Isabella Queres,2,PASSAGE_E03_TIER2,1778892491001,He used a powerful kick to defend himself against the [ATTACKER].,"Attacker (n.) = agressor, agressora, atacante
+
+* She knew her attacker. /  The police think she must have knownher attacker.
+
+———————————————————————
+
+Ele usou um chute poderoso para se defender contra o agressor.",2,frase contextualizada com [MAIÚSCULO],1,classe gramatical presente mas sem marcador de colocação,2,frase original (0.34 de similaridade),5,83.3
+4041,Isabella Queres,2,PASSAGE_E03_TIER2,1778892818001,The team is ready to [CARRY] the project forward next year.,"carry forward (phrasal verb) = levar
+
+ • I forgot to carry the 2 forward. / It is important that we carry forward this political process.
+
+———————————————————————————
+
+A equipe está pronta para dar continuidade ao projeto no próximo ano.",2,frase contextualizada com [MAIÚSCULO],1,marcador de colocação presente mas sem classe gramatical,2,frase original (0.48 de similaridade),5,83.3
+4041,Isabella Queres,2,PASSAGE_E03_TIER2,1778893169001,I'm not [QUALIFIED] to give advice on such matters.,"Qualified (adj.) = qualificado 
+
+* Tim is now a qualified architect. / What makes you think that you are qualified for this job?
+————————————————————————
+
+Não sou qualificado para dar conselhos sobre tais assuntos",2,frase contextualizada com [MAIÚSCULO],1,classe gramatical presente mas sem marcador de colocação,2,frase original (0.42 de similaridade),5,83.3
+4071,Laís Nascimento Silva,1,PASSAGE_E03_TIER1,1776738617001,The teacher Ewerton Madruga prefers a more dynamic and practical teaching [STYLE].,"Substantivo. Style= estilo, modo.
+
+Tradução: "" O professor Ewerton Madruga prefere um estilo de ensinamento mais dinâmico e prático""",2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.39 de similaridade),6,100.0
+4071,Laís Nascimento Silva,1,PASSAGE_E03_TIER1,1776739493001,"So early in the morning, it's hard to let [CREATIVITY] flow into the course.","Adjetivo. Creative/creativity: criativo/criatividade.
+Tradução: "" Tão cedo pela manhã, é difícil deixar a criatividade fluir durante o curso"".",2,frase contextualizada com [MAIÚSCULO],1,verso preenchido mas sem separador '=',2,frase original (0.39 de similaridade),5,83.3
+4071,Laís Nascimento Silva,1,PASSAGE_E03_TIER1,1776739827001,"In metrology courses, high [PRECISION] is required to make accurate measurements.","Substantivo. Precision= Precisão, acerto. 
+Tradução: "" No curso de metrologia, é necessária grande precisão para fazer uma medição corretamente"".",2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.31 de similaridade),6,100.0
+4071,Laís Nascimento Silva,1,PASSAGE_E03_TIER1,1776740133001,The old photograph of her sister brought back [PAINFUL] memories.,"Adjetivo. Painful= doloroso, dolorido. 
+Tradução: "" A antiga fotografia da irmã trouxe de volta memórias dolorosas"".",2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.40 de similaridade),6,100.0
+4071,Laís Nascimento Silva,1,PASSAGE_E03_TIER1,1776805864001,Follow the main corridor and you won't get [LOST].,"Adjetivo. Lost= perdeu, perdido.
+tradução: ´´Siga pelo corredor principal e você não se perderá``.",2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.45 de similaridade),6,100.0
+4071,Laís Nascimento Silva,1,PASSAGE_E03_TIER1,1776806225001,The Flamengo players fought bravely against a more [EXPERIENCED] football team.,"Adjetivo. Experienced= experiente.
+Tradução: ´´Os jogadores do Flamengo lutaram bravamente contra um time de futebol mais experiente``.",2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.43 de similaridade),6,100.0
+4071,Laís Nascimento Silva,1,PASSAGE_E03_TIER1,1776806615001,Flamengo fans [CHEERED] loudly when the team entered the field.,"Verbo. Cheer/cheered= torcer, vibrar.
+Tradução: ´´ Os torcedores do Flamengo vibraram  muito quando o time entrou em campo`` .",2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.38 de similaridade),6,100.0
+4071,Laís Nascimento Silva,1,PASSAGE_E03_TIER1,1776807019001,Jorge Jesus is an excellent [COACH] who knows how to achieve good results.,"Substantivo. Coach= técnico/treinador.
+Tradução: ´´Jorge Jesus é um excelente treinador que sabe como obter bons resultados`` .",2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.37 de similaridade),6,100.0
+4081,Lucas Pandini Pinheiro,2,PASSAGE_E03_TIER2,1778722587001,Companies need to be run in ways that encourage [CREATIVITY].,"Creativity (n.) = criatividade 
+
+* Too many rules might deaden creativity. / Creativity, ingenuity, and flair are the songwriter's real talents. ———————————————————————
+
+As empresas precisam ser administradas de forma a incentivar a criatividade.",2,frase contextualizada com [MAIÚSCULO],1,classe gramatical presente mas sem marcador de colocação,2,frase original (0.37 de similaridade),5,83.3
+4081,Lucas Pandini Pinheiro,2,PASSAGE_E03_TIER2,1778723217001,This college has a long [TRADITION] of athletic excellence.,"Tradition (n.) = tradição
+• Fireworks have long been an American tradition on the Fourth of July.
+• Switzerland has a long tradition of neutrality.
+—————————————————————
+
+Esta faculdade tem uma longa tradição de excelência atlética.",2,frase contextualizada com [MAIÚSCULO],2,classe gramatical + marcador de colocação,2,frase original (0.42 de similaridade),6,100.0
+4081,Lucas Pandini Pinheiro,2,PASSAGE_E03_TIER2,1778723488001,She majored in [PHILOSOPHY] at Harvard.,"Philosophy (n.)
+• René Descartes is regarded as the founder of modern philosophy.
+• the Ancient Greek philosophy of Stoicism
+—————————————————————
+
+Ela se formou em filosofia em Harvard.",2,frase contextualizada com [MAIÚSCULO],2,classe gramatical + marcador de colocação,2,frase original (0.42 de similaridade),6,100.0
+4081,Lucas Pandini Pinheiro,2,PASSAGE_E03_TIER2,1778807942001,His books are a pleasure to read because he writes with such clarity and [PRECISION].,"Precision (n.) = precisão 
+
+* Great precision is required to align the mirrors accurately. / Precision bombing was used to destroy enemy airbases and armaments factories. 
+
+——————————————————————— 
+Seus livros são um prazer de ler porque ele escreve com muita clareza e precisão.",2,frase contextualizada com [MAIÚSCULO],1,classe gramatical presente mas sem marcador de colocação,2,frase original (0.40 de similaridade),5,83.3
+4081,Lucas Pandini Pinheiro,2,PASSAGE_E03_TIER2,1778807969001,Alan has a [FLAIR] for public speaking.,"Flair (n.) = talento 
+
+* He played with great imagination and flair. / It's a competent enough piece of writing but it lacks flair. 
+
+——————————————————————— 
+Alan tem um talento especial para falar em público.",2,frase contextualizada com [MAIÚSCULO],1,classe gramatical presente mas sem marcador de colocação,2,frase original (0.41 de similaridade),5,83.3
+4081,Lucas Pandini Pinheiro,2,PASSAGE_E03_TIER2,1778808000001,Do you know why they've decided to [COMBINE] the two departments?,"Combine (v.) = combinar 
+
+* She manages to combine a sharp mind with a sympathetic manner. / Government bonds are a sound investment because they combine good profits and high security. 
+
+——————————————————————— 
+Você sabe por que eles decidiram fundir os dois departamentos?",2,frase contextualizada com [MAIÚSCULO],1,classe gramatical presente mas sem marcador de colocação,2,frase original (0.44 de similaridade),5,83.3
+4096,Ricardo de Souza Rodrigues,1,PASSAGE_E03_TIER1,1778471480001,"""The [ ATTACKER ] stole data from the system.""","ATTACKER = atacante
+""O invasor roubou dados do sistema.""",1,frase presente mas sem marcação [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.40 de similaridade),5,83.3
+4096,Ricardo de Souza Rodrigues,1,PASSAGE_E03_TIER1,1778472104001,"""You need to be [ CREATIVE ] to be a tattoo artist.""","CREATIVE = criativo
+""É preciso ser criativo para ser um tatuador.""",1,frase presente mas sem marcação [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.44 de similaridade),5,83.3
+4096,Ricardo de Souza Rodrigues,1,PASSAGE_E03_TIER1,1778472402001,"""The instrument calibrated the component with extreme [ PRECISION ].""","PRECISION = precisão
+""O instrumento calibrou o componente com extrema precisão.""",1,frase presente mas sem marcação [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.55 de similaridade),5,83.3
+4096,Ricardo de Souza Rodrigues,1,PASSAGE_E03_TIER1,1778648112001,"""I am an [ EXPERIENCED ] metrologist.""","experienced = experiente - 
+""Eu sou um metrologista experiente.""",1,frase presente mas sem marcação [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.42 de similaridade),5,83.3
+4096,Ricardo de Souza Rodrigues,1,PASSAGE_E03_TIER1,1778648479001,"""Drama is not my [ STYLE ].""","style = estilo -
+""Drama não é meu estilo.""",1,frase presente mas sem marcação [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.45 de similaridade),5,83.3
+4096,Ricardo de Souza Rodrigues,1,PASSAGE_E03_TIER1,1778648681001,"""I need to study hard to recover the [ LOST ] time.""","lost = perdido -
+""Preciso estudar bastante para recuperar o tempo perdido.""",1,frase presente mas sem marcação [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.36 de similaridade),5,83.3
+4096,Ricardo de Souza Rodrigues,1,PASSAGE_E03_TIER1,1778817938001,"""Losing my friend was the most [ PAINFUL ] event.""","Painful = doloroso - 
+""Perder meu amigo foi o evento mais doloroso.""",1,frase presente mas sem marcação [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.40 de similaridade),5,83.3
+4096,Ricardo de Souza Rodrigues,1,PASSAGE_E03_TIER1,1778818279001,"""I was thrilled when my team qualified for the [ QUARTERFINALS ].""","Quarterfinals = quartas de final - 
+""Eu fiquei emocionado quando meu time se classificou para as quartas de final.""",1,frase presente mas sem marcação [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.40 de similaridade),5,83.3
+4096,Ricardo de Souza Rodrigues,1,PASSAGE_E03_TIER1,1778818561001,"""My [ COACH ] taught me how to stay calm under pressure.""","Coach = treinador - 
+""Meu treinador me ensinou a manter a calma sob pressão.""",1,frase presente mas sem marcação [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.39 de similaridade),5,83.3
+4096,Ricardo de Souza Rodrigues,1,PASSAGE_E03_TIER1,1778818829001,"""I will be there to [ CHEER ] you on in the quarterfinals.""","Cheer = torcer / vibrar - 
+""Eu estarei lá para torcer por você nas quartas de final.""",1,frase presente mas sem marcação [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.51 de similaridade),5,83.3
+5001,Adriany Praia Serafim,2,PASSAGE_E03_TIER2,1778837819001,Brazil plays with great [CREATIVITY] in important matches.,"creativity (n.) = criatividade
+☞ show creativity / great creativity
+""O Brasil joga com grande criatividade em partidas importantes.""",2,frase contextualizada com [MAIÚSCULO],2,classe gramatical + marcador de colocação,2,frase original (0.49 de similaridade),6,100.0
+5001,Adriany Praia Serafim,2,PASSAGE_E03_TIER2,1778837857001,Brazil has a strong football [TRADITION].,"tradition (n.) = tradição
+☞ strong tradition / cultural tradition
+""O Brasil tem uma forte tradição no futebol.""",2,frase contextualizada com [MAIÚSCULO],2,classe gramatical + marcador de colocação,2,frase original (0.41 de similaridade),6,100.0
+5001,Adriany Praia Serafim,2,PASSAGE_E03_TIER2,1778844613001,The team’s [PHILOSOPHY] focuses on attacking football.,"philosophy (n.) = filosofia / modo de pensar
+☞ team philosophy / football philosophy
+""A filosofia do time foca no futebol ofensivo.""",2,frase contextualizada com [MAIÚSCULO],2,classe gramatical + marcador de colocação,2,frase original (0.51 de similaridade),6,100.0
+5001,Adriany Praia Serafim,2,PASSAGE_E03_TIER2,1778844646001,This style [COMBINES] skill and speed.,"combine (v.) = combinar / unir
+☞ combine A and B / be combined with
+""Esse estilo combina habilidade e velocidade.""",2,frase contextualizada com [MAIÚSCULO],2,classe gramatical + marcador de colocação,2,frase original (0.37 de similaridade),6,100.0
+5001,Adriany Praia Serafim,2,PASSAGE_E03_TIER2,1778844680001,The player showed great attacking [FLAIR].,"flair (n.) = talento natural / estilo
+☞ attacking flair / natural flair
+""O jogador mostrou grande talento ofensivo.""",2,frase contextualizada com [MAIÚSCULO],2,classe gramatical + marcador de colocação,2,frase original (0.44 de similaridade),6,100.0
+5001,Adriany Praia Serafim,2,PASSAGE_E03_TIER2,1778844725001,The team played with speed and [PRECISION].,"precision (n.) = precisão
+☞ with precision / high precision
+""O time jogou com velocidade e precisão.""",2,frase contextualizada com [MAIÚSCULO],2,classe gramatical + marcador de colocação,2,frase original (0.53 de similaridade),6,100.0
+5001,Adriany Praia Serafim,2,PASSAGE_E03_TIER2,1778844797001,Brazil was [ELIMINATED] in the last World Cup.,"eliminated (v.) = eliminado
+☞ be eliminated from / eliminated in the quarterfinals
+""O Brasil foi eliminado na última Copa do Mundo.""",2,frase contextualizada com [MAIÚSCULO],2,classe gramatical + marcador de colocação,2,frase original (0.49 de similaridade),6,100.0
+5001,Adriany Praia Serafim,2,PASSAGE_E03_TIER2,1778844842001,The match ended after extra time and a [PENALTY SHOOTOUT].,"penalty shootout (n.) = disputa de pênaltis
+☞ win a penalty shootout / lose on penalties
+""A partida terminou após a prorrogação e uma disputa de pênaltis.""",2,frase contextualizada com [MAIÚSCULO],2,classe gramatical + marcador de colocação,1,similaridade moderada (0.81) — pouca adaptação,5,83.3
+5001,Adriany Praia Serafim,2,PASSAGE_E03_TIER2,1778844898001,The defeat was very [PAINFUL] for the fans.,"painful (adj.) = doloroso
+☞ painful defeat / emotionally painful
+""A derrota foi muito dolorosa para os torcedores.""",2,frase contextualizada com [MAIÚSCULO],2,classe gramatical + marcador de colocação,1,similaridade moderada (0.72) — pouca adaptação,5,83.3
+5001,Adriany Praia Serafim,2,PASSAGE_E03_TIER2,1778844932001,The team is [DETERMINED] to win the next tournament.,"determined (adj.) = determinado
+☞ determined to win / remain determined
+""O time está determinado a vencer o próximo torneio.""",2,frase contextualizada com [MAIÚSCULO],2,classe gramatical + marcador de colocação,2,frase original (0.58 de similaridade),6,100.0
+5001,Adriany Praia Serafim,2,PASSAGE_E03_TIER2,1778971658001,Brazil [QUALIFIED] for the tournament without difficulty.,"qualified (v.) = se classificou
+☞ qualify for a tournament / qualify easily
+""O Brasil se classificou para o torneio sem dificuldade.""",2,frase contextualizada com [MAIÚSCULO],2,classe gramatical + marcador de colocação,1,similaridade moderada (0.73) — pouca adaptação,5,83.3
+5001,Adriany Praia Serafim,2,PASSAGE_E03_TIER2,1778971696001,They entered the competition as one of the [FAVORITES].,"favorites (n.) = favoritos
+☞ top favorites / strong favorites
+""Eles entraram na competição como um dos favoritos.""",2,frase contextualizada com [MAIÚSCULO],2,classe gramatical + marcador de colocação,2,frase original (0.49 de similaridade),6,100.0
+5001,Adriany Praia Serafim,2,PASSAGE_E03_TIER2,1778972270001,Brazil was [PLACED IN] Group C.,"placed in (v.) = colocado / alocado em
+☞ be placed in a group / placed in Group C
+""O Brasil foi colocado no Grupo C.""",2,frase contextualizada com [MAIÚSCULO],2,classe gramatical + marcador de colocação,2,frase original (0.45 de similaridade),6,100.0
+5001,Adriany Praia Serafim,2,PASSAGE_E03_TIER2,1778972306001,They were eliminated in the [QUARTERFINALS].,"quarterfinals (n.) = quartas de final
+☞ reach the quarterfinals / eliminated in the quarterfinals
+""Eles foram eliminados nas quartas de final.""",2,frase contextualizada com [MAIÚSCULO],2,classe gramatical + marcador de colocação,1,similaridade moderada (0.81) — pouca adaptação,5,83.3
+5001,Adriany Praia Serafim,2,PASSAGE_E03_TIER2,1778972334001,The game continued into [EXTRA TIME].,"extra time (n.) = prorrogação
+☞ go to extra time / after extra time
+""O jogo foi para a prorrogação.""",2,frase contextualizada com [MAIÚSCULO],2,classe gramatical + marcador de colocação,2,frase original (0.49 de similaridade),6,100.0
+5001,Adriany Praia Serafim,2,PASSAGE_E03_TIER2,1778972360001,That [DEFEAT] shocked the fans.,"defeat (n.) = derrota
+☞ suffer a defeat / painful defeat
+""Aquela derrota chocou os torcedores.""",2,frase contextualizada com [MAIÚSCULO],2,classe gramatical + marcador de colocação,2,frase original (0.55 de similaridade),6,100.0
+5001,Adriany Praia Serafim,2,PASSAGE_E03_TIER2,1778972384001,The team has great [EXPECTATIONS] for 2026.,"expectations (n.) = expectativas
+☞ high expectations / meet expectations
+""O time tem grandes expectativas para 2026.""",2,frase contextualizada com [MAIÚSCULO],2,classe gramatical + marcador de colocação,2,frase original (0.49 de similaridade),6,100.0
+5001,Adriany Praia Serafim,2,PASSAGE_E03_TIER2,1778972411001,Brazil has a lot of talent and [DEPTH] in the squad.,"depth (n.) = profundidade / qualidade do elenco
+☞ squad depth / depth of talent
+""O Brasil tem muita qualidade e profundidade no elenco.""",2,frase contextualizada com [MAIÚSCULO],2,classe gramatical + marcador de colocação,2,frase original (0.36 de similaridade),6,100.0
+5001,Adriany Praia Serafim,2,PASSAGE_E03_TIER2,1778972442001,He is an [ELITE] coach with a lot of experience.,"elite (adj.) = de elite
+☞ elite players / elite coach
+""Ele é um treinador de elite com muita experiência.""",2,frase contextualizada com [MAIÚSCULO],2,classe gramatical + marcador de colocação,2,frase original (0.39 de similaridade),6,100.0
+5001,Adriany Praia Serafim,2,PASSAGE_E03_TIER2,1778972473001,Young players will [CARRY FORWARD] Brazil’s tradition.,"carry forward (v.) = levar adiante / dar continuidade
+☞ carry forward a tradition / carry forward ideas
+""Jogadores jovens vão dar continuidade à tradição do Brasil.""",2,frase contextualizada com [MAIÚSCULO],2,classe gramatical + marcador de colocação,2,frase original (0.40 de similaridade),6,100.0
+5031,Ezequiel Telles Pedrosa dos Santos,1,PASSAGE_E03_TIER1,1778429864001,The researcher developed a new [STYLE] of culturing cells in the incubator.,Substantivo. style = estilo.,2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.46 de similaridade),6,100.0
+5031,Ezequiel Telles Pedrosa dos Santos,1,PASSAGE_E03_TIER1,1778429871001,Cybersecurity experts must be [CREATIVE] to anticipate new types of malware.,Adjetivo. creative = criativo.,2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.38 de similaridade),6,100.0
+5031,Ezequiel Telles Pedrosa dos Santos,1,PASSAGE_E03_TIER1,1778429894001,"In metrology, the [PRECISION] of a measurement determines its reliability.",Substantivo. precision = precisão.,2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.35 de similaridade),6,100.0
+5031,Ezequiel Telles Pedrosa dos Santos,1,PASSAGE_E03_TIER1,1778430319001,The network was compromised because the [ATTACKER] exploited a weak password.,Substantivo. attacker = atacante.,2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.46 de similaridade),6,100.0
+5031,Ezequiel Telles Pedrosa dos Santos,1,PASSAGE_E03_TIER1,1778430330001,We stopped the laboratory session early to watch the World Cup [QUARTERFINALS].,Substantivo. quarterfinals = quartas de final.,2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.41 de similaridade),6,100.0
+5031,Ezequiel Telles Pedrosa dos Santos,1,PASSAGE_E03_TIER1,1778430379001,The biologist [LOST] the samples when the freezer temperature increased.,Verbo. lost = perdeu.,2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.42 de similaridade),6,100.0
+5031,Ezequiel Telles Pedrosa dos Santos,1,PASSAGE_E03_TIER1,1778430388001,It is [PAINFUL] to restart the entire calibration process from the beginning.,Adjetivo. painful = doloroso.,2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.38 de similaridade),6,100.0
+5031,Ezequiel Telles Pedrosa dos Santos,1,PASSAGE_E03_TIER1,1778430572001,The project [COACH] helped the team implement better security protocols.,Substantivo. coach = técnico / treinador.,2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.38 de similaridade),6,100.0
+5031,Ezequiel Telles Pedrosa dos Santos,1,PASSAGE_E03_TIER1,1778430594001,An [EXPERIENCED] metrologist knows how to handle delicate instruments.,Adjetivo. experienced = experiente.,2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.36 de similaridade),6,100.0
+5031,Ezequiel Telles Pedrosa dos Santos,1,PASSAGE_E03_TIER1,1778430606001,The students will [CHEER] when they pass the final lab exam.,Verbo. cheer = torcer / vibrar.,2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.53 de similaridade),6,100.0
+5031,Ezequiel Telles Pedrosa dos Santos,1,PASSAGE_E03_TIER1,1778430751001,The researcher developed a new [STYLE] of culturing cells in the incubator.,Substantivo. style = estilo.,2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.46 de similaridade),6,100.0
+5031,Ezequiel Telles Pedrosa dos Santos,1,PASSAGE_E03_TIER1,1778629478001,"LOVER (de Billie Jean is not my lover)
+    The biologist is a [LOVER] of nature and spends hours collecting samples.",Substantivo. lover = amante / entusiasta,2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.38 de similaridade),6,100.0
+5031,Ezequiel Telles Pedrosa dos Santos,1,PASSAGE_E03_TIER1,1778629519001,"SAYS (de She says I am the one)
+    The security report [SAYS] that the system was accessed from an unknown IP.",Verbo. says = diz.,2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.34 de similaridade),6,100.0
+5031,Ezequiel Telles Pedrosa dos Santos,1,PASSAGE_E03_TIER1,1778629553001,"SON (de But the kid is not my son)
+    The lab manager's [SON] is also studying Metrology at the university.",Substantivo. son = filho.,2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.31 de similaridade),6,100.0
+5031,Ezequiel Telles Pedrosa dos Santos,1,PASSAGE_E03_TIER1,1778629585001,"CAREFUL (de Be careful what you do)
+    Be [CAREFUL] when handling the chemicals; they are highly reactive.",Adjetivo. careful = cuidadoso.,2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.33 de similaridade),6,100.0
+5031,Ezequiel Telles Pedrosa dos Santos,1,PASSAGE_E03_TIER1,1778629615001,"BREAKING (de Don’t go around breaking young...)
+    The hacker is [BREAKING] into the database to test our encryption.",Verbo. breaking = quebrando / invadindo.,2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.31 de similaridade),6,100.0
+5036,Jady Maria Rodrigues Figueiredo,1,PASSAGE_E03_TIER1,1777301281001,I only like films with a documentary [STYLE].,style = estilo,2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.43 de similaridade),6,100.0
+5036,Jady Maria Rodrigues Figueiredo,1,PASSAGE_E03_TIER1,1777301570001,"For most people, it's difficult to be [CREATIVE] in the morning.",creative = creativo,2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.41 de similaridade),6,100.0
+5036,Jady Maria Rodrigues Figueiredo,1,PASSAGE_E03_TIER1,1777301778001,This job requires great [PRECISION]; there can be no mistakes.,"precision = precisão, exatidão",2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.46 de similaridade),6,100.0
+5036,Jady Maria Rodrigues Figueiredo,1,PASSAGE_E03_TIER1,1777302426001,One of the [ATTACKERS] fled before the police arrived.,"attacker = atacante, agressor(a)",2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.41 de similaridade),6,100.0
+5036,Jady Maria Rodrigues Figueiredo,1,PASSAGE_E03_TIER1,1777417613001,The worst team in the championship managed to reach the [QUARTERFINALS].,quarterfinals = quartas de final,2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.49 de similaridade),6,100.0
+5036,Jady Maria Rodrigues Figueiredo,1,PASSAGE_E03_TIER1,1777418029001,She got [LOST] twice before finally arriving at the party.,"lost = perder, perdido(a)",2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.38 de similaridade),6,100.0
+5036,Jady Maria Rodrigues Figueiredo,1,PASSAGE_E03_TIER1,1777428488001,Neymar suffered another [PAINFUL] injury that forced him to leave the match.,painful = dolorosa,2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.40 de similaridade),6,100.0
+5036,Jady Maria Rodrigues Figueiredo,1,PASSAGE_E03_TIER1,1777428739001,The change of [COACH] made the team improve and play better.,coach = técnico/ treinador(a),2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.45 de similaridade),6,100.0
+5036,Jady Maria Rodrigues Figueiredo,1,PASSAGE_E03_TIER1,1777429139001,They defeated a more [EXPERIENCED] football team.,experienced = experiente,2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.40 de similaridade),6,100.0
+5036,Jady Maria Rodrigues Figueiredo,1,PASSAGE_E03_TIER1,1777429460001,Atlético Mineiro fans stopped [CHEERING] during the match against Flamengo.,cheer / cheering = torcer / vibrar,2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.41 de similaridade),6,100.0
+5051,Lenilson Maia Rodrigues de Lima,1,PASSAGE_E03_TIER1,1778422404001,The new software update changed the [STYLE] of the user interface significantly.,Substantivo. style = estilo.,2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.41 de similaridade),6,100.0
+5051,Lenilson Maia Rodrigues de Lima,1,PASSAGE_E03_TIER1,1778422416001,"To bypass the firewall, the team had to think of a [CREATIVE] solution.",Adjetivo. creative = criativo.,2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.43 de similaridade),6,100.0
+5051,Lenilson Maia Rodrigues de Lima,1,PASSAGE_E03_TIER1,1778422428001,The [PRECISION] of the electronic scale is checked every morning in the lab.,Substantivo. precision = precisão.,2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.46 de similaridade),6,100.0
+5051,Lenilson Maia Rodrigues de Lima,1,PASSAGE_E03_TIER1,1778422435001,The system administrator identified the [ATTACKER] trying to brute-force the password.,Substantivo. attacker = atacante.,2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.40 de similaridade),6,100.0
+5051,Lenilson Maia Rodrigues de Lima,1,PASSAGE_E03_TIER1,1778422459001,We finished the DNA extraction just before the [QUARTERFINALS] game started.,Substantivo. quarterfinals = quartas de final.,2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.49 de similaridade),6,100.0
+5051,Lenilson Maia Rodrigues de Lima,1,PASSAGE_E03_TIER1,1778422468001,The laboratory [LOST] two days of work because of the contaminated samples.,Verbo. lost = perdeu.,2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.43 de similaridade),6,100.0
+5051,Lenilson Maia Rodrigues de Lima,1,PASSAGE_E03_TIER1,1778422475001,Reinstalling the entire operating system after the crash was a [PAINFUL] process.,Adjetivo. painful = doloroso.,2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.37 de similaridade),6,100.0
+5051,Lenilson Maia Rodrigues de Lima,1,PASSAGE_E03_TIER1,1778422486001,Our internship [COACH] showed us how to use the mass spectrometer correctly.,Substantivo. coach = técnico / treinador / mentor.,2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.39 de similaridade),6,100.0
+5051,Lenilson Maia Rodrigues de Lima,1,PASSAGE_E03_TIER1,1778422496001,The company is looking for an [EXPERIENCED] analyst to lead the cybersecurity department.,Adjetivo. experienced = experiente.,2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.37 de similaridade),6,100.0
+5051,Lenilson Maia Rodrigues de Lima,1,PASSAGE_E03_TIER1,1778422504001,The researchers will [CHEER] if the vaccine shows positive results in the first trial.,Verbo. cheer = torcer / vibrar / comemorar.,2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.38 de similaridade),6,100.0
+5051,Lenilson Maia Rodrigues de Lima,1,PASSAGE_E03_TIER1,1778624236001,"The engineer [THOUGHT] the sensor was calibrated, but the precision was low.",Verbo. thought = pensava / achava.,2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.48 de similaridade),6,100.0
+5051,Lenilson Maia Rodrigues de Lima,1,PASSAGE_E03_TIER1,1778624246001,A [BAD] configuration in the firewall can expose all sensitive data.,Adjetivo. bad = mau / ruim.,2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.37 de similaridade),6,100.0
+5051,Lenilson Maia Rodrigues de Lima,1,PASSAGE_E03_TIER1,1778624264001,The results of the DNA sequencing proved that the hypothesis was [TRUE].,Adjetivo. true = verdadeiro.,2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.42 de similaridade),6,100.0
+5051,Lenilson Maia Rodrigues de Lima,1,PASSAGE_E03_TIER1,1778624274001,Maintaining [GOOD] laboratory practices is essential for biotechnology research.,Adjetivo. good = bom / boa.,2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.31 de similaridade),6,100.0
+5051,Lenilson Maia Rodrigues de Lima,1,PASSAGE_E03_TIER1,1778624285001,There is [NOTHING] more important than accuracy in a metrology lab.,Substantivo/Pronome. nothing = nada.,2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.42 de similaridade),6,100.0
+5081,Mateus Ferreira Patrício,2,PASSAGE_E03_TIER2,1776781715001,You make me laugh,Você me faz rir,1,frase presente mas sem marcação [MAIÚSCULO],1,tradução presente mas sem formatação T2 (classe/colocação),2,frase original (0.27 de similaridade),4,66.7
+5081,Mateus Ferreira Patrício,2,PASSAGE_E03_TIER2,1776781751001,Never mess with my family again.,Nunca mais mexa com a minha família.,1,frase presente mas sem marcação [MAIÚSCULO],1,tradução presente mas sem formatação T2 (classe/colocação),2,frase original (0.32 de similaridade),4,66.7
+5081,Mateus Ferreira Patrício,2,PASSAGE_E03_TIER2,1776781788001,With great power comes great responsibility.,Com grandes poderes vem grandes responsabilidades.,1,frase presente mas sem marcação [MAIÚSCULO],1,tradução presente mas sem formatação T2 (classe/colocação),2,frase original (0.42 de similaridade),4,66.7
+5081,Mateus Ferreira Patrício,2,PASSAGE_E03_TIER2,1776781844001,Make them fear the Invincible!,Façam eles temerem o Invencível!,1,frase presente mas sem marcação [MAIÚSCULO],1,tradução presente mas sem formatação T2 (classe/colocação),2,frase original (0.34 de similaridade),4,66.7
+5081,Mateus Ferreira Patrício,2,PASSAGE_E03_TIER2,1776781891001,Why so serious?,Por que está tão sério?,0,muito curta (3 palavra(s)) — parece palavra isolada,1,tradução presente mas sem formatação T2 (classe/colocação),2,frase original (0.28 de similaridade),3,50.0
+5081,Mateus Ferreira Patrício,2,PASSAGE_E03_TIER2,1776966167001,Fight for your life!,Lute pela sua vida!,1,frase presente mas sem marcação [MAIÚSCULO],1,tradução presente mas sem formatação T2 (classe/colocação),2,frase original (0.37 de similaridade),4,66.7
+5081,Mateus Ferreira Patrício,2,PASSAGE_E03_TIER2,1776966194001,I'm not your pet,Eu não sou seu animal de estimação,1,frase presente mas sem marcação [MAIÚSCULO],1,tradução presente mas sem formatação T2 (classe/colocação),2,frase original (0.27 de similaridade),4,66.7
+5081,Mateus Ferreira Patrício,2,PASSAGE_E03_TIER2,1776966247001,This guy is crazy,Esse cara é louco,1,frase presente mas sem marcação [MAIÚSCULO],1,tradução presente mas sem formatação T2 (classe/colocação),2,frase original (0.26 de similaridade),4,66.7
+5081,Mateus Ferreira Patrício,2,PASSAGE_E03_TIER2,1777041157001,I eat a delicious food!,Eu comi uma comida deliciosa!,1,frase presente mas sem marcação [MAIÚSCULO],1,tradução presente mas sem formatação T2 (classe/colocação),2,frase original (0.32 de similaridade),4,66.7
+5081,Mateus Ferreira Patrício,2,PASSAGE_E03_TIER2,1777041178001,Get out of my way,Saia do meu caminho,1,frase presente mas sem marcação [MAIÚSCULO],1,tradução presente mas sem formatação T2 (classe/colocação),2,frase original (0.24 de similaridade),4,66.7
+5081,Mateus Ferreira Patrício,2,PASSAGE_E03_TIER2,1777041217001,Don't do this,Não faça isso,0,muito curta (3 palavra(s)) — parece palavra isolada,1,tradução presente mas sem formatação T2 (classe/colocação),2,frase original (0.23 de similaridade),3,50.0
+5081,Mateus Ferreira Patrício,2,PASSAGE_E03_TIER2,1777154005001,I like the way you kiss me,Eu gosto do jeito que você me beija,1,frase presente mas sem marcação [MAIÚSCULO],1,tradução presente mas sem formatação T2 (classe/colocação),2,frase original (0.30 de similaridade),4,66.7
+5081,Mateus Ferreira Patrício,2,PASSAGE_E03_TIER2,1777154035001,This is the end of beginning,Esse é o fim do começo,1,frase presente mas sem marcação [MAIÚSCULO],1,tradução presente mas sem formatação T2 (classe/colocação),2,frase original (0.36 de similaridade),4,66.7
+5081,Mateus Ferreira Patrício,2,PASSAGE_E03_TIER2,1777300694001,I love my dog,Eu amo meu cachorro,1,frase presente mas sem marcação [MAIÚSCULO],1,tradução presente mas sem formatação T2 (classe/colocação),2,frase original (0.25 de similaridade),4,66.7
+5081,Mateus Ferreira Patrício,2,PASSAGE_E03_TIER2,1777300805001,Leleco is my favorite pet,Leleco é o meu animal de estimação favorito,1,frase presente mas sem marcação [MAIÚSCULO],1,tradução presente mas sem formatação T2 (classe/colocação),2,frase original (0.32 de similaridade),4,66.7
+5081,Mateus Ferreira Patrício,2,PASSAGE_E03_TIER2,1777497198001,He should already be here.,Já era para ele estar aqui.,1,frase presente mas sem marcação [MAIÚSCULO],1,tradução presente mas sem formatação T2 (classe/colocação),2,frase original (0.34 de similaridade),4,66.7
+5081,Mateus Ferreira Patrício,2,PASSAGE_E03_TIER2,1777497224001,He said he's not coming.,Ele disse que não vai vir.,1,frase presente mas sem marcação [MAIÚSCULO],1,tradução presente mas sem formatação T2 (classe/colocação),2,frase original (0.32 de similaridade),4,66.7
+5081,Mateus Ferreira Patrício,2,PASSAGE_E03_TIER2,1777497253001,Never mess with me again!,Nunca mais mexa comigo de novo!,1,frase presente mas sem marcação [MAIÚSCULO],1,tradução presente mas sem formatação T2 (classe/colocação),2,frase original (0.30 de similaridade),4,66.7

@@ -190,40 +190,56 @@ def score_back_tier1(back: str) -> Tuple[int, str]:
     return 1, "verso preenchido mas sem separador '='"
 
 
+def _has_collocation_marker(back: str) -> bool:
+    """Check if back contains any collocation marker: ☞, -->, ->, •, ---->, --->, etc."""
+    if "☞" in back:
+        return True
+    if "•" in back:
+        return True
+    if re.search(r'-{1,5}>', back):
+        return True
+    return False
+
+
 def score_back_tier2(back: str) -> Tuple[int, str]:
     """
-    Tier 2: verso deve ter classe gramatical (n.)/(v.)/(adj.) E ☞.
+    Tier 2: verso deve ter classe gramatical (n.)/(v.)/(adj.) E marcador de colocação.
     2 — ambos presentes
-    1 — apenas um dos dois
-    0 — nenhum
+    1 — apenas um dos dois, OU tradução válida sem formatação T2
+    0 — vazio
     """
+    stripped = back.strip()
+    if not stripped:
+        return 0, "verso vazio"
+
     has_class = bool(RE_GRAM_CLASS.search(back))
-    has_arrow = "☞" in back
+    has_arrow = _has_collocation_marker(back)
 
     if has_class and has_arrow:
-        return 2, "classe gramatical + ☞ colocação"
+        return 2, "classe gramatical + marcador de colocação"
     if has_class:
-        return 1, "classe gramatical presente mas sem ☞"
+        return 1, "classe gramatical presente mas sem marcador de colocação"
     if has_arrow:
-        return 1, "☞ presente mas sem classe gramatical"
-    return 0, "sem classe gramatical e sem ☞"
+        return 1, "marcador de colocação presente mas sem classe gramatical"
+    # Verso preenchido com tradução — dá crédito parcial por esforço de tradução
+    return 1, "tradução presente mas sem formatação T2 (classe/colocação)"
 
 
 def score_back_tier3(back: str) -> Tuple[int, str]:
     """
-    Tier 3: verso deve ter ☞ E definição em inglês (não tradução 'palavra = PT').
-    2 — ☞ presente E sem padrão 'palavra = tradução_PT'
-    1 — ☞ presente MAS com padrão 'palavra = tradução_PT' (usou formato T2)
-    0 — sem ☞
+    Tier 3: verso deve ter marcador de colocação E definição em inglês (não tradução 'palavra = PT').
+    2 — marcador presente E sem padrão 'palavra = tradução_PT'
+    1 — marcador presente MAS com padrão 'palavra = tradução_PT' (usou formato T2)
+    0 — sem marcador de colocação
     """
-    has_arrow = "☞" in back
+    has_arrow = _has_collocation_marker(back)
     has_pt_translation = bool(RE_EQUALS.search(back))
 
     if has_arrow and not has_pt_translation:
-        return 2, "☞ colocação + definição em inglês (sem tradução PT da palavra)"
+        return 2, "marcador de colocação + definição em inglês (sem tradução PT da palavra)"
     if has_arrow and has_pt_translation:
-        return 1, "☞ presente mas com tradução PT — deveria ser definição em inglês"
-    return 0, "sem ☞ colocação"
+        return 1, "marcador de colocação presente mas com tradução PT — deveria ser definição em inglês"
+    return 0, "sem marcador de colocação"
 
 
 def score_back(back: str, tier: int) -> Tuple[int, str]:
