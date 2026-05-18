@@ -5,6 +5,7 @@
 **Turma**: 64 alunos no roster (Biotecnologia, Metrologia, Segurança Cibernética)
 **Dados**: snapshot de produção em 18/05/2026 (`~/.cache/studyamigo/20260518`)
 **Fórmula**: `Nota = 0.25×V + 0.25×C + 0.30×Q + 0.20×E`
+**Penalidade**: RET100 + maturidade < 10% → nota máxima = 40 (flag `RET100_CAP`)
 **Scripts**: `grade_exercise_v2.py` + `account_map.csv`
 
 ---
@@ -70,8 +71,8 @@ Queda de participação em relação a E02, mas recuperação parcial no último
 | Métrica | Valor |
 |---------|------:|
 | Alunos ativos | 39 |
-| Nota média | **64.2** |
-| Nota mediana | **63.1** |
+| Nota média | **61.9** |
+| Nota mediana | **61.3** |
 | Nota máxima | **93.3** |
 | Nota mínima | **38.3** |
 | Revisões — média | **72** |
@@ -79,26 +80,27 @@ Queda de participação em relação a E02, mas recuperação parcial no último
 | Retenção média | **88.8%** |
 | Maturidade média | **10.7%** |
 | Alunos com cartões maduros (ivl ≥ 21d) | 6 |
+| Alunos penalizados (RET100_CAP) | 3 |
 
 ### 2.2 Distribuição de menções
 
 | Menção | Intervalo | Alunos | % ativos |
 |--------|-----------|-------:|---------:|
 | A | ≥ 90 | 3 | 8% |
-| B | 80–89 | 3 | 8% |
+| B | 80–89 | 2 | 5% |
 | C | 70–79 | 3 | 8% |
-| D | 60–69 | 14 | 36% |
-| F | < 60 | 16 | 41% |
+| D | 60–69 | 13 | 33% |
+| F | < 60 | 18 | 46% |
 
 ### 2.3 Resultados por curso
 
 | Curso | Ativos | Nota média | Rev média | Dist. (A/B/C/D/F) |
 |-------|-------:|----------:|----------:|-----------------|
 | Biotecnologia | 8 | 56.7 | 46 | 0/0/0/2/6 |
-| Metrologia | 16 | 66.9 | 81 | 1/2/1/6/6 |
-| SegCiber | 15 | 65.4 | 76 | 2/1/2/6/4 |
+| Metrologia | 16 | 64.3 | 81 | 1/1/1/6/7 |
+| SegCiber | 15 | 62.1 | 76 | 2/1/2/5/5 |
 
-Metrologia lidera pela primeira vez — puxada pela consistência de Laryssa (93.3) e pelo progresso de Ana Carolina e Ana Luiza. Biotecnologia mantém a média mais baixa com 6 dos 8 ativos com F.
+Metrologia lidera pela primeira vez — puxada pela consistência de Laryssa (93.3) e pelo progresso de Ana Carolina. Biotecnologia mantém a média mais baixa com 6 dos 8 ativos com F.
 
 ---
 
@@ -111,39 +113,39 @@ Metrologia lidera pela primeira vez — puxada pela consistência de Laryssa (93
 | 3 | Laís Nascimento Silva | 4071 | Metrologia | Tier 1 | 177 | 8 | 18 | 100.0 | 87.2 | 78.5 | 100.0 | 96.2 | 85.5 | **90.6** | A | RET100 |
 | 4 | Mateus Ferreira Patrício | 5081 | SegCiber | Tier 2 | 200 | 8 | 18 | 95.4 | 65.6 | 85.4 | 100.0 | 86.5 | 55.4 | **83.4** | B | |
 | 5 | Ana Carolina Barbosa da Costa | 4001 | Metrologia | Tier 2 | 190 | 7 | 23 | 88.0 | 20.5 | 89.6 | 97.4 | 67.8 | 76.7 | **82.4** | B | |
-| 6 | Ana Luiza Camilo da Silva | 4011 | Metrologia | Tier 1 | 123 | 5 | 28 | 100.0 | 0.0 | 76.6 | 100.0 | 70.0 | 76.9 | **80.5** | B | RET100 |
-| 7 | Jady Maria Rodrigues Figueiredo | 5036 | SegCiber | Tier 1 | 81 | 10 | 15 | 90.9 | 46.7 | 45.4 | 96.3 | 77.6 | 81.4 | **75.0** | C | |
-| 8 | Adriany Praia Serafim | 5001 | SegCiber | Tier 2 | 66 | 3 | 36 | 83.9 | 0.0 | 59.5 | 100.0 | 58.7 | 78.8 | **73.3** | C | |
-| 9 | Ricardo de Souza Rodrigues | 4096 | Metrologia | Tier 1 | 33 | 4 | 18 | 100.0 | 0.0 | 35.3 | 100.0 | 70.0 | 77.8 | **70.4** | C | |
-| 10 | Keyrrison da Silva Braga | 4060 | Metrologia | — | 38 | 5 | 16 | 100.0 | 0.0 | 34.0 | 100.0 | 70.0 | 77.3 | **69.9** | D | |
-| 11 | Philipe Emanuel de Souza Meireles | 5083 | SegCiber | — | 50 | 4 | 17 | 100.0 | 0.0 | 39.0 | 91.0 | 70.0 | 81.5 | **69.8** | D | RET100 |
-| 12 | Ana Manuela de Carvalho Trindade | 3001 | Biotecnologia | Tier 2 | 57 | 5 | 14 | 87.5 | 0.0 | 36.8 | 100.0 | 61.2 | 78.9 | **68.4** | D | |
-| 13 | Isabella Queres | 4041 | Metrologia | Tier 2 | 26 | 4 | 11 | 100.0 | 0.0 | 23.2 | 100.0 | 70.0 | 76.6 | **67.1** | D | |
-| 14 | Marcelo Ygor de Sá Cordeiro | 4091 | Metrologia | Tier 1 | 20 | 4 | 10 | 100.0 | 0.0 | 20.0 | 100.0 | 70.0 | 79.3 | **66.9** | D | |
-| 15 | Matheus Dias Gomes *(theuxzvA7X)* | 3046 | Biotecnologia | Tier 2 | 111 | 2 | 11 | 100.0 | 11.7 | 48.7 | 98.6 | 73.5 | 34.2 | **65.7** | D | RET100 LOW_TIME |
-| 16 | Eduardo da Silva Fiuza | 4021 | Metrologia | Tier 2 | 108 | 1 | 5 | 99.1 | 34.3 | 39.3 | 100.0 | 79.6 | 36.2 | **65.9** | D | LOW_TIME |
-| 17 | Leandro Moreira Andrade da Silva | 4076 | Metrologia | Tier 1 | 91 | 6 | 15 | 63.2 | 0.0 | 48.4 | 98.4 | 44.2 | 77.6 | **65.5** | D | |
-| 18 | Ana Beatriz Pontes de Almeida *(beatnik)* | 5006 | SegCiber | Tier 2 | 120 | 2 | 13 | 89.6 | 0.0 | 54.3 | 77.9 | 62.7 | 65.6 | **65.0** | D | |
-| 19 | Bernardo Da Silva Lucas | 5016 | SegCiber | Tier 2 | 77 | 2 | 14 | 85.7 | 0.0 | 42.8 | 66.9 | 60.0 | 79.3 | **61.3** | D | |
-| 20 | Amanda Silva do Nascimento *(Flores)* | 4000 | Metrologia | — | 46 | 9 | 9 | 83.8 | 8.7 | 26.4 | 91.3 | 61.3 | 74.7 | **62.7** | D | |
-| 21 | Ezequiel Telles Pedrosa dos Santos | 5031 | SegCiber | Tier 1 | 14 | 2 | 16 | 100.0 | 0.0 | 26.8 | 100.0 | 70.0 | 52.3 | **63.1** | D | |
-| 22 | Marcio da Silva Bertucio | 5076 | SegCiber | Tier 1 | 112 | 3 | 13 | 70.8 | 0.0 | 51.9 | 100.0 | 49.6 | 51.1 | **63.1** | D | |
-| 23 | José Augusto Freire | 5041 | SegCiber | Tier 1 🏁 | 25 | 1 | 10 | 73.3 | 0.0 | 21.5 | 100.0 | 51.3 | 77.6 | **61.3** | D | |
-| 24 | Lenilson Maia Rodrigues de Lima | 5051 | SegCiber | Tier 1 | 45 | 3 | 15 | 100.0 | 0.0 | 34.6 | 83.3 | 70.0 | 43.2 | **59.1** | F | RET100 LOW_TIME |
-| 25 | Lucas da Silva Santos | 5056 | SegCiber | Tier 1 | 20 | 2 | 15 | 70.0 | 0.0 | 27.1 | 100.0 | 49.0 | 60.6 | **58.6** | F | |
-| 26 | Bruno dos Santos Lima | 5021 | SegCiber | Tier 1 | 9 | 1 | 0 | 100.0 | 0.0 | 2.4 | 100.0 | 70.0 | 61.4 | **58.9** | F | |
-| 27 | Tainá Avelino Barbosa da Silva *(Tata)* | 5096 | SegCiber | Tier 2 | 104 | 3 | 20 | 72.9 | 0.0 | 59.5 | 72.1 | 51.0 | 48.0 | **57.8** | F | |
-| 28 | Wallace Gabriel Ferreira dos Santos | 3056 | Biotecnologia | Tier 2 | 24 | 1 | 20 | 100.0 | 0.0 | 35.5 | 50.0 | 70.0 | 77.3 | **57.8** | F | CRAM |
-| 29 | Laura Martins da Silva | 4066 | Metrologia | Tier 1 🏁 | 114 | 2 | 0 | 60.6 | 0.0 | 33.9 | 82.9 | 42.4 | 77.2 | **57.4** | F | |
-| 30 | Fernando Henrique Souza Laia | 3021 | Biotecnologia | Tier 1 | 15 | 1 | 12 | 100.0 | 0.0 | 21.3 | 50.0 | 70.0 | 77.3 | **54.3** | F | |
-| 31 | Arthur Alves do Nascimento | 3006 | Biotecnologia | Tier 1 | 15 | 1 | 10 | 100.0 | 0.0 | 18.5 | 50.0 | 70.0 | 77.3 | **53.6** | F | |
-| 32 | Julia de Oliveira Corrêa | 4051 | Metrologia | Tier 2 | 46 | 1 | 23 | 65.4 | 0.0 | 46.4 | 50.0 | 45.8 | 77.3 | **53.3** | F | CRAM |
-| 33 | Emanuel Melo dos Santos | 3019 | Biotecnologia | — | 110 | 3 | 0 | 67.7 | 1.2 | 32.7 | 71.8 | 47.8 | 61.7 | **52.8** | F | |
-| 34 | Maria Clara Mesquita Pires | 3031 | Biotecnologia | Tier 1 | 1 | 1 | 1 | 100.0 | 0.0 | 1.4 | 100.0 | 70.0 | 27.3 | **51.8** | F | |
-| 35 | Lucas Pandini Pinheiro | 4081 | Metrologia | Tier 2 | 15 | 3 | 6 | 100.0 | 0.0 | 12.8 | 80.0 | 70.0 | 35.6 | **51.3** | F | |
-| 36 | Maria Eduarda De Lima Abreu | 3036 | Biotecnologia | Tier 1 | 38 | 1 | 19 | 94.7 | 0.0 | 38.2 | 50.0 | 66.3 | 35.3 | **49.0** | F | LOW_TIME CRAM |
-| 37 | Emanuelly Almeida da Silva | 4031 | Metrologia | Tier 1 | 4 | 1 | 18 | 0.0 | 0.0 | 26.6 | 100.0 | 0.0 | 77.3 | **47.1** | F | |
-| 38 | Cauã Jorge de Nazareth Marins | 4016 | Metrologia | Tier 1 | 19 | 1 | 12 | 57.9 | 0.0 | 22.5 | 50.0 | 40.5 | 76.5 | **45.6** | F | |
+| 6 | Jady Maria Rodrigues Figueiredo | 5036 | SegCiber | Tier 1 | 81 | 10 | 15 | 90.9 | 46.7 | 45.4 | 96.3 | 77.6 | 81.4 | **75.0** | C | |
+| 7 | Adriany Praia Serafim | 5001 | SegCiber | Tier 2 | 66 | 3 | 36 | 83.9 | 0.0 | 59.5 | 100.0 | 58.7 | 78.8 | **73.3** | C | |
+| 8 | Ricardo de Souza Rodrigues | 4096 | Metrologia | Tier 1 | 33 | 4 | 18 | 100.0 | 0.0 | 35.3 | 100.0 | 70.0 | 77.8 | **70.4** | C | |
+| 9 | Keyrrison da Silva Braga | 4060 | Metrologia | — | 38 | 5 | 16 | 100.0 | 0.0 | 34.0 | 100.0 | 70.0 | 77.3 | **69.9** | D | |
+| 10 | Ana Manuela de Carvalho Trindade | 3001 | Biotecnologia | Tier 2 | 57 | 5 | 14 | 87.5 | 0.0 | 36.8 | 100.0 | 61.2 | 78.9 | **68.4** | D | |
+| 11 | Isabella Queres | 4041 | Metrologia | Tier 2 | 26 | 4 | 11 | 100.0 | 0.0 | 23.2 | 100.0 | 70.0 | 76.6 | **67.1** | D | |
+| 12 | Marcelo Ygor de Sá Cordeiro | 4091 | Metrologia | Tier 1 | 20 | 4 | 10 | 100.0 | 0.0 | 20.0 | 100.0 | 70.0 | 79.3 | **66.9** | D | |
+| 13 | Eduardo da Silva Fiuza | 4021 | Metrologia | Tier 2 | 108 | 1 | 5 | 99.1 | 34.3 | 39.3 | 100.0 | 79.6 | 36.2 | **65.9** | D | LOW_TIME |
+| 14 | Matheus Dias Gomes *(theuxzvA7X)* | 3046 | Biotecnologia | Tier 2 | 111 | 2 | 11 | 100.0 | 11.7 | 48.7 | 98.6 | 73.5 | 34.2 | **65.7** | D | RET100 LOW_TIME |
+| 15 | Leandro Moreira Andrade da Silva | 4076 | Metrologia | Tier 1 | 91 | 6 | 15 | 63.2 | 0.0 | 48.4 | 98.4 | 44.2 | 77.6 | **65.5** | D | |
+| 16 | Ana Beatriz Pontes de Almeida *(beatnik)* | 5006 | SegCiber | Tier 2 | 120 | 2 | 13 | 89.6 | 0.0 | 54.3 | 77.9 | 62.7 | 65.6 | **65.0** | D | |
+| 17 | Amanda Silva do Nascimento *(Flores)* | 4000 | Metrologia | — | 46 | 9 | 9 | 83.8 | 8.7 | 26.4 | 91.3 | 61.3 | 74.7 | **62.7** | D | |
+| 18 | Ezequiel Telles Pedrosa dos Santos | 5031 | SegCiber | Tier 1 | 14 | 2 | 16 | 100.0 | 0.0 | 26.8 | 100.0 | 70.0 | 52.3 | **63.1** | D | |
+| 19 | Marcio da Silva Bertucio | 5076 | SegCiber | Tier 1 | 112 | 3 | 13 | 70.8 | 0.0 | 51.9 | 100.0 | 49.6 | 51.1 | **63.1** | D | |
+| 20 | Bernardo Da Silva Lucas | 5016 | SegCiber | Tier 2 | 77 | 2 | 14 | 85.7 | 0.0 | 42.8 | 66.9 | 60.0 | 79.3 | **61.3** | D | |
+| 21 | José Augusto Freire | 5041 | SegCiber | Tier 1 🏁 | 25 | 1 | 10 | 73.3 | 0.0 | 21.5 | 100.0 | 51.3 | 77.6 | **61.3** | D | |
+| 22 | Lucas da Silva Santos | 5056 | SegCiber | Tier 1 | 20 | 2 | 15 | 70.0 | 0.0 | 27.1 | 100.0 | 49.0 | 60.6 | **58.6** | F | |
+| 23 | Bruno dos Santos Lima | 5021 | SegCiber | Tier 1 | 9 | 1 | 0 | 100.0 | 0.0 | 2.4 | 100.0 | 70.0 | 61.4 | **58.9** | F | |
+| 24 | Tainá Avelino Barbosa da Silva *(Tata)* | 5096 | SegCiber | Tier 2 | 104 | 3 | 20 | 72.9 | 0.0 | 59.5 | 72.1 | 51.0 | 48.0 | **57.8** | F | |
+| 25 | Wallace Gabriel Ferreira dos Santos | 3056 | Biotecnologia | Tier 2 | 24 | 1 | 20 | 100.0 | 0.0 | 35.5 | 50.0 | 70.0 | 77.3 | **57.8** | F | CRAM |
+| 26 | Laura Martins da Silva | 4066 | Metrologia | Tier 1 🏁 | 114 | 2 | 0 | 60.6 | 0.0 | 33.9 | 82.9 | 42.4 | 77.2 | **57.4** | F | |
+| 27 | Fernando Henrique Souza Laia | 3021 | Biotecnologia | Tier 1 | 15 | 1 | 12 | 100.0 | 0.0 | 21.3 | 50.0 | 70.0 | 77.3 | **54.3** | F | |
+| 28 | Arthur Alves do Nascimento | 3006 | Biotecnologia | Tier 1 | 15 | 1 | 10 | 100.0 | 0.0 | 18.5 | 50.0 | 70.0 | 77.3 | **53.6** | F | |
+| 29 | Julia de Oliveira Corrêa | 4051 | Metrologia | Tier 2 | 46 | 1 | 23 | 65.4 | 0.0 | 46.4 | 50.0 | 45.8 | 77.3 | **53.3** | F | CRAM |
+| 30 | Emanuel Melo dos Santos | 3019 | Biotecnologia | — | 110 | 3 | 0 | 67.7 | 1.2 | 32.7 | 71.8 | 47.8 | 61.7 | **52.8** | F | |
+| 31 | Maria Clara Mesquita Pires | 3031 | Biotecnologia | Tier 1 | 1 | 1 | 1 | 100.0 | 0.0 | 1.4 | 100.0 | 70.0 | 27.3 | **51.8** | F | |
+| 32 | Lucas Pandini Pinheiro | 4081 | Metrologia | Tier 2 | 15 | 3 | 6 | 100.0 | 0.0 | 12.8 | 80.0 | 70.0 | 35.6 | **51.3** | F | |
+| 33 | Maria Eduarda De Lima Abreu | 3036 | Biotecnologia | Tier 1 | 38 | 1 | 19 | 94.7 | 0.0 | 38.2 | 50.0 | 66.3 | 35.3 | **49.0** | F | LOW_TIME CRAM |
+| 34 | Emanuelly Almeida da Silva | 4031 | Metrologia | Tier 1 | 4 | 1 | 18 | 0.0 | 0.0 | 26.6 | 100.0 | 0.0 | 77.3 | **47.1** | F | |
+| 35 | Cauã Jorge de Nazareth Marins | 4016 | Metrologia | Tier 1 | 19 | 1 | 12 | 57.9 | 0.0 | 22.5 | 50.0 | 40.5 | 76.5 | **45.6** | F | |
+| 36 | Ana Luiza Camilo da Silva | 4011 | Metrologia | Tier 1 | 123 | 5 | 28 | 100.0 | 0.0 | 76.6 | 100.0 | 70.0 | 76.9 | **40.0** | F | RET100 RET100_CAP |
+| 37 | Philipe Emanuel de Souza Meireles | 5083 | SegCiber | — | 50 | 4 | 17 | 100.0 | 0.0 | 39.0 | 91.0 | 70.0 | 81.5 | **40.0** | F | RET100 RET100_CAP |
+| 38 | Lenilson Maia Rodrigues de Lima | 5051 | SegCiber | Tier 1 | 45 | 3 | 15 | 100.0 | 0.0 | 34.6 | 83.3 | 70.0 | 43.2 | **40.0** | F | RET100 LOW_TIME RET100_CAP |
 | 39 | Samea Soares Pacheco | 5086 | SegCiber | Tier 1 | 6 | 1 | 28 | 0.0 | 0.0 | 41.5 | 50.0 | 0.0 | 77.3 | **38.3** | F | |
 
 > *Nomes em itálico entre parênteses = username da conta secundária mapeada via `account_map.csv`.*
@@ -156,16 +158,20 @@ Metrologia lidera pela primeira vez — puxada pela consistência de Laryssa (93
 |-------|----|------|---------|
 | Madson Ferreira de Souza | 5066 | RET100 | 194/194 acertos; maturidade 100% atenua suspeita — aprendizado consolidado |
 | Laís Nascimento Silva | 4071 | RET100 | 159/159 acertos; maturidade 87.2% — consistente com aprendizado genuíno |
-| Ana Luiza Camilo da Silva | 4011 | RET100 | 95/95 acertos; maturidade 0% — padrão suspeito mantido de E02 |
-| Philipe Emanuel de Souza Meireles | 5083 | RET100 | 33/33 acertos; maturidade 0% |
-| Lenilson Maia Rodrigues de Lima | 5051 | RET100 + LOW_TIME | 30/30 acertos; maturidade 0%; tempo engajado = 28.2% |
-| Matheus Dias Gomes (theuxzvA7X) | 3046 | RET100 + LOW_TIME | 103/103 acertos; maturidade 11.7%; tempo engajado = 7.2% |
+| Ana Luiza Camilo da Silva | 4011 | **RET100_CAP** | 95/95 acertos; maturidade 0% — **nota limitada a 40** (era 80.5) |
+| Philipe Emanuel de Souza Meireles | 5083 | **RET100_CAP** | 33/33 acertos; maturidade 0% — **nota limitada a 40** (era 69.8) |
+| Lenilson Maia Rodrigues de Lima | 5051 | **RET100_CAP** + LOW_TIME | 30/30 acertos; maturidade 0%; tempo engajado = 28.2% — **nota limitada a 40** (era 59.1) |
+| Matheus Dias Gomes (theuxzvA7X) | 3046 | RET100 + LOW_TIME | 103/103 acertos; maturidade 11.7% (acima do threshold de 10%); tempo engajado = 7.2% |
 | Eduardo da Silva Fiuza | 4021 | LOW_TIME | 108 revisões em 1 dia; tempo engajado = 8.3% |
 | Wallace Gabriel Ferreira dos Santos | 3056 | CRAM | 24 revisões em 1 dia (100% cramming); 20 cards criados |
 | Julia de Oliveira Corrêa | 4051 | CRAM | 46 revisões em 1 dia (100% cramming); 23 cards criados |
 | Maria Eduarda De Lima Abreu | 3036 | LOW_TIME + CRAM | 38 revisões em 1 dia; tempo engajado = 15.8% |
 
-**Nota sobre RET100 com maturidade alta**: Madson (100%) e Laís (87.2%) demonstram domínio real do conteúdo — padrão coerente com revisão prolongada de cartões que já atingiram intervalos longos. Os demais RET100 com maturidade 0% (Ana Luiza, Philipe, Lenilson) continuam merecendo atenção.
+### Penalidade RET100_CAP (novo em E03)
+
+Alunos com **100% de retenção** (zero erros em ≥ 30 revisões) **e maturidade < 10%** recebem nota máxima de **40 pontos**. Justificativa: 100% de acerto sem amadurecimento de cartões é estatisticamente improvável e sugere resposta automática sem leitura.
+
+**Não penalizados** (maturidade ≥ 10%): Madson (100%), Laís (87.2%), Matheus Dias Gomes (11.7%).
 
 **CRAM (3 alunos)**: Wallace, Julia e Maria Eduarda fizeram todas as revisões em um único dia — padrão de estudo de última hora sem espaçamento.
 
@@ -236,9 +242,9 @@ Laryssa, Madson e Laís atingem maturidade acima de 87% — resultado da revisã
 | Retenção média | — | 89.8% | 88.8% |
 | Maturidade média | ~0% | 5.1% | **10.7%** |
 | Menções A | 0 | 0 | **3** |
-| Menções B ou acima | 3 | 4 | **6** |
+| Menções B ou acima | 3 | 4 | **5** |
 
-A participação caiu de 69% para 61% (5 alunos a menos), mas os que permaneceram melhoraram: revisões médias subiram de 54 para 72, maturidade dobrou, e pela primeira vez há alunos com nota A. A retenção manteve-se estável em ~89%.
+A participação caiu de 69% para 61% (5 alunos a menos), mas os que permaneceram melhoraram: revisões médias subiram de 54 para 72, maturidade dobrou, e pela primeira vez há alunos com nota A. A retenção manteve-se estável em ~89%. Nota: 3 alunos receberam penalidade RET100_CAP (nota limitada a 40) por 100% retenção com 0% maturidade.
 
 ---
 

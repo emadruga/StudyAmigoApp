@@ -1137,6 +1137,13 @@ def main():
             scores = compute_scores(raw, grade_card_creation, all_reviews, all_cards)
 
         flags   = behaviour_flags(raw, scores) if raw["total_reviews"] > 0 else []
+
+        # ── RET100 penalty: cap grade at 40 when 100% retention + low maturity
+        if "RET100" in flags and scores["maturity_pct"] < 10.0:
+            scores["grade"] = min(scores["grade"], 40.0)
+            if "RET100_CAP" not in flags:
+                flags.append("RET100_CAP")
+
         ts_val  = scores["time_sub"]
         ts_disp = ts_val if ts_val is not None else float("nan")
 
