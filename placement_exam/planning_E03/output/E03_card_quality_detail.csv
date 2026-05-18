@@ -97,6 +97,10 @@ O barco afundou lentamente nas profundezas do oceano.",2,frase contextualizada c
 - Ways to eliminate cooking odors. / Who will be eliminated after the first round?
 —————————————————
 Eliminamos a possibilidade de termos causado um acidente.",2,frase contextualizada com [MAIÚSCULO],1,classe gramatical presente mas sem marcador de colocação,2,frase original (0.39 de similaridade),5,83.3
+4001,Ana Carolina Barbosa da Costa,2,PASSAGE_E03_TIER2,1779042006001,"The flu, [COMBINED] with terrible weather, contrived to ruining the trip.","combine (v.) = combinar, juntar
+• None of us has much money so let's combine what we've got. / As a songwriter, he combined a natural linguistic talent with an ear for a tune.
+——————————————————
+A gripe, junto com o tempo horrível, arruinou a viagem.",2,frase contextualizada com [MAIÚSCULO],2,classe gramatical + marcador de colocação,2,frase original (0.41 de similaridade),6,100.0
 4011,Ana Luiza Camilo da Silva,1,PASSAGE_E03_TIER1,1777325696001,The series (lost) audience.,"Lost: perdeu
 Tradução: A série perdeu audiência.",1,frase presente mas sem marcação [MAIÚSCULO],1,verso preenchido mas sem separador '=',2,frase original (0.43 de similaridade),4,66.7
 4011,Ana Luiza Camilo da Silva,1,PASSAGE_E03_TIER1,1777325749001,He's not very (creative).,"Creative: criativo.
@@ -109,6 +113,18 @@ Tradução: Isso nunca sai de estilo/moda.",1,frase presente mas sem marcação 
 Tradução: Eu vou ao estádio torcer pro Botafogo.",1,frase presente mas sem marcação [MAIÚSCULO],1,verso preenchido mas sem separador '=',2,frase original (0.35 de similaridade),4,66.7
 4011,Ana Luiza Camilo da Silva,1,PASSAGE_E03_TIER1,1777505510001,The ending of that movie was (painful).,"Painful: doloroso. 
 Tradução: O final daquele filme foi doloroso.",1,frase presente mas sem marcação [MAIÚSCULO],1,verso preenchido mas sem separador '=',2,frase original (0.50 de similaridade),4,66.7
+4016,Cauã Jorge de Nazareth Marins,1,PASSAGE_E03_TIER1,1779040873001,a formal [style] of streetwear,style= estilo,1,frase presente mas sem marcação [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.49 de similaridade),5,83.3
+4016,Cauã Jorge de Nazareth Marins,1,PASSAGE_E03_TIER1,1779040874001,a formal [style] of streetwear,style= estilo,1,frase presente mas sem marcação [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.49 de similaridade),5,83.3
+4016,Cauã Jorge de Nazareth Marins,1,PASSAGE_E03_TIER1,1779041017001,a [creative] person,creative= criativo,0,muito curta (3 palavra(s)) — parece palavra isolada,2,padrão 'palavra = tradução' encontrado,2,frase original (0.39 de similaridade),4,66.7
+4016,Cauã Jorge de Nazareth Marins,1,PASSAGE_E03_TIER1,1779041169001,the [precision] of the player,precision= precisão/exatidão,1,frase presente mas sem marcação [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.46 de similaridade),5,83.3
+4016,Cauã Jorge de Nazareth Marins,1,PASSAGE_E03_TIER1,1779041497001,He knew her [attacker],attacker= agressor/ atacante,1,frase presente mas sem marcação [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.43 de similaridade),5,83.3
+4016,Cauã Jorge de Nazareth Marins,1,PASSAGE_E03_TIER1,1779047157001,a luger in the [quarterfinal],quarterfinal= quartas de final,1,frase presente mas sem marcação [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.47 de similaridade),5,83.3
+4016,Cauã Jorge de Nazareth Marins,1,PASSAGE_E03_TIER1,1779047296001,EUA [lost] to Croatia,lost= perder/ perdedor,1,frase presente mas sem marcação [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.40 de similaridade),5,83.3
+4016,Cauã Jorge de Nazareth Marins,1,PASSAGE_E03_TIER1,1779047335001,EUA [lost] to Croatia,lost= perder/ perdedor,1,frase presente mas sem marcação [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.40 de similaridade),5,83.3
+4016,Cauã Jorge de Nazareth Marins,1,PASSAGE_E03_TIER1,1779047714001,a [painful] pain,painful= doloroso,0,muito curta (3 palavra(s)) — parece palavra isolada,2,padrão 'palavra = tradução' encontrado,2,frase original (0.36 de similaridade),4,66.7
+4016,Cauã Jorge de Nazareth Marins,1,PASSAGE_E03_TIER1,1779048292001,a [coach] beatiful,coach= treinador,0,muito curta (3 palavra(s)) — parece palavra isolada,2,padrão 'palavra = tradução' encontrado,2,frase original (0.59 de similaridade),4,66.7
+4016,Cauã Jorge de Nazareth Marins,1,PASSAGE_E03_TIER1,1779049311001,an [experienced] player,experienced= experiente,0,muito curta (3 palavra(s)) — parece palavra isolada,2,padrão 'palavra = tradução' encontrado,2,frase original (0.33 de similaridade),4,66.7
+4016,Cauã Jorge de Nazareth Marins,1,PASSAGE_E03_TIER1,1779049411001,The crowd [cheer],cheer= aplausos/ aplaude,0,muito curta (3 palavra(s)) — parece palavra isolada,2,padrão 'palavra = tradução' encontrado,2,frase original (0.36 de similaridade),4,66.7
 4031,Emanuelly Almeida da Silva,1,PASSAGE_E03_TIER1,1778898747001,"Jones favours a dynamic, hands-on [STYLE] of leadership.",Style=estilo,2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.45 de similaridade),6,100.0
 4031,Emanuelly Almeida da Silva,1,PASSAGE_E03_TIER1,1778898947001,I’d like to be more [CREATIVE] and innovative.,Creative= criativo (a),2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.50 de similaridade),6,100.0
 4031,Emanuelly Almeida da Silva,1,PASSAGE_E03_TIER1,1778899043001,[PRECISION] is essential when performing tasks that require accuracy and attention to detail.,Precision= precisão,2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.37 de similaridade),6,100.0
@@ -168,6 +184,60 @@ A equipe está pronta para dar continuidade ao projeto no próximo ano.",2,frase
 ————————————————————————
 
 Não sou qualificado para dar conselhos sobre tais assuntos",2,frase contextualizada com [MAIÚSCULO],1,classe gramatical presente mas sem marcador de colocação,2,frase original (0.42 de similaridade),5,83.3
+4051,Julia de Oliveira Corrêa,2,PASSAGE_E03_TIER2,1779010000001,creativity,"creativity (n.) = criatividade
+☞ spark creativity / encourage creativity / creativity is essential",0,muito curta (1 palavra(s)) — parece palavra isolada,2,classe gramatical + marcador de colocação,2,frase original (0.22 de similaridade),4,66.7
+4051,Julia de Oliveira Corrêa,2,PASSAGE_E03_TIER2,1779010451001,Brazil has a rich [TRADITION] in football.,"tradition (n.) = tradição
+☞ rich tradition / football tradition / carry on a tradition
+________________________________________
+O Brasil tem uma rica tradição no futebol.",2,frase contextualizada com [MAIÚSCULO],2,classe gramatical + marcador de colocação,2,frase original (0.44 de similaridade),6,100.0
+4051,Julia de Oliveira Corrêa,2,PASSAGE_E03_TIER2,1779010508001,The coach’s [PHILOSOPHY] is to play attacking football.,"philosophy (n.) = filosofia
+☞ personal philosophy / coaching philosophy / philosophy of life
+________________________________________
+A filosofia do treinador é jogar futebol ofensivo.",2,frase contextualizada com [MAIÚSCULO],2,classe gramatical + marcador de colocação,2,frase original (0.46 de similaridade),6,100.0
+4051,Julia de Oliveira Corrêa,2,PASSAGE_E03_TIER2,1779010546001,"The team [COMBINES] talent, discipline, and experience.","combines (v.) = combina
+☞ combines speed and skill / combines tradition and innovation
+________________________________________
+O time combina talento, disciplina e experiência.",2,frase contextualizada com [MAIÚSCULO],2,classe gramatical + marcador de colocação,2,frase original (0.41 de similaridade),6,100.0
+4051,Julia de Oliveira Corrêa,2,PASSAGE_E03_TIER2,1779010612001,Brazilian players are known for their attacking [FLAIR].,"flair (n.) = talento natural / criatividade
+☞ attacking flair / flair for football / Brazilian flair
+________________________________________
+Os jogadores brasileiros são conhecidos por seu talento e criatividade.",2,frase contextualizada com [MAIÚSCULO],2,classe gramatical + marcador de colocação,2,frase original (0.43 de similaridade),6,100.0
+4051,Julia de Oliveira Corrêa,2,PASSAGE_E03_TIER2,1779010648001,The striker finished with great [PRECISION].,"precision (n.) = precisão
+☞ passing precision / with precision / remarkable precision
+________________________________________
+O atacante finalizou com grande precisão.",2,frase contextualizada com [MAIÚSCULO],2,classe gramatical + marcador de colocação,2,frase original (0.41 de similaridade),6,100.0
+4051,Julia de Oliveira Corrêa,2,PASSAGE_E03_TIER2,1779010700001,The [ATTACKER] scored two goals in the match.,"attacker (n.) = atacante
+☞ talented attacker / central attacker / dangerous attacker
+________________________________________
+O atacante marcou dois gols na partida.",2,frase contextualizada com [MAIÚSCULO],2,classe gramatical + marcador de colocação,2,frase original (0.45 de similaridade),6,100.0
+4051,Julia de Oliveira Corrêa,2,PASSAGE_E03_TIER2,1779010738001,The players want to [CARRY FORWARD] the club’s tradition.,"carry forward (v.) = levar adiante / manter
+☞ carry forward a tradition / carry forward the legacy
+________________________________________
+Os jogadores querem levar adiante a tradição do clube.",2,frase contextualizada com [MAIÚSCULO],2,classe gramatical + marcador de colocação,2,frase original (0.42 de similaridade),6,100.0
+4051,Julia de Oliveira Corrêa,2,PASSAGE_E03_TIER2,1779010777001,Brazil is one of the tournament [FAVORITES].,"favorites (n.) = favoritos
+☞ tournament favorites / one of the favorites
+________________________________________
+O Brasil é um dos favoritos ao título.",2,frase contextualizada com [MAIÚSCULO],2,classe gramatical + marcador de colocação,2,frase original (0.53 de similaridade),6,100.0
+4051,Julia de Oliveira Corrêa,2,PASSAGE_E03_TIER2,1779027084001,The team was [PLACED IN] a very difficult group.,"placed in (v.) = colocado em / sorteado no
+☞ placed in Group A / placed in a difficult group
+________________________________________
+O time foi colocado em um grupo muito difícil.",2,frase contextualizada com [MAIÚSCULO],2,classe gramatical + marcador de colocação,2,frase original (0.47 de similaridade),6,100.0
+4051,Julia de Oliveira Corrêa,2,PASSAGE_E03_TIER2,1779027123001,The team was [ELIMINATED] in the semifinals.,"eliminated (adj./v.) = eliminado
+☞ eliminated from the tournament / was eliminated
+________________________________________
+A equipe foi eliminada nas semifinais.",2,frase contextualizada com [MAIÚSCULO],1,marcador de colocação presente mas sem classe gramatical,1,similaridade moderada (0.62) — pouca adaptação,4,66.7
+4051,Julia de Oliveira Corrêa,2,PASSAGE_E03_TIER2,1779027288001,Brazil reached the [QUARTERFINALS].,"quarterfinals (n.) = quartas de final
+☞ reach the quarterfinals / in the quarterfinals
+________________________________________
+O Brasil chegou às quartas de final.",2,frase contextualizada com [MAIÚSCULO],2,classe gramatical + marcador de colocação,2,frase original (0.55 de similaridade),6,100.0
+4051,Julia de Oliveira Corrêa,2,PASSAGE_E03_TIER2,1779027327001,The match was decided in [EXTRA TIME].,"extra time (n.) = prorrogação
+☞ after extra time / go into extra time
+________________________________________
+O jogo foi decidido na prorrogação.",2,frase contextualizada com [MAIÚSCULO],2,classe gramatical + marcador de colocação,2,frase original (0.47 de similaridade),6,100.0
+4051,Julia de Oliveira Corrêa,2,PASSAGE_E03_TIER2,1779027366001,The team won in a [PENALTY SHOOTOUT].,"penalty shootout (n.) = disputa de pênaltis
+☞ win on penalty shootout / lose in a penalty shootout
+________________________________________
+A equipe venceu na disputa de pênaltis.",2,frase contextualizada com [MAIÚSCULO],2,classe gramatical + marcador de colocação,2,frase original (0.59 de similaridade),6,100.0
 4071,Laís Nascimento Silva,1,PASSAGE_E03_TIER1,1776738617001,The teacher Ewerton Madruga prefers a more dynamic and practical teaching [STYLE].,"Substantivo. Style= estilo, modo.
 
 Tradução: "" O professor Ewerton Madruga prefere um estilo de ensinamento mais dinâmico e prático""",2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.39 de similaridade),6,100.0
@@ -300,6 +370,22 @@ Você sabe por que eles decidiram fundir os dois departamentos?",2,frase context
 5001,Adriany Praia Serafim,2,PASSAGE_E03_TIER2,1778972473001,Young players will [CARRY FORWARD] Brazil’s tradition.,"carry forward (v.) = levar adiante / dar continuidade
 ☞ carry forward a tradition / carry forward ideas
 ""Jogadores jovens vão dar continuidade à tradição do Brasil.""",2,frase contextualizada com [MAIÚSCULO],2,classe gramatical + marcador de colocação,2,frase original (0.40 de similaridade),6,100.0
+5006,Ana Beatriz Pontes de Almeida,2,PASSAGE_E03_TIER2,1779023982001,Brazil qualified for the tournament because the team stayed very [DETERMINED] during the qualifiers.,"determined (adj.) = determinado / decidido
+☞ determined to win / remain determined / determined effort",2,frase contextualizada com [MAIÚSCULO],2,classe gramatical + marcador de colocação,2,frase original (0.55 de similaridade),6,100.0
+5006,Ana Beatriz Pontes de Almeida,2,PASSAGE_E03_TIER2,1779024074001,Our coach said that speed and [PRECISION] are essential in modern football.,"precision (n.) = precisão
+☞ with precision / speed and precision / precision passing",2,frase contextualizada com [MAIÚSCULO],2,classe gramatical + marcador de colocação,2,frase original (0.49 de similaridade),6,100.0
+5006,Ana Beatriz Pontes de Almeida,2,PASSAGE_E03_TIER2,1779024557001,Many young players dream of becoming professional [ATTACKERS] in Europe.,"attacker (n.) = atacante
+☞ dangerous attacker / attacking player / talented attacker",2,frase contextualizada com [MAIÚSCULO],2,classe gramatical + marcador de colocação,2,frase original (0.42 de similaridade),6,100.0
+5006,Ana Beatriz Pontes de Almeida,2,PASSAGE_E03_TIER2,1779024582001,The fans believe Brazil can [CARRY FORWARD] the tradition of jogo bonito.,"carry forward (v.) = levar adiante / dar continuidade
+☞ carry forward a tradition / carry forward an idea",2,frase contextualizada com [MAIÚSCULO],2,classe gramatical + marcador de colocação,2,frase original (0.42 de similaridade),6,100.0
+5006,Ana Beatriz Pontes de Almeida,2,PASSAGE_E03_TIER2,1779024624001,Brazil entered the competition as one of the top [FAVORITES].,"favorite (n.) = favorito
+☞ top favorite / clear favorite / tournament favorite",2,frase contextualizada com [MAIÚSCULO],2,classe gramatical + marcador de colocação,2,frase original (0.55 de similaridade),6,100.0
+5006,Ana Beatriz Pontes de Almeida,2,PASSAGE_E03_TIER2,1779024657001,The team was [ELIMINATED] after losing the penalty shootout.,"eliminated (adj./v.) = eliminado
+☞ eliminated from the tournament / eliminated early",2,frase contextualizada com [MAIÚSCULO],1,marcador de colocação presente mas sem classe gramatical,2,frase original (0.55 de similaridade),5,83.3
+5006,Ana Beatriz Pontes de Almeida,2,PASSAGE_E03_TIER2,1779024692001,The match continued into [EXTRA TIME] after the 1–1 draw.,"extra time (n.) = prorrogação
+☞ after extra time / play extra time",2,frase contextualizada com [MAIÚSCULO],2,classe gramatical + marcador de colocação,2,frase original (0.49 de similaridade),6,100.0
+5006,Ana Beatriz Pontes de Almeida,2,PASSAGE_E03_TIER2,1779024801001,Brazil has enough [DEPTH] to compete against the strongest teams.,"depth (n.) = profundidade / qualidade geral do elenco
+☞ depth of quality / squad depth / depth in the team",2,frase contextualizada com [MAIÚSCULO],2,classe gramatical + marcador de colocação,2,frase original (0.51 de similaridade),6,100.0
 5031,Ezequiel Telles Pedrosa dos Santos,1,PASSAGE_E03_TIER1,1778429864001,The researcher developed a new [STYLE] of culturing cells in the incubator.,Substantivo. style = estilo.,2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.46 de similaridade),6,100.0
 5031,Ezequiel Telles Pedrosa dos Santos,1,PASSAGE_E03_TIER1,1778429871001,Cybersecurity experts must be [CREATIVE] to anticipate new types of malware.,Adjetivo. creative = criativo.,2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.38 de similaridade),6,100.0
 5031,Ezequiel Telles Pedrosa dos Santos,1,PASSAGE_E03_TIER1,1778429894001,"In metrology, the [PRECISION] of a measurement determines its reliability.",Substantivo. precision = precisão.,2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.35 de similaridade),6,100.0
