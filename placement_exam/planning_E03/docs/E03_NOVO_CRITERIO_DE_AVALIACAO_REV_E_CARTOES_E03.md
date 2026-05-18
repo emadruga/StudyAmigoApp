@@ -71,10 +71,53 @@ O objetivo principal da avaliação é **medir aprendizado** (Objetivo 1), não 
 
 ---
 
-## 5. Impacto nos resultados
+## 5. Penalidade RET100_CAP: retenção perfeita sem amadurecimento
 
-Após aplicação deste critério ao snapshot de 17/05/2026:
+### Situação observada
 
-- Score médio geral de aderência: **88.9%**
+Alguns alunos apresentam **100% de retenção** (zero erros em ≥ 30 revisões) mas **0% de maturidade** — nenhum cartão atingiu intervalo ≥ 21 dias. Isso é estatisticamente improvável no SM-2: com revisões espaçadas reais, alguns cartões deveriam amadurecer ao longo de 29 dias. O padrão sugere resposta automática sem leitura efetiva do cartão.
+
+### Critério aplicado
+
+Quando um aluno apresenta **simultaneamente**:
+- Retenção = 100% (com ≥ 30 revisões)
+- Maturidade < 10%
+
+A nota final é **limitada a 40 pontos** (máximo). O flag `RET100_CAP` é registrado.
+
+### Não penalizados
+
+Alunos com RET100 mas maturidade ≥ 10% **não são afetados** — a maturidade alta evidencia aprendizado genuíno consolidado ao longo do tempo:
+
+| Aluno | Retenção | Maturidade | Penalizado? |
+|-------|----------|------------|-------------|
+| Madson Ferreira de Souza | 100% | 100.0% | Não |
+| Laís Nascimento Silva | 100% | 87.2% | Não |
+| Matheus Dias Gomes | 100% | 11.7% | Não |
+| Ana Luiza Camilo da Silva | 100% | 0% | **Sim — nota 40** |
+| Philipe Emanuel de Souza Meireles | 100% | 0% | **Sim — nota 40** |
+| Lenilson Maia Rodrigues de Lima | 100% | 0% | **Sim — nota 40** |
+
+### Justificativa
+
+- O SM-2 aumenta progressivamente o intervalo a cada acerto: 1d → 3d → 7d → 15d → 33d (maduro). Com 29 dias de exercício e acerto consistente, cartões criados nas primeiras semanas deveriam amadurecer.
+- Maturidade 0% com 100% acerto indica que o aluno não deu tempo para o espaçamento funcionar (ex.: criou tudo no final) ou respondeu sem engajamento real.
+- O cap em 40 (F) reflete que, embora tenha havido atividade, não há evidência de aprendizado espaçado efetivo.
+
+---
+
+## 6. Impacto nos resultados
+
+Após aplicação de todos os critérios ao snapshot de 18/05/2026:
+
+**Qualidade de cartões** (`assess_card_quality.py`):
+- Score médio geral de aderência: **89.0%**
 - Mateus Ferreira Patrício: **64.8%** (antes: 48.1%)
 - Zero cartões classificados como "baixa qualidade" (<33%)
+
+**Penalidade RET100_CAP** (`grade_exercise_v2.py`):
+- Ana Luiza Camilo da Silva: 80.5 → **40.0** (B → F)
+- Philipe Emanuel de Souza Meireles: 69.8 → **40.0** (D → F)
+- Lenilson Maia Rodrigues de Lima: 59.1 → **40.0** (F → F)
+- Nota média da turma: 64.2 → **61.9**
+- Distribuição: A=3, B=2, C=3, D=13, F=18
