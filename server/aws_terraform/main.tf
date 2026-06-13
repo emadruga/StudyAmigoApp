@@ -177,7 +177,10 @@ resource "aws_instance" "study_amigo" {
     delete_on_termination = true
 
     tags = {
-      Name = "${var.project_name}-root-volume"
+      Name        = "${var.project_name}-root-volume"
+      Project     = var.project_name
+      ManagedBy   = "terraform"
+      Environment = "production"
     }
   }
 
