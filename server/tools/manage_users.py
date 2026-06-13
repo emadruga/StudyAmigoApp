@@ -261,16 +261,21 @@ def cmd_list_dupes_production(args):
 
     # Buscar usuários remotamente
     if substring:
-        where = f"WHERE name LIKE '%{substring}%'"
+        py_fetch = (
+            f"import sqlite3, json\n"
+            f"conn = sqlite3.connect('{container_db}')\n"
+            f"rows = conn.execute('SELECT user_id, username, name FROM users WHERE name LIKE ? ORDER BY name', ('%{substring}%',)).fetchall()\n"
+            f"print(json.dumps(rows))\n"
+            f"conn.close()\n"
+        )
     else:
-        where = ""
-    py_fetch = (
-        f"import sqlite3, json\n"
-        f"conn = sqlite3.connect('{container_db}')\n"
-        f"rows = conn.execute('SELECT user_id, username, name FROM users {where} ORDER BY name').fetchall()\n"
-        f"print(json.dumps(rows))\n"
-        f"conn.close()\n"
-    )
+        py_fetch = (
+            f"import sqlite3, json\n"
+            f"conn = sqlite3.connect('{container_db}')\n"
+            f"rows = conn.execute('SELECT user_id, username, name FROM users ORDER BY name').fetchall()\n"
+            f"print(json.dumps(rows))\n"
+            f"conn.close()\n"
+        )
     result = _docker_exec_python(ssh_args, container, py_fetch)
     if result.returncode != 0:
         print(f"Erro ao consultar produção: {result.stderr.strip()}")
