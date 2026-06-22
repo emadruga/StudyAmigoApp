@@ -1,0 +1,495 @@
+student_id,name,tier,deck,card_id,front,back,score_front,reason_front,score_back,reason_back,score_process,reason_process,total_score,pct_score
+3026,Gabriel Bernardo Do Nascimento,2,PASSAGE_E04_TIER2,1780364588001,Vini Jr. is famous for his [EXPLOSIVE PACE] and creative dribbling.,"explosive pace = velocidade explosiva
+ explosive pace / incredible pace / attacking pace
+
+tradução: Vini Jr. é famoso por sua velocidade explosiva e drible criativo.",2,frase contextualizada com [MAIÚSCULO],1,tradução presente mas sem formatação T2 (classe/colocação),2,frase original (0.39 de similaridade),5,83.3
+3026,Gabriel Bernardo Do Nascimento,2,PASSAGE_E04_TIER2,1780364644001,Rodrygo showed great [COMPOSURE] under pressure during the match.,"composure = compostura / calma sob pressão
+ composure under pressure / maintain composure / lose composure
+
+tradução: Rodrygo mostrou grande calma sob pressão durante a partida.",2,frase contextualizada com [MAIÚSCULO],1,tradução presente mas sem formatação T2 (classe/colocação),2,frase original (0.34 de similaridade),5,83.3
+3026,Gabriel Bernardo Do Nascimento,2,PASSAGE_E04_TIER2,1780364683001,Rodrygo scored in a [CRUCIAL] moment for the team.,"crucial = crucial / decisivo
+ crucial moment / crucial match / crucial decision
+
+Rodrygo marcou em um momento decisivo para o time.",2,frase contextualizada com [MAIÚSCULO],1,tradução presente mas sem formatação T2 (classe/colocação),2,frase original (0.39 de similaridade),5,83.3
+3026,Gabriel Bernardo Do Nascimento,2,PASSAGE_E04_TIER2,1780364782001,He is a [VERSATILE] option because he can play across the front line.,"versatile = versátil
+ versatile player / versatile option / versatile athlete
+
+tradução: Ele é uma opção versátil porque pode jogar em toda a linha ofensiva.",2,frase contextualizada com [MAIÚSCULO],1,tradução presente mas sem formatação T2 (classe/colocação),2,frase original (0.40 de similaridade),5,83.3
+3026,Gabriel Bernardo Do Nascimento,2,PASSAGE_E04_TIER2,1780364836001,Neymar remains Brazil’s all-time [LEADING SCORER].,"leading scorer = artilheiro / maior goleador
+ all-time leading scorer / leading goal scorer
+
+tradução: Neymar continua sendo o maior artilheiro da história do Brasil.",2,frase contextualizada com [MAIÚSCULO],1,tradução presente mas sem formatação T2 (classe/colocação),2,frase original (0.38 de similaridade),5,83.3
+3026,Gabriel Bernardo Do Nascimento,2,PASSAGE_E04_TIER2,1780364974001,"[DESPITE] recent injuries, Neymar remains recognizable worldwide.","despite (preposição) = apesar de
+ despite injuries / despite problems / despite criticism
+
+tradução: Apesar das lesões recentes, Neymar continua reconhecido mundialmente.",2,frase contextualizada com [MAIÚSCULO],1,tradução presente mas sem formatação T2 (classe/colocação),2,frase original (0.32 de similaridade),5,83.3
+3026,Gabriel Bernardo Do Nascimento,2,PASSAGE_E04_TIER2,1780365065001,Neymar [REMAINS] one of the most recognizable athletes in the world.,"remains (verbo.) = permanece / continua sendo
+ remain strong / remain popular / remain important
+
+tradução: Neymar continua sendo um dos atletas mais reconhecíveis do mundo.",2,frase contextualizada com [MAIÚSCULO],1,tradução presente mas sem formatação T2 (classe/colocação),2,frase original (0.43 de similaridade),5,83.3
+3026,Gabriel Bernardo Do Nascimento,2,PASSAGE_E04_TIER2,1780365158001,Neymar is one of the most [RECOGNIZABLE] athletes in world sport.,"recognizable (adjetivo.) = reconhecível
+ highly recognizable / easily recognizable
+
+tradução: Neymar é um dos atletas mais reconhecíveis do esporte mundial.",2,frase contextualizada com [MAIÚSCULO],1,tradução presente mas sem formatação T2 (classe/colocação),2,frase original (0.41 de similaridade),5,83.3
+3026,Gabriel Bernardo Do Nascimento,2,PASSAGE_E04_TIER2,1780445580001,“Marquinhos [SERVES AS] the team’s captain.”,"serves as (verbo) = exerce a função de / atua como
+ serve as captain / serve as leader / serve as example
+
+tradução: Marquinhos atua como capitão do time.",2,frase contextualizada com [MAIÚSCULO],1,tradução presente mas sem formatação T2 (classe/colocação),2,frase original (0.40 de similaridade),5,83.3
+3026,Gabriel Bernardo Do Nascimento,2,PASSAGE_E04_TIER2,1780445622001,“Marquinhos is known for his leadership on the [PITCH].”,"pitch (n.) = campo de futebol
+ on the pitch / leave the pitch / leadership on the pitch
+
+tradução: Marquinhos é conhecido por sua liderança em campo.",2,frase contextualizada com [MAIÚSCULO],1,classe gramatical presente mas sem marcador de colocação,2,frase original (0.39 de similaridade),5,83.3
+3026,Gabriel Bernardo Do Nascimento,2,PASSAGE_E04_TIER2,1780445664001,Alisson is considered one of the best in his [POSITION].,"position (n.) = posição
+ play a position / best in his position
+
+tradução: Alisson é considerado um dos melhores em sua posição.",2,frase contextualizada com [MAIÚSCULO],1,classe gramatical presente mas sem marcador de colocação,2,frase original (0.55 de similaridade),5,83.3
+3026,Gabriel Bernardo Do Nascimento,2,PASSAGE_E04_TIER2,1780445768001,Brazil’s fans expect nothing less than [EXCELLENCE].,"excellence (n.) = excelência
+ pursue excellence / expect excellence / academic excellence
+
+tradução: Os torcedores do Brasil não esperam nada menos que excelência.",2,frase contextualizada com [MAIÚSCULO],1,classe gramatical presente mas sem marcador de colocação,2,frase original (0.38 de similaridade),5,83.3
+4001,Ana Carolina Barbosa da Costa,2,PASSAGE_E04_TIER2,1779492412001,The turning point in her career came when she was chosen to compete in a [CRUCIAL] competition.,"crucial (adj.) = necessário 
+-> a crucial decision/question
+—————————————————
+O ponto de virada em sua carreira ocorreu quando ela foi escolhida para competir em uma competição crucial.",2,frase contextualizada com [MAIÚSCULO],2,classe gramatical + marcador de colocação,2,frase original (0.42 de similaridade),6,100.0
+4001,Ana Carolina Barbosa da Costa,2,PASSAGE_E04_TIER2,1779492566001,I admire your [COMPOSURE] in stressful situations.,"composure (n.) = calma, controle
+-> I didn't want to lose my composure in front of her.
+——————————————
+Admiro a sua compostura em situações de estresse.",2,frase contextualizada com [MAIÚSCULO],2,classe gramatical + marcador de colocação,2,frase original (0.34 de similaridade),6,100.0
+4001,Ana Carolina Barbosa da Costa,2,PASSAGE_E04_TIER2,1779492716001,"Well, I found her [POSITION] on the map, in case you want to see where she is.","position (n.) = posição, cargo
+-> I didn't know you played hockey - what position do you play?
+————————————
+Bem, encontrei a posição dela no mapa, caso queira ver onde ela está.",2,frase contextualizada com [MAIÚSCULO],2,classe gramatical + marcador de colocação,2,frase original (0.39 de similaridade),6,100.0
+4001,Ana Carolina Barbosa da Costa,2,PASSAGE_E04_TIER2,1780105926001,He was taken to the hospital after a fight on the [PITCH].,"pitch (n.) = campo
+-> a football/hockey/cricket pitch 
+——————————————
+Ele foi levado para o hospital após uma briga em campo.",2,frase contextualizada com [MAIÚSCULO],2,classe gramatical + marcador de colocação,2,frase original (0.42 de similaridade),6,100.0
+4001,Ana Carolina Barbosa da Costa,2,PASSAGE_E04_TIER2,1780105945001,His techniques allow him to [DRIBBLE] past defenders with ease.,"dribble (v.) = driblar
+-> He dribbled the ball and then shot.
+—————————————-
+Suas técnicas permitem que ele drible os defensores com facilidade.",2,frase contextualizada com [MAIÚSCULO],2,classe gramatical + marcador de colocação,2,frase original (0.38 de similaridade),6,100.0
+4001,Ana Carolina Barbosa da Costa,2,PASSAGE_E04_TIER2,1780105960001,School [SERVE AS] preparation for life.,"serve as (v.) = servir como
+-> The garage serves as a recording studio.
+————————————-
+A escola serve como preparação para a vida.",2,frase contextualizada com [MAIÚSCULO],2,classe gramatical + marcador de colocação,2,frase original (0.48 de similaridade),6,100.0
+4001,Ana Carolina Barbosa da Costa,2,PASSAGE_E04_TIER2,1780183998001,We visited the [REMAINS] of the Colosseum in Rome.,"remains (n.) = restos, ruínas 
+-> The remains of lunch were still on the table. / The remains of the castle.
+—————————————
+Visitamos as ruínas do Coliseu em Roma.",2,frase contextualizada com [MAIÚSCULO],2,classe gramatical + marcador de colocação,2,frase original (0.43 de similaridade),6,100.0
+4001,Ana Carolina Barbosa da Costa,2,PASSAGE_E04_TIER2,1780184258001,"He was able to lead a normal life, [DESPITE] the loneliness","despite (prep.) = apesar de ou (com her/him/my/yourself) sem querer
+-> He laughed despite himself.
+————————————-
+Ele conseguiu levar uma vida normal, apesar da solidão.",2,frase contextualizada com [MAIÚSCULO],2,classe gramatical + marcador de colocação,2,frase original (0.42 de similaridade),6,100.0
+4001,Ana Carolina Barbosa da Costa,2,PASSAGE_E04_TIER2,1780184404001,This is your [CAPTAIN] speaking. We expect to be landing at Rio de Janeiro airport in an hour's time.,"captain (n.) = capitão ou capitã 
+-> Captain Lane/Alex Lane.
+—————————-
+Aqui fala o seu comandante. Prevemos pousar no aeroporto do Rio de Janeiro dentro de uma hora.",2,frase contextualizada com [MAIÚSCULO],2,classe gramatical + marcador de colocação,2,frase original (0.36 de similaridade),6,100.0
+4001,Ana Carolina Barbosa da Costa,2,PASSAGE_E04_TIER2,1780268508001,A ceremony in [HONOR] of those who played for the Brazilian national team.,"honor (n., v.) = honra, honraria ou homenagear
+-> a woman of honor and intelligence. / a ceremony to honor him for his bravery.
+———————————————-
+Uma cerimônia em homenagem aos que jogaram pela seleção brasileira.",2,frase contextualizada com [MAIÚSCULO],1,marcador de colocação presente mas sem classe gramatical,2,frase original (0.41 de similaridade),5,83.3
+4001,Ana Carolina Barbosa da Costa,2,PASSAGE_E04_TIER2,1780268879001,"Our team scored three goals, with Spinelli being the [LEADING SCORER].","leading (adj.) = principal, primeiro
+-> the leading role in the play
+scorer (n.) = pontuador, pontuadora, goleador, goleadora
+-> Our team scored two goals – Rooney and Johnson were the scorers.
+—————————————-
+Nossa equipe marcou três gols, sendo Spinelli o artilheiro.",2,frase contextualizada com [MAIÚSCULO],2,classe gramatical + marcador de colocação,2,frase original (0.43 de similaridade),6,100.0
+4001,Ana Carolina Barbosa da Costa,2,PASSAGE_E04_TIER2,1781047874001,Jonathan has a consuming [PASSION] for terror slasher.,"passion (n.) = paixão
+-> Her passion for him was growing.
+—————————————-
+Jonathan tem uma paixão por terror com assassinos em série.",2,frase contextualizada com [MAIÚSCULO],2,classe gramatical + marcador de colocação,2,frase original (0.43 de similaridade),6,100.0
+4001,Ana Carolina Barbosa da Costa,2,PASSAGE_E04_TIER2,1781368593001,"Manchester United have just spent £800,000 on the talented 25-year-old [WINGER].","winger (n.) = lateral
+-> the winger of the Brazilian national team
+——————————————
+O Manchester United acaba de gastar 800.000 libras no talentoso lateral de 25 anos.",2,frase contextualizada com [MAIÚSCULO],2,classe gramatical + marcador de colocação,2,frase original (0.32 de similaridade),6,100.0
+4001,Ana Carolina Barbosa da Costa,2,PASSAGE_E04_TIER2,1781368973001,He's a very [VERSATILE] young actor who's as happy in highbrow dramas as he is in TV romances.,"versatile (adi.) = versátil 
+-> He is a very versatile actor.
+————————————-
+Ele é um jovem ator muito versátil que está tão feliz em dramas intelectuais como em romances de TV.",2,frase contextualizada com [MAIÚSCULO],1,marcador de colocação presente mas sem classe gramatical,2,frase original (0.35 de similaridade),5,83.3
+4001,Ana Carolina Barbosa da Costa,2,PASSAGE_E04_TIER2,1781371615001,This dress has been in the family for [GENERATIONS].,"generation (n.) = geração
+-> A generation ago, home computers were virtually unknown.
+————————————-
+Este vestido pertence à família há gerações.",2,frase contextualizada com [MAIÚSCULO],2,classe gramatical + marcador de colocação,2,frase original (0.48 de similaridade),6,100.0
+4011,Ana Luiza Camilo da Silva,1,PASSAGE_E04_TIER1,1781053135001,He is very (calm) about the test.,"Calm: calmo/tranquilo 
+Ele está bem calmo com a prova.",1,frase presente mas sem marcação [MAIÚSCULO],1,verso preenchido mas sem separador '=',2,frase original (0.55 de similaridade),4,66.7
+4011,Ana Luiza Camilo da Silva,1,PASSAGE_E04_TIER1,1781053205001,The Nilton Santos stadium has an artificial turf (field).,"O campo de futebol do estádio Nilton Santos é sintético.
+Field: campo de futebol.",1,frase presente mas sem marcação [MAIÚSCULO],1,verso preenchido mas sem separador '=',2,frase original (0.34 de similaridade),4,66.7
+4011,Ana Luiza Camilo da Silva,1,PASSAGE_E04_TIER1,1781053352001,She tells her story with (pride).,"Ela conta sua história com orgulho 
+Pride: orgulho",1,frase presente mas sem marcação [MAIÚSCULO],1,verso preenchido mas sem separador '=',2,frase original (0.40 de similaridade),4,66.7
+4011,Ana Luiza Camilo da Silva,1,PASSAGE_E04_TIER1,1781226302001,The player scored the championship-winning (goal).,"O jogador marcou o gol do campeonato 
+Goal: gol",1,frase presente mas sem marcação [MAIÚSCULO],1,verso preenchido mas sem separador '=',2,frase original (0.47 de similaridade),4,66.7
+4011,Ana Luiza Camilo da Silva,1,PASSAGE_E04_TIER1,1781226343001,The team (captain) was ejected from the game.,"o capitão do time foi expulso do jogo 
+Captain: Capitão",1,frase presente mas sem marcação [MAIÚSCULO],1,verso preenchido mas sem separador '=',2,frase original (0.37 de similaridade),4,66.7
+4011,Ana Luiza Camilo da Silva,1,PASSAGE_E04_TIER1,1781226465001,The team's (defender) was injured in the last game.,"o zagueiro do time se lesionou no último jogo 
+Defender: zagueiro",1,frase presente mas sem marcação [MAIÚSCULO],1,verso preenchido mas sem separador '=',2,frase original (0.44 de similaridade),4,66.7
+4016,Cauã Jorge de Nazareth Marins,1,PASSAGE_E04_TIER1,1779487979001,This is a good [winger],winger= lateral/ponta,1,frase presente mas sem marcação [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.37 de similaridade),5,83.3
+4016,Cauã Jorge de Nazareth Marins,1,PASSAGE_E04_TIER1,1779488041001,he [scored] a goal,scored= marcou,1,frase presente mas sem marcação [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.34 de similaridade),5,83.3
+4016,Cauã Jorge de Nazareth Marins,1,PASSAGE_E04_TIER1,1779488113001,She is a good [forward],forward= atacante,1,frase presente mas sem marcação [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.37 de similaridade),5,83.3
+4016,Cauã Jorge de Nazareth Marins,1,PASSAGE_E04_TIER1,1781050641001,I stay [CALM] during important exams.,calm = calmo / tranquilo,2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.36 de similaridade),6,100.0
+4016,Cauã Jorge de Nazareth Marins,1,PASSAGE_E04_TIER1,1781051889001,The [CAPTAIN] helped organize our football team.,captain = capitão,2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.42 de similaridade),6,100.0
+4016,Cauã Jorge de Nazareth Marins,1,PASSAGE_E04_TIER1,1781230583001,I wear my school’s uniform with [PRIDE].,pride = orgulho,2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.40 de similaridade),6,100.0
+4016,Cauã Jorge de Nazareth Marins,1,PASSAGE_E04_TIER1,1781314362001,She received an [AWARD] for her science project.,award = prêmio,2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.48 de similaridade),6,100.0
+4016,Cauã Jorge de Nazareth Marins,1,PASSAGE_E04_TIER1,1781402470001,Our team trained on the football [PITCH] yesterday.,pitch = campo de futebol,2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.40 de similaridade),6,100.0
+4016,Cauã Jorge de Nazareth Marins,1,PASSAGE_E04_TIER1,1781402522001,The [GOALKEEPER] saved two difficult shots.,goalkeeper = goleiro,2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.43 de similaridade),6,100.0
+4016,Cauã Jorge de Nazareth Marins,1,PASSAGE_E04_TIER1,1781481111001,My friend plays as a [DEFENDER] in every match.,defender = zagueiro / defensor,2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.50 de similaridade),6,100.0
+4026,Eloá de Oliveira Amorim,1,PASSAGE_E04_TIER1,1779485635001,Now I have been [SLIGHTLY] shy.,slightly = um pouco.,2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.40 de similaridade),6,100.0
+4026,Eloá de Oliveira Amorim,1,PASSAGE_E04_TIER1,1779485841001,Your love was [SENT] to me.,sent = enviado.,2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.50 de similaridade),6,100.0
+4026,Eloá de Oliveira Amorim,1,PASSAGE_E04_TIER1,1779485871001,I’m so [CLOSE] to tears.,close = perto.,2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.46 de similaridade),6,100.0
+4026,Eloá de Oliveira Amorim,1,PASSAGE_E04_TIER1,1779485917001,We go to a [HIDDEN] place.,hidden = escondido.,2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.40 de similaridade),6,100.0
+4026,Eloá de Oliveira Amorim,1,PASSAGE_E04_TIER1,1779485977001,That makes him [INVISIBLE].,invisible = invisível.,2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.36 de similaridade),6,100.0
+4026,Eloá de Oliveira Amorim,1,PASSAGE_E04_TIER1,1779486021001,Can I hide there [TOO]?,too = também.,2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.36 de similaridade),6,100.0
+4026,Eloá de Oliveira Amorim,1,PASSAGE_E04_TIER1,1779486057001,We'll stay in a hidden [PLACE].,place = lugar.,2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.38 de similaridade),6,100.0
+4026,Eloá de Oliveira Amorim,1,PASSAGE_E04_TIER1,1781390412001,New York’s city never [LOOKED] so blue.,looked = pareceu.,2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.41 de similaridade),6,100.0
+4026,Eloá de Oliveira Amorim,1,PASSAGE_E04_TIER1,1781390460001,That’s never been a thing that I [COULD] do.,could = poderia.,2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.46 de similaridade),6,100.0
+4026,Eloá de Oliveira Amorim,1,PASSAGE_E04_TIER1,1781390523001,You should [FEEL] how I [FEEL] when somebody says your name.,"feel = sentir, sinto.",2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.30 de similaridade),6,100.0
+4026,Eloá de Oliveira Amorim,1,PASSAGE_E04_TIER1,1781390588001,"I feel right, I feel wrong, I feel [TOTALLY] insane.",totally = totalmente.,2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.36 de similaridade),6,100.0
+4026,Eloá de Oliveira Amorim,1,PASSAGE_E04_TIER1,1781390658001,"And if there is a God, he’s the bond that’s [BETWEEN] us two.","between = entre, no meio.",2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.41 de similaridade),6,100.0
+4026,Eloá de Oliveira Amorim,1,PASSAGE_E04_TIER1,1781390716001,And I want you [MORE] than any stupid song could ever say.,more = mais.,2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.40 de similaridade),6,100.0
+4026,Eloá de Oliveira Amorim,1,PASSAGE_E04_TIER1,1781390784001,Nobody’s [WANTED] somebody more.,"wanted = quis, desejou.",2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.39 de similaridade),6,100.0
+4026,Eloá de Oliveira Amorim,1,PASSAGE_E04_TIER1,1781390819001,It’s a thing that I can’t [IGNORE].,ignore = ignorar.,2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.42 de similaridade),6,100.0
+4026,Eloá de Oliveira Amorim,1,PASSAGE_E04_TIER1,1781390925001,I’m a car [SPEEDING] down the boulevard without a brake.,speeding = acelerando.,2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.42 de similaridade),6,100.0
+4026,Eloá de Oliveira Amorim,1,PASSAGE_E04_TIER1,1781390980001,Time can [HEAL] even the worst of wounds.,"heal = curar, sarar.",2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.48 de similaridade),6,100.0
+4026,Eloá de Oliveira Amorim,1,PASSAGE_E04_TIER1,1781391021001,"God, I love the [WAY] you look at me.",way = jeito.,2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.48 de similaridade),6,100.0
+4026,Eloá de Oliveira Amorim,1,PASSAGE_E04_TIER1,1781391102001,Everything I [OWN] just feels like ours.,"own = tenho, pertence.",2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.41 de similaridade),6,100.0
+4026,Eloá de Oliveira Amorim,1,PASSAGE_E04_TIER1,1781391150001,"In a way that feels honest, but even when i’m [quiet].",quiet = quieto.,1,frase presente mas sem marcação [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.36 de similaridade),5,83.3
+4026,Eloá de Oliveira Amorim,1,PASSAGE_E04_TIER1,1781391193001,Can’t describe this [FEELING.],feeling = sentimento.,1,frase presente mas sem marcação [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.38 de similaridade),5,83.3
+4026,Eloá de Oliveira Amorim,1,PASSAGE_E04_TIER1,1781391241001,I’m not feeling like [MYSELF] and nothing seems to help.,myself = eu mesmo.,2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.43 de similaridade),6,100.0
+4026,Eloá de Oliveira Amorim,1,PASSAGE_E04_TIER1,1781391292001,But every movie that I see [MAKES] me cry.,"makes = faz, fazer.",2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.50 de similaridade),6,100.0
+4026,Eloá de Oliveira Amorim,1,PASSAGE_E04_TIER1,1781391347001,It’s like somebody put a weight on my [CHEST].,chest = peito.,2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.36 de similaridade),6,100.0
+4031,Emanuelly Almeida da Silva,1,PASSAGE_E04_TIER1,1779561280001,A [WINGER] of either sort is important in a football team.,Winger = ponta/ jogador de lado,2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.40 de similaridade),6,100.0
+4031,Emanuelly Almeida da Silva,1,PASSAGE_E04_TIER1,1779561572001,She [SCORED] more than twenty goals for her team.,Score/ scored= marcar/ fazer ponto ou gol,2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.40 de similaridade),6,100.0
+4031,Emanuelly Almeida da Silva,1,PASSAGE_E04_TIER1,1779914674001,Step [FORWARD] a little and stand on the line.,forward = para frente,2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.39 de similaridade),6,100.0
+4031,Emanuelly Almeida da Silva,1,PASSAGE_E04_TIER1,1780451413001,He has a very [CALM] demeanor.,calm = calmo(a),2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.50 de similaridade),6,100.0
+4031,Emanuelly Almeida da Silva,1,PASSAGE_E04_TIER1,1780451814001,The [CAPTAIN] gave him his orders.,captain = capitão,2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.40 de similaridade),6,100.0
+4031,Emanuelly Almeida da Silva,1,PASSAGE_E04_TIER1,1780452275001,"For a [GOALKEEPER], having large hands is a great advantage.",goalkeeper = goleiro,2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.36 de similaridade),6,100.0
+4031,Emanuelly Almeida da Silva,1,PASSAGE_E04_TIER1,1781028759001,the [DEFENDER] of the castle,defender = defensor,2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.39 de similaridade),6,100.0
+4031,Emanuelly Almeida da Silva,1,PASSAGE_E04_TIER1,1781126812001,The [PITCH] was completely waterlogged.,pitch = campo (de futebol),2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.42 de similaridade),6,100.0
+4031,Emanuelly Almeida da Silva,1,PASSAGE_E04_TIER1,1781405277001,The court [AWARD] her an unspecified sum of money.,award = conceder / premiar,2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.43 de similaridade),6,100.0
+4031,Emanuelly Almeida da Silva,1,PASSAGE_E04_TIER1,1781405412001,His heart swelled with [PRIDE] as he watched his son graduate.,pride = orgulho,2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.48 de similaridade),6,100.0
+4051,Julia de Oliveira Corrêa,2,PASSAGE_E04_TIER2,1779464131001,Brazil has produced many [EXCEPTIONAL] football players over the years.,"exceptional (adj.) = excepcional
+☞ exceptional player / exceptional talent
+─────────────────────────────────────────
+“O Brasil produziu muitos jogadores excepcionais ao longo dos anos.”",2,frase contextualizada com [MAIÚSCULO],2,classe gramatical + marcador de colocação,2,frase original (0.38 de similaridade),6,100.0
+4051,Julia de Oliveira Corrêa,2,PASSAGE_E04_TIER2,1779464185001,Our school wants to create a new [GENERATION] of scientists.,"generation (n.) = geração
+☞ new generation / younger generation
+─────────────────────────────────────────
+Nossa escola quer criar uma nova geração de cientistas.",2,frase contextualizada com [MAIÚSCULO],2,classe gramatical + marcador de colocação,2,frase original (0.39 de similaridade),6,100.0
+4051,Julia de Oliveira Corrêa,2,PASSAGE_E04_TIER2,1779464213001,My cousin plays as a [WINGER] in the local football team.,"winger (n.) = ponta / extremo
+☞ fast winger / play as a winger
+─────────────────────────────────────────
+Meu primo joga como ponta no time local de futebol.",2,frase contextualizada com [MAIÚSCULO],2,classe gramatical + marcador de colocação,2,frase original (0.44 de similaridade),6,100.0
+4051,Julia de Oliveira Corrêa,2,PASSAGE_E04_TIER2,1779464254001,The striker is famous for his [EXPLOSIVE PACE] during matches.,"explosive pace (n.) = velocidade explosiva
+☞ explosive pace on the field / show explosive pace
+─────────────────────────────────────────
+O atacante é famoso pela sua velocidade explosiva durante as partidas.",2,frase contextualizada com [MAIÚSCULO],2,classe gramatical + marcador de colocação,2,frase original (0.37 de similaridade),6,100.0
+4051,Julia de Oliveira Corrêa,2,PASSAGE_E04_TIER2,1780360054001,The player improved his [DRIBBLING] after months of practice.,"dribbling (n.) = drible / habilidade de driblar
+o creative dribbling / improve dribbling
+______________________________________________________________
+O jogador melhorou sua habilidade de driblar após meses de treino.",2,frase contextualizada com [MAIÚSCULO],1,classe gramatical presente mas sem marcador de colocação,2,frase original (0.43 de similaridade),5,83.3
+4051,Julia de Oliveira Corrêa,2,PASSAGE_E04_TIER2,1780533817001,Our leader maintained her [COMPOSURE] during the difficult situation.,"composure (n.) = compostura / calma
+sob pressão
+to composure under pressure / maintain composure / lose composure
+_____________________________________________________________
+Nossa líder manteve a calma durante a situação difícil.",2,frase contextualizada com [MAIÚSCULO],1,classe gramatical presente mas sem marcador de colocação,2,frase original (0.40 de similaridade),5,83.3
+4051,Julia de Oliveira Corrêa,2,PASSAGE_E04_TIER2,1780934796001,My friend is very [VERSATILE] and can work in different areas.,"versatile (adj.) = versátil
+• versatile player / versatile professional
+___________________________________________________
+Minha amiga é muito versátil e consegue trabalhar em diferentes áreas.",2,frase contextualizada com [MAIÚSCULO],2,classe gramatical + marcador de colocação,2,frase original (0.50 de similaridade),6,100.0
+4051,Julia de Oliveira Corrêa,2,PASSAGE_E04_TIER2,1781106769001,I sat [ALONGSIDE] my best friend during class.,"alongside (prep.) = ao lado de
+☞ work alongside / sit alongside
+─────────────────────────────────────────
+Eu sentei ao lado da minha melhor amiga durante a aula.",2,frase contextualizada com [MAIÚSCULO],2,classe gramatical + marcador de colocação,2,frase original (0.37 de similaridade),6,100.0
+4051,Julia de Oliveira Corrêa,2,PASSAGE_E04_TIER2,1781106835001,My father [SERVES AS] the manager of the company.,"serves as (v.) = atua como / exerce a função de
+☞ serve as captain / serve as leader
+─────────────────────────────────────────
+Meu pai atua como gerente da empresa.",2,frase contextualizada com [MAIÚSCULO],2,classe gramatical + marcador de colocação,2,frase original (0.42 de similaridade),6,100.0
+4051,Julia de Oliveira Corrêa,2,PASSAGE_E04_TIER2,1781274639001,My dream [REMAINS] the same,"remains (v.) = permanece / continua sendo
+☞ remains strong / remains important
+─────────────────────────────────────────
+Meu sonho continua o mesmo.",2,frase contextualizada com [MAIÚSCULO],2,classe gramatical + marcador de colocação,2,frase original (0.35 de similaridade),6,100.0
+4051,Julia de Oliveira Corrêa,2,PASSAGE_E04_TIER2,1781274735001,I have a great [PASSION] for music.,"passion (n.) = paixão
+☞ passion for music / show passion
+─────────────────────────────────────────
+Eu tenho uma grande paixão por música.",2,frase contextualizada com [MAIÚSCULO],2,classe gramatical + marcador de colocação,2,frase original (0.45 de similaridade),6,100.0
+4071,Laís Nascimento Silva,1,PASSAGE_E04_TIER1,1779378031001,You should take more [PRIDE] in yourself.,"Substantivo. Pride: Orgulho. 
+ Tradução: "" Você deveria ter mais [ORGULHO] de si mesma.”",2,frase contextualizada com [MAIÚSCULO],1,verso preenchido mas sem separador '=',2,frase original (0.37 de similaridade),5,83.3
+4071,Laís Nascimento Silva,1,PASSAGE_E04_TIER1,1779411627001,"A [WINGER] who can play on either flank, his speed and technical skills cause problems for opposing defenses.","Substantivo. Winger: Ponta/lateral. 
+Tradução: "" Um [PONTA] que pode jogar em qualquer uma das laterais, suas qualidades de velocidade e técnica causam problemas para as defesas adversárias.""",2,frase contextualizada com [MAIÚSCULO],1,verso preenchido mas sem separador '=',2,frase original (0.39 de similaridade),5,83.3
+4071,Laís Nascimento Silva,1,PASSAGE_E04_TIER1,1779411901001,The soccer player [SCORED] in the last minute of the game.,"Verbo. SCORED: marcou(gol).
+Tradução: ""O jogador de futebol [MARCOU] no último minuto do jogo"".",2,frase contextualizada com [MAIÚSCULO],1,verso preenchido mas sem separador '=',2,frase original (0.54 de similaridade),5,83.3
+4071,Laís Nascimento Silva,1,PASSAGE_E04_TIER1,1779485188001,The city returned to [CALM] after the flood.,"Adjetivo. Calm: Calmo, tranquilo
+Tradução:"" A cidade voltou à [CALMA] após a enchente"".",2,frase contextualizada com [MAIÚSCULO],1,verso preenchido mas sem separador '=',2,frase original (0.41 de similaridade),5,83.3
+4071,Laís Nascimento Silva,1,PASSAGE_E04_TIER1,1779485596001,He's the best [CAPTAIN] the team has had in recent years.,"Substantivo. Captain: capitão, capitã.
+Tradução: "" Ele é o melhor [CAPITÃO] do time nos últimos anos"".",2,frase contextualizada com [MAIÚSCULO],1,verso preenchido mas sem separador '=',2,frase original (0.45 de similaridade),5,83.3
+4071,Laís Nascimento Silva,1,PASSAGE_E04_TIER1,1779485907001,The crowd roared when the [GOALKEEPER] saved the penalty.,"Substantivo. Goalkeeper: goleiro(a)
+Tradução: "" A multidão vibrou quando o [GOLEIRO] defendeu o pênalti"".",2,frase contextualizada com [MAIÚSCULO],1,verso preenchido mas sem separador '=',2,frase original (0.42 de similaridade),5,83.3
+4071,Laís Nascimento Silva,1,PASSAGE_E04_TIER1,1779589821001,He is one of the best [DEFENDERS] on the team.,"Substantivo. Defender/defenders: zagueiro, defensor
+Tradução: "" Ele é um dos melhores [ZAGUEIROS] do time"".",2,frase contextualizada com [MAIÚSCULO],1,verso preenchido mas sem separador '=',2,frase original (0.54 de similaridade),5,83.3
+4071,Laís Nascimento Silva,1,PASSAGE_E04_TIER1,1779590215001,He was taken to the hospital after an injury sustained on the [PITCH].,"Substantivo. Pitch: Campo(futebol, hóquei, críquete)
+Tradução: "" Ele foi levado para o hospital após uma lesão em [CAMPO]"".",2,frase contextualizada com [MAIÚSCULO],1,verso preenchido mas sem separador '=',2,frase original (0.40 de similaridade),5,83.3
+4076,Leandro Moreira Andrade da Silva,1,PASSAGE_E04_TIER1,1779493242001,The advanced student works as a [WINGER] on the university soccer team.,winger — ponta / extremo,2,frase contextualizada com [MAIÚSCULO],1,verso preenchido mas sem separador '=',2,frase original (0.45 de similaridade),5,83.3
+4076,Leandro Moreira Andrade da Silva,1,PASSAGE_E04_TIER1,1779493328001,Our team [SCORED] the highest points in the final hackathon.,scored — marcou (gol) / pontuou,2,frase contextualizada com [MAIÚSCULO],1,verso preenchido mas sem separador '=',2,frase original (0.43 de similaridade),5,83.3
+4076,Leandro Moreira Andrade da Silva,1,PASSAGE_E04_TIER1,1779493350001,She plays as a [FORWARD] for the local laboratory team.,forward — atacante,2,frase contextualizada com [MAIÚSCULO],1,verso preenchido mas sem separador '=',2,frase original (0.42 de similaridade),5,83.3
+4076,Leandro Moreira Andrade da Silva,1,PASSAGE_E04_TIER1,1779493499001,He is [CALM] under pressure during the laboratory exams.,calm — calmo / tranquilo,2,frase contextualizada com [MAIÚSCULO],1,verso preenchido mas sem separador '=',2,frase original (0.42 de similaridade),5,83.3
+4076,Leandro Moreira Andrade da Silva,1,PASSAGE_E04_TIER1,1779493537001,The class [CAPTAIN] organized the study group for the cybersecurity project.,​captain — capitão,2,frase contextualizada com [MAIÚSCULO],1,verso preenchido mas sem separador '=',2,frase original (0.43 de similaridade),5,83.3
+4076,Leandro Moreira Andrade da Silva,1,PASSAGE_E04_TIER1,1779493570001,The security system plays as a [DEFENDER] against digital attacks.,defender — zagueiro / defensor,2,frase contextualizada com [MAIÚSCULO],1,verso preenchido mas sem separador '=',2,frase original (0.46 de similaridade),5,83.3
+4076,Leandro Moreira Andrade da Silva,1,PASSAGE_E04_TIER1,1779493606001,Our professor is the [GOALKEEPER] of our research data safety.,goalkeeper — goleiro,2,frase contextualizada com [MAIÚSCULO],1,verso preenchido mas sem separador '=',2,frase original (0.36 de similaridade),5,83.3
+4076,Leandro Moreira Andrade da Silva,1,PASSAGE_E04_TIER1,1779493644001,The researchers are strong leaders on the university [PITCH].,pitch — campo de futebol / campo de atuação,2,frase contextualizada com [MAIÚSCULO],1,verso preenchido mas sem separador '=',2,frase original (0.39 de similaridade),5,83.3
+4076,Leandro Moreira Andrade da Silva,1,PASSAGE_E04_TIER1,1779493678001,The biotechnology group won the Best Innovation [AWARD] in 2026.,award — prêmio,2,frase contextualizada com [MAIÚSCULO],1,verso preenchido mas sem separador '=',2,frase original (0.40 de similaridade),5,83.3
+4076,Leandro Moreira Andrade da Silva,1,PASSAGE_E04_TIER1,1779493794001,We wear our university t-shirt with [PRIDE].,pride — orgulho,2,frase contextualizada com [MAIÚSCULO],1,verso preenchido mas sem separador '=',2,frase original (0.40 de similaridade),5,83.3
+4086,Luiz Antonio Inácio Pereira,2,PASSAGE_E04_TIER2,1781399517001,The Population of the previously said country had a [BURST] on their quality of life.,"Fonte: https://youtu.be/hvk_XylEmLo?si=mVMVc9acpGIexzkN
+
+Simple Past
+Burst [verb] = to emerge or to spring suddenly 
+
+""A população do país dito anteriormente teve um estouro na qualidade de vida deles.""",2,frase contextualizada com [MAIÚSCULO],1,tradução presente mas sem formatação T2 (classe/colocação),2,frase original (0.39 de similaridade),5,83.3
+4086,Luiz Antonio Inácio Pereira,2,PASSAGE_E04_TIER2,1781399947001,The [Harvest] was not enough to mitigate the effects of mass hunger.,"Harvest [noun] = the season for gathering in agricultural crops
+A Colheita não foi o suficiente para mitigar os efeitos da fome em massa.",1,frase presente mas sem marcação [MAIÚSCULO],1,tradução presente mas sem formatação T2 (classe/colocação),2,frase original (0.38 de similaridade),4,66.7
+4086,Luiz Antonio Inácio Pereira,2,PASSAGE_E04_TIER2,1781400302001,He lost a [CHUNK] of money yesterday.,"Past Simple
+
+Chunk [noun] = large noteworthy quantity or part
+
+""Ele perdeu uma quantidade considerável de dinheiro ontem.""",2,frase contextualizada com [MAIÚSCULO],1,tradução presente mas sem formatação T2 (classe/colocação),2,frase original (0.39 de similaridade),5,83.3
+4086,Luiz Antonio Inácio Pereira,2,PASSAGE_E04_TIER2,1781485886001,His [LABOUR] was not enough to pay his debt.,"Past Simple
+
+Labour [noun] = the services performed by workers for wages
+
+""O Trabalho dele não foi o suficiente para pagar a dívida dele.""",2,frase contextualizada com [MAIÚSCULO],1,tradução presente mas sem formatação T2 (classe/colocação),2,frase original (0.41 de similaridade),5,83.3
+4086,Luiz Antonio Inácio Pereira,2,PASSAGE_E04_TIER2,1781486560001,They have been [INTERMINGLED] since their last project,"Present Perfect Continuous 
+Intermingle [verb] = to turn into a single mass or entity that is more or less the same
+""Eles estão inseparáveis desde o último projeto""",2,frase contextualizada com [MAIÚSCULO],1,tradução presente mas sem formatação T2 (classe/colocação),2,frase original (0.45 de similaridade),5,83.3
+4086,Luiz Antonio Inácio Pereira,2,PASSAGE_E04_TIER2,1781490576001,"""The [LEISURE] of the average German worker is statistically bigger than the [LEISURE] of the average Polish worker.""","Present simple 
+Leisure = freedom provided by the cessation of activities
+""O lazer do trabalhador alemão médio é estatisticamente maior do que o lazer do trabalhador polonês médio.""",2,frase contextualizada com [MAIÚSCULO],1,tradução presente mas sem formatação T2 (classe/colocação),2,frase original (0.40 de similaridade),5,83.3
+4086,Luiz Antonio Inácio Pereira,2,PASSAGE_E04_TIER2,1781491649001,His [FIELD] has been producing cassava since the 17th century,"Present Perfect Continuous 
+Field [noun] = an area of cleared enclosed land used for cultivation or pasture
+""O Campo Dele têm produzido mandioca desde o século 17.""",2,frase contextualizada com [MAIÚSCULO],1,tradução presente mas sem formatação T2 (classe/colocação),2,frase original (0.36 de similaridade),5,83.3
+4086,Luiz Antonio Inácio Pereira,2,PASSAGE_E04_TIER2,1781492570001,"""[...] the [PATTERN] in question can be seen in every country.""","Present Simple (Passive) 
+Pattern = regular and repeated way that something happens
+""[...] o Padrão em questão pode ser visto em todos os países.",2,frase contextualizada com [MAIÚSCULO],1,tradução presente mas sem formatação T2 (classe/colocação),2,frase original (0.35 de similaridade),5,83.3
+4091,Marcelo Ygor de Sá Cordeiro,1,PASSAGE_E04_TIER1,1780438691001,"Liverpool have just spent £800,000 on the talented [WINGER].",WINGER = ponta / jogador de lado,2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.34 de similaridade),6,100.0
+4091,Marcelo Ygor de Sá Cordeiro,1,PASSAGE_E04_TIER1,1780440319001,They [SCORED] two goals at the start of the match.,"score / scored = marcar (gol, ponto)",2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.44 de similaridade),6,100.0
+4091,Marcelo Ygor de Sá Cordeiro,1,PASSAGE_E04_TIER1,1780937322001,The [FORWARD] scored the winning goal for the team.,forward = atacante,2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.47 de similaridade),6,100.0
+4091,Marcelo Ygor de Sá Cordeiro,1,PASSAGE_E04_TIER1,1780937480001,"He seemed [CALM] on the outside, although I suspect he was furious inside.",calm = calmo,2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.42 de similaridade),6,100.0
+4091,Marcelo Ygor de Sá Cordeiro,1,PASSAGE_E04_TIER1,1780937644001,The team [CAPTAIN] was forced to withdraw from the match.,captain = capitão,2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.39 de similaridade),6,100.0
+4091,Marcelo Ygor de Sá Cordeiro,1,PASSAGE_E04_TIER1,1780937904001,Marcos dribbled past a [DEFENDER] and shot the ball into the goal.,defender = defensor / zagueiro,2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.40 de similaridade),6,100.0
+4091,Marcelo Ygor de Sá Cordeiro,1,PASSAGE_E04_TIER1,1781318763001,"For a [GOALKEEPER], having large hands is a great advantage.",goalkeeper = goleiro,2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.36 de similaridade),6,100.0
+4091,Marcelo Ygor de Sá Cordeiro,1,PASSAGE_E04_TIER1,1781318949001,He was taken to the hospital after collapsing on the [PITCH].,pitch = campo (de futebol),2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.43 de similaridade),6,100.0
+4091,Marcelo Ygor de Sá Cordeiro,1,PASSAGE_E04_TIER1,1781319112001,She was in London to receive an [AWARD] for her latest novel.,award = prêmio,2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.38 de similaridade),6,100.0
+4091,Marcelo Ygor de Sá Cordeiro,1,PASSAGE_E04_TIER1,1781319298001,He demonstrates great [PRIDE] in his work.,pride = orgulho,2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.40 de similaridade),6,100.0
+4096,Ricardo de Souza Rodrigues,1,PASSAGE_E04_TIER1,1779851794001,"""The [WINGER] scored a beautiful goal yesterday.""","WINGER = ponta (futebol)
+""O ponta marcou um gol lindo ontem.""",2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.44 de similaridade),6,100.0
+4096,Ricardo de Souza Rodrigues,1,PASSAGE_E04_TIER1,1779852142001,"""He has [SCORED] in every game this season.""","SCORED = marcou  - 
+""Ele marcou gol em todos os jogos desta temporada.""",2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.46 de similaridade),6,100.0
+4096,Ricardo de Souza Rodrigues,1,PASSAGE_E04_TIER1,1779852284001,"""I will [FORWARD] the document tomorrow.""","FORWARD = encaminhar
+""Eu vou encaminhar o documento amanhã.""",2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.40 de similaridade),6,100.0
+4096,Ricardo de Souza Rodrigues,1,PASSAGE_E04_TIER1,1779852434001,"""Please try to stay [CALM].""","CALM = calma - 
+""Por favor, tente manter a calma.""",2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.36 de similaridade),6,100.0
+4096,Ricardo de Souza Rodrigues,1,PASSAGE_E04_TIER1,1779852573001,"""The [CAPTAIN] shook hands with the referee.""","CAPTAIN = capitão - 
+""O capitão apertou a mão do árbitro.""",2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.40 de similaridade),6,100.0
+4096,Ricardo de Souza Rodrigues,1,PASSAGE_E04_TIER1,1780975098001,"""The captain [LEADS] the team.""","LEADS = lidera  -  
+""O capitão lidera o time.""",2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.43 de similaridade),6,100.0
+4096,Ricardo de Souza Rodrigues,1,PASSAGE_E04_TIER1,1780975199001,"""The goalkeeper [CATCHES THE BALL].""","CATCHES THE BALL = pega a bola  -  
+""O goleiro pega a bola.""",2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.44 de similaridade),6,100.0
+4096,Ricardo de Souza Rodrigues,1,PASSAGE_E04_TIER1,1780975342001,"""The forward is [RUNNING] fast.""","RUNNING = correndo  -  
+""(O atacante está correndo rápido.)""",2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.41 de similaridade),6,100.0
+4096,Ricardo de Souza Rodrigues,1,PASSAGE_E04_TIER1,1780975410001,"""The defender is [BLOCKING] the ball.""","BLOCKING = bloqueando  -  
+""(O defensor está bloqueando a bola.)""",2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.43 de similaridade),6,100.0
+4096,Ricardo de Souza Rodrigues,1,PASSAGE_E04_TIER1,1780975483001,"""The winger [SCORED] a beautiful goal.""","SCORED = marcou  -  
+""(O ponta marcou um gol bonito.)""",2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.48 de similaridade),6,100.0
+4096,Ricardo de Souza Rodrigues,1,PASSAGE_E04_TIER1,1780975537001,"""The team [WON] a big award.""","WON = ganhou  -  
+""(O time ganhou um grande prêmio.)""",2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.40 de similaridade),6,100.0
+4096,Ricardo de Souza Rodrigues,1,PASSAGE_E04_TIER1,1780975603001,"""The pitch [WILL BE] wet tomorrow.""","WILL BE = vai estar  -  
+""(O campo vai estar molhado amanhã.)""",2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.46 de similaridade),6,100.0
+4096,Ricardo de Souza Rodrigues,1,PASSAGE_E04_TIER1,1780975692001,"""The fans [WILL FEEL] great pride.""","WILL FEEL = vão sentir  -  
+""(Os torcedores vão sentir um grande orgulho.)""",2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.46 de similaridade),6,100.0
+4096,Ricardo de Souza Rodrigues,1,PASSAGE_E04_TIER1,1780975768001,"""[STAY] calm during the game!""","STAY = fique  -  
+""(Fique calmo durante o jogo!)""",2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.38 de similaridade),6,100.0
+4096,Ricardo de Souza Rodrigues,1,PASSAGE_E04_TIER1,1781064810001,"""The fast winger [CROSSED] the ball into the penalty area.""","CROSSED = cruzou  -  
+(O ponta rápido cruzou a bola para a grande área.)",2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.55 de similaridade),6,100.0
+4096,Ricardo de Souza Rodrigues,1,PASSAGE_E04_TIER1,1781064889001,"""The striker [SCORED] a beautiful goal in the final minutes.""","SCORED = marcou  -  
+(O atacante marcou um gol lindo nos minutos finais.)",2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.43 de similaridade),6,100.0
+4096,Ricardo de Souza Rodrigues,1,PASSAGE_E04_TIER1,1781064965001,"""The team [SIGNED] a new forward to improve their attack.""","SIGNED = contratou  - 
+(O time contratou um novo atacante para melhorar o ataque deles.)",2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.44 de similaridade),6,100.0
+4096,Ricardo de Souza Rodrigues,1,PASSAGE_E04_TIER1,1781065120001,"""The player [REMAINED] calm before [TAKING] the decisive penalty.""","REMAINED = manteve-se
+TAKING = cobrar (o pênalti)
+(O jogador manteve-se calmo antes de cobrar o pênalti decisivo.)",2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.47 de similaridade),6,100.0
+4096,Ricardo de Souza Rodrigues,1,PASSAGE_E04_TIER1,1781065213001,"""The team captain [RECEIVED] the championship trophy with joy.""","RECEIVED = recebeu  -  
+(O capitão do time recebeu o troféu do campeonato com alegria.)",2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.41 de similaridade),6,100.0
+4096,Ricardo de Souza Rodrigues,1,PASSAGE_E04_TIER1,1781065303001,"""The strong defender [BLOCKED] the opponent's dangerous shot.""","BLOCKED = bloqueou  -  
+(O zagueiro forte bloqueou o chute perigoso do adversário.)",2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.44 de similaridade),6,100.0
+4096,Ricardo de Souza Rodrigues,1,PASSAGE_E04_TIER1,1781065361001,"""The goalkeeper [MADE] an incredible save during the match.""","MADE = fez  -  
+(O goleiro fez uma defesa incrível durante a partida.)",2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.41 de similaridade),6,100.0
+4096,Ricardo de Souza Rodrigues,1,PASSAGE_E04_TIER1,1781065425001,"""The heavy rain [MADE] the football pitch very muddy.""","MADE = deixou  -  
+(A chuva forte deixou o campo de futebol muito lamacento.)",2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.50 de similaridade),6,100.0
+4096,Ricardo de Souza Rodrigues,1,PASSAGE_E04_TIER1,1781065475001,"""He [WON] the best player award after an amazing season.""","WON = ganhou  -  
+(Ele ganhou o prêmio de melhor jogador após uma temporada incrível.)",2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.42 de similaridade),6,100.0
+4096,Ricardo de Souza Rodrigues,1,PASSAGE_E04_TIER1,1781065539001,"""The players [REPRESENTED] their country with great pride.""","REPRESENTED = representaram  -  
+(Os jogadores representaram seu país com muito orgulho.)",2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.59 de similaridade),6,100.0
+4096,Ricardo de Souza Rodrigues,1,PASSAGE_E04_TIER1,1781155148001,"""The fast winger [CROSSED] the ball into the penalty box.""","CROSSED = cruzou  -  
+(O ponta rápido cruzou a bola para dentro da área.)",2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.56 de similaridade),6,100.0
+4096,Ricardo de Souza Rodrigues,1,PASSAGE_E04_TIER1,1781155750001,"""The striker was intercepted and went down, but [GOT UP] and scored.""","GOT UP = levantou  -  
+(O atacante foi interceptado e caiu, mas levantou e marcou).",2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.38 de similaridade),6,100.0
+4096,Ricardo de Souza Rodrigues,1,PASSAGE_E04_TIER1,1781155844001,"""The team [NEEDS] a new forward to score more goals.""","NEEDS = precisa  -  
+(O time precisa de um novo atacante para marcar mais gols.)",2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.40 de similaridade),6,100.0
+4096,Ricardo de Souza Rodrigues,1,PASSAGE_E04_TIER1,1781155913001,"""The player [REMAINED] calm before taking the penalty kick.""","REMAINED = permaneceu  -  
+(O jogador permaneceu calmo antes de cobrar o pênalti.)",2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.45 de similaridade),6,100.0
+4096,Ricardo de Souza Rodrigues,1,PASSAGE_E04_TIER1,1781155979001,"""The captain [TALKED] to the referee during the match.""","TALKED = conversou  -  
+(O capitão conversou com o árbitro durante a partida.)",2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.38 de similaridade),6,100.0
+4096,Ricardo de Souza Rodrigues,1,PASSAGE_E04_TIER1,1781156058001,"""The strong defender [BLOCKED] the opponent's dangerous shot.""","BLOCKED = bloqueou  -  
+(O defensor forte bloqueou o chute perigoso do adversário.)",2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.44 de similaridade),6,100.0
+4096,Ricardo de Souza Rodrigues,1,PASSAGE_E04_TIER1,1781156222001,"""The goalkeeper [MADE] an incredible save in the last minute.""","MADE = fez  -  
+(O goleiro fez uma defesa incrível no último minuto.)",2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.40 de similaridade),6,100.0
+4096,Ricardo de Souza Rodrigues,1,PASSAGE_E04_TIER1,1781156278001,"""The players [WALKED] onto the pitch under heavy rain.""","WALKED = entraram  -  
+(Os jogadores entraram no campo sob chuva forte.)",2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.55 de similaridade),6,100.0
+4096,Ricardo de Souza Rodrigues,1,PASSAGE_E04_TIER1,1781156611001,"""The young player [RECEIVED] the player of the year award.""","RECEIVED = recebeu  -  
+(O jovem jogador recebeu o prêmio de melhor jogador do ano.)",2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.41 de similaridade),6,100.0
+4096,Ricardo de Souza Rodrigues,1,PASSAGE_E04_TIER1,1781156685001,"""The team [FELT] great pride after winning the championship.""","FELT = sentiu  -  
+(O time sentiu um grande orgulho após vencer o campeonato.)",2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.48 de similaridade),6,100.0
+4096,Ricardo de Souza Rodrigues,1,PASSAGE_E04_TIER1,1781235952001,"""You need [TO STAY] calm when taking a penalty.""","TO STAY = ficar  -  
+(Você precisa ficar calmo ao cobrar um pênalt.)",2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.37 de similaridade),6,100.0
+4096,Ricardo de Souza Rodrigues,1,PASSAGE_E04_TIER1,1781236182001,"""The winger was very fast and [CREATED] many chances.""","CREATED = criou  -  
+(O ponta era muito rápido e criou muitas chances.)",2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.44 de similaridade),6,100.0
+4096,Ricardo de Souza Rodrigues,1,PASSAGE_E04_TIER1,1781236265001,"""The team [CELEBRATED] after the striker scored a beautiful goal.""","CELEBRATED = comemorou  -  
+(O time comemorou depois que o atacante marcou um gol bonito.)",2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.45 de similaridade),6,100.0
+4096,Ricardo de Souza Rodrigues,1,PASSAGE_E04_TIER1,1781236357001,"""The manager [DECIDED] to change the forward in the second half.""","DECIDED = decidiu  -   
+(O treinador decidiu mudar o atacante no segundo tempo.)",2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.42 de similaridade),6,100.0
+4096,Ricardo de Souza Rodrigues,1,PASSAGE_E04_TIER1,1781236459001,"""The player [STAYED] calm and passed the ball to his teammate.""","STAYED = ficou  -  
+(O jogador ficou calmo e passou a bola para o seu companheiro de equipe.)",2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.51 de similaridade),6,100.0
+4096,Ricardo de Souza Rodrigues,1,PASSAGE_E04_TIER1,1781236669001,"""The captain [WEARS] an armband [TO SHOW] his position on the team.""","WEARS = usa  -  
+TO SHOW = mostrar  -  
+(O capitão usa uma braçadeira para mostrar sua posição no time.)",2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.43 de similaridade),6,100.0
+4096,Ricardo de Souza Rodrigues,1,PASSAGE_E04_TIER1,1781236781001,"""The defender made a great tackle [TO STOP] the dangerous attack.""","TO STOP = para parar  -  
+(O defensor fez um ótimo desarme para parar o ataque perigoso.)",2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.58 de similaridade),6,100.0
+4096,Ricardo de Souza Rodrigues,1,PASSAGE_E04_TIER1,1781236869001,"""The goalkeeper was the best player because [HE SAVED] three penalties.""","HE SAVED = ele salvou  -  
+(O goleiro foi o melhor jogador porque ele salvou três pênaltis.)",2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.39 de similaridade),6,100.0
+4096,Ricardo de Souza Rodrigues,1,PASSAGE_E04_TIER1,1781236957001,"""The referee [INSPECTED] the pitch before the match started.""","INSPECTED = inspecionou  -  
+(O árbitro inspecionou o campo antes da partida começar.)",2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.42 de similaridade),6,100.0
+4096,Ricardo de Souza Rodrigues,1,PASSAGE_E04_TIER1,1781237056001,"""He received a special award [FOR BEING] the top scorer.""","FOR BEING = por ser  -  
+(Ele recebeu um prêmio especial por ser o artilheiro.)",2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.41 de similaridade),6,100.0
+4096,Ricardo de Souza Rodrigues,1,PASSAGE_E04_TIER1,1781237210001,"""[WINNING] the local tournament [FILLED] the whole community with pride.""","WINNING = ganhar  -  
+FILLED = encheu  -  
+(Ganhar o torneio local encheu toda a comunidade de orgulho.)",2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.40 de similaridade),6,100.0
+5016,Bernardo Da Silva Lucas,2,PASSAGE_E04_TIER2,1779906978001,Brazil's national football team has always been home to [EXCEPTIONAL] players.,"exceptional (adj.) = excepcional 
+☞ home to exceptional players / exceptional talent / exceptional results
+------------------------------------------------------------------------------------
+""A seleção brasileira de futebol sempre foi o lar de jogadores excepcionais.""",2,frase contextualizada com [MAIÚSCULO],2,classe gramatical + marcador de colocação,2,frase original (0.39 de similaridade),6,100.0
+5016,Bernardo Da Silva Lucas,2,PASSAGE_E04_TIER2,1779907067001,"Vinícius Júnior, known as Vini Jr., plays as a [WINGER] for Real Madrid and the national team.","winger (n.) = ponta / extremo 
+☞ plays as a winger for Real Madrid / fast winger / left winger
+---------------------------------------------------------------------------------------------------------------------------
+""Vinícius Júnior, conhecido como Vini Jr., joga como ponta pelo Real Madrid e pela seleção nacional.""",2,frase contextualizada com [MAIÚSCULO],2,classe gramatical + marcador de colocação,2,frase original (0.38 de similaridade),6,100.0
+5016,Bernardo Da Silva Lucas,2,PASSAGE_E04_TIER2,1779907163001,"He is famous for his [EXPLOSIVE PACE], creative dribbling, and ability to score in important matches.","explosive pace (n.) = ritmo explosivo
+☞ famous for his explosive pace / incredible pace / showcase explosive pace
+----------------------------------------------------------------------------------------------------------
+""Ele é famoso por seu ritmo explosivo, drible criativo e capacidade de marcar gols em partidas importantes.""",2,frase contextualizada com [MAIÚSCULO],2,classe gramatical + marcador de colocação,2,frase original (0.43 de similaridade),6,100.0
+5016,Bernardo Da Silva Lucas,2,PASSAGE_E04_TIER2,1779907267001,"Known for his [COMPOSURE] under pressure, Rodrygo has the ability to score in crucial moments.","composure (n.) = compostura / calma sob pressão 
+☞ composure under pressure / maintain composure / lose composure
+-------------------------------------------------------------------------------------------------------------------------
+""Conhecido por sua calma sob pressão, Rodrygo tem a capacidade de marcar gols em momentos cruciais.""",2,frase contextualizada com [MAIÚSCULO],2,classe gramatical + marcador de colocação,2,frase original (0.36 de similaridade),6,100.0
+5016,Bernardo Da Silva Lucas,2,PASSAGE_E04_TIER2,1779907303001,Rodrygo has the ability to score in [CRUCIAL] moments.,"crucial (adj.) = crucial / decisivo 
+☞ score in crucial moments / crucial factor / crucial role
+------------------------------------------------------------------------------------
+""Rodrygo tem a capacidade de marcar gols em momentos cruciais.""",2,frase contextualizada com [MAIÚSCULO],2,classe gramatical + marcador de colocação,2,frase original (0.41 de similaridade),6,100.0
+5016,Bernardo Da Silva Lucas,2,PASSAGE_E04_TIER2,1779907356001,"He is comfortable playing across the entire front line, which makes him a [VERSATILE] option for the national team.","versatile (adj.) = versátil 
+☞ a versatile option for the national team / versatile tool / highly versatile
+-----------------------------------------------------------------------------------------------------------------------------------
+""Ele se sente confortável jogando por toda a linha de frente, o que o torna uma opção versátil para a seleção nacional.""",2,frase contextualizada com [MAIÚSCULO],2,classe gramatical + marcador de colocação,2,frase original (0.43 de similaridade),6,100.0
+5016,Bernardo Da Silva Lucas,2,PASSAGE_E04_TIER2,1779907559001,"Despite recent injuries, Neymar [REMAINS] one of the most recognizable athletes in world sport.","remains (v.) = permanece / continua sendo 
+☞ remains one of the most / remains unchanged / remains a challenge
+-------------------------------------------------------------------------------------------------------------
+""Apesar das lesões recentes, Neymar permanece como um dos atletas mais reconhecidos no esporte mundial.""",2,frase contextualizada com [MAIÚSCULO],2,classe gramatical + marcador de colocação,2,frase original (0.39 de similaridade),6,100.0
+5016,Bernardo Da Silva Lucas,2,PASSAGE_E04_TIER2,1779907589001,"In defense, Marquinhos [SERVES AS] the team's captain.","serves as (v.) = exerce a função de / atua como 
+☞ serves as the team's captain / serves as a reminder / serves as a base
+--------------------------------------------------------------------------------------------------------
+""Na defesa, Marquinhos atua como o capitão do time.""",2,frase contextualizada com [MAIÚSCULO],2,classe gramatical + marcador de colocação,2,frase original (0.41 de similaridade),6,100.0
+5016,Bernardo Da Silva Lucas,2,PASSAGE_E04_TIER2,1780935632001,"Today, a new [GENERATION] of stars represents Brazil on the world stage.","generation (n.) = geração
+☞ a new generation of stars / future generations / older generation
+─────────────────────────────────────────────────
+""Hoje, uma nova geração de estrelas representa o Brasil no cenário mundial.""",2,frase contextualizada com [MAIÚSCULO],2,classe gramatical + marcador de colocação,2,frase original (0.38 de similaridade),6,100.0
+5016,Bernardo Da Silva Lucas,2,PASSAGE_E04_TIER2,1780935665001,"Neymar is Brazil's all-time [LEADING SCORER] with 79 goals, just ahead of the legendary Pelé with 77.","leading scorer (n.) = artilheiro / maior goleador
+☞ all-time leading goal scorer / top scorer / leading scorer of the tournament
+─────────────────────────────────────────────────
+""Neymar é o maior artilheiro de todos os tempos do Brasil com 79 gols, logo à frente do lendário Pelé com 77.""",2,frase contextualizada com [MAIÚSCULO],2,classe gramatical + marcador de colocação,2,frase original (0.39 de similaridade),6,100.0
+5016,Bernardo Da Silva Lucas,2,PASSAGE_E04_TIER2,1780935702001,"Despite recent injuries, Neymar remains one of the most [RECOGNIZABLE] athletes in world sport.","recognizable (adj.) = reconhecível / famoso
+☞ most recognizable athletes / easily recognizable / recognizable face
+─────────────────────────────────────────────────
+""Apesar de lesões recentes, Neymar permanece como um dos atletas mais reconhecidos no esporte mundial.""",2,frase contextualizada com [MAIÚSCULO],2,classe gramatical + marcador de colocação,2,frase original (0.39 de similaridade),6,100.0
+5016,Bernardo Da Silva Lucas,2,PASSAGE_E04_TIER2,1780935743001,"He plays for Paris Saint-Germain in France and is known for his intelligence, composure, and leadership on the [PITCH].","pitch (n.) = campo de futebol
+☞ leadership on the pitch / football pitch / on and off the pitch
+─────────────────────────────────────────────────
+""Ele joga pelo Paris Saint-Germain na França e é conhecido por sua inteligência, compostura e liderança em campo.""",2,frase contextualizada com [MAIÚSCULO],2,classe gramatical + marcador de colocação,2,frase original (0.42 de similaridade),6,100.0
+5031,Ezequiel Telles Pedrosa dos Santos,1,PASSAGE_E04_TIER1,1779320896001,The [GOALKEEPER] saved my grades this semester.,goalkeeper = goleiro,2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.40 de similaridade),6,100.0
+5031,Ezequiel Telles Pedrosa dos Santos,1,PASSAGE_E04_TIER1,1779397344001,He is a very [CALM] person during presentation days.,calm = calmo / tranquilo,2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.39 de similaridade),6,100.0
+5031,Ezequiel Telles Pedrosa dos Santos,1,PASSAGE_E04_TIER1,1779446743001,Our team [CAPTAIN] organized the school event.,captain = capitão,2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.36 de similaridade),6,100.0
+5031,Ezequiel Telles Pedrosa dos Santos,1,PASSAGE_E04_TIER1,1779446788001,The teacher is a strong leader on the [PITCH].,pitch = campo de futebol,2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.44 de similaridade),6,100.0
+5031,Ezequiel Telles Pedrosa dos Santos,1,PASSAGE_E04_TIER1,1779582901001,We wear the university shirt with [PRIDE].,pride = orgulho,2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.41 de similaridade),6,100.0
+5031,Ezequiel Telles Pedrosa dos Santos,1,PASSAGE_E04_TIER1,1779582928001,I won the best student [AWARD] this year.,award = prêmio,2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.42 de similaridade),6,100.0
+5031,Ezequiel Telles Pedrosa dos Santos,1,PASSAGE_E04_TIER1,1779675522001,The group leader acts as a [DEFENDER] when problems happen.,defender = zagueiro / defensor,2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.35 de similaridade),6,100.0
+5031,Ezequiel Telles Pedrosa dos Santos,1,PASSAGE_E04_TIER1,1779675779001,I won the best student [AWARD] this year.,award = prêmio,2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.42 de similaridade),6,100.0
+5031,Ezequiel Telles Pedrosa dos Santos,1,PASSAGE_E04_TIER1,1779756030001,My classmate plays as a [FORWARD] for Brazil.,forward = atacante,2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.36 de similaridade),6,100.0
+5031,Ezequiel Telles Pedrosa dos Santos,1,PASSAGE_E04_TIER1,1779756072001,The English teacher plays as a [WINGER] on weekends.,winger = ponta / extremo,2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.42 de similaridade),6,100.0
+5031,Ezequiel Telles Pedrosa dos Santos,1,PASSAGE_E04_TIER1,1779801011001,The English teacher plays as a [WINGER] on weekends.,winger = ponta / extremo,2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.42 de similaridade),6,100.0
+5031,Ezequiel Telles Pedrosa dos Santos,1,PASSAGE_E04_TIER1,1779801256001,She [SCORED] a job interview after sending her résumé.,scored = conseguiu / conquistou,2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.36 de similaridade),6,100.0
+5046,João Ricardo Rocha de Carvalho,1,PASSAGE_E04_TIER1,1779293007001,"""She leaned [FORWARD] to tell me something important.""","forward = para a frente/adiante
+exemplo: ""She leaned forward to whisper something in my ear.""
+minha frase: ""She leaned forward to tell me something important.""",2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.40 de similaridade),6,100.0
+5046,João Ricardo Rocha de Carvalho,1,PASSAGE_E04_TIER1,1779293302001,"""The [CAPTAIN] gave orders to his lackeys.""","captain = capitão, capitã
+exemplo: ""The captain gave him his orders.""
+minha frase: ""The captain gave orders to his lackeys.""",2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.48 de similaridade),6,100.0
+5046,João Ricardo Rocha de Carvalho,1,PASSAGE_E04_TIER1,1779382374001,"""He was taken to the hospital after injuring himself on the [PITCH].""","pitch = campo de futebol
+exemplo: ""He was taken to hospital after his collapse on the pitch.""
+minha frase: ""He was taken to the hospital after injuring himself on the pitch.""",2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.39 de similaridade),6,100.0
+5046,João Ricardo Rocha de Carvalho,1,PASSAGE_E04_TIER1,1779485976001,"""The [GOALKEEPER] made a great save in the final seconds of the match.""","goalkeeper = goleiro
+exemplo: ""The goalkeeper made a great save in the last minute of the match.""
+minha frase: ""The goalkeeper made a great save in the final seconds of the match.""",2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.42 de similaridade),6,100.0
+5046,João Ricardo Rocha de Carvalho,1,PASSAGE_E04_TIER1,1779810311001,"""She should be more [PRIDE] of her work.""","pride = orgulho
+exemplo: ""You should take more pride in your work""
+minha frase: ""She should be more pride of her work.""",2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.36 de similaridade),6,100.0
+5046,João Ricardo Rocha de Carvalho,1,PASSAGE_E04_TIER1,1779885866001,"""Who won the Best Actor [AWARD]?""","award = prêmio
+exemplo: ""Who did the award for Best Actress go to?""
+minha frase: ""Who won the Best Actor award?""",2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.36 de similaridade),6,100.0
+5046,João Ricardo Rocha de Carvalho,1,PASSAGE_E04_TIER1,1780168107001,"""The [DEFENDERS] of the Brazilian team.""","defender = defensor
+exemplo: ""The defenders of the castle.""
+minha frase: ""The defenders of the Brazilian team.""",2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.49 de similaridade),6,100.0
+5046,João Ricardo Rocha de Carvalho,1,PASSAGE_E04_TIER1,1780414436001,"""He spoke with [CALM] assurance.""","calm = calma
+exemplo: ""She spoke with calm assurance.""
+minha frase: ""He spoke with calm assurance.""",2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.41 de similaridade),6,100.0
+5046,João Ricardo Rocha de Carvalho,1,PASSAGE_E04_TIER1,1780586729001,"""Right-[WINGERS] politicians sit there.""","winger = ponta
+exemplo = ""The far-right wingers sit over there.""
+minha frase = ""Right-wingers politicians sit there.""",2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.40 de similaridade),6,100.0
+5046,João Ricardo Rocha de Carvalho,1,PASSAGE_E04_TIER1,1780880004001,"""Flamengo [SCORED] in the last second of the game.""","scored = marcou, marcar
+exemplo: ""Tennant scored in the last minute of the game.""
+mnha frase: ""Flamengo scored in the last second of the game.""",2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.43 de similaridade),6,100.0
+5056,Lucas da Silva Santos,1,PASSAGE_E04_TIER1,1780443014001,The coach selected a fast [WINGER] to improve the team's attack.,Substantivo. winger = ponta / extremo.,2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.45 de similaridade),6,100.0
+5056,Lucas da Silva Santos,1,PASSAGE_E04_TIER1,1780443021001,She [SCORED] the highest grade in the biotechnology exam.,Verbo. scored = marcou / obteve / pontuou.,2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.46 de similaridade),6,100.0
+5056,Lucas da Silva Santos,1,PASSAGE_E04_TIER1,1780443027001,The young [FORWARD] scored twice during the match.,Substantivo. forward = atacante.,2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.39 de similaridade),6,100.0
+5056,Lucas da Silva Santos,1,PASSAGE_E04_TIER1,1780443034001,The researcher stayed [CALM] during the laboratory emergency.,Adjetivo. calm = calmo / tranquilo.,2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.40 de similaridade),6,100.0
+5056,Lucas da Silva Santos,1,PASSAGE_E04_TIER1,1781225338001,The [CAPTAIN] motivated the players before the final game.,Substantivo. captain = capitão.,2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.44 de similaridade),6,100.0
+5056,Lucas da Silva Santos,1,PASSAGE_E04_TIER1,1781225347001,The [DEFENDER] blocked the shot near the goal area.,Substantivo. defender = zagueiro / defensor.,2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.48 de similaridade),6,100.0
+5056,Lucas da Silva Santos,1,PASSAGE_E04_TIER1,1781225356001,The [GOALKEEPER] saved two difficult penalties in the match.,Substantivo. goalkeeper = goleiro.,2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.41 de similaridade),6,100.0
+5056,Lucas da Silva Santos,1,PASSAGE_E04_TIER1,1781225361001,The players trained on the wet [PITCH] after the storm.,Substantivo. pitch = campo de futebol.,2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.51 de similaridade),6,100.0
+5056,Lucas da Silva Santos,1,PASSAGE_E04_TIER1,1781225367001,The scientist received an [AWARD] for her cancer research project.,Substantivo. award = prêmio / reconhecimento.,2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.39 de similaridade),6,100.0
+5056,Lucas da Silva Santos,1,PASSAGE_E04_TIER1,1781225375001,He spoke with [PRIDE] about graduating in Biotechnology.,Substantivo. pride = orgulho.,2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.40 de similaridade),6,100.0
+5061,Luiz Henrique Silva de Carvalho,1,PASSAGE_E04_TIER1,1780882164001,"Frente:
+""Flamengo [SCORED] in the last second of the game.""","Verso:
+scored = marcou (gol)
+exemplo: ""He scored the winning goal.""
+minha frase: ""Flamengo scored in the last second of the game.""",2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.41 de similaridade),6,100.0
+5061,Luiz Henrique Silva de Carvalho,1,PASSAGE_E04_TIER1,1780969260001,"""I play as a [WINGER] on my school's soccer team.""","Verso:
+winger = ponta/extremo
+exemplo: ""Vinícius Jr. plays as a winger.""
+minha frase: ""I play as a winger on my school's soccer team.""",2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.38 de similaridade),6,100.0
+5061,Luiz Henrique Silva de Carvalho,1,PASSAGE_E04_TIER1,1781139903001,"""She remained [CALM] before the test.""","calm = calmo/tranquilo
+exemplo: ""He is calm under pressure.""
+minha frase: ""She remained calm before the test.""",2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.45 de similaridade),6,100.0
+5061,Luiz Henrique Silva de Carvalho,1,PASSAGE_E04_TIER1,1781232599001,"""I feel [PRIDE] when I achieve my goals.""","pride = orgulho
+exemplo: ""He takes pride in his work.""
+minha frase: ""I feel pride when I achieve my goals.""",2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.38 de similaridade),6,100.0
+5061,Luiz Henrique Silva de Carvalho,1,PASSAGE_E04_TIER1,1781285630001,"""The [CAPTAIN] lifted the trophy.""","captain = capitão
+exemplo: ""He is the team's captain.""
+minha frase: ""The captain lifted the trophy.""",2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.40 de similaridade),6,100.0
+5081,Mateus Ferreira Patrício,2,PASSAGE_E04_TIER2,1779896989001,He plays football for win,Ele joga futebol para ganhar,1,frase presente mas sem marcação [MAIÚSCULO],1,tradução presente mas sem formatação T2 (classe/colocação),2,frase original (0.36 de similaridade),4,66.7
+5081,Mateus Ferreira Patrício,2,PASSAGE_E04_TIER2,1779988083001,We're going to win the World Cup.,Nós vamos ganhar a Copa do Mundo.,1,frase presente mas sem marcação [MAIÚSCULO],1,tradução presente mas sem formatação T2 (classe/colocação),2,frase original (0.36 de similaridade),4,66.7
+5081,Mateus Ferreira Patrício,2,PASSAGE_E04_TIER2,1779988108001,Always be polite,Seja sempre educado,0,muito curta (3 palavra(s)) — parece palavra isolada,1,tradução presente mas sem formatação T2 (classe/colocação),2,frase original (0.25 de similaridade),3,50.0
+5081,Mateus Ferreira Patrício,2,PASSAGE_E04_TIER2,1780954987001,We are playing Card Games.,Nós estamos jogando Jogos de Cartas.,1,frase presente mas sem marcação [MAIÚSCULO],1,tradução presente mas sem formatação T2 (classe/colocação),2,frase original (0.39 de similaridade),4,66.7
+5081,Mateus Ferreira Patrício,2,PASSAGE_E04_TIER2,1780955062001,"If you represent justice, answer bluntly: how much does it cost to turn a blind eye?","Se você é a justiça, responda sem drossa, quanto custa pra fazer vista grossa?",1,frase presente mas sem marcação [MAIÚSCULO],1,tradução presente mas sem formatação T2 (classe/colocação),2,frase original (0.28 de similaridade),4,66.7
+5081,Mateus Ferreira Patrício,2,PASSAGE_E04_TIER2,1780955093001,I will burn this planet down,Eu vou queimar este planeta inteiro,1,frase presente mas sem marcação [MAIÚSCULO],1,tradução presente mas sem formatação T2 (classe/colocação),2,frase original (0.35 de similaridade),4,66.7

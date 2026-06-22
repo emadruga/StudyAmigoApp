@@ -1,0 +1,60 @@
+student_id,name,tier,source_index,source_type,source_ref,source_valid,vocab_card_count,flag
+4001,Ana Carolina Barbosa da Costa,2,1,video,Ricky Montgomery - Line Without a Hook (https://youtu.be/8JW6qzPCkE8?si=67LJMMUHv9a0d7GS),True,1,POUCOS_CARTOES
+4001,Ana Carolina Barbosa da Costa,2,2,video,Paramore - The only exception (https://youtu.be/nXjhSMWBE30?si=BnDWdaLg83UO0Xk-),True,1,POUCOS_CARTOES
+4001,Ana Carolina Barbosa da Costa,2,3,video,"Bon Jovi - These Days
+https://youtu.be/VGIb6sajQVQ?si=peh5grp9FDvk8vpA",True,1,POUCOS_CARTOES
+4001,Ana Carolina Barbosa da Costa,2,4,video,"Michael Jackson - Earth song 
+https://youtu.be/xtD51nA_23A?si=N0El9-CtAWRKXslZ",True,1,POUCOS_CARTOES
+4001,Ana Carolina Barbosa da Costa,2,5,video,"Mitski - Me and my husband
+https://youtu.be/6e6pijVwBl0?si=13BVVvZeWF0XU9FS",True,1,POUCOS_CARTOES
+4001,Ana Carolina Barbosa da Costa,2,6,video,"Mac Demarco - Still beating
+https://youtu.be/Huw0W3ZN738?si=eUi1uu3iR-rz0otb",True,1,POUCOS_CARTOES
+4001,Ana Carolina Barbosa da Costa,2,7,video,"The Beatles - Come together
+https://youtu.be/gezWgqFXkPA?si=XjIVMk5maHE_Uvqy",True,1,POUCOS_CARTOES
+4001,Ana Carolina Barbosa da Costa,2,8,video,"Bee Gees - how deep is your love
+https://youtu.be/ukgluvJpL4U?si=tgDrul0CTmbDczqX",True,1,POUCOS_CARTOES
+4001,Ana Carolina Barbosa da Costa,2,9,video,"Alphaville - Forever Young
+https://youtu.be/-ym0I1D8PfA?si=_3iF6bPjvFlpheIP",True,1,POUCOS_CARTOES
+4001,Ana Carolina Barbosa da Costa,2,10,music,"(Do the) act like you never met me - TV Girl
+https://www.letras.mus.br/tv-girl/do-the-act-like-you-never-met-me/",True,1,POUCOS_CARTOES
+4001,Ana Carolina Barbosa da Costa,2,11,video,"Harry Styles - Kiwi 
+https://youtu.be/uc_uIZmv2Y0?si=saISG0U0N11wWgFs",True,1,POUCOS_CARTOES
+4001,Ana Carolina Barbosa da Costa,2,12,video,"One Direction - Olivia 
+https://youtu.be/koIVyQ-PymQ?si=tku2moN_hWWlaEt4",True,1,POUCOS_CARTOES
+4011,Ana Luiza Camilo da Silva,1,1,unknown,,False,12,SEM_FONTE
+5011,Arthur do Nascimento Paiva,2,1,music,Kendrick Lamar - Untitled 05 (https://genius.com/Kendrick-lamar-untitled-05-09212014-lyrics),True,7,
+5011,Arthur do Nascimento Paiva,2,2,music,Lil Uzi Vert - 20 min (https://genius.com/Lil-uzi-vert-20-min-lyrics),True,2,POUCOS_CARTOES
+5011,Arthur do Nascimento Paiva,2,3,music,"Kanye West – Heard 'Em Say (feat. Adam Levine)
+(https://genius.com/Kanye-west-heard-em-say-lyrics)",True,3,POUCOS_CARTOES
+5011,Arthur do Nascimento Paiva,2,4,music,Kali Uchis - After the Storm (https://genius.com/Kali-uchis-after-the-storm-lyrics),True,3,POUCOS_CARTOES
+5011,Arthur do Nascimento Paiva,2,5,music,Chanel - Frank Ocean https://www.letras.mus.br/frank-ocean/chanel/,True,1,POUCOS_CARTOES
+5016,Bernardo Da Silva Lucas,2,1,video,https://www.soccer.com/guide/guide-to-brazil-national-team,True,3,POUCOS_CARTOES
+4016,Cauã Jorge de Nazareth Marins,1,1,music,Ed Sheeran — Perfect,True,6,
+4031,Emanuelly Almeida da Silva,1,1,video,Godness Of God - Live (https://open.spotify.com/track/59uuKDpLFhHtCWwMudospF?si=Kbprs3NXRBC5XV2tzDA_eg),True,10,
+5031,Ezequiel Telles Pedrosa dos Santos,1,1,music,"Coldplay – Fix You
+https://genius.com/Coldplay-fix-you-lyrics",True,5,
+5031,Ezequiel Telles Pedrosa dos Santos,1,2,music,Maroon 5 – She Will Be Loved (https://genius.com/Maroon-5-she-will-be-loved-lyrics),True,5,
+5031,Ezequiel Telles Pedrosa dos Santos,1,3,music,Michael Jackson – Heal the World (https://genius.com/Michael-jackson-heal-the-world-lyrics),True,5,
+5031,Ezequiel Telles Pedrosa dos Santos,1,4,music,Michael Jackson – Billie Jean (https://genius.com/Michael-jackson-billie-jean-lyrics),True,5,
+3026,Gabriel Bernardo Do Nascimento,2,1,video,https://youtu.be/8sgycukafqQ?si=jMxenJNfC4S_-BeJ,True,19,
+5036,Jady Maria Rodrigues Figueiredo,1,1,video,Bruno Mars - It will rain (https://www.bing.com/ck/a?!&&p=6bcc698ca6d1761a3453948a70cc7fe5e14afdea3cb38beebff022536cd758f5JmltdHM9MTc4MTA0OTYwMA&ptn=3&ver=2&hsh=4&fclid=01caa7f8-7b3b-68c9-23d7-b08b7a5d694b&psq=it+will+rain+lyrics&u=a1aHR0cHM6Ly93d3cubGV0cmFzLm11cy5ici9icnVuby1tYXJzLzE5Njg5MzIv),True,7,
+5046,João Ricardo Rocha de Carvalho,1,1,music,AC/DC - Back In Black (https://genius.com/Ac-dc-back-in-black-lyrics),True,3,POUCOS_CARTOES
+5046,João Ricardo Rocha de Carvalho,1,2,music,AC/DC - Dirty Deeds Done Dirt Cheap (https://genius.com/Ac-dc-dirty-deeds-done-dirt-cheap-lyrics),True,3,POUCOS_CARTOES
+5046,João Ricardo Rocha de Carvalho,1,3,music,Queen - Another One Bites the Dust (https://genius.com/Queen-another-one-bites-the-dust-lyrics),True,4,POUCOS_CARTOES
+4051,Julia de Oliveira Corrêa,2,1,video,Bruno Mars - Risk It All /https://youtu.be/lY5V4hSLWY8?si=7166puQbPDvxzok-,True,7,
+4060,Keyrrison da Silva Braga,,1,video,Godness Of God - Live  (https://open.spotify.com/track/59uuKDpLFhHtCWwMudospF?si=Kbprs3NXRBC5XV2tzDA_eg),True,10,
+4071,Laís Nascimento Silva,1,1,music,"Freddie Mercury - How can I go on(feat. Montserrat Caballé) 
+(https://genius.com/Freddie-mercury-and-montserrat-caballe-how-can-i-go-on-lyrics)",True,4,POUCOS_CARTOES
+4071,Laís Nascimento Silva,1,2,music,"Bonnie Tyler – Total Eclipse Of The Heart
+ (https://genius.com/Bonnie-tyler-total-eclipse-of-the-heart-lyrics)",True,5,
+4061,Laryssa Vitória Ramos da Silva,1,1,music,"Song: ""Oh, pretty woman"" - Roy Orbison",True,4,POUCOS_CARTOES
+4061,Laryssa Vitória Ramos da Silva,1,2,music,Song: Only the lonely- Ray Orbison,True,6,
+5051,Lenilson Maia Rodrigues de Lima,1,1,music,Woke Up — Olivia Olson & Zuzu (Adventure Time: Distant Lands – Obsidian),True,6,
+5051,Lenilson Maia Rodrigues de Lima,1,2,music,Autoheart — Stalker's Tango (2013),True,7,
+5056,Lucas da Silva Santos,1,1,music,Mac DeMarco - No Other Heart,True,5,
+5071,Marcella Vasconcelos Pacheco da Cruz,1,1,unknown,,False,5,SEM_FONTE
+4091,Marcelo Ygor de Sá Cordeiro,1,1,video,"Godness Of God - Live 
+(https://open.spotify.com/track/59uuKDpLFhHtCWwMudospF?si=Kbprs3NXRBC5XV2tzDA_eg)",True,10,
+5076,Marcio da Silva Bertucio,1,1,unknown,,False,11,SEM_FONTE
+5083,Philipe Emanuel de Souza Meireles,,1,music,https://www.letras.mus.br/casting-crowns/only-jesus/,True,4,POUCOS_CARTOES
+5083,Philipe Emanuel de Souza Meireles,,2,music,https://www.letras.mus.br/casting-crowns/295537/,True,4,POUCOS_CARTOES
