@@ -1,0 +1,90 @@
+student_id,name,tier,source_index,source_type,source_ref,source_valid,vocab_card_count,flag
+4000,Amanda Silva do Nascimento,,1,music,https://www.letras.mus.br/lauren-daigle/you-say/traducao.html,True,5,
+4001,Ana Carolina Barbosa da Costa,2,1,video,"That’s why you go away - Michael learns to rock 
+https://youtu.be/6-j9GIfEFNw?si=k7HXat9FRL1NEoTJ",True,1,POUCOS_CARTOES
+4001,Ana Carolina Barbosa da Costa,2,2,video,"Everybody here wants you - Jeff Buckley
+https://youtu.be/F-Em-q9w8z4?si=2zjnVO-MecV_xkYD",True,1,POUCOS_CARTOES
+4001,Ana Carolina Barbosa da Costa,2,3,video,"Careless whisper - George Michael
+https://youtu.be/JqIHlDVqUTw?si=ye2S4ytmXFvrOlnt",True,1,POUCOS_CARTOES
+4001,Ana Carolina Barbosa da Costa,2,4,video,"Gimme Love - Joji
+https://youtu.be/h2Jl58YkoVw?si=qquT2qTxPrjkSL0L",True,1,POUCOS_CARTOES
+4001,Ana Carolina Barbosa da Costa,2,5,video,"Like a prayer - Madonna
+https://youtu.be/JaB-JUaeVpA?si=NjIg-pu6xVWVs9IW",True,1,POUCOS_CARTOES
+4001,Ana Carolina Barbosa da Costa,2,6,video,"Hayloft- Mother mother
+https://youtu.be/89BcPAvt0Gk?si=87zVot9wcLMHaPJ4",True,1,POUCOS_CARTOES
+4001,Ana Carolina Barbosa da Costa,2,7,video,"Wasted time - skid row
+https://youtu.be/RQiQDXn74fY?si=VHcYMYgvdiB9CUqi",True,1,POUCOS_CARTOES
+4001,Ana Carolina Barbosa da Costa,2,8,video,"ops!… I did it again - britney spears
+https://youtu.be/gmWlNI4Zl2s?si=s7sZ_gGknIkI6IHb",True,0,POUCOS_CARTOES
+4001,Ana Carolina Barbosa da Costa,2,9,video,"pump it - black eted peas 
+https://youtu.be/aGj-tt1FeHQ?si=WeO36F_I4PsAwqx7",True,2,POUCOS_CARTOES
+4001,Ana Carolina Barbosa da Costa,2,10,video,"I want you back - The Jackson 5
+https://youtu.be/oNokl8jUdw4?si=jwVMlVl1oakcTu4N",True,1,POUCOS_CARTOES
+4011,Ana Luiza Camilo da Silva,1,1,unknown,"Tradução da frase: Olá, tem alguém aí dentro? Apenas balance a cabeça se puder me ouvir.
+Uso da palavra: Anybody é um pronome indefinido usado principalmente em perguntas ou frases negativas para se referir a ""qualquer pessoa"" ou ""alguém"", sem especificar uma identidade.
+Música: Comfortably Numb – Pink Floyd.",False,0,FONTE_INVALIDA POUCOS_CARTOES
+4011,Ana Luiza Camilo da Silva,1,2,unknown,"Tradução da frase: Ontem todos os meus problemas pareciam tão distantes.
+Uso da palavra: Seemed é o passado do verbo to seem. Usado para expressar a impressão ou a aparência de que algo ou uma situação estava em determinado estado, equivalente a ""parecia"".
+Música: Yesterday – The Beatles.",False,0,FONTE_INVALIDA POUCOS_CARTOES
+4011,Ana Luiza Camilo da Silva,1,3,unknown,"Tradução da frase: Chame meu nome ou continue andando.
+Uso da palavra: Walk on by é uma expressão idiomática/phrasal verb que significa passar direto por alguém sem parar, sem falar ou fingindo que não viu a pessoa.
+Música: Don't You (Forget About Me) – Simple Minds.",False,0,FONTE_INVALIDA POUCOS_CARTOES
+4011,Ana Luiza Camilo da Silva,1,4,unknown,"Tradução da frase: Todos os cinco horizontes giravam em torno da alma dela.
+Uso da palavra: Horizons é o plural de horizon, a linha onde a terra e o céu parecem se encontrar. No cotidiano, também se refere ao limite do conhecimento, interesse ou experiência de uma pessoa.
+Música: Black – Pearl Jam.",False,0,FONTE_INVALIDA POUCOS_CARTOES
+4011,Ana Luiza Camilo da Silva,1,5,unknown,"Tradução da frase: Cada ano está ficando mais curto.
+Uso da palavra: Shorter é o adjetivo comparativo de short (curto/baixo). É usado para indicar que algo possui menos comprimento, duração ou extensão do que outra coisa ou do que antes.
+Música: Time – Pink Floyd.",False,0,FONTE_INVALIDA POUCOS_CARTOES
+4011,Ana Luiza Camilo da Silva,1,6,unknown,"Tradução da frase: Você nunca vai escapar do som da mulher que te amou.
+Uso da palavra: Get away é um phrasal verb que significa escapar, fugir ou se afastar de um lugar, situação incômoda ou de alguém.
+Música: Silver Springs – Fleetwood Mac.",False,0,FONTE_INVALIDA POUCOS_CARTOES
+4011,Ana Luiza Camilo da Silva,1,7,unknown,"Tradução da frase: Nós desperdiçamos nossos dias pensando nas coisas que deveríamos dizer.
+Uso da palavra: Waste é um verbo que significa gastar ou usar algo (como tempo, dinheiro ou energia) de forma descuidada, ineficiente ou sem necessidade, resultando em perda.
+Música: The Masterplan – Oasis.",False,0,FONTE_INVALIDA POUCOS_CARTOES
+4011,Ana Luiza Camilo da Silva,1,8,unknown,"Tradução da frase: Eu quero curar o estado de infelicidade.
+Uso da palavra: Cure é um verbo que significa restaurar a saúde de alguém, aliviar uma doença ou encontrar uma solução definitiva para acabar com um problema ou situação ruim.
+Música: Heaven Knows I'm Miserable Now – The Smiths.",False,0,FONTE_INVALIDA POUCOS_CARTOES
+4011,Ana Luiza Camilo da Silva,1,9,music,"Tradução da frase: Existe uma luz e ela nunca se apaga.
+Uso da palavra: Go out é um phrasal verb que, neste contexto físico de iluminação ou fogo, significa parar de queimar ou deixar de emitir luz (apagar-se). No cotidiano, também significa sair para se divertir.
+Música: There Is a Light That Never Goes Out – The Smiths.",True,0,POUCOS_CARTOES
+4011,Ana Luiza Camilo da Silva,1,10,music,"Tradução da frase: Chova, chova, vamos lá, chova sobre mim.
+Uso da palavra: Come on é um phrasal verb extremamente comum usado no dia a dia para encorajar alguém a fazer algo (como um ""vamos lá"" ou ""apresse-se"") ou para expressar descrença.
+Música: Paranoid Android – Radiohead.",True,0,POUCOS_CARTOES
+4011,Ana Luiza Camilo da Silva,1,11,music,"Tradução da frase: Para onde nós vamos agora? Para onde vamos?
+Uso da palavra: Go é um dos verbos mais comuns do inglês e significa mover-se ou viajar de um lugar para outro (ir).
+Música: Sweet Child O' Mine – Guns N' Roses.",True,0,POUCOS_CARTOES
+4011,Ana Luiza Camilo da Silva,1,12,unknown,"Tradução da frase: No final, isso nem sequer importa.
+Uso da palavra: Matter aqui é usado como um verbo que significa ""importar"" ou ""ter importância/relevância"". No dia a dia, é a base da expressão comum It doesn't matter (Não importa / Tudo bem).
+Música: In The End – Linkin Park.",False,0,FONTE_INVALIDA POUCOS_CARTOES
+4011,Ana Luiza Camilo da Silva,1,13,unknown,"Tradução da frase: Não pare de acreditar.
+Uso da palavra: Believin' é a forma abreviada e informal (comum em músicas e conversas) de believing, o gerúndio do verbo to believe. Significa ter fé, confiar ou aceitar algo como verdadeiro.
+Música: Don't Stop Believin' – Journey",False,0,FONTE_INVALIDA POUCOS_CARTOES
+4011,Ana Luiza Camilo da Silva,1,14,music,"Tradução da frase: O trovão só acontece quando está chovendo.
+Uso da palavra: Happens é a conjugação na terceira pessoa do singular do verbo to happen. Significa ocorrer, acontecer ou ter lugar, referindo-se a eventos ou situações cotidianas e naturais.
+Música: Dreams – Fleetwood Mac.",True,0,POUCOS_CARTOES
+4011,Ana Luiza Camilo da Silva,1,15,unknown,"Tradução da frase: Atravessou o coração e você é o culpado.
+Uso da palavra: Heart é um substantivo que se refere ao órgão muscular do corpo (coração). No cotidiano, é o símbolo universal para representar as emoções, o amor, o afeto ou o centro de uma questão.
+Música: You Give Love a Bad Name – Bon Jovi.",False,0,FONTE_INVALIDA POUCOS_CARTOES
+4011,Ana Luiza Camilo da Silva,1,16,unknown,"Tradução da frase: Nada realmente importa para mim.
+Uso da palavra: Matters é a forma verbal de matter conjugada no presente para a terceira pessoa do singular. Significa ter valor, peso ou significância para alguém ou alguma situação.
+Música: Bohemian Rhapsody – Queen.",False,0,FONTE_INVALIDA POUCOS_CARTOES
+5016,Bernardo Da Silva Lucas,2,1,video,https://youtu.be/dUjNVzzqTiA,True,7,
+4031,Emanuelly Almeida da Silva,1,1,music,Lauren daigle — You say,True,6,
+4041,Isabella Queres,2,1,video,Coldplay - Clocks https://youtu.be/d020hcWA_Wg?si=8iGZNFy6MF-d9UtY,True,11,
+5036,Jady Maria Rodrigues Figueiredo,1,1,music,Don Toliver - Lose My Mind,True,7,
+4046,Jhonatan Brandão da Silva,1,1,music,Imagine Dragons — Believer (https://genius.com/Imagine-dragons-believer-lyrics),True,10,
+5046,João Ricardo Rocha de Carvalho,1,1,music,Queen - Killer Queen (https://genius.com/Queen-killer-queen-lyrics),True,2,POUCOS_CARTOES
+4051,Julia de Oliveira Corrêa,2,1,video,Lady Gaga — Paparazzi / https://youtu.be/6sjts2ciSDw?si=I1qmw3ZSpCAf2bb2,True,9,
+4060,Keyrrison da Silva Braga,,1,music,Lauren daigle — You say,True,10,
+4071,Laís Nascimento Silva,1,1,music,Can't Take My Eyes Of You - Frankie Valli,True,8,
+4061,Laryssa Vitória Ramos da Silva,1,1,video,"Song: Piano Man - Billy Joel
+(https://youtu.be/gxEPV4kolz0?si=pwb-gzpU4W5CD6PS)",True,4,POUCOS_CARTOES
+4061,Laryssa Vitória Ramos da Silva,1,2,video,Song: From the start -Laufey (https://youtu.be/lSD_L-xic9o?si=sX6VGDKEROfx-1K_),True,6,
+4061,Laryssa Vitória Ramos da Silva,1,3,video,"Song: I wish you love - Laufey
+(https://youtu.be/P1V6cQJpbc4?si=OufOOs82NP01JB6g)",True,10,
+5051,Lenilson Maia Rodrigues de Lima,1,1,music,OR3O — Final Duet (OMORI),True,5,
+4091,Marcelo Ygor de Sá Cordeiro,1,1,music,Lauren daigle — You say,True,10,
+5082,Miguel Monteiro Cunha de Araujo,1,1,music,Bruno Mars - Risk It All,True,5,
+5083,Philipe Emanuel de Souza Meireles,,1,music,https://letras.mus.br/hillsong-united/oceans-where-feet-may-fail/,True,4,POUCOS_CARTOES
+5083,Philipe Emanuel de Souza Meireles,,2,music,https://www.letras.mus.br/hillsong-worship/what-a-beautiful-name/,True,3,POUCOS_CARTOES
+4096,Ricardo de Souza Rodrigues,1,1,unknown,,False,12,SEM_FONTE

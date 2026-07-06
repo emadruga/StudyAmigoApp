@@ -1,0 +1,65 @@
+student_id,name,tier,total_sources,total_vocab_cards,valid_sources,invalid_sources,flags
+5001,Adriany Praia Serafim,2,0,0,0,0,SEM_BARALHO
+4000,Amanda Silva do Nascimento,,1,5,1,0,
+5006,Ana Beatriz Pontes de Almeida,2,0,0,0,0,SEM_BARALHO
+4001,Ana Carolina Barbosa da Costa,2,10,10,10,0,POUCOS_CARTOES
+4006,Ana Julia de Souza Oliveira,1,0,0,0,0,SEM_BARALHO
+4011,Ana Luiza Camilo da Silva,1,16,0,4,12,FONTE_INVALIDA POUCOS_CARTOES
+3001,Ana Manuela de Carvalho Trindade,2,0,0,0,0,SEM_BARALHO
+5008,Anthony Lucas Muniz Dos Santos,,0,0,0,0,SEM_BARALHO
+3006,Arthur Alves do Nascimento,1,0,0,0,0,SEM_BARALHO
+5011,Arthur do Nascimento Paiva,2,0,0,0,0,SEM_BARALHO
+5016,Bernardo Da Silva Lucas,2,1,7,1,0,
+5021,Bruno dos Santos Lima,1,0,0,0,0,SEM_BARALHO
+4016,Cauã Jorge de Nazareth Marins,1,0,0,0,0,SEM_BARALHO
+5026,Cauê da Paixão Gomes,1,0,0,0,0,SEM_BARALHO
+5028,Daniel André de Oliveira,,0,0,0,0,SEM_BARALHO
+4018,Edson José Bernardino,,0,0,0,0,SEM_BARALHO
+3011,Eduardo Cardoso Oliveira,2,0,0,0,0,SEM_BARALHO
+4021,Eduardo da Silva Fiuza,2,0,0,0,0,SEM_BARALHO
+3016,Elias Soares Dutra da Conceição,1,0,0,0,0,SEM_BARALHO
+4026,Eloá de Oliveira Amorim,1,0,0,0,0,SEM_BARALHO
+3019,Emanuel Melo dos Santos,,0,0,0,0,SEM_BARALHO
+4031,Emanuelly Almeida da Silva,1,1,6,1,0,
+5031,Ezequiel Telles Pedrosa dos Santos,1,0,0,0,0,SEM_BARALHO
+3021,Fernando Henrique Souza Laia,1,0,0,0,0,SEM_BARALHO
+3026,Gabriel Bernardo Do Nascimento,2,0,0,0,0,SEM_BARALHO
+4036,Isabel da Silva Peixoto,1,0,0,0,0,SEM_BARALHO
+4041,Isabella Queres,2,1,11,1,0,
+5036,Jady Maria Rodrigues Figueiredo,1,1,7,1,0,
+4046,Jhonatan Brandão da Silva,1,1,10,1,0,
+5046,João Ricardo Rocha de Carvalho,1,1,2,1,0,POUCOS_CARTOES
+5041,José Augusto Freire,1,0,0,0,0,SEM_BARALHO
+4051,Julia de Oliveira Corrêa,2,1,9,1,0,
+4056,Kauã Alves da Silva de França,1,0,0,0,0,SEM_BARALHO
+4060,Keyrrison da Silva Braga,,1,10,1,0,
+4071,Laís Nascimento Silva,1,1,8,1,0,
+4061,Laryssa Vitória Ramos da Silva,1,3,20,3,0,POUCOS_CARTOES
+4066,Laura Martins da Silva,1,0,0,0,0,SEM_BARALHO
+4076,Leandro Moreira Andrade da Silva,1,0,0,0,0,SEM_BARALHO
+5051,Lenilson Maia Rodrigues de Lima,1,1,5,1,0,
+5056,Lucas da Silva Santos,1,0,0,0,0,SEM_BARALHO
+4081,Lucas Pandini Pinheiro,2,0,0,0,0,SEM_BARALHO
+4086,Luiz Antonio Inácio Pereira,2,0,0,0,0,SEM_BARALHO
+5061,Luiz Henrique Silva de Carvalho,1,0,0,0,0,SEM_BARALHO
+5066,Madson Ferreira de Souza,1,0,0,0,0,SEM_BARALHO
+4088,Manuelly Alves Batista,,0,0,0,0,SEM_BARALHO
+5071,Marcella Vasconcelos Pacheco da Cruz,1,0,0,0,0,SEM_BARALHO
+4091,Marcelo Ygor de Sá Cordeiro,1,1,10,1,0,
+5076,Marcio da Silva Bertucio,1,0,0,0,0,SEM_BARALHO
+3031,Maria Clara Mesquita Pires,1,0,0,0,0,SEM_BARALHO
+3036,Maria Eduarda De Lima Abreu,1,0,0,0,0,SEM_BARALHO
+3041,Maria Isabel Silva dos Santos,1,0,0,0,0,SEM_BARALHO
+5081,Mateus Ferreira Patrício,2,0,0,0,0,SEM_BARALHO
+3046,Matheus Dias Gomes,2,0,0,0,0,SEM_BARALHO
+5082,Miguel Monteiro Cunha de Araujo,1,1,5,1,0,
+5083,Philipe Emanuel de Souza Meireles,,2,7,2,0,POUCOS_CARTOES
+4096,Ricardo de Souza Rodrigues,1,0,12,0,0,POUCAS_FONTES SEM_FONTE
+4098,Rogério Gabriel Barros dos Santos Simões,,0,0,0,0,SEM_BARALHO
+5086,Samea Soares Pacheco,1,0,0,0,0,SEM_BARALHO
+3051,Samuel Martins Da Conceição,1,0,0,0,0,SEM_BARALHO
+5091,Sophia Tavares dos Santos,2,0,0,0,0,SEM_BARALHO
+5096,Tainá Avelino Barbosa da Silva,2,0,0,0,0,SEM_BARALHO
+4101,Thiago Kaleb Figueiredo de Oliveira,1,0,0,0,0,SEM_BARALHO
+4106,Victor Anderson Reid,2,0,0,0,0,SEM_BARALHO
+3056,Wallace Gabriel Ferreira dos Santos,2,0,0,0,0,SEM_BARALHO

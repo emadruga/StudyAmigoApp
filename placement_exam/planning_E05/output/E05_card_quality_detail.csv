@@ -1,0 +1,279 @@
+student_id,name,tier,deck,card_id,front,back,score_front,reason_front,score_back,reason_back,score_process,reason_process,total_score,pct_score
+3001,Ana Manuela de Carvalho Trindade,2,PASSAGE_E05_TIER2,1783284362001,"At the gym, you may use any machine after [ SIGNING ] a waiver.","Signing ( n.) = Assinatura 👉
+Contract signing/ Signature line / Sign here
+_______________________________________________  Tradução: Na academia, você pode usar qualquer aparelho após assinar um termo de isenção de responsabilidade.",1,frase presente mas sem marcação [MAIÚSCULO],1,tradução presente mas sem formatação T2 (classe/colocação),2,frase original (0.40 de similaridade),4,66.7
+3001,Ana Manuela de Carvalho Trindade,2,PASSAGE_E05_TIER2,1783285095001,"That product 
+could be [CHEAPER] at another store.","Cheap (adj.)= preço baixo/ barato 👉
+Cheap deal / Cheap price/ Cheap alternative
+________________________________________________
+Aquele produto poderia ser mais barato em outra loja.",2,frase contextualizada com [MAIÚSCULO],1,classe gramatical presente mas sem marcador de colocação,2,frase original (0.37 de similaridade),5,83.3
+3001,Ana Manuela de Carvalho Trindade,2,PASSAGE_E05_TIER2,1783285672001,"But you don’t have to bring your 
+[OWN] bag.","Own ( pronoun) = próprio 👉
+My own / Your own / on my own  
+_________________________________________________
+Mas você não precisa trazer sua própria sacola.",2,frase contextualizada com [MAIÚSCULO],1,tradução presente mas sem formatação T2 (classe/colocação),2,frase original (0.37 de similaridade),5,83.3
+4001,Ana Carolina Barbosa da Costa,2,PASSAGE_E05_TIER2,1781998830001,You [CAN] have a piece of pie after you've eaten your vegetables!,"can (modal verb) = poder, ser capaz de, saber
+-> Can you drive? / She can speak four languages.
+————————————
+Você pode ter um pedaço de torta depois de comer seus vegetais!",2,frase contextualizada com [MAIÚSCULO],1,marcador de colocação presente mas sem classe gramatical,2,frase original (0.34 de similaridade),5,83.3
+4001,Ana Carolina Barbosa da Costa,2,PASSAGE_E05_TIER2,1782008620001,I [CAN’T] concentrate when you keep singing all the time.,"can’t (modal verb) = não poder, não ser capaz de, não saber
+-> I can't hear you. / You can't have too many extra examples.
+———————————
+Eu não consigo me concentrar quando você fica cantando sem parar.",1,frase presente mas sem marcação [MAIÚSCULO],1,marcador de colocação presente mas sem classe gramatical,2,frase original (0.38 de similaridade),4,66.7
+4001,Ana Carolina Barbosa da Costa,2,PASSAGE_E05_TIER2,1782095617001,Be careful with that equipment - you [COULD] have hit your sister!,"could (v.) = poderia, podia
+-> Could I speak to Mr Davis, please?/ Excuse me, could I just say something?
+———————————————-
+Tenha cuidado com esse equipamento - você poderia ter atingido sua irmã!",2,frase contextualizada com [MAIÚSCULO],2,classe gramatical + marcador de colocação,2,frase original (0.31 de similaridade),6,100.0
+4001,Ana Carolina Barbosa da Costa,2,PASSAGE_E05_TIER2,1782677730001,The fire [MAY] have been caused by a faulty electrical connection.,"may (modal verb) = poder
+-> I may see you tomorrow before I leave. / She may not like it.
+——————————————-
+O fogo pode ter sido causado por uma conexão elétrica defeituosa.",2,frase contextualizada com [MAIÚSCULO],1,marcador de colocação presente mas sem classe gramatical,2,frase original (0.37 de similaridade),5,83.3
+4001,Ana Carolina Barbosa da Costa,2,PASSAGE_E05_TIER2,1782677987001,"If Mary do that one more time, I [SHALL] be very angry.","shall (modal verb) = pedir ou dever, usado com ""I"" ou ""we"" no lugar de ""will"" ou ""should""
+-> Shall I call him tomorrow? / We shall be away that week.
+————————————
+Se Mary fizer isso mais uma vez, eu ficarei muito bravo.",2,frase contextualizada com [MAIÚSCULO],1,marcador de colocação presente mas sem classe gramatical,2,frase original (0.37 de similaridade),5,83.3
+4001,Ana Carolina Barbosa da Costa,2,PASSAGE_E05_TIER2,1782788209001,You [MUST] come and stay with us one year,"must (modal verb) = dever, ter que
+-> Meat must be cooked thoroughly. / I must get some sleep.
+—————————————
+você deveria vir e ficar com a gente por um ano",2,frase contextualizada com [MAIÚSCULO],1,marcador de colocação presente mas sem classe gramatical,2,frase original (0.34 de similaridade),5,83.3
+4001,Ana Carolina Barbosa da Costa,2,PASSAGE_E05_TIER2,1782872633001,You [SHOULD] take the taxi - it's the easiest way to get there.,"should (modal verb) = dever 
+-> My dry cleaning should be ready this afternoon. / If you're annoyed with him, you should tell him.
+———————————————
+Você deveria pegar o táxi — é a maneira mais fácil de chegar lá.",2,frase contextualizada com [MAIÚSCULO],1,marcador de colocação presente mas sem classe gramatical,2,frase original (0.43 de similaridade),5,83.3
+4001,Ana Carolina Barbosa da Costa,2,PASSAGE_E05_TIER2,1783192064001,Sage handed the [PRESCRIPTION] to the pharmacist.,"prescription (n.) = receita médica
+-> a doctor's prescription / a prescription for sedatives
+—————————————
+Ele entregou a receita para o farmacêutico.",2,frase contextualizada com [MAIÚSCULO],2,classe gramatical + marcador de colocação,2,frase original (0.39 de similaridade),6,100.0
+4001,Ana Carolina Barbosa da Costa,2,PASSAGE_E05_TIER2,1783262985001,Don’t go far away - it [MIGHT] be dangerous,"might (modal v.) = poder
+-> The rain might have stopped by now / I might come and visit you next year
+——————————————
+Não vá para longe - pode ser perigoso.",2,frase contextualizada com [MAIÚSCULO],1,marcador de colocação presente mas sem classe gramatical,2,frase original (0.31 de similaridade),5,83.3
+4001,Ana Carolina Barbosa da Costa,2,PASSAGE_E05_TIER2,1783263013001,"You didn’t [HAVE TO] do the work, did you?","have to = ter de
+-> I don’t want to do this, but I have to. / Do you have to go so soon?
+—————————-
+Você não precisava ter feito o trabalho, precisava?",2,frase contextualizada com [MAIÚSCULO],1,marcador de colocação presente mas sem classe gramatical,2,frase original (0.31 de similaridade),5,83.3
+4011,Ana Luiza Camilo da Silva,1,PASSAGE_E05_TIER1,1782784496001,We [CAN'T] swim in this lake because it is dangerous.,can't – proibição / impossibilidade (não podemos),1,frase presente mas sem marcação [MAIÚSCULO],1,verso preenchido mas sem separador '=',2,frase original (0.42 de similaridade),4,66.7
+4011,Ana Luiza Camilo da Silva,1,PASSAGE_E05_TIER1,1782784517001,[CAN] cook a great dinner for my family tonight.,can – habilidade / possibilidade (posso / consigo),2,frase contextualizada com [MAIÚSCULO],1,verso preenchido mas sem separador '=',2,frase original (0.40 de similaridade),5,83.3
+4011,Ana Luiza Camilo da Silva,1,PASSAGE_E05_TIER1,1782868794001,Drivers [MUST] stop completely when the traffic light turns red.,must – necessidade / obrigação (preciso / tenho que),2,frase contextualizada com [MAIÚSCULO],1,verso preenchido mas sem separador '=',2,frase original (0.39 de similaridade),5,83.3
+4011,Ana Luiza Camilo da Silva,1,PASSAGE_E05_TIER1,1782868808001,You [SHOULD] save some money every month for emergencies.,should – recomendação / conselho (deveria),2,frase contextualizada com [MAIÚSCULO],1,verso preenchido mas sem separador '=',2,frase original (0.39 de similaridade),5,83.3
+4011,Ana Luiza Camilo da Silva,1,PASSAGE_E05_TIER1,1782868814001,I [COULD] call my friend to see if he wants to hang out.,could – outra possibilidade / alternativa (poderia),2,frase contextualizada com [MAIÚSCULO],1,verso preenchido mas sem separador '=',2,frase original (0.43 de similaridade),5,83.3
+4016,Cauã Jorge de Nazareth Marins,1,PASSAGE_E05_TIER1,1783037565001,I [CAN] speak English with my teacher.,can = habilidade / possibilidade,2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.40 de similaridade),6,100.0
+4016,Cauã Jorge de Nazareth Marins,1,PASSAGE_E05_TIER1,1783037596001,I [CAN’T] use my phone during the exam,can’t = proibição / impossibilidade,1,frase presente mas sem marcação [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.46 de similaridade),5,83.3
+4031,Emanuelly Almeida da Silva,1,PASSAGE_E05_TIER1,1782436369001,I don’t know how he [CAN] afford a new car on his salary.,can = poder / conseguir,2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.35 de similaridade),6,100.0
+4031,Emanuelly Almeida da Silva,1,PASSAGE_E05_TIER1,1782436529001,I [CAN’T] remember his name.,can = poder / conseguir,1,frase presente mas sem marcação [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.39 de similaridade),5,83.3
+4031,Emanuelly Almeida da Silva,1,PASSAGE_E05_TIER1,1782957933001,You [MUST] wear a seat belt in the car.,must = deve / tem que (obrigação),2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.44 de similaridade),6,100.0
+4031,Emanuelly Almeida da Silva,1,PASSAGE_E05_TIER1,1782957998001,You [SHOULD] get some rest.,should = deveria (conselho),2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.39 de similaridade),6,100.0
+4031,Emanuelly Almeida da Silva,1,PASSAGE_E05_TIER1,1783127462001,"She left before I [COULD] say anything.
+Verso:",could = poderia / conseguia,2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.38 de similaridade),6,100.0
+4031,Emanuelly Almeida da Silva,1,PASSAGE_E05_TIER1,1783127634001,This cream [MAY] cause a burning sensation.,may = pode / talvez,2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.42 de similaridade),6,100.0
+4041,Isabella Queres,2,PASSAGE_E05_TIER2,1782350211001,"Driving so fast, he [MIGHT] have had a nasty accident.","Might (modal verb.) = poder
+
+* I might come and visit you next year, if I can save enough money. / The rain might have stopped by now.
+______________________________________
+
+Dirigindo tão rápido, ele poderia ter sofrido um acidente grave.",2,frase contextualizada com [MAIÚSCULO],1,tradução presente mas sem formatação T2 (classe/colocação),2,frase original (0.33 de similaridade),5,83.3
+4041,Isabella Queres,2,PASSAGE_E05_TIER2,1782350650001,I [SHOULD] have written to her but I haven't had time.,"Should (modal verb.) = usado para dizer ou perguntar qual é a coisa mais correta ou melhor a ser feita
+
+* If you're annoyed with him, you should tell him. / ""Should I apologize to him?"" ""Yes, I think you should.""
+_______________________________________
+
+Eu deveria ter escrito para ela, mas não tive tempo.",2,frase contextualizada com [MAIÚSCULO],1,tradução presente mas sem formatação T2 (classe/colocação),2,frase original (0.40 de similaridade),5,83.3
+4041,Isabella Queres,2,PASSAGE_E05_TIER2,1782588094001,Candidates [MUST] answer two questions from each paper.,"Must (modal verb.) = dever, ter que 
+
+* You mustn't show this letter to anyone else. / We must meet for lunch soon.
+_____________________________________
+
+Os candidatos devem responder a duas questões de cada prova.",2,frase contextualizada com [MAIÚSCULO],1,tradução presente mas sem formatação T2 (classe/colocação),2,frase original (0.38 de similaridade),5,83.3
+4041,Isabella Queres,2,PASSAGE_E05_TIER2,1782589363001,One study implied that neither consent nor a [WAIVER] of consent was needed.,"Waiver (n.) = renúncia, declaração de renúncia 
+
+* We had to sign a waiver, giving up any rights to the land in the future.
+____________________________________
+
+Um estudo sugeriu que nem o consentimento nem a dispensa do consentimento eram necessários.",2,frase contextualizada com [MAIÚSCULO],1,classe gramatical presente mas sem marcador de colocação,2,frase original (0.36 de similaridade),5,83.3
+4041,Isabella Queres,2,PASSAGE_E05_TIER2,1782590306001,I must take that [PRESCRIPTION] to the chemist.,"Prescription (n.) = receita médica 
+
+* I was given the wrong tablets when the chemist misread my prescription. / I got a prescription for some strongerpainkillers.
+__________________________________
+
+Preciso levar essa receita à farmácia.",2,frase contextualizada com [MAIÚSCULO],1,classe gramatical presente mas sem marcador de colocação,2,frase original (0.37 de similaridade),5,83.3
+4041,Isabella Queres,2,PASSAGE_E05_TIER2,1782672625001,"If I drink too much coffee, I [CAN’T] sleep.","Can’t (modal verb) = forma abreviada de ""cannot""
+
+* Speak up! I can't hear you. / I can't remember his name.
+_____________________________________
+
+Se eu beber muito café, não consigo dormir.",1,frase presente mas sem marcação [MAIÚSCULO],1,tradução presente mas sem formatação T2 (classe/colocação),2,frase original (0.39 de similaridade),4,66.7
+4041,Isabella Queres,2,PASSAGE_E05_TIER2,1782672808001,Optimal conditions were studied to select the [DOSAGE] of each class or sub-class.,"Dosage (n.) = dosagem, dose 
+
+* Do not exceed the recommended dosage. / ""What's the dosage?"" ""One spoonfulthree times a day.""
+______________________________________
+
+Foram estudadas as condições ideais para selecionar a dosagem de cada classe ou subclasse.",2,frase contextualizada com [MAIÚSCULO],1,classe gramatical presente mas sem marcador de colocação,2,frase original (0.38 de similaridade),5,83.3
+4041,Isabella Queres,2,PASSAGE_E05_TIER2,1782673224001,The maintenance [FACILITY] is situated behind the main offices.,"Facilities (n.) = instalação, centro 
+
+* Protesters have been demonstratingoutside the new research facility. / The training facility is scheduled to open in April 2005.
+_____________________________________
+
+A área de manutenção está localizada atrás dos escritórios principais.",2,frase contextualizada com [MAIÚSCULO],1,classe gramatical presente mas sem marcador de colocação,2,frase original (0.42 de similaridade),5,83.3
+4041,Isabella Queres,2,PASSAGE_E05_TIER2,1782780711001,"The doctors are doing all that they [CAN], but she's still not breathing properly.","Can (modal verb.) = poder, ser capaz de, saber
+
+* She can speak four languages. / Can you read that sign from this distance?
+________________________________________
+
+Os médicos estão fazendo tudo o que podem, mas ela ainda não está respirando adequadamente.",2,frase contextualizada com [MAIÚSCULO],1,tradução presente mas sem formatação T2 (classe/colocação),2,frase original (0.40 de similaridade),5,83.3
+4071,Laís Nascimento Silva,1,PASSAGE_E05_TIER1,1781663269001,You [CAN] sit there.,"Can= poder, ter permissão.
+Tradução: ""Você [PODE] se sentar ali.""",2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.41 de similaridade),6,100.0
+4071,Laís Nascimento Silva,1,PASSAGE_E05_TIER1,1781751349001,Students [MUST] obey the rules.,"Must= dever, ter que
+Tradução: "" Os alunos [DEVEM] obedecer as normas"".",2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.43 de similaridade),6,100.0
+4071,Laís Nascimento Silva,1,PASSAGE_E05_TIER1,1781751870001,He [SHOULD] study harder for the exam.,"Should= recomendação, conselhos 
+Tradução: "" Ele [DEVERIA] estudar mais para a prova.""",2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.39 de similaridade),6,100.0
+4071,Laís Nascimento Silva,1,PASSAGE_E05_TIER1,1781833353001,[MAY] I use the primary standard weights for this calibration?,"May= permissão (formal), possibilidade 
+Tradução: "" [POSSO] usar os pesos padrão primários para esta calibração?""",2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.39 de similaridade),6,100.0
+4071,Laís Nascimento Silva,1,PASSAGE_E05_TIER1,1781833431001,You [CAN'T] touch the gauge blocks with bare hands.,"Can't= proibição/ impossibilidade 
+Tradução: ""Você [NÃO PODE] tocar nos blocos padrão com as mãos desprotegidas.""",1,frase presente mas sem marcação [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.44 de similaridade),5,83.3
+4071,Laís Nascimento Silva,1,PASSAGE_E05_TIER1,1782042638001,"If the micrometer shows a high variance, you [COULD] recalibrate it using the standard reference.","Could= alternativa, outra possibilidade.
+Tradução: ""Se o micrômetro apresentar uma alta variação, você [PODERIA] recalibrá-lo usando a referência padrão.""",2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.37 de similaridade),6,100.0
+4071,Laís Nascimento Silva,1,PASSAGE_E05_TIER1,1782042770001,Students [CAN'T] use a damaged micrometer to perform official laboratory measurements.,"Can't= proibição, regra externa.
+Tradução: "" Os alunos [NÃO PODEM] usar um micrômetro danificado para realizar medições oficiais de laboratório.""",1,frase presente mas sem marcação [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.35 de similaridade),5,83.3
+4086,Luiz Antonio Inácio Pereira,2,PASSAGE_E05_TIER2,1783133096001,He [COULD] have made a better decision.,"could (modal v.) = utilizado para falar de uma ação possível no passado (poderia)
+☞ could act / could do / could try
+─────────────────────────────────────────────────
+""Ele poderia ter feito uma decisão melhor.""",2,frase contextualizada com [MAIÚSCULO],1,marcador de colocação presente mas sem classe gramatical,2,frase original (0.35 de similaridade),5,83.3
+4086,Luiz Antonio Inácio Pereira,2,PASSAGE_E05_TIER2,1783133454001,He [SHOULD] have done this a long time ago.,"Should (modal v.) =indicação do que é o melhor (Dever)
+☞ Should try / Should test / Should go
+─────────────────────────────────────────────────
+""Ele deveria ter feito isso um bom tempo atrás.""",2,frase contextualizada com [MAIÚSCULO],1,marcador de colocação presente mas sem classe gramatical,2,frase original (0.37 de similaridade),5,83.3
+4086,Luiz Antonio Inácio Pereira,2,PASSAGE_E05_TIER2,1783133970001,It [WOULD] be better for all of us if you left this building.,"Would (modal v.) = para se referir ao futuro no ponto de vista do presente (Seria)
+☞ would break / would do / would act
+─────────────────────────────────────────────────
+""Seria melhor para todos nós se você saísse desse prédio.""",2,frase contextualizada com [MAIÚSCULO],1,marcador de colocação presente mas sem classe gramatical,2,frase original (0.33 de similaridade),5,83.3
+4086,Luiz Antonio Inácio Pereira,2,PASSAGE_E05_TIER2,1783290813001,"After this match, the Brazilian people [MUST] expel their national team from their country","Must (modal v.) = Utilizado para mostrar o quão importante e/ou necessário para algo acontecer no presente ou no futuro. (Dever / ter que)
+☞ Must act / Must bring / Must come
+─────────────────────────────────────────────────
+""Após essa partida, o povo brasileiro deve expulsar o time nacional deles do país deles.""",2,frase contextualizada com [MAIÚSCULO],1,marcador de colocação presente mas sem classe gramatical,2,frase original (0.40 de similaridade),5,83.3
+4086,Luiz Antonio Inácio Pereira,2,PASSAGE_E05_TIER2,1783291090001,"The Brazilian team [MIGHT] get away with their horrendous performance in the pitch""","Might (modal v.) = utilizado para expressar possibilidade de algo acontecer / possibilidade (Poder)
+☞ might go / might pass / might act
+─────────────────────────────────────────────────
+""A seleção Brasileira pode sair impune com a performance horripilante deles em campo.""",2,frase contextualizada com [MAIÚSCULO],1,marcador de colocação presente mas sem classe gramatical,2,frase original (0.39 de similaridade),5,83.3
+4091,Marcelo Ygor de Sá Cordeiro,1,PASSAGE_E05_TIER1,1783045266001,Childless couples [CAN] feel excluded from the rest of society.,can = poder,2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.39 de similaridade),6,100.0
+4091,Marcelo Ygor de Sá Cordeiro,1,PASSAGE_E05_TIER1,1783045497001,I [CAN´T] concentrate when you keep chattering.,can't = não posso / não consigo,1,frase presente mas sem marcação [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.35 de similaridade),5,83.3
+4091,Marcelo Ygor de Sá Cordeiro,1,PASSAGE_E05_TIER1,1783045750001,Food [MUST] be heated to a high temperature.,must = deve / precisa,2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.41 de similaridade),6,100.0
+4091,Marcelo Ygor de Sá Cordeiro,1,PASSAGE_E05_TIER1,1783045873001,I think I [SHOULD] have played a check on move 23.,should = deveria,2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.40 de similaridade),6,100.0
+4091,Marcelo Ygor de Sá Cordeiro,1,PASSAGE_E05_TIER1,1783046058001,The temperature [COULD] drop below freezing during the night.,could = poderia,2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.37 de similaridade),6,100.0
+4091,Marcelo Ygor de Sá Cordeiro,1,PASSAGE_E05_TIER1,1783127983001,This cream [MAY] cause a burning sensation.,may = pode / talvez,2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.42 de similaridade),6,100.0
+4091,Marcelo Ygor de Sá Cordeiro,1,PASSAGE_E05_TIER1,1783128219001,I [CAN´T] concentrate when you keep chattering.,can't = não consigo / não posso,1,frase presente mas sem marcação [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.35 de similaridade),5,83.3
+4091,Marcelo Ygor de Sá Cordeiro,1,PASSAGE_E05_TIER1,1783128442001,I [MUST] finish my homework tonight.,must = deve / preciso (necessidade),2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.38 de similaridade),6,100.0
+4091,Marcelo Ygor de Sá Cordeiro,1,PASSAGE_E05_TIER1,1783128571001,No wardrobe [SHOULD] be without a long wool coat.,should = deveria (conselho),2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.40 de similaridade),6,100.0
+4091,Marcelo Ygor de Sá Cordeiro,1,PASSAGE_E05_TIER1,1783128718001,I [COULD] find time to read more.,could = poderia (alternativa / possibilidade),2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.38 de similaridade),6,100.0
+4096,Ricardo de Souza Rodrigues,1,PASSAGE_E05_TIER1,1783274999001,"""I [CAN] wake up early without an alarm clock.""","CAN = posso  --  
+""Eu posso acordar cedo sem um despertador.""",2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.41 de similaridade),6,100.0
+4096,Ricardo de Souza Rodrigues,1,PASSAGE_E05_TIER1,1783275146001,"""He [CAN´T] cook well because he always burns the food.""""Ele não consegue cozinhar bem porque sempre queima a comida.""","CAN´T = não consegue  --  
+""Ele não consegue cozinhar bem porque sempre queima a comida.""",1,frase presente mas sem marcação [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.31 de similaridade),5,83.3
+4096,Ricardo de Souza Rodrigues,1,PASSAGE_E05_TIER1,1783275246001,"""You [CAN´T] park your car in front of the hospital entrance.""","CAN´T = não pode (proibição)  --  
+""Você não pode estacionar seu carro na frente da entrada do hospital.""",1,frase presente mas sem marcação [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.42 de similaridade),5,83.3
+4096,Ricardo de Souza Rodrigues,1,PASSAGE_E05_TIER1,1783275343001,"""We [MUST] pay the electricity bill before tomorrow morning.""","MUST = devemos (obrigação)  --  
+""Nós devemos pagar a conta de luz antes de amanhã de manhã.""",2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.36 de similaridade),6,100.0
+4096,Ricardo de Souza Rodrigues,1,PASSAGE_E05_TIER1,1783275505001,"""You [SHOULD] drink more water during hot summer days.""","SHOULD = deveria  (conselho)  --  
+""Você deveria beber mais água durante os dias quentes de verão.""",2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.34 de similaridade),6,100.0
+4096,Ricardo de Souza Rodrigues,1,PASSAGE_E05_TIER1,1783275881001,"""She [COULD READ] very fast when she was a child.""","COULD READ = conseguia ler (Possibilidade no passado/Permissão polida)  --  
+""Ela conseguia ler muito rápido quando era criança.""",2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.44 de similaridade),6,100.0
+4096,Ricardo de Souza Rodrigues,1,PASSAGE_E05_TIER1,1783276052001,"""We [COULD GO] to the park today or watch a movie at home.""","COULD GO = poderíamos ir (Alternativa)  --  
+""Nós poderíamos ir ao parque hoje ou assistir a um filme em casa.""",2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.39 de similaridade),6,100.0
+4096,Ricardo de Souza Rodrigues,1,PASSAGE_E05_TIER1,1783276177001,"""[IT MAY RAIN] this afternoon, so take an umbrella.""","IT MAY RAIN = pode ser que chova (Possibilidade)  --  
+""Pode ser que chova esta tarde, então leve um guarda-chuva.""",2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.44 de similaridade),6,100.0
+4096,Ricardo de Souza Rodrigues,1,PASSAGE_E05_TIER1,1783276286001,"""This digital caliper [CAN] measure very small parts accurately.""","CAN = pode  --  
+""Este paquímetro digital pode medir peças muito pequenas com precisão.""",2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.44 de similaridade),6,100.0
+4096,Ricardo de Souza Rodrigues,1,PASSAGE_E05_TIER1,1783276568001,"""We [CAN´T GET] a correct reading if the tool is dirty.""","CAN´T GET = não conseguimos  --  
+""Nós não conseguimos obter uma leitura correta se a ferramenta estiver suja.""",1,frase presente mas sem marcação [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.38 de similaridade),5,83.3
+4096,Ricardo de Souza Rodrigues,1,PASSAGE_E05_TIER1,1783276677001,"""You [CAN´T TOUCH] the standard weights with your bare hands.""","CAN´T TOUCH = não pode tocar (proibição)  --  
+""Você não pode tocar nos pesos padrão com as mãos nuas.""",1,frase presente mas sem marcação [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.40 de similaridade),5,83.3
+4096,Ricardo de Souza Rodrigues,1,PASSAGE_E05_TIER1,1783276765001,"""The technician [MUST] calibrate the scale every six months.""","MUST = deve (obrigação)  --  
+""O técnico deve calibrar a balança a cada seis meses.""",2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.40 de similaridade),6,100.0
+4096,Ricardo de Souza Rodrigues,1,PASSAGE_E05_TIER1,1783276984001,"""You [SHOULD] check the room temperature before starting the test.""","SHOULD = deveria ( conselho)  --  
+""Você deveria verificar a temperatura ambiente antes de iniciar o teste.""",2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.39 de similaridade),6,100.0
+4096,Ricardo de Souza Rodrigues,1,PASSAGE_E05_TIER1,1783277101001,"""The old laboratory [COULD NOT] control the humidity level perfectly.""","COULD NOT = não conseguia  --  
+""O laboratório antigo não conseguia controlar o nível de umidade perfeitamente.""",2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.40 de similaridade),6,100.0
+4096,Ricardo de Souza Rodrigues,1,PASSAGE_E05_TIER1,1783277325001,"""We [COULD USE] a micrometer or a laser sensor for this check.""","COULD USE = poderíamos usar (alternativa)  --  
+""Nós poderíamos usar um micrômetro ou um sensor a laser para esta verificação.""",2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.37 de similaridade),6,100.0
+4096,Ricardo de Souza Rodrigues,1,PASSAGE_E05_TIER1,1783277423001,"""The measurement error [MAY] increase if the instrument shakes.""","MAY = pode (possibilidade)  --  
+""O erro de medição pode aumentar se o instrumento tremer.""",2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.40 de similaridade),6,100.0
+5016,Bernardo Da Silva Lucas,2,PASSAGE_E05_TIER2,1783168671001,"In sports, athletes [CAN] train every day, but they must follow the coach’s instructions.","can (modal v.) = habilidade / capacidade
+☞ can train / can participate / can monitor
+──────────────────────────────────────────────────────────────────────────────────────────────
+""Nos esportes, os atletas podem treinar todos os dias, mas devem seguir as instruções do treinador.""",2,frase contextualizada com [MAIÚSCULO],1,marcador de colocação presente mas sem classe gramatical,2,frase original (0.35 de similaridade),5,83.3
+5016,Bernardo Da Silva Lucas,2,PASSAGE_E05_TIER2,1783168714001,"At the pharmacy, customers [MUST] present a valid prescription for controlled medicines.","must (modal v.) = obrigação forte / necessidade
+☞ must present / must follow / must arrive
+──────────────────────────────────────────────────────────────────────────────────────────────
+""Na farmácia, os clientes devem apresentar uma receita válida para medicamentos controlados.""",2,frase contextualizada com [MAIÚSCULO],1,marcador de colocação presente mas sem classe gramatical,2,frase original (0.36 de similaridade),5,83.3
+5016,Bernardo Da Silva Lucas,2,PASSAGE_E05_TIER2,1783168758001,"A player who is injured could still attend practice to watch, but he [CAN'T] participate.","can't (modal v.) = proibição / impossibilidade
+☞ can't participate / can't find / can't access
+──────────────────────────────────────────────────────────────────────────────────────────────
+""Um jogador que está machucado ainda poderia assistir ao treino para observar, mas ele não pode participar.""",1,frase presente mas sem marcação [MAIÚSCULO],1,marcador de colocação presente mas sem classe gramatical,2,frase original (0.38 de similaridade),4,66.7
+5016,Bernardo Da Silva Lucas,2,PASSAGE_E05_TIER2,1783169238001,"At the gym, you may use any machine after signing a [WAIVER].","waiver (n.) = termo de isenção de responsabilidade
+☞ signing a waiver / sign a waiver / formal waiver
+──────────────────────────────────────────────────────────────────────────────────────────────
+""Na academia, você pode usar qualquer máquina após assinar um termo de isenção de responsabilidade.""",2,frase contextualizada com [MAIÚSCULO],2,classe gramatical + marcador de colocação,2,frase original (0.41 de similaridade),6,100.0
+5016,Bernardo Da Silva Lucas,2,PASSAGE_E05_TIER2,1783169262001,You should always check the [EXPIRATION DATE] before buying any product.,"expiration date (n.) = data de validade
+☞ check the expiration date / past the expiration date / valid expiration date
+──────────────────────────────────────────────────────────────────────────────────────────────
+""Você deve sempre verificar a data de validade antes de comprar qualquer produto.""",2,frase contextualizada com [MAIÚSCULO],2,classe gramatical + marcador de colocação,2,frase original (0.40 de similaridade),6,100.0
+5016,Bernardo Da Silva Lucas,2,PASSAGE_E05_TIER2,1783169281001,Patients [OUGHT TO] follow the dosage instructions carefully.,"ought to (modal v.) = obrigação moral / recomendação formal
+☞ ought to follow / ought to ask / ought to check
+──────────────────────────────────────────────────────────────────────────────────────────────
+""Os pacientes devem seguir as instruções de dosagem cuidadosamente.""",2,frase contextualizada com [MAIÚSCULO],1,marcador de colocação presente mas sem classe gramatical,2,frase original (0.36 de similaridade),5,83.3
+5016,Bernardo Da Silva Lucas,2,PASSAGE_E05_TIER2,1783169299001,"However, they [DON'T HAVE TO] shake hands after the game; it’s polite but not required.","don't have to (v.) = sem obrigação / opcional
+☞ don't have to shake hands / don't have to buy / don't have to bring
+──────────────────────────────────────────────────────────────────────────────────────────────
+""No entanto, eles não têm que apertar as mãos após o jogo; é educado, mas não obrigatório.""",1,frase presente mas sem marcação [MAIÚSCULO],2,classe gramatical + marcador de colocação,2,frase original (0.44 de similaridade),5,83.3
+5016,Bernardo Da Silva Lucas,2,PASSAGE_E05_TIER2,1783169321001,Players [MUSTN'T] argue with the referee during a match — they could receive a yellow card.,"mustn't (modal v.) = proibição (é proibido)
+☞ mustn't argue / mustn't open / mustn't access
+──────────────────────────────────────────────────────────────────────────────────────────────
+""Os jogadores não devem discutir com o árbitro durante uma partida — eles podem receber um cartão amarelo.""",1,frase presente mas sem marcação [MAIÚSCULO],1,marcador de colocação presente mas sem classe gramatical,2,frase original (0.39 de similaridade),4,66.7
+5016,Bernardo Da Silva Lucas,2,PASSAGE_E05_TIER2,1783169345001,[SHALL] we go to the pharmacy before it closes?,"shall (modal v.) = sugestão / oferta formal
+☞ shall we go / shall we start / shall I help
+──────────────────────────────────────────────────────────────────────────────────────────────
+""Vamos à farmácia antes que ela feche?""",2,frase contextualizada com [MAIÚSCULO],1,marcador de colocação presente mas sem classe gramatical,2,frase original (0.34 de similaridade),5,83.3
+5016,Bernardo Da Silva Lucas,2,PASSAGE_E05_TIER2,1783169384001,I can’t find my wallet. I [MAY HAVE] left it at the checkout.,"may have + V3 (modal v.) = especulação sobre o passado
+☞ may have left / may have noticed / may have forgotten
+──────────────────────────────────────────────────────────────────────────────────────────────
+""Não consigo encontrar minha carteira. Eu posso tê-la deixado no caixa.""",2,frase contextualizada com [MAIÚSCULO],1,marcador de colocação presente mas sem classe gramatical,2,frase original (0.38 de similaridade),5,83.3
+5036,Jady Maria Rodrigues Figueiredo,1,PASSAGE_E05_TIER1,1782354423001,She [CAN] speak four languages besides her own.,"can = habilidade, possibilidade, ter permissão, saber",2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.38 de similaridade),6,100.0
+5036,Jady Maria Rodrigues Figueiredo,1,PASSAGE_E05_TIER1,1782354795001,I [CAN'T][ concentrate on two things at the same time.,"can't = proibição, impossibilidade",1,frase presente mas sem marcação [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.43 de similaridade),5,83.3
+5036,Jady Maria Rodrigues Figueiredo,1,PASSAGE_E05_TIER1,1782355166001,You [MUST] pay the money by tomorrow.,"must = obrigação forte, dever",2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.33 de similaridade),6,100.0
+5036,Jady Maria Rodrigues Figueiredo,1,PASSAGE_E05_TIER1,1782524638001,"You [SHOULD] wear a coat, it's cold outside, you'll get sick.","should = conselho, recomendação, usado para dizer que você pensa que algo é verdade ou que vai acontecer, dever",2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.37 de similaridade),6,100.0
+5036,Jady Maria Rodrigues Figueiredo,1,PASSAGE_E05_TIER1,1782525615001,I [COULD] never have been able to get into college without my family's encouragement.,"could = possibilidade, alternativa, passado de ""can"", poderia",2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.34 de similaridade),6,100.0
+5036,Jady Maria Rodrigues Figueiredo,1,PASSAGE_E05_TIER1,1782526199001,There [MAY] be people who need these things,"may = permissão (formal), possibilidade",2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.39 de similaridade),6,100.0
+5036,Jady Maria Rodrigues Figueiredo,1,PASSAGE_E05_TIER1,1782526461001,Students [CAN'T] use their phones during the exam.,"can't = regra extrema, proibição, não pode",1,frase presente mas sem marcação [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.39 de similaridade),5,83.3
+5046,João Ricardo Rocha de Carvalho,1,PASSAGE_E05_TIER1,1781625277001,"""He [CAN] speak four languages.""","can = habilidade / possibilidade
+exemplo: ""She can speak four languages.""
+minha frase: ""He can speak four languages.""",2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.41 de similaridade),6,100.0
+5046,João Ricardo Rocha de Carvalho,1,PASSAGE_E05_TIER1,1781797022001,"""I [CAN'T] afford to buy a boat.""","can't = proibição / impossibilidade
+exemplo: ""I can't afford to buy a house.""
+minha frase: ""I can't afford to buy a boat.""",1,frase presente mas sem marcação [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.42 de similaridade),5,83.3
+5046,João Ricardo Rocha de Carvalho,1,PASSAGE_E05_TIER1,1782934459001,"""The potato [MUST] be thoroughly cooked.""","must = obrigação forte
+exemplo: ""Meat must be cooked thoroughly.""
+minha frase: ""The potato must be thoroughly cooked.""",2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.41 de similaridade),6,100.0
+5051,Lenilson Maia Rodrigues de Lima,1,PASSAGE_E05_TIER1,1782652269001,I [MUST] arrive before 8:00 for my biotechnology class.,must = obrigação forte (preciso / tenho que),2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.36 de similaridade),6,100.0
+5051,Lenilson Maia Rodrigues de Lima,1,PASSAGE_E05_TIER1,1782652280001,I [CAN] study English after dinner.,can = habilidade / possibilidade (posso / consigo),2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.41 de similaridade),6,100.0
+5051,Lenilson Maia Rodrigues de Lima,1,PASSAGE_E05_TIER1,1782652291001,I [SHOULD] review my notes before the exam.,should = conselho / recomendação (deveria),2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.43 de similaridade),6,100.0
+5051,Lenilson Maia Rodrigues de Lima,1,PASSAGE_E05_TIER1,1782652300001,I [COULD] go to the library after school.,could = possibilidade / alternativa (poderia),2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.42 de similaridade),6,100.0
+5051,Lenilson Maia Rodrigues de Lima,1,PASSAGE_E05_TIER1,1782652313001,My teacher [MAY] give us extra time for the project.,may = permissão / possibilidade (pode),2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.40 de similaridade),6,100.0
+5051,Lenilson Maia Rodrigues de Lima,1,PASSAGE_E05_TIER1,1782736451001,I [CAN'T] eat during the chemistry lab.,can't = proibição (não posso),1,frase presente mas sem marcação [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.45 de similaridade),5,83.3
+5051,Lenilson Maia Rodrigues de Lima,1,PASSAGE_E05_TIER1,1782736463001,We [MUST] wear safety glasses in the laboratory.,must = obrigação forte (tenho que / devemos),2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.40 de similaridade),6,100.0
+5051,Lenilson Maia Rodrigues de Lima,1,PASSAGE_E05_TIER1,1782736477001,You [SHOULD] save your homework before closing the computer.,should = conselho / recomendação (deveria),2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.35 de similaridade),6,100.0
+5051,Lenilson Maia Rodrigues de Lima,1,PASSAGE_E05_TIER1,1782736483001,We [COULD] study together after school.,could = possibilidade / alternativa (poderíamos),2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.42 de similaridade),6,100.0
+5051,Lenilson Maia Rodrigues de Lima,1,PASSAGE_E05_TIER1,1782736493001,The teacher [MAY] cancel tomorrow's class.,may = possibilidade (talvez / pode),2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.45 de similaridade),6,100.0
+5056,Lucas da Silva Santos,1,PASSAGE_E05_TIER1,1782746077001,I [MUST] arrive before 7:30 a.m. for my metrology class.,must = obrigação forte (preciso / tenho que),2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.39 de similaridade),6,100.0
+5056,Lucas da Silva Santos,1,PASSAGE_E05_TIER1,1782746084001,I [CAN'T] use my phone during the laboratory practice.,can't = proibição / regra externa (não posso / é proibido),1,frase presente mas sem marcação [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.43 de similaridade),5,83.3
+5056,Lucas da Silva Santos,1,PASSAGE_E05_TIER1,1782746090001,"If I detect a vulnerability, I [SHOULD] tell the teacher.",should = conselho / recomendação (deveria),2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.39 de similaridade),6,100.0
+5056,Lucas da Silva Santos,1,PASSAGE_E05_TIER1,1782867437001,The coordinator [MAY] let me go to the integration event.,may = permissão formal / possibilidade (pode / é provável),2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.41 de similaridade),6,100.0
+5056,Lucas da Silva Santos,1,PASSAGE_E05_TIER1,1782867460001,"At the technical school, I [CAN] pay for my lunch with a card.",can = habilidade / possibilidade (posso / consigo),2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.37 de similaridade),6,100.0
+5056,Lucas da Silva Santos,1,PASSAGE_E05_TIER1,1782867487001,"On weekends, I [COULD] also go to the campus library.",could = possibilidade / alternativa (poderia),2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.39 de similaridade),6,100.0
+5056,Lucas da Silva Santos,1,PASSAGE_E05_TIER1,1782912228001,We [CAN'T] enter the biochemistry lab without safety goggles - it's a rule.,can't = impossibilidade / regra externa (não podemos),1,frase presente mas sem marcação [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.43 de similaridade),5,83.3
+5056,Lucas da Silva Santos,1,PASSAGE_E05_TIER1,1782912241001,"Before starting the security audit, I [MUST] warm up my knowledge on cryptography. (Adaptado de ""must warm up first"")",must (obrigação) = necessidade (preciso / tenho que),2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.30 de similaridade),6,100.0
+5082,Miguel Monteiro Cunha de Araujo,1,PASSAGE_E05_TIER1,1782616306001,Marcos [CAN] play volleyball with his friends on weekends.,CAN = habilidade / possibilidade (pode),2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.44 de similaridade),6,100.0
+5082,Miguel Monteiro Cunha de Araujo,1,PASSAGE_E05_TIER1,1782617469001,He [COULD] also rest a little.,could = outra possibilidade (poderia),2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.41 de similaridade),6,100.0
+5082,Miguel Monteiro Cunha de Araujo,1,PASSAGE_E05_TIER1,1782617709001,LUIZ [MUST] arrive at school before 7:30 a.m.,Must = necessidade (deve /tem que),2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.42 de similaridade),6,100.0
+5082,Miguel Monteiro Cunha de Araujo,1,PASSAGE_E05_TIER1,1782751416001,My parents [MAY] go to the supermarket on Saturday.,may = permissão (formal) / possibilidade (poderia),2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.42 de similaridade),6,100.0
+5082,Miguel Monteiro Cunha de Araujo,1,PASSAGE_E05_TIER1,1782751608001,You [SHOULD] rest after a busy day.,Should = recomendação (deve),2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.38 de similaridade),6,100.0
+5082,Miguel Monteiro Cunha de Araujo,1,PASSAGE_E05_TIER1,1782866885001,I [CAN'T] use my phone during English class.,Can't = proibição (não posso),1,frase presente mas sem marcação [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.40 de similaridade),5,83.3
+5082,Miguel Monteiro Cunha de Araujo,1,PASSAGE_E05_TIER1,1782867035001,I [MUST] wear my school uniform every day.,must = obrigação (tenho que / preciso),2,frase contextualizada com [MAIÚSCULO],2,padrão 'palavra = tradução' encontrado,2,frase original (0.38 de similaridade),6,100.0
