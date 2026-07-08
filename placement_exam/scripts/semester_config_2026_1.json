@@ -1,0 +1,10 @@
+{
+  "roster": "placement_exam/planning_E05/bases/curated_student_roster_v2.csv",
+  "exercises": [
+    {"label": "E01", "start": "2026-03-02", "end": "2026-03-29", "review_only": true},
+    {"label": "E02", "start": "2026-03-31", "end": "2026-04-12"},
+    {"label": "E03", "start": "2026-04-19", "end": "2026-05-17"},
+    {"label": "E04", "start": "2026-05-19", "end": "2026-06-15"},
+    {"label": "E05", "start": "2026-06-16", "end": "2026-07-06"}
+  ]
+}
