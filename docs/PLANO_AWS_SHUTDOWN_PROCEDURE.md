@@ -178,26 +178,46 @@ menção explícita ao `StudyAmigo.app`.
 ### 5.3 Apontar o domínio para o Worker (Custom Domain)
 
 Workers **não** usam CNAME manual como Pages — o método correto é **Custom
-Domain**, configurado dentro do próprio Worker, que cria e gerencia o registro
-DNS automaticamente:
+Domain**, configurado dentro do próprio Worker.
 
-1. No dashboard da Cloudflare, ir em **Workers & Pages** → clicar no Worker `study-amigo-app-see-ya-later`.
-2. Ir em **Settings → Domains & Routes**.
-3. Clicar em **Add → Custom Domain**.
-4. Digitar `study-amigo.app` e confirmar.
-5. A Cloudflare detecta o registro **A** conflitante (`54.152.109.26`, visível hoje em **DNS → Records**) e oferece substituí-lo — confirmar a substituição. Ela remove o A e cria o registro necessário apontando para o Worker automaticamente, com SSL gerenciado.
-6. Repetir para `www.study-amigo.app`, se for mantido (hoje aponta para o mesmo IP, registro A separado).
-7. Se `antigo.study-amigo.app` (SAv1.0) também for encerrado, decidir separadamente: apontar para o mesmo Worker, criar um Custom Domain próprio, ou apenas remover o registro.
+> **Nota (corrigida após execução real em 02/08/2026):** ao contrário do que se
+> esperava, a Cloudflare **não oferece substituir automaticamente** um registro A
+> conflitante ao adicionar um Custom Domain — ela bloqueia com o erro *"Hostname
+> already has externally managed DNS records (A, CNAME, etc). Delete them first"*.
+> O registro conflitante precisa ser **deletado manualmente antes**, em **DNS →
+> Records**, e só então o Custom Domain pode ser adicionado.
 
-Não mexer nos outros registros DNS já existentes (`_8162996609a76...` e `video.study-amigo...`, ambos CNAME) — não têm relação com o Elastic IP e não são afetados por este processo.
+**Usar "Add Domain" (não "Add Route")** — uma Route sozinha não funciona aqui: ela
+só define em quais URLs o Worker roda, mas não substitui o DNS por trás; com o
+registro A antigo ainda apontando pro Elastic IP parado, o tráfego cai em timeout
+tentando alcançar a instância desligada em vez de chegar ao Worker.
+
+Passo a passo (root domain):
+1. Em **DNS → Records**, localizar o registro **A** de `study-amigo.app` (Content `54.152.109.26`) e **deletá-lo**.
+2. No dashboard da Cloudflare, ir em **Workers & Pages** → clicar no Worker `study-amigo-app-see-ya-later` → aba **Domains**.
+3. Clicar em **+ Add Domain**.
+4. Deixar o campo **Subdomain** vazio (root domain) e confirmar em **Add domain**.
+
+Para `www.study-amigo.app`:
+1. Em **DNS → Records**, localizar o registro **A** de `www.study-amigo.app` e deletá-lo.
+2. **Workers & Pages → study-amigo-app-see-ya-later → Domains → + Add Domain**.
+3. No campo **Subdomain**, digitar `www` e confirmar.
+
+Se `antigo.study-amigo.app` (SAv1.0) também for encerrado, decidir separadamente:
+apontar para o mesmo Worker (Subdomain `antigo`), criar um Worker/Custom Domain
+próprio, ou apenas remover o registro.
+
+Não mexer nos outros registros DNS já existentes (`_8162996609a76...` e
+`video.study-amigo...`, ambos CNAME) — não têm relação com o Elastic IP e não são
+afetados por este processo.
 
 ### 5.4 Checklist da landing page
 
 - [x] Página HTML estática criada e revisada (`server_v2/shutdown_landing_page/index.html`) — mensagem clara, contato de suporte, sem dados sensíveis
 - [x] Worker publicado (`study-amigo-app-see-ya-later.cybersec.workers.dev`)
 - [ ] Confirmar/trocar o e-mail de contato placeholder (`contato@study-amigo.app`) pelo endereço real
-- [ ] Custom Domain `study-amigo.app` adicionado ao Worker (substitui o registro A do Elastic IP)
-- [ ] Custom Domain `www.study-amigo.app` adicionado ao Worker (ou registro removido, se não for mantido)
+- [x] Registro A de `study-amigo.app` removido e Custom Domain adicionado ao Worker
+- [ ] Registro A de `www.study-amigo.app` removido e Custom Domain `www` adicionado ao Worker
 - [ ] Acesso testado em `https://study-amigo.app` depois da propagação DNS (minutos, tipicamente)
 - [ ] Decisão tomada sobre `antigo.study-amigo.app` (Worker compartilhado, Custom Domain próprio, ou remoção do registro)
 
@@ -321,7 +341,8 @@ nota tardias antes do encerramento irreversível.
 - [x] Publicar a landing page como Cloudflare Worker (`study-amigo-app-see-ya-later.cybersec.workers.dev`, seção 5.2)
 - [x] Desligar os containers dos dois ambientes (`docker compose down` em `/opt/study-amigo-v15` e `/opt/study-amigo`)
 - [x] Parar a instância EC2 (`aws ec2 stop-instances --instance-ids i-09d0d2b6bb8ae8ad7 --region us-east-1`)
-- [ ] Adicionar Custom Domain `study-amigo.app` (e `www`, se aplicável) ao Worker, substituindo o registro A do EC2 (seção 5.3)
+- [x] Adicionar Custom Domain `study-amigo.app` ao Worker, substituindo o registro A do EC2 (seção 5.3)
+- [ ] Adicionar Custom Domain `www.study-amigo.app` ao Worker (seção 5.3)
 - [ ] Confirmar na fatura AWS que a cobrança de EC2 (compute) não aparece no ciclo seguinte, e observar a cobrança residual do Elastic IP ocioso
 - [x] Registrar a data efetiva da pausa neste documento (seção 9)
 - [ ] Agendar o `terraform destroy` para o mês seguinte (ver seção 4.1)
@@ -344,12 +365,12 @@ nota tardias antes do encerramento irreversível.
 - Responsável: Ewerton Madruga (via Claude Code)
 - Data planejada para `terraform destroy`: — (mês seguinte, conforme decisão de 02/08/2026)
 - Observações: Landing page já criada e publicada como Cloudflare Worker
-  (`study-amigo-app-see-ya-later.cybersec.workers.dev`), mas o **Custom Domain
-  ainda não foi configurado** — o domínio `study-amigo.app` continua apontando
-  para o registro A do Elastic IP, que agora
-  não responde (aplicação fora do ar sem página explicativa até esse passo ser
-  feito). Backup automático em S3 parado a partir desta data (ver aviso na seção
-  4) — os backups manuais acima cobrem essa lacuna.
+  (`study-amigo-app-see-ya-later.cybersec.workers.dev`). Custom Domain do root
+  `study-amigo.app` **configurado com sucesso** em 02/08/2026 (registro A antigo
+  removido manualmente antes de adicionar o Custom Domain — a Cloudflare não
+  substitui automaticamente, ver nota na seção 5.3). `www.study-amigo.app` ainda
+  pendente do mesmo processo. Backup automático em S3 parado a partir da pausa
+  (ver aviso na seção 4) — os backups manuais cobrem essa lacuna.
 
 ---
 
