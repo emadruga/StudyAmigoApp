@@ -143,64 +143,63 @@ O valor é baixo (centavos/hora), mas soma ao longo do mês até o `terraform de
 
 O domínio `study-amigo.app` é gerenciado na Cloudflare. Em vez de deixar o DNS
 apontando para um Elastic IP morto (erro de conexão para quem acessar) ou remover
-os registros por completo (domínio "cai" sem explicação), a recomendação é publicar
-uma página estática simples via **Cloudflare Pages** — gratuito, não depende do EC2
-nem de nenhuma infraestrutura de compute, e fica no ar até a reativação no próximo
-semestre.
+os registros por completo (domínio "cai" sem explicação), a landing page fica no
+ar via **Cloudflare Worker** — gratuito, não depende do EC2 nem de nenhuma
+infraestrutura de compute, e continua ativa até a reativação no próximo semestre.
 
-### 5.1 Por que Cloudflare Pages (e não deixar o DNS quebrado)
+### 5.1 Por que Cloudflare Worker (e não deixar o DNS quebrado)
 
-- **Custo zero** — Cloudflare Pages tem tier gratuito generoso para sites estáticos, sem relação com o EC2 que está sendo desligado.
+- **Custo zero** — tier gratuito da Cloudflare para Workers, sem relação com o EC2 que está sendo desligado.
 - **Não depende da AWS** — a página continua no ar mesmo depois do `terraform destroy`, sem exigir nenhuma instância rodando.
 - **Boa experiência para quem tentar acessar** — alunos, ou qualquer pessoa com o link salvo, veem uma mensagem clara em vez de "esse site não pode ser acessado".
-- **Fácil de desativar depois** — quando a aplicação real voltar ao ar no próximo semestre, basta trocar o registro DNS de volta (Pages → Elastic IP), sem precisar apagar o projeto Pages (pode ficar arquivado para reuso em uma futura pausa).
+- **Fácil de desativar depois** — quando a aplicação real voltar ao ar no próximo semestre, basta remover o Custom Domain do Worker (volta o registro A do Elastic IP), sem precisar apagar o Worker (pode ficar arquivado para reuso em uma futura pausa).
 
-### 5.2 Página já criada no repositório
+### 5.2 Estado atual — já publicado
 
-A landing page estática já foi criada e validada visualmente (desktop + mobile) em:
+O conteúdo da landing page já foi escrito e validado visualmente (desktop +
+mobile) em:
 
 **→ [`server_v2/shutdown_landing_page/index.html`](../server_v2/shutdown_landing_page/index.html)**
 
-Arquivo único, autocontido (HTML + CSS inline, sem build, sem dependências
-externas), pronto para upload direto no Cloudflare Pages. Conteúdo: agradecimento
-aos alunos pela edição do semestre, aviso de que a aplicação está pausada com os
-dados seguros em backup, aviso de retorno na próxima edição (2027.1), e contato
-por e-mail para dúvidas de nota — layout com menção explícita ao `StudyAmigo.app`.
+E já está publicado como um **Cloudflare Worker** em:
+
+**→ `https://study-amigo-app-see-ya-later.cybersec.workers.dev/`**
+
+Conteúdo: agradecimento aos alunos pela edição do semestre, aviso de que a
+aplicação está pausada com os dados seguros em backup, aviso de retorno na
+próxima edição (2027.1), e contato por e-mail para dúvidas de nota — layout com
+menção explícita ao `StudyAmigo.app`.
 
 > O e-mail de contato usado no rascunho (`contato@study-amigo.app`) é um
-> placeholder — confirmar/trocar pelo endereço real antes de publicar.
+> placeholder — confirmar/trocar pelo endereço real antes de divulgar o link.
 
-### 5.3 Passo a passo — publicar
+**Falta apenas apontar o domínio `study-amigo.app` para esse Worker** (seção 5.3) — hoje o DNS ainda aponta para o Elastic IP da EC2 (`54.152.109.26`, registro tipo A), que está parado desde a pausa da seção 4.1 e portanto não responde.
 
-**Opção simples (upload direto, sem Git) — via dashboard da Cloudflare:**
+### 5.3 Apontar o domínio para o Worker (Custom Domain)
 
-1. No dashboard da Cloudflare, ir em **Workers & Pages → Create → Pages → Upload assets**.
-2. Dar um nome ao projeto (ex.: `study-amigo-offline`) e fazer upload do conteúdo de `server_v2/shutdown_landing_page/` (o `index.html`).
-3. A Cloudflare publica automaticamente em uma URL tipo `study-amigo-offline.pages.dev` — testar antes de apontar o domínio.
+Workers **não** usam CNAME manual como Pages — o método correto é **Custom
+Domain**, configurado dentro do próprio Worker, que cria e gerencia o registro
+DNS automaticamente:
 
-**Opção via Git (mais fácil de atualizar depois):**
+1. No dashboard da Cloudflare, ir em **Workers & Pages** → clicar no Worker `study-amigo-app-see-ya-later`.
+2. Ir em **Settings → Domains & Routes**.
+3. Clicar em **Add → Custom Domain**.
+4. Digitar `study-amigo.app` e confirmar.
+5. A Cloudflare detecta o registro **A** conflitante (`54.152.109.26`, visível hoje em **DNS → Records**) e oferece substituí-lo — confirmar a substituição. Ela remove o A e cria o registro necessário apontando para o Worker automaticamente, com SSL gerenciado.
+6. Repetir para `www.study-amigo.app`, se for mantido (hoje aponta para o mesmo IP, registro A separado).
+7. Se `antigo.study-amigo.app` (SAv1.0) também for encerrado, decidir separadamente: apontar para o mesmo Worker, criar um Custom Domain próprio, ou apenas remover o registro.
 
-1. No dashboard da Cloudflare: **Workers & Pages → Create → Pages → Connect to Git**, selecionar o repositório `StudyAmigoApp` e o diretório de build `server_v2/shutdown_landing_page/` (sem comando de build — é HTML puro).
-2. Cada push nesse diretório republica a página automaticamente.
+Não mexer nos outros registros DNS já existentes (`_8162996609a76...` e `video.study-amigo...`, ambos CNAME) — não têm relação com o Elastic IP e não são afetados por este processo.
 
-### 5.4 Apontar o domínio para a landing page
-
-Depois que o projeto Pages estiver publicado e testado na URL `.pages.dev`:
-
-1. Na Cloudflare, ir em **DNS → Records** do domínio `study-amigo.app`.
-2. **Remover ou editar** o registro A que hoje aponta `@` (e `www`, se existir) para `54.152.109.26`.
-3. Adicionar um registro **CNAME** apontando `study-amigo.app` para o domínio do projeto Pages (`study-amigo-offline.pages.dev`), mantendo o proxy da Cloudflare ativado (nuvem laranja).
-   - Se o domínio raiz (`@`) não aceitar CNAME diretamente, a Cloudflare oferece **CNAME flattening** automático para o registro raiz — funciona nativamente, sem necessidade de registro A.
-4. Se `antigo.study-amigo.app` (SAv1.0) também for encerrado, repetir o mesmo processo para esse subdomínio ou apenas remover o registro, conforme a decisão para o legado.
-
-### 5.5 Checklist da landing page
+### 5.4 Checklist da landing page
 
 - [x] Página HTML estática criada e revisada (`server_v2/shutdown_landing_page/index.html`) — mensagem clara, contato de suporte, sem dados sensíveis
+- [x] Worker publicado (`study-amigo-app-see-ya-later.cybersec.workers.dev`)
 - [ ] Confirmar/trocar o e-mail de contato placeholder (`contato@study-amigo.app`) pelo endereço real
-- [ ] Projeto Cloudflare Pages criado e testado na URL `.pages.dev`
-- [ ] Registro DNS de `study-amigo.app` trocado de A (`54.152.109.26`) para CNAME (projeto Pages)
+- [ ] Custom Domain `study-amigo.app` adicionado ao Worker (substitui o registro A do Elastic IP)
+- [ ] Custom Domain `www.study-amigo.app` adicionado ao Worker (ou registro removido, se não for mantido)
 - [ ] Acesso testado em `https://study-amigo.app` depois da propagação DNS (minutos, tipicamente)
-- [ ] Decisão tomada sobre `antigo.study-amigo.app` (landing page própria, redirect, ou remoção do registro)
+- [ ] Decisão tomada sobre `antigo.study-amigo.app` (Worker compartilhado, Custom Domain próprio, ou remoção do registro)
 
 ---
 
@@ -262,15 +261,17 @@ sudo docker compose -f /opt/study-amigo-v15/docker-compose.yml start server
 
 ### 6.3 Reverter o DNS da landing page para a aplicação real
 
-Se a landing page da seção 5 estiver no ar, este é o passo que a desativa (sem
-precisar apagar o projeto Pages — pode ficar arquivado na Cloudflare para reuso em
-uma futura pausa entre semestres):
+Se a landing page da seção 5 estiver no ar (Custom Domain no Worker
+`study-amigo-app-see-ya-later`), este é o passo que a desativa — sem precisar
+apagar o Worker, que pode ficar arquivado na Cloudflare para reuso em uma futura
+pausa entre semestres:
 
-1. Na Cloudflare, ir em **DNS → Records** do domínio `study-amigo.app`.
-2. Remover o registro **CNAME** que aponta para `study-amigo-offline.pages.dev`.
-3. Recriar o registro **A** apontando `@` (e `www`, se aplicável) para o **novo**
-   Elastic IP gerado no passo 6.1 — o IP muda a cada `terraform apply`, então não é
-   apenas "reativar" o registro antigo, é preciso atualizá-lo com o IP atual:
+1. No dashboard da Cloudflare, ir em **Workers & Pages → study-amigo-app-see-ya-later → Settings → Domains & Routes**.
+2. Remover o **Custom Domain** `study-amigo.app` (e `www.study-amigo.app`, se configurado).
+3. Recriar o registro **A** em **DNS → Records** apontando `@` (e `www`, se
+   aplicável) para o **novo** Elastic IP gerado no passo 6.1 — o IP muda a cada
+   `terraform apply`, então não é apenas "reativar" o registro antigo, é preciso
+   atualizá-lo com o IP atual:
    ```bash
    cd server/aws_terraform && terraform output elastic_ip
    ```
@@ -290,7 +291,7 @@ seção 9 (Diagnostics) se houver erro de IAM/instance profile.
 
 - [ ] `terraform apply` executado, novo Elastic IP anotado
 - [ ] Dados restaurados (S3 ou backup local) e validados (`admin.db` + `user_dbs/` com contagem de usuários condizente)
-- [ ] DNS revertido da landing page (CNAME → Pages) para o registro A do novo Elastic IP
+- [ ] Custom Domain do Worker removido e DNS revertido para o registro A do novo Elastic IP
 - [ ] Container `flashcard_backup` confirmado ativo e falando com o S3
 - [ ] Login de teste feito com um usuário real para confirmar dados restaurados corretamente
 
@@ -317,10 +318,10 @@ nota tardias antes do encerramento irreversível.
 
 - [x] Rodar Passo 0 do `SHUTDOWN_PROCEDURE.md` (backup manual final) antes de qualquer ação
 - [x] Criar a landing page estática (`server_v2/shutdown_landing_page/index.html`, seção 5.2)
-- [ ] Publicar a landing page no Cloudflare Pages e testar na URL `.pages.dev` (seção 5.3)
+- [x] Publicar a landing page como Cloudflare Worker (`study-amigo-app-see-ya-later.cybersec.workers.dev`, seção 5.2)
 - [x] Desligar os containers dos dois ambientes (`docker compose down` em `/opt/study-amigo-v15` e `/opt/study-amigo`)
 - [x] Parar a instância EC2 (`aws ec2 stop-instances --instance-ids i-09d0d2b6bb8ae8ad7 --region us-east-1`)
-- [ ] Trocar o DNS de `study-amigo.app` (e `antigo.study-amigo.app`, se aplicável) do registro A do EC2 para o CNAME da landing page
+- [ ] Adicionar Custom Domain `study-amigo.app` (e `www`, se aplicável) ao Worker, substituindo o registro A do EC2 (seção 5.3)
 - [ ] Confirmar na fatura AWS que a cobrança de EC2 (compute) não aparece no ciclo seguinte, e observar a cobrança residual do Elastic IP ocioso
 - [x] Registrar a data efetiva da pausa neste documento (seção 9)
 - [ ] Agendar o `terraform destroy` para o mês seguinte (ver seção 4.1)
@@ -342,8 +343,10 @@ nota tardias antes do encerramento irreversível.
     confirmada em estado `stopped`. Elastic IP `54.152.109.26` permanece associado.
 - Responsável: Ewerton Madruga (via Claude Code)
 - Data planejada para `terraform destroy`: — (mês seguinte, conforme decisão de 02/08/2026)
-- Observações: Landing page no Cloudflare Pages e troca de DNS **ainda pendentes**
-  — o domínio `study-amigo.app` continua apontando para o Elastic IP, que agora
+- Observações: Landing page já criada e publicada como Cloudflare Worker
+  (`study-amigo-app-see-ya-later.cybersec.workers.dev`), mas o **Custom Domain
+  ainda não foi configurado** — o domínio `study-amigo.app` continua apontando
+  para o registro A do Elastic IP, que agora
   não responde (aplicação fora do ar sem página explicativa até esse passo ser
   feito). Backup automático em S3 parado a partir desta data (ver aviso na seção
   4) — os backups manuais acima cobrem essa lacuna.
