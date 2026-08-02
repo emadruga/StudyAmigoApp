@@ -161,6 +161,46 @@ Alunos que abandonaram seguem padrões identificáveis:
 
 ---
 
+### 12. Reclamações de nota por email: a timeline sempre revela a verdade
+
+Ao final do semestre, um pequeno número de alunos contestou por email sua nota final, alegando ter "feito as tarefas" ou "estudado bastante" e questionando por que a nota ficou baixa. Em todos os casos investigados, gerar a linha do tempo semestral individual do aluno (`create_semester_timeline.py`) resolveu a disputa em minutos, mostrando um de dois padrões:
+
+1. **Inatividade quase total**: o aluno teve zero ou pouquíssima atividade na maioria dos exercícios, contrariando a alegação de "fiz tudo". Exemplo real: Rogério Gabriel Barros dos Santos Simões (ID 4098) alegou ter estudado normalmente, mas a timeline mostra nota 0.0 em E01, E04 e E05 (zero revisões), e nos únicos exercícios com atividade (E02 e E03) o aluno estudou em **apenas 1–2 dias** de um período de 13 a 29 dias disponíveis.
+2. **Cramming nas horas finais**: o aluno de fato "apareceu", mas toda a atividade se concentrou no último dia (ou horas antes) do prazo — geralmente detectado automaticamente pela flag `CRAM`. Exemplo real: Thiago Kaleb Figueiredo de Oliveira (ID 4101) teve nota 0.0 em três dos cinco exercícios (nenhuma revisão) e, no único exercício com nota relevante (E04), toda a atividade — 29 revisões e 16 cartões — ocorreu em um único dia, o próprio dia do prazo, com flag `CRAM` (100% das revisões no último dia).
+
+**Lição**: A percepção subjetiva do aluno ("eu estudei", "eu fiz o exercício") frequentemente não corresponde ao registro objetivo de atividade. Isso não significa má-fé necessariamente — pode ser memória distorcida, confusão entre exercícios, ou superestimar o esforço de uma sessão de cramming. De qualquer forma, **a timeline elimina a ambiguidade**: ela mostra dia a dia, exercício a exercício, exatamente quando o aluno revisou, quantos cartões criou e se a atividade estava distribuída ou concentrada nas últimas horas.
+
+**Importância de gerar a timeline em toda reclamação de nota**:
+- Fornece uma resposta objetiva e defensável ao aluno, com dados concretos (datas, contagens, decks) em vez de "a nota está certa, confia".
+- Evita decisões de recurso baseadas apenas em memória do professor ou nas planilhas agregadas de nota final, que não mostram a distribuição temporal.
+- Frequentemente revela que o problema não foi a nota estar errada, mas sim o padrão de cramming — o que abre espaço para orientar o aluno sobre como estudar melhor no próximo semestre, em vez de apenas negar o recurso.
+- É rápido: um único comando por aluno, sem precisar reprocessar snapshots manualmente.
+
+**Como gerar a timeline de um aluno que reclamou da nota**:
+
+```bash
+# A partir da raiz do projeto (StudyAmigoApp/)
+
+# Por nome (busca parcial, case-insensitive)
+python placement_exam/scripts/create_semester_timeline.py \
+  --config placement_exam/scripts/semester_config_2026_1.json \
+  --student-name "Rogério Gabriel"
+
+# Ou por student_id, se já conhecido (mais preciso quando há nomes parecidos)
+python placement_exam/scripts/create_semester_timeline.py \
+  --config placement_exam/scripts/semester_config_2026_1.json \
+  --student-id 4098 \
+  --output placement_exam/planning_E05/timelines/timeline_4098_rogerio-gabriel-barros-dos-santos-simoes.md
+```
+
+O relatório gerado mostra, para cada exercício do semestre: revisões, cartões criados, dias ativos, retenção, maturidade, nota calculada e flags comportamentais (`CRAM`, `RET100`, `RET100_CAP`, `LOW_TIME`), além do detalhamento de atividade por dia e deck — o suficiente para reconstruir exatamente o que o aluno fez (ou não fez) em cada período.
+
+Ver `QUICKSTART_LINHA_DO_TEMPO_SEMESTRAL.md` e `PLANO_COMO_CRIAR_LINHA_DO_TEMPO_SEMESTRAL_DE_UM_ALUNO.md` (neste mesmo diretório) para o guia completo, incluindo pré-requisitos, formato do JSON de configuração e troubleshooting.
+
+**Recomendação prática**: sempre que um aluno contestar a nota por email alegando ter feito as tarefas, gerar a timeline **antes** de responder. Se os snapshots de produção ainda estiverem disponíveis (ver seção 6.2 do quickstart), o processo leva menos de um minuto por aluno.
+
+---
+
 ## Parte II — Sugestões para o Próximo Ano
 
 ### A. Estrutura do semestre
@@ -265,6 +305,18 @@ Alunos que abandonaram seguem padrões identificáveis:
 
 #### G2. Migração para autenticação por email (SAv1.5) resolveu parte do problema
 - A SAv1.5 com auth por email deve reduzir contas duplicadas no próximo semestre.
+
+---
+
+### H. Processo de resposta a reclamações de nota
+
+#### H1. Gerar a timeline semestral como primeiro passo, sempre
+- Ver seção 12 (Parte I) para o padrão observado: alunos que reclamam por email frequentemente superestimam seu próprio esforço. Antes de responder qualquer contestação de nota, gerar a timeline do aluno com `create_semester_timeline.py --student-id <ID>` (ou `--student-name`).
+- Manter os snapshots de produção (`~/.cache/studyamigo/YYYYMMDD/`) arquivados por pelo menos um semestre após o fim do período letivo, especificamente para permitir essa checagem mesmo depois de decisões de recurso tardias.
+
+#### H2. Padronizar a resposta ao aluno com base na timeline
+- Ao responder, anexar ou resumir os números concretos (dias ativos, revisões, flags como `CRAM`) em vez de apenas reafirmar a nota. Isso reduz idas e vindas e trata o aluno com transparência.
+- Quando a timeline confirmar cramming (não inatividade total), aproveitar a resposta para orientar sobre distribuição de estudo no próximo exercício/semestre, já que o aluno claramente tentou, mas usou a estratégia errada.
 
 ---
 
