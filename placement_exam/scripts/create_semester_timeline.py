@@ -128,6 +128,40 @@ def count_notes_created(db_path: Path, start_dt: datetime, end_dt: datetime) -> 
         return 0
 
 
+def count_creation_days(db_path: Path, start_dt: datetime, end_dt: datetime) -> set:
+    """Return set of date strings (YYYY-MM-DD) with card creation activity."""
+    start_ms = int(start_dt.timestamp() * MS)
+    end_ms = int(end_dt.timestamp() * MS)
+    try:
+        conn = sqlite3.connect(str(db_path))
+        rows = conn.execute(
+            """SELECT DISTINCT DATE(id/1000, 'unixepoch', 'localtime')
+               FROM cards WHERE id BETWEEN ? AND ? AND did != ?""",
+            (start_ms, end_ms, grader.VERBAL_TENSES_DECK_ID),
+        ).fetchall()
+        conn.close()
+        return {r[0] for r in rows}
+    except Exception:
+        return set()
+
+
+def count_review_day_set(db_path: Path, start_dt: datetime, end_dt: datetime) -> set:
+    """Return set of date strings (YYYY-MM-DD) with review activity."""
+    start_ms = int(start_dt.timestamp() * MS)
+    end_ms = int(end_dt.timestamp() * MS)
+    try:
+        conn = sqlite3.connect(str(db_path))
+        rows = conn.execute(
+            """SELECT DISTINCT DATE(id/1000, 'unixepoch', 'localtime')
+               FROM revlog WHERE id BETWEEN ? AND ? AND type != 3""",
+            (start_ms, end_ms),
+        ).fetchall()
+        conn.close()
+        return {r[0] for r in rows}
+    except Exception:
+        return set()
+
+
 def get_activity_detail(
     db_path: Path, start_dt: datetime, end_dt: datetime
 ) -> List[Dict]:
@@ -305,7 +339,7 @@ def render_markdown(
             f"| {periodo} "
             f"| {r['total_reviews']} "
             f"| {r['cards_created']} "
-            f"| {r['review_days']} "
+            f"| {r['active_days']} "
             f"| {ret_str} "
             f"| {mat_str} "
             f"| {r['V']:.1f} "
@@ -331,7 +365,7 @@ def render_markdown(
         lines.append(
             f"| {r['label']} "
             f"| {r['period_days']} "
-            f"| {r['review_days']} "
+            f"| {r['active_days']} "
             f"| {r['cards_created']} "
             f"| {r['total_reviews']} |"
         )
@@ -348,12 +382,15 @@ def render_markdown(
         lines.append(f"### {r['label']} — {periodo} | Nota: {r['grade']:.1f} ({r['grade_letter']})")
         lines.append("")
 
-        if r["total_reviews"] == 0:
+        if r["total_reviews"] == 0 and r["cards_created"] == 0:
             obs_parts.append("- Sem atividade no período.")
         else:
-            obs_parts.append(f"- {r['total_reviews']} revisões em {r['review_days']} dia(s) de {r['period_days']} disponíveis.")
+            if r["total_reviews"] > 0:
+                obs_parts.append(f"- {r['total_reviews']} revisões em {r['review_days']} dia(s) de {r['period_days']} disponíveis.")
+            else:
+                obs_parts.append(f"- 0 revisões no período.")
             if r["cards_created"] > 0:
-                obs_parts.append(f"- {r['cards_created']} cartões criados.")
+                obs_parts.append(f"- {r['cards_created']} cartões criados ({r['active_days']} dia(s) com atividade).")
 
         # Activity details
         if r.get("activity_detail"):
@@ -613,6 +650,14 @@ def main():
             # For review_only exercises, raw["cards_created"] is already 0.
             cards_created = raw["cards_created"]
 
+            # active_days: union of days with reviews OR card creation
+            if db_path:
+                rev_day_set = count_review_day_set(db_path, start_dt, end_dt)
+                cre_day_set = count_creation_days(db_path, start_dt, end_dt)
+                active_days = len(rev_day_set | cre_day_set)
+            else:
+                active_days = raw["review_days"]
+
             period_days = (end_dt.date() - start_dt.date()).days + 1
 
             exercise_results.append({
@@ -625,6 +670,7 @@ def main():
                 "total_reviews": raw["total_reviews"],
                 "cards_created": cards_created,
                 "review_days": raw["review_days"],
+                "active_days": active_days,
                 "retention_pct": scores.get("retention_pct", 0.0),
                 "maturity_pct": scores.get("maturity_pct", 0.0),
                 "cramming_ratio": scores.get("cramming_ratio", 0.0),
@@ -680,6 +726,7 @@ def _zero_result(ex_cfg: Dict, edata: Dict) -> Dict:
         "total_reviews": 0,
         "cards_created": 0,
         "review_days": 0,
+        "active_days": 0,
         "retention_pct": 0.0,
         "maturity_pct": 0.0,
         "cramming_ratio": 0.0,
